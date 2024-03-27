@@ -1,9 +1,9 @@
 package seedu.address.model.person;
 
-import java.time.Year;
-
 import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.AppUtil.checkArgument;
+
+import java.time.Year;
 
 /**
  * Represents a Person's matriculation year in the address book.
@@ -11,7 +11,7 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
  */
 public class MatriculationYear {
     public static final String MESSAGE_CONSTRAINTS =
-            "Matriculation year should be in YYYY format";
+            "Matriculation year should be this year or prior in YYYY format";
     public static final String VALIDATION_REGEX = "\\d{4}";
     public final String value;
 
@@ -31,12 +31,18 @@ public class MatriculationYear {
      */
     public static boolean isValidMatriculationYear(String test) {
         boolean formatIsCorrect = test.matches(VALIDATION_REGEX);
+        if (!formatIsCorrect) {
+            return false;
+        }
 
         Year thisYear = Year.now();
         Year yearEntered = Year.parse(test);
         boolean yearIsValid = (yearEntered.equals(thisYear)) || (yearEntered.isBefore(thisYear));
+        if (!yearIsValid) {
+            return false;
+        }
 
-        return formatIsCorrect && yearIsValid;
+        return true;
     }
 
     @Override

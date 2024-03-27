@@ -7,6 +7,7 @@ import seedu.address.model.attendance.Attendance;
 import seedu.address.model.person.Address;
 import seedu.address.model.person.Birthday;
 import seedu.address.model.person.Email;
+import seedu.address.model.person.MatriculationYear;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
@@ -23,12 +24,14 @@ public class PersonBuilder {
     public static final String DEFAULT_EMAIL = "amy@gmail.com";
     public static final String DEFAULT_ADDRESS = "123, Jurong West Ave 6, #08-111";
     public static final String DEFAULT_BIRTHDAY = "2000-01-01";
+    public static final String DEFAULT_MATRICULATIONYEAR = "2004";
 
     private Name name;
     private Phone phone;
     private Email email;
     private Address address;
     private Birthday birthday;
+    private MatriculationYear matriculationYear;
     private Set<Tag> tags;
     private Set<Attendance> attendances;
 
@@ -41,6 +44,7 @@ public class PersonBuilder {
         email = new Email(DEFAULT_EMAIL);
         address = new Address(DEFAULT_ADDRESS);
         birthday = new Birthday(DEFAULT_BIRTHDAY);
+        matriculationYear = new MatriculationYear(DEFAULT_MATRICULATIONYEAR);
         tags = new HashSet<>();
         attendances = new HashSet<>();
     }
@@ -54,6 +58,7 @@ public class PersonBuilder {
         email = personToCopy.getEmail();
         address = personToCopy.getAddress();
         birthday = personToCopy.getBirthday();
+        matriculationYear = personToCopy.getMatriculationYear();
         tags = new HashSet<>(personToCopy.getTags());
         attendances = new HashSet<>(personToCopy.getAttendances());
     }
@@ -115,8 +120,21 @@ public class PersonBuilder {
         return this;
     }
 
+    /**
+     * Sets the {@code MatriculationYear} of the {@code Person} that we are building.
+     */
+    public PersonBuilder withMatriculationYear(String matriculationYear) {
+        this.matriculationYear = new MatriculationYear(matriculationYear);
+        return this;
+    }
+
+    /**
+     * Builds a Person object.
+     * @return the Person object
+     */
     public Person build() {
-        return new Person(name, phone, email, address, birthday, tags, attendances);
+        return new Person(name, phone, email, address, birthday, matriculationYear,
+                tags, attendances);
     }
 
 }

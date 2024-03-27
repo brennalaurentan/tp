@@ -28,10 +28,10 @@ public class MatriculationYearCommand extends Command {
             + "Parameters: INDEX (must be a positive integer) "
             + "my/[MATRICULATION YEAR in YYYY]\n"
             + "Example: " + COMMAND_WORD + " 1 "
-            + "b/2000";
+            + "my/2000";
     public static final String MESSAGE_ADD_MATRICULATIONYEAR_SUCCESS = "Added matriculation year to Person: %1$s";
-    public static final String MESSAGE_DELETE_MATRICULATIONYEAR_SUCCESS
-            = "Removed matriculation year from Person: %1$s";
+    public static final String MESSAGE_DELETE_MATRICULATIONYEAR_SUCCESS =
+            "Removed matriculation year from Person: %1$s";
 
     private final Index index;
     private final MatriculationYear matriculationYear;

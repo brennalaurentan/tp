@@ -138,7 +138,7 @@ public class ParserUtil {
         requireNonNull(matriculationYear);
         String trimmedMatriculationYear = matriculationYear.trim();
         if (!MatriculationYear.isValidMatriculationYear(trimmedMatriculationYear)) {
-            throw new ParseException(Birthday.MESSAGE_CONSTRAINTS);
+            throw new ParseException(MatriculationYear.MESSAGE_CONSTRAINTS);
         }
         return new MatriculationYear(trimmedMatriculationYear);
     }
