@@ -13,6 +13,7 @@ public class MatriculationYear {
     public static final String MESSAGE_CONSTRAINTS =
             "Matriculation year should be this year or prior in YYYY format";
     public static final String VALIDATION_REGEX = "\\d{4}";
+    public static final String DEFAULT_MATRICULATION_YEAR = "0000";
     public final String value;
 
     /**

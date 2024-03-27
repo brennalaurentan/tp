@@ -43,8 +43,6 @@ public class CommandTestUtil {
     public static final String VALID_TAG_HUSBAND = "husband";
     public static final String VALID_TAG_FRIEND = "friend";
 
-    public static final String DEFAULT_BIRTHDAY = "9999-99-99";
-
     public static final String NAME_DESC_AMY = " " + PREFIX_NAME + VALID_NAME_AMY;
     public static final String NAME_DESC_BOB = " " + PREFIX_NAME + VALID_NAME_BOB;
     public static final String PHONE_DESC_AMY = " " + PREFIX_PHONE + VALID_PHONE_AMY;
@@ -67,7 +65,7 @@ public class CommandTestUtil {
     public static final String INVALID_EMAIL_DESC = " " + PREFIX_EMAIL + "bob!yahoo"; // missing '@' symbol
     public static final String INVALID_ADDRESS_DESC = " " + PREFIX_ADDRESS; // empty string not allowed for addresses
     public static final String INVALID_BIRTHDAY_DESC = " " + PREFIX_BIRTHDAY_DATE + "a"; // wrong format for birthday
-    public static final String INVALID_MATRICULATIONYEAR_DESC = " " + PREFIX_MATRICULATIONYEAR + "3000";
+    public static final String INVALID_MATRICULATIONYEAR_DESC = " " + PREFIX_MATRICULATIONYEAR + "3000"; // invalid year
     public static final String INVALID_TAG_DESC = " " + PREFIX_TAG + "hubby*"; // '*' not allowed in tags
 
     public static final String PREAMBLE_WHITESPACE = "\t  \r  \n";
@@ -79,11 +77,11 @@ public class CommandTestUtil {
     static {
         DESC_AMY = new EditPersonDescriptorBuilder().withName(VALID_NAME_AMY)
                 .withPhone(VALID_PHONE_AMY).withEmail(VALID_EMAIL_AMY).withAddress(VALID_ADDRESS_AMY)
-                .withBirthday(VALID_BIRTHDAY_AMY).withMatriculationyear(VALID_MATRICULATIONYEAR_AMY)
+                .withBirthday(VALID_BIRTHDAY_AMY).withMatriculationYear(VALID_MATRICULATIONYEAR_AMY)
                 .withTags(VALID_TAG_FRIEND).build();
         DESC_BOB = new EditPersonDescriptorBuilder().withName(VALID_NAME_BOB)
                 .withPhone(VALID_PHONE_BOB).withEmail(VALID_EMAIL_BOB).withAddress(VALID_ADDRESS_BOB)
-                .withBirthday(VALID_BIRTHDAY_BOB).withMatriculationyear(VALID_MATRICULATIONYEAR_BOB)
+                .withBirthday(VALID_BIRTHDAY_BOB).withMatriculationYear(VALID_MATRICULATIONYEAR_BOB)
                 .withTags(VALID_TAG_HUSBAND, VALID_TAG_FRIEND).build();
     }
 

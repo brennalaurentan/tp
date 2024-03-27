@@ -23,8 +23,8 @@ public class PersonBuilder {
     public static final String DEFAULT_PHONE = "85355255";
     public static final String DEFAULT_EMAIL = "amy@gmail.com";
     public static final String DEFAULT_ADDRESS = "123, Jurong West Ave 6, #08-111";
-    public static final String DEFAULT_BIRTHDAY = "2000-01-01";
-    public static final String DEFAULT_MATRICULATIONYEAR = "2004";
+    public static final String DEFAULT_BIRTHDAY = Birthday.DEFAULT_BIRTHDAY;
+    public static final String DEFAULT_MATRICULATION_YEAR = MatriculationYear.DEFAULT_MATRICULATION_YEAR;
 
     private Name name;
     private Phone phone;
@@ -44,7 +44,7 @@ public class PersonBuilder {
         email = new Email(DEFAULT_EMAIL);
         address = new Address(DEFAULT_ADDRESS);
         birthday = new Birthday(DEFAULT_BIRTHDAY);
-        matriculationYear = new MatriculationYear(DEFAULT_MATRICULATIONYEAR);
+        matriculationYear = new MatriculationYear(DEFAULT_MATRICULATION_YEAR);
         tags = new HashSet<>();
         attendances = new HashSet<>();
     }
@@ -113,10 +113,26 @@ public class PersonBuilder {
     }
 
     /**
+     * Sets the {@code Birthday} of the {@code Person} to the default value.
+     */
+    public PersonBuilder withBirthday() {
+        this.birthday = new Birthday(DEFAULT_BIRTHDAY);
+        return this;
+    }
+
+    /**
      * Sets the {@code Birthday} of the {@code Person} that we are building.
      */
     public PersonBuilder withBirthday(String birthday) {
         this.birthday = new Birthday(birthday);
+        return this;
+    }
+
+    /**
+     * Sets the {@code Birthday} of the {@code Person} that we are building.
+     */
+    public PersonBuilder withMatriculationYear() {
+        this.matriculationYear = new MatriculationYear(DEFAULT_MATRICULATION_YEAR);
         return this;
     }
 

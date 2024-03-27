@@ -59,7 +59,7 @@ public class EditPersonDescriptorTest {
         assertFalse(DESC_AMY.equals(editedAmy));
 
         // different matriculation year -> returns false
-        editedAmy = new EditPersonDescriptorBuilder(DESC_AMY).withMatriculationyear(VALID_MATRICULATIONYEAR_BOB)
+        editedAmy = new EditPersonDescriptorBuilder(DESC_AMY).withMatriculationYear(VALID_MATRICULATIONYEAR_BOB)
                 .build();
         assertFalse(DESC_AMY.equals(editedAmy));
 

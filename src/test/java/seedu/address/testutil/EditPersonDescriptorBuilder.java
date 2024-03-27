@@ -87,7 +87,7 @@ public class EditPersonDescriptorBuilder {
     /**
      * Sets the {@code MatriculationYear} of the {@code EditPersonDescriptor} that we are building.
      */
-    public EditPersonDescriptorBuilder withMatriculationyear(String matriculationYear) {
+    public EditPersonDescriptorBuilder withMatriculationYear(String matriculationYear) {
         descriptor.setMatriculationYear(new MatriculationYear(matriculationYear));
         return this;
     }

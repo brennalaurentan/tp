@@ -1,5 +1,8 @@
 package seedu.address.logic.parser;
 
+import static seedu.address.model.person.Birthday.DEFAULT_BIRTHDAY;
+import static seedu.address.model.person.MatriculationYear.DEFAULT_MATRICULATION_YEAR;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -48,7 +51,7 @@ public class ArgumentMultimap {
      */
     public Optional<String> getOptionalBirthday(Prefix prefix) {
         List<String> values = getAllValues(prefix);
-        return values.isEmpty() ? Optional.of("9999-99-99") : Optional.of(values.get(values.size() - 1));
+        return values.isEmpty() ? Optional.of(DEFAULT_BIRTHDAY) : Optional.of(values.get(values.size() - 1));
     }
 
     /**
@@ -56,7 +59,8 @@ public class ArgumentMultimap {
      */
     public Optional<String> getOptionalMatriculationYear(Prefix prefix) {
         List<String> values = getAllValues(prefix);
-        return values.isEmpty() ? Optional.of("0000") : Optional.of(values.get(values.size() - 1));
+        return values.isEmpty() ? Optional.of(DEFAULT_MATRICULATION_YEAR)
+                : Optional.of(values.get(values.size() - 1));
     }
 
     /**
