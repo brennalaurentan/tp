@@ -25,6 +25,7 @@ public class Person {
     // Data fields
     private final Address address;
     private final Birthday birthday;
+    private final MatriculationYear matriculationYear;
     private final Set<Tag> tags = new HashSet<>();
     private final Set<Attendance> attendances = new HashSet<>();
 
@@ -32,13 +33,14 @@ public class Person {
      * Every field must be present and not null.
      */
     public Person(Name name, Phone phone, Email email, Address address, Birthday birthday,
-                  Set<Tag> tags, Set<Attendance> attendances) {
+                  MatriculationYear matriculationYear, Set<Tag> tags, Set<Attendance> attendances) {
         requireAllNonNull(name, phone, email, address, birthday, tags, attendances);
         this.name = name;
         this.phone = phone;
         this.email = email;
         this.address = address;
         this.birthday = birthday;
+        this.matriculationYear = matriculationYear;
         this.tags.addAll(tags);
         this.attendances.addAll(attendances);
     }
@@ -60,6 +62,10 @@ public class Person {
     }
     public Birthday getBirthday() {
         return birthday;
+    }
+
+    public MatriculationYear getMatriculationYear() {
+        return matriculationYear;
     }
 
     /**
@@ -113,6 +119,7 @@ public class Person {
                 && email.equals(otherPerson.email)
                 && address.equals(otherPerson.address)
                 && birthday.equals(otherPerson.birthday)
+                && matriculationYear.equals(otherPerson.matriculationYear)
                 && tags.equals(otherPerson.tags)
                 && attendances.equals(otherPerson.attendances);
     }
@@ -120,7 +127,7 @@ public class Person {
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(name, phone, email, address, birthday, tags, attendances);
+        return Objects.hash(name, phone, email, address, birthday, matriculationYear, tags, attendances);
     }
 
     @Override
@@ -131,6 +138,7 @@ public class Person {
                 .add("email", email)
                 .add("address", address)
                 .add("birthday", birthday)
+                .add("matriculation year", matriculationYear)
                 .add("tags", tags)
                 .add("attendances", attendances)
                 .toString();

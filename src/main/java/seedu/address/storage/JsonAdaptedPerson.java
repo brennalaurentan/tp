@@ -14,6 +14,7 @@ import seedu.address.model.attendance.Attendance;
 import seedu.address.model.person.Address;
 import seedu.address.model.person.Birthday;
 import seedu.address.model.person.Email;
+import seedu.address.model.person.MatriculationYear;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
@@ -31,6 +32,7 @@ class JsonAdaptedPerson {
     private final String email;
     private final String address;
     private final String birthday;
+    private final String matriculationYear;
     private final List<JsonAdaptedTag> tags = new ArrayList<>();
     private final List<JsonAdaptedAttendance> attendances = new ArrayList<>();
 
@@ -41,6 +43,7 @@ class JsonAdaptedPerson {
     public JsonAdaptedPerson(@JsonProperty("name") String name, @JsonProperty("phone") String phone,
             @JsonProperty("email") String email, @JsonProperty("address") String address,
                              @JsonProperty("birthday") String birthday,
+                             @JsonProperty("matriculationYear") String matriculationYear,
                              @JsonProperty("tags") List<JsonAdaptedTag> tags,
                              @JsonProperty("attendances") List<JsonAdaptedAttendance> attendances) {
         this.name = name;
@@ -48,6 +51,7 @@ class JsonAdaptedPerson {
         this.email = email;
         this.address = address;
         this.birthday = birthday;
+        this.matriculationYear = matriculationYear;
         if (tags != null) {
             this.tags.addAll(tags);
         }
@@ -65,6 +69,7 @@ class JsonAdaptedPerson {
         email = source.getEmail().value;
         address = source.getAddress().value;
         birthday = source.getBirthday().value;
+        matriculationYear = source.getMatriculationYear().value;
         tags.addAll(source.getTags().stream()
                 .map(JsonAdaptedTag::new)
                 .collect(Collectors.toList()));
@@ -127,9 +132,16 @@ class JsonAdaptedPerson {
         }
         final Birthday modelBirthday = new Birthday(birthday);
 
+        if (matriculationYear == null) {
+            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT,
+                    MatriculationYear.class.getSimpleName()));
+        }
+        final MatriculationYear modelMatriculationYear = new MatriculationYear(matriculationYear);
+
         final Set<Tag> modelTags = new HashSet<>(personTags);
         final Set<Attendance> modelAttendances = new HashSet<>(personAttendances);
-        return new Person(modelName, modelPhone, modelEmail, modelAddress, modelBirthday, modelTags, modelAttendances);
+        return new Person(modelName, modelPhone, modelEmail, modelAddress, modelBirthday,
+                modelMatriculationYear, modelTags, modelAttendances);
     }
 
 }

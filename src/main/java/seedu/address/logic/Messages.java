@@ -45,6 +45,8 @@ public class Messages {
                 .append(person.getAddress())
                 .append("; Birthday: ")
                 .append(person.getBirthday())
+                .append("; Matriculation Year: ")
+                .append(person.getMatriculationYear())
                 .append("; Tags: ");
         person.getTags().forEach(builder::append);
         return builder.toString();

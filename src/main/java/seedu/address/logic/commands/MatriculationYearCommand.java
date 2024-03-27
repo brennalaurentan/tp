@@ -9,41 +9,42 @@ import seedu.address.commons.core.index.Index;
 import seedu.address.logic.Messages;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
-import seedu.address.model.person.Birthday;
+import seedu.address.model.person.MatriculationYear;
 import seedu.address.model.person.Person;
 
 /**
- * Adds the birthday to a new contact in the address book, or
- * Changes the birthday of an existing person in the address book
+ * Adds the matriculation year to a new contact in the address book, or
+ * Changes the matriculation year of an existing person in the address book
  */
-public class BirthdayCommand extends Command {
+public class MatriculationYearCommand extends Command {
 
-    public static final String COMMAND_WORD = "birthday";
+    public static final String COMMAND_WORD = "my";
 
-    public static final String MESSAGE_ARGUMENTS = "Index: %1$d, Birthday: %2$s";
+    public static final String MESSAGE_ARGUMENTS = "Index: %1$d, Matriculation Year: %2$d";
     public static final String MESSAGE_USAGE = COMMAND_WORD
-            + ": Edits the birthday of the person identified "
+            + ": Edits the matriculation year of the person identified "
             + "by the index number used in the last person listing. "
-            + "Existing birthday date will be overwritten by the input.\n"
+            + "Existing matriculation year will be overwritten by the input.\n"
             + "Parameters: INDEX (must be a positive integer) "
-            + "b/[BIRTHDAY in YYYY-MM-DD]\n"
+            + "my/[MATRICULATION YEAR in YYYY]\n"
             + "Example: " + COMMAND_WORD + " 1 "
-            + "b/2000-02-02";
-    public static final String MESSAGE_ADD_BIRTHDAY_SUCCESS = "Added birthday to Person: %1$s";
-    public static final String MESSAGE_DELETE_BIRTHDAY_SUCCESS = "Removed birthday from Person: %1$s";
+            + "b/2000";
+    public static final String MESSAGE_ADD_MATRICULATIONYEAR_SUCCESS = "Added matriculation year to Person: %1$s";
+    public static final String MESSAGE_DELETE_MATRICULATIONYEAR_SUCCESS
+            = "Removed matriculation year from Person: %1$s";
 
     private final Index index;
-    private final Birthday birthday;
+    private final MatriculationYear matriculationYear;
 
     /**
      * @param index of the person in the filtered person list to edit the remark
-     * @param birthday of the person to be updated to
+     * @param matriculationYear of the person to be updated to
      */
-    public BirthdayCommand(Index index, Birthday birthday) {
-        requireAllNonNull(index, birthday);
+    public MatriculationYearCommand(Index index, MatriculationYear matriculationYear) {
+        requireAllNonNull(index, matriculationYear);
 
         this.index = index;
-        this.birthday = birthday;
+        this.matriculationYear = matriculationYear;
     }
 
     @Override
@@ -68,11 +69,13 @@ public class BirthdayCommand extends Command {
 
     /**
      * Generates a command execution success message based on whether
-     * the birthday is added to or removed from the person
+     * the matriculation year is added to or removed from the person
      * {@code personToEdit}.
      */
     private String generateSuccessMessage(Person personToEdit) {
-        String message = !birthday.value.isEmpty() ? MESSAGE_ADD_BIRTHDAY_SUCCESS : MESSAGE_DELETE_BIRTHDAY_SUCCESS;
+        String message = !matriculationYear.value.isEmpty()
+                ? MESSAGE_ADD_MATRICULATIONYEAR_SUCCESS
+                : MESSAGE_DELETE_MATRICULATIONYEAR_SUCCESS;
         return String.format(message, personToEdit);
     }
 
@@ -83,13 +86,13 @@ public class BirthdayCommand extends Command {
         }
 
         // instanceof handles nulls
-        if (!(other instanceof BirthdayCommand)) {
+        if (!(other instanceof MatriculationYearCommand)) {
             return false;
         }
 
-        BirthdayCommand e = (BirthdayCommand) other;
+        MatriculationYearCommand e = (MatriculationYearCommand) other;
         return index.equals(e.index)
-                && birthday.equals(e.birthday);
+                && matriculationYear.equals(e.matriculationYear);
     }
 
 }
