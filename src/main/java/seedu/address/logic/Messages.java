@@ -47,6 +47,8 @@ public class Messages {
                 .append(person.getBirthday())
                 .append("; Matriculation Year: ")
                 .append(person.getMatriculationYear())
+                .append("; Instrument: ")
+                .append(person.getInstrument())
                 .append("; Tags: ");
         person.getTags().forEach(builder::append);
         return builder.toString();

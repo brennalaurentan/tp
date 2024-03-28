@@ -49,6 +49,8 @@ public class PersonCard extends UiPart<Region> {
     @FXML
     private Label matriculationYear;
     @FXML
+    private Label instrument;
+    @FXML
     private FlowPane tags;
     @FXML
     private FlowPane attendances;
@@ -66,6 +68,7 @@ public class PersonCard extends UiPart<Region> {
         email.setText(person.getEmail().value);
         birthday.setText(person.getBirthday().value);
         matriculationYear.setText("Matriculated in: " + person.getMatriculationYear().value);
+        instrument.setText(person.getInstrument().value);
         person.getTags().stream()
                 .sorted(Comparator.comparing(tag -> tag.tagName))
                 .forEach(tag -> {

@@ -58,7 +58,7 @@ public class BirthdayCommand extends Command {
         Person editedPerson = new Person(
                 personToEdit.getName(), personToEdit.getPhone(), personToEdit.getEmail(),
                 personToEdit.getAddress(), personToEdit.getBirthday(), personToEdit.getMatriculationYear(),
-                personToEdit.getTags(), personToEdit.getAttendances());
+                personToEdit.getInstrument(), personToEdit.getTags(), personToEdit.getAttendances());
 
         model.setPerson(personToEdit, editedPerson);
         model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);

@@ -14,6 +14,7 @@ import seedu.address.model.attendance.Attendance;
 import seedu.address.model.person.Address;
 import seedu.address.model.person.Birthday;
 import seedu.address.model.person.Email;
+import seedu.address.model.person.Instrument;
 import seedu.address.model.person.MatriculationYear;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Phone;
@@ -141,6 +142,21 @@ public class ParserUtil {
             throw new ParseException(MatriculationYear.MESSAGE_CONSTRAINTS);
         }
         return new MatriculationYear(trimmedMatriculationYear);
+    }
+
+    /**
+     * Parses a {@code String instrument} into an {@code Instrument}.
+     * Leading and trailing whitespaces will be trimmed.
+     *
+     * @throws ParseException if the given {@code instrument} is invalid.
+     */
+    public static Instrument parseInstrument(String instrument) throws ParseException {
+        requireNonNull(instrument);
+        String trimmedInstrument = instrument.trim();
+        if (!Instrument.isValidInstrument(trimmedInstrument)) {
+            throw new ParseException(Instrument.MESSAGE_CONSTRAINTS);
+        }
+        return new Instrument(trimmedInstrument);
     }
 
     /**

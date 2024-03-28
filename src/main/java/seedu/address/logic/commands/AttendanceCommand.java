@@ -17,6 +17,7 @@ import seedu.address.model.attendance.Attendance;
 import seedu.address.model.person.Address;
 import seedu.address.model.person.Birthday;
 import seedu.address.model.person.Email;
+import seedu.address.model.person.Instrument;
 import seedu.address.model.person.MatriculationYear;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
@@ -43,7 +44,6 @@ public class AttendanceCommand extends Command {
 
     private final Set<Index> indexes;
     private final LocalDate date;
-
 
     /**
      * Creates an AttendanceCommand to add the specified {@code date} to the persons identified by {@code indexes}
@@ -95,12 +95,13 @@ public class AttendanceCommand extends Command {
         Address updatedAddress = personToEdit.getAddress();
         Birthday updatedBirthday = personToEdit.getBirthday();
         MatriculationYear updatedMatriculationYear = personToEdit.getMatriculationYear();
+        Instrument updatedInstrument = personToEdit.getInstrument();
         Set<Tag> updatedTags = personToEdit.getTags();
         Set<Attendance> updatedAttendances = new HashSet<>(personToEdit.getAttendances());
         updatedAttendances.add(attendance);
 
         return new Person(updatedName, updatedPhone, updatedEmail, updatedAddress,
-                updatedBirthday, updatedMatriculationYear, updatedTags, updatedAttendances);
+                updatedBirthday, updatedMatriculationYear, updatedInstrument, updatedTags, updatedAttendances);
     }
 
     @Override

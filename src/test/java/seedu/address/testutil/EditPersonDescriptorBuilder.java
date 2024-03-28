@@ -8,6 +8,7 @@ import seedu.address.logic.commands.EditCommand.EditPersonDescriptor;
 import seedu.address.model.person.Address;
 import seedu.address.model.person.Birthday;
 import seedu.address.model.person.Email;
+import seedu.address.model.person.Instrument;
 import seedu.address.model.person.MatriculationYear;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
@@ -40,6 +41,7 @@ public class EditPersonDescriptorBuilder {
         descriptor.setAddress(person.getAddress());
         descriptor.setBirthday(person.getBirthday());
         descriptor.setMatriculationYear(person.getMatriculationYear());
+        descriptor.setInstrument(person.getInstrument());
         descriptor.setTags(person.getTags());
         descriptor.setAttendances(person.getAttendances());
     }
@@ -89,6 +91,14 @@ public class EditPersonDescriptorBuilder {
      */
     public EditPersonDescriptorBuilder withMatriculationYear(String matriculationYear) {
         descriptor.setMatriculationYear(new MatriculationYear(matriculationYear));
+        return this;
+    }
+
+    /**
+     * Sets the {@code instrument} of the {@code EditPersonDescriptor} that we are building.
+     */
+    public EditPersonDescriptorBuilder withInstrument(String instrument) {
+        descriptor.setInstrument(new Instrument(instrument));
         return this;
     }
 

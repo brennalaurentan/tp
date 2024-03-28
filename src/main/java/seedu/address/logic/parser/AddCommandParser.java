@@ -5,6 +5,7 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_ADDRESS;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_ATTENDANCE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_BIRTHDAY_DATE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_INSTRUMENT;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_MATRICULATIONYEAR;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
@@ -19,6 +20,7 @@ import seedu.address.model.attendance.Attendance;
 import seedu.address.model.person.Address;
 import seedu.address.model.person.Birthday;
 import seedu.address.model.person.Email;
+import seedu.address.model.person.Instrument;
 import seedu.address.model.person.MatriculationYear;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
@@ -38,7 +40,8 @@ public class AddCommandParser implements Parser<AddCommand> {
     public AddCommand parse(String args) throws ParseException {
         ArgumentMultimap argMultimap =
                 ArgumentTokenizer.tokenize(args, PREFIX_NAME, PREFIX_PHONE, PREFIX_EMAIL,
-                        PREFIX_ADDRESS, PREFIX_BIRTHDAY_DATE, PREFIX_MATRICULATIONYEAR, PREFIX_TAG);
+                        PREFIX_ADDRESS, PREFIX_BIRTHDAY_DATE, PREFIX_MATRICULATIONYEAR, PREFIX_BIRTHDAY_DATE,
+                        PREFIX_TAG);
 
         if (!arePrefixesPresent(argMultimap, PREFIX_NAME, PREFIX_ADDRESS, PREFIX_PHONE, PREFIX_EMAIL)
                 || !argMultimap.getPreamble().isEmpty()) {
@@ -46,7 +49,7 @@ public class AddCommandParser implements Parser<AddCommand> {
         }
 
         argMultimap.verifyNoDuplicatePrefixesFor(PREFIX_NAME, PREFIX_PHONE, PREFIX_EMAIL,
-                PREFIX_ADDRESS, PREFIX_BIRTHDAY_DATE, PREFIX_MATRICULATIONYEAR);
+                PREFIX_ADDRESS, PREFIX_BIRTHDAY_DATE, PREFIX_MATRICULATIONYEAR, PREFIX_INSTRUMENT);
         Name name = ParserUtil.parseName(argMultimap.getValue(PREFIX_NAME).get());
         Phone phone = ParserUtil.parsePhone(argMultimap.getValue(PREFIX_PHONE).get());
         Email email = ParserUtil.parseEmail(argMultimap.getValue(PREFIX_EMAIL).get());
@@ -55,10 +58,12 @@ public class AddCommandParser implements Parser<AddCommand> {
         MatriculationYear matriculationYear =
                 ParserUtil.parseMatriculationYear(argMultimap
                         .getOptionalMatriculationYear(PREFIX_MATRICULATIONYEAR).get());
+        Instrument instrument = ParserUtil.parseInstrument(argMultimap.getOptionalInstrument(PREFIX_INSTRUMENT).get());
         Set<Tag> tagList = ParserUtil.parseTags(argMultimap.getAllValues(PREFIX_TAG));
         Set<Attendance> attendances = ParserUtil.parseAttendances(argMultimap.getAllValues(PREFIX_ATTENDANCE));
 
-        Person person = new Person(name, phone, email, address, birthday, matriculationYear, tagList, attendances);
+        Person person = new Person(name, phone, email, address, birthday, matriculationYear, instrument, tagList,
+                attendances);
 
         return new AddCommand(person);
     }

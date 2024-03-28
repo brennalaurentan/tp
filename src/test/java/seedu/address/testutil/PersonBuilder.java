@@ -7,6 +7,7 @@ import seedu.address.model.attendance.Attendance;
 import seedu.address.model.person.Address;
 import seedu.address.model.person.Birthday;
 import seedu.address.model.person.Email;
+import seedu.address.model.person.Instrument;
 import seedu.address.model.person.MatriculationYear;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
@@ -25,6 +26,7 @@ public class PersonBuilder {
     public static final String DEFAULT_ADDRESS = "123, Jurong West Ave 6, #08-111";
     public static final String DEFAULT_BIRTHDAY = Birthday.DEFAULT_BIRTHDAY;
     public static final String DEFAULT_MATRICULATION_YEAR = MatriculationYear.DEFAULT_MATRICULATION_YEAR;
+    public static final String DEFAULT_INSTRUMENT = "Flute";
 
     private Name name;
     private Phone phone;
@@ -32,6 +34,7 @@ public class PersonBuilder {
     private Address address;
     private Birthday birthday;
     private MatriculationYear matriculationYear;
+    private Instrument instrument;
     private Set<Tag> tags;
     private Set<Attendance> attendances;
 
@@ -45,6 +48,7 @@ public class PersonBuilder {
         address = new Address(DEFAULT_ADDRESS);
         birthday = new Birthday(DEFAULT_BIRTHDAY);
         matriculationYear = new MatriculationYear(DEFAULT_MATRICULATION_YEAR);
+        instrument = new Instrument(DEFAULT_INSTRUMENT);
         tags = new HashSet<>();
         attendances = new HashSet<>();
     }
@@ -59,6 +63,7 @@ public class PersonBuilder {
         address = personToCopy.getAddress();
         birthday = personToCopy.getBirthday();
         matriculationYear = personToCopy.getMatriculationYear();
+        instrument = personToCopy.getInstrument();
         tags = new HashSet<>(personToCopy.getTags());
         attendances = new HashSet<>(personToCopy.getAttendances());
     }
@@ -145,12 +150,19 @@ public class PersonBuilder {
     }
 
     /**
+     * Sets the {@code Instrument} of the {@code Person} that we are building.
+     */
+    public PersonBuilder withInstrument(String instrument) {
+        this.instrument = new Instrument(instrument);
+        return this;
+    }
+
+    /**
      * Builds a Person object.
      * @return the Person object
      */
     public Person build() {
-        return new Person(name, phone, email, address, birthday, matriculationYear,
-                tags, attendances);
+        return new Person(name, phone, email, address, birthday, matriculationYear, instrument, tags, attendances);
     }
 
 }

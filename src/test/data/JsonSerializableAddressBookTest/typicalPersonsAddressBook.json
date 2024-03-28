@@ -7,6 +7,7 @@
     "address" : "123, Jurong West Ave 6, #08-111",
     "birthday" : "2000-01-01",
     "matriculationYear": "2003",
+    "instrument" : "Flute",
     "tags" : [ "friends" ],
     "attendances": ["2024-01-01", "2024-01-10"]
   }, {
@@ -16,6 +17,7 @@
     "address" : "311, Clementi Ave 2, #02-25",
     "birthday" : "2001-02-02",
     "matriculationYear": "2005",
+    "instrument" : "Flute",
     "tags" : [ "owesMoney", "friends" ],
     "attendances": ["2024-01-01", "2024-01-10"]
   }, {
@@ -25,6 +27,7 @@
     "address" : "wall street",
     "matriculationYear": "0000",
     "birthday" : "2000-03-03",
+    "instrument" : "Flute",
     "tags" : [ ]
   }, {
     "name" : "Daniel Meier",
@@ -33,6 +36,7 @@
     "address" : "10th street",
     "birthday" : "2000-04-04",
     "matriculationYear": "0000",
+    "instrument" : "Flute",
     "tags" : [ "friends" ]
   }, {
     "name" : "Elle Meyer",
@@ -41,6 +45,7 @@
     "address" : "michegan ave",
     "birthday" : "2000-05-05",
     "matriculationYear": "2005",
+    "instrument" : "Flute",
     "tags" : [ ]
   }, {
     "name" : "Fiona Kunz",
@@ -49,6 +54,7 @@
     "address" : "little tokyo",
     "birthday" : "2000-06-06",
     "matriculationYear": "2007",
+    "instrument" : "Flute",
     "tags" : [ ]
   }, {
     "name" : "George Best",
@@ -57,6 +63,7 @@
     "address" : "4th street",
     "birthday" : "2000-07-07",
     "matriculationYear": "2010",
+    "instrument" : "Flute",
     "tags" : [ ]
   } ]
 }

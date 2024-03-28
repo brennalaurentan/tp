@@ -26,6 +26,7 @@ public class Person {
     private final Address address;
     private final Birthday birthday;
     private final MatriculationYear matriculationYear;
+    private final Instrument instrument;
     private final Set<Tag> tags = new HashSet<>();
     private final Set<Attendance> attendances = new HashSet<>();
 
@@ -33,14 +34,16 @@ public class Person {
      * Every field must be present and not null.
      */
     public Person(Name name, Phone phone, Email email, Address address, Birthday birthday,
-                  MatriculationYear matriculationYear, Set<Tag> tags, Set<Attendance> attendances) {
-        requireAllNonNull(name, phone, email, address, birthday, tags, attendances);
+                MatriculationYear matriculationYear, Instrument instrument, Set<Tag> tags,
+                Set<Attendance> attendances) {
+        requireAllNonNull(name, phone, email, address, birthday, instrument, tags, attendances);
         this.name = name;
         this.phone = phone;
         this.email = email;
         this.address = address;
         this.birthday = birthday;
         this.matriculationYear = matriculationYear;
+        this.instrument = instrument;
         this.tags.addAll(tags);
         this.attendances.addAll(attendances);
     }
@@ -60,12 +63,17 @@ public class Person {
     public Address getAddress() {
         return address;
     }
+
     public Birthday getBirthday() {
         return birthday;
     }
 
     public MatriculationYear getMatriculationYear() {
         return matriculationYear;
+    }
+
+    public Instrument getInstrument() {
+        return instrument;
     }
 
     /**
@@ -120,6 +128,7 @@ public class Person {
                 && address.equals(otherPerson.address)
                 && birthday.equals(otherPerson.birthday)
                 && matriculationYear.equals(otherPerson.matriculationYear)
+                && instrument.equals(otherPerson.instrument)
                 && tags.equals(otherPerson.tags)
                 && attendances.equals(otherPerson.attendances);
     }
@@ -139,6 +148,7 @@ public class Person {
                 .add("address", address)
                 .add("birthday", birthday)
                 .add("matriculation year", matriculationYear)
+                .add("instrument", instrument)
                 .add("tags", tags)
                 .add("attendances", attendances)
                 .toString();

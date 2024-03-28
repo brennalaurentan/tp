@@ -6,6 +6,7 @@
     "address": "123, Jurong West Ave 6, #08-111",
     "birthday": "2000-01-01",
     "matriculationYear": "2003",
+    "instrument": "Flute",
     "tags": [ "friends" ]
   }, {
     "name": "Alice Pauline",
@@ -14,6 +15,7 @@
     "address": "123, Jurong West Ave 6, #08-111",
     "birthday": "2000-01-01",
     "matriculationYear": "2003",
+    "instrument": "Flute",
     "tags": [ "friends" ]
   } ]
 }
