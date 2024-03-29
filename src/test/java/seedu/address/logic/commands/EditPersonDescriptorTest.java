@@ -8,7 +8,7 @@ import static seedu.address.logic.commands.CommandTestUtil.DESC_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_ADDRESS_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_BIRTHDAY_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_EMAIL_BOB;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_MATRICULATIONYEAR_BOB;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_MATRICULATION_YEAR_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_PHONE_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
@@ -59,7 +59,7 @@ public class EditPersonDescriptorTest {
         assertFalse(DESC_AMY.equals(editedAmy));
 
         // different matriculation year -> returns false
-        editedAmy = new EditPersonDescriptorBuilder(DESC_AMY).withMatriculationYear(VALID_MATRICULATIONYEAR_BOB)
+        editedAmy = new EditPersonDescriptorBuilder(DESC_AMY).withMatriculationYear(VALID_MATRICULATION_YEAR_BOB)
                 .build();
         assertFalse(DESC_AMY.equals(editedAmy));
 

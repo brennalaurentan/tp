@@ -24,8 +24,8 @@ public class PersonBuilder {
     public static final String DEFAULT_PHONE = "85355255";
     public static final String DEFAULT_EMAIL = "amy@gmail.com";
     public static final String DEFAULT_ADDRESS = "123, Jurong West Ave 6, #08-111";
-    public static final String DEFAULT_BIRTHDAY = Birthday.DEFAULT_BIRTHDAY;
-    public static final String DEFAULT_MATRICULATION_YEAR = MatriculationYear.DEFAULT_MATRICULATION_YEAR;
+    public static final String DEFAULT_BIRTHDAY = "9999-99-99";
+    public static final String DEFAULT_MATRICULATION_YEAR = "0000";
     public static final String DEFAULT_INSTRUMENT = "Flute";
 
     private Name name;
@@ -146,6 +146,14 @@ public class PersonBuilder {
      */
     public PersonBuilder withMatriculationYear(String matriculationYear) {
         this.matriculationYear = new MatriculationYear(matriculationYear);
+        return this;
+    }
+
+    /**
+     * Sets the {@code Instrument} of the {@code Person} that we are building.
+     */
+    public PersonBuilder withInstrument() {
+        this.instrument = new Instrument(DEFAULT_INSTRUMENT);
         return this;
     }
 

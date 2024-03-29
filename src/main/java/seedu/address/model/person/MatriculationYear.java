@@ -7,7 +7,7 @@ import java.time.Year;
 
 /**
  * Represents a Person's matriculation year in the address book.
- * Guarantees: immutable; is always valid
+ * Guarantees: immutable; is always valid (year is a string of a year that is on or before the current year)
  */
 public class MatriculationYear {
     public static final String MESSAGE_CONSTRAINTS =

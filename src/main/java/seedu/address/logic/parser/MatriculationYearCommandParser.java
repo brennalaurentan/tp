@@ -2,7 +2,7 @@ package seedu.address.logic.parser;
 
 import static java.util.Objects.requireNonNull;
 import static seedu.address.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_MATRICULATIONYEAR;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_MATRICULATION_YEAR;
 
 import seedu.address.commons.core.index.Index;
 import seedu.address.commons.exceptions.IllegalValueException;
@@ -22,7 +22,7 @@ public class MatriculationYearCommandParser implements Parser<MatriculationYearC
     public MatriculationYearCommand parse(String args) throws ParseException {
         requireNonNull(args);
         ArgumentMultimap argMultimap = ArgumentTokenizer.tokenize(args,
-                PREFIX_MATRICULATIONYEAR);
+                PREFIX_MATRICULATION_YEAR);
 
         Index index;
         try {
@@ -32,7 +32,7 @@ public class MatriculationYearCommandParser implements Parser<MatriculationYearC
                     MatriculationYearCommand.MESSAGE_USAGE), ive);
         }
 
-        String matriculationYear = argMultimap.getValue(PREFIX_MATRICULATIONYEAR).orElse("");
+        String matriculationYear = argMultimap.getValue(PREFIX_MATRICULATION_YEAR).orElse("");
 
         return new MatriculationYearCommand(index, new MatriculationYear(matriculationYear));
     }

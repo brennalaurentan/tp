@@ -8,8 +8,8 @@ import static seedu.address.logic.commands.CommandTestUtil.VALID_EMAIL_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_EMAIL_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_INSTRUMENT_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_INSTRUMENT_BOB;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_MATRICULATIONYEAR_AMY;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_MATRICULATIONYEAR_BOB;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_MATRICULATION_YEAR_AMY;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_MATRICULATION_YEAR_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_PHONE_AMY;
@@ -65,12 +65,12 @@ public class TypicalPersons {
     // Manually added - Person's details found in {@code CommandTestUtil}
     public static final Person AMY = new PersonBuilder().withName(VALID_NAME_AMY).withPhone(VALID_PHONE_AMY)
             .withEmail(VALID_EMAIL_AMY).withAddress(VALID_ADDRESS_AMY).withBirthday(VALID_BIRTHDAY_AMY)
-            .withMatriculationYear(VALID_MATRICULATIONYEAR_AMY).withInstrument(VALID_INSTRUMENT_AMY)
+            .withMatriculationYear(VALID_MATRICULATION_YEAR_AMY).withInstrument(VALID_INSTRUMENT_AMY)
             .withTags(VALID_TAG_FRIEND).build();
 
     public static final Person BOB = new PersonBuilder().withName(VALID_NAME_BOB).withPhone(VALID_PHONE_BOB)
             .withEmail(VALID_EMAIL_BOB).withAddress(VALID_ADDRESS_BOB).withBirthday(VALID_BIRTHDAY_BOB)
-            .withMatriculationYear(VALID_MATRICULATIONYEAR_BOB).withInstrument(VALID_INSTRUMENT_BOB)
+            .withMatriculationYear(VALID_MATRICULATION_YEAR_BOB).withInstrument(VALID_INSTRUMENT_BOB)
             .withTags(VALID_TAG_HUSBAND, VALID_TAG_FRIEND).build();
 
     public static final Person AMY_WITHOUT_OPTIONAL_FIELDS = new PersonBuilder().withName(VALID_NAME_AMY)

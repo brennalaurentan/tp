@@ -1,12 +1,12 @@
 package seedu.address.model.person;
 
-//import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_ADDRESS_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_BIRTHDAY_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_EMAIL_BOB;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_MATRICULATIONYEAR_BOB;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_MATRICULATION_YEAR_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_PHONE_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
@@ -92,7 +92,7 @@ public class PersonTest {
         assertFalse(ALICE.equals(editedAlice));
 
         // different matriculation year -> returns false
-        editedAlice = new PersonBuilder(ALICE).withMatriculationYear(VALID_MATRICULATIONYEAR_BOB).build();
+        editedAlice = new PersonBuilder(ALICE).withMatriculationYear(VALID_MATRICULATION_YEAR_BOB).build();
         assertFalse(ALICE.equals(editedAlice));
 
         // different tags -> returns false
@@ -100,14 +100,14 @@ public class PersonTest {
         assertFalse(ALICE.equals(editedAlice));
     }
 
-    //    @Test
-    //    public void toStringMethod() {
-    //        String expected = Person.class.getCanonicalName() + "{name=" + ALICE.getName() + ", phone="
-    //                + ALICE.getPhone()
-    //                + ", email=" + ALICE.getEmail() + ", address=" + ALICE.getAddress()
-    //                + ", birthday=" + ALICE.getBirthday() + ", matriculation year=" + ALICE.getMatriculationYear()
-    //                + ", instrument= " + ALICE.getInstrument() + ", tags=" + ALICE.getTags()
-    //                + ", attendances=" + ALICE.getAttendances() + "}";
-    //        assertEquals(expected, ALICE.toString());
-    //    }
+    @Test
+    public void toStringMethod() {
+        String expected = Person.class.getCanonicalName() + "{name=" + ALICE.getName() + ", phone="
+                + ALICE.getPhone()
+                + ", email=" + ALICE.getEmail() + ", address=" + ALICE.getAddress()
+                + ", birthday=" + ALICE.getBirthday() + ", matriculation year=" + ALICE.getMatriculationYear()
+                + ", instrument=" + ALICE.getInstrument() + ", tags=" + ALICE.getTags()
+                + ", attendances=" + ALICE.getAttendances() + "}";
+        assertEquals(expected, ALICE.toString());
+    }
 }

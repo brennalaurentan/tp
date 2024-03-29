@@ -5,7 +5,7 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_ADDRESS;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_BIRTHDAY_DATE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_INSTRUMENT;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_MATRICULATIONYEAR;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_MATRICULATION_YEAR;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
@@ -51,7 +51,7 @@ public class EditCommand extends Command {
             + "[" + PREFIX_EMAIL + "EMAIL] "
             + "[" + PREFIX_ADDRESS + "ADDRESS] "
             + "[" + PREFIX_BIRTHDAY_DATE + "BIRTHDAY] "
-            + "[" + PREFIX_MATRICULATIONYEAR + "MATRICULATION YEAR] "
+            + "[" + PREFIX_MATRICULATION_YEAR + "MATRICULATION YEAR] "
             + "[" + PREFIX_INSTRUMENT + "INSTRUMENT] "
             + "[" + PREFIX_TAG + "TAG]...\n"
             + "Example: " + COMMAND_WORD + " 1 "
