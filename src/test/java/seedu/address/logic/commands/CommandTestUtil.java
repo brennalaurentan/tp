@@ -12,6 +12,7 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 import static seedu.address.testutil.Assert.assertThrows;
 
+import java.time.Year;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -73,7 +74,7 @@ public class CommandTestUtil {
     public static final String INVALID_ADDRESS_DESC = " " + PREFIX_ADDRESS; // empty string not allowed for addresses
     public static final String INVALID_BIRTHDAY_DESC = " " + PREFIX_BIRTHDAY_DATE + "a"; // wrong format for birthday
     public static final String INVALID_MATRICULATION_YEAR_DESC = " " + PREFIX_MATRICULATION_YEAR
-            + "3000"; // invalid year
+            + Year.now().plusYears(1); // invalid year
     public static final String INVALID_INSTRUMENT_DESC = " "
             + PREFIX_INSTRUMENT + "Flute*"; // '*' not allowed in instrument
     public static final String INVALID_TAG_DESC = " " + PREFIX_TAG + "hubby*"; // '*' not allowed in tags

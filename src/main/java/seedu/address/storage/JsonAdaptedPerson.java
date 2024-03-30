@@ -144,6 +144,9 @@ class JsonAdaptedPerson {
             throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT,
                     MatriculationYear.class.getSimpleName()));
         }
+        if (!MatriculationYear.isValidMatriculationYear(matriculationYear)) {
+            throw new IllegalValueException(MatriculationYear.MESSAGE_CONSTRAINTS);
+        }
         final MatriculationYear modelMatriculationYear = new MatriculationYear(matriculationYear);
 
         if (instrument == null) {

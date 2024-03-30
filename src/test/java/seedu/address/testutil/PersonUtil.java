@@ -62,7 +62,7 @@ public class PersonUtil {
         descriptor.getAddress().ifPresent(address -> sb.append(PREFIX_ADDRESS).append(address.value).append(" "));
         descriptor.getBirthday().ifPresent(birthday -> sb.append(PREFIX_BIRTHDAY_DATE)
                 .append(birthday.value).append(" "));
-        descriptor.getBirthday().ifPresent(matriculationYear -> sb.append(PREFIX_MATRICULATION_YEAR)
+        descriptor.getMatriculationYear().ifPresent(matriculationYear -> sb.append(PREFIX_MATRICULATION_YEAR)
                 .append(matriculationYear.value).append(" "));
         descriptor.getInstrument().ifPresent(instrument -> sb.append(PREFIX_INSTRUMENT)
                 .append(instrument.value).append(" "));
