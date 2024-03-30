@@ -33,6 +33,10 @@ public class Birthday {
         return test.matches(VALIDATION_REGEX);
     }
 
+    public boolean hasNoInfo() {
+        return value.equals(DEFAULT_BIRTHDAY);
+    }
+
     @Override
     public String toString() {
         return value;

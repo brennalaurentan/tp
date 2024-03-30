@@ -46,6 +46,10 @@ public class MatriculationYear {
         return true;
     }
 
+    public boolean hasNoInfo() {
+        return value.equals(DEFAULT_MATRICULATION_YEAR);
+    }
+
     @Override
     public String toString() {
         return value;

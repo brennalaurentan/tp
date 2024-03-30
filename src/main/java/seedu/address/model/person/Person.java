@@ -68,12 +68,24 @@ public class Person {
         return birthday;
     }
 
+    public boolean hasBirthdayInfo() {
+        return !birthday.hasNoInfo();
+    }
+
     public MatriculationYear getMatriculationYear() {
         return matriculationYear;
     }
 
+    public boolean hasMatriculationYearInfo() {
+        return !matriculationYear.hasNoInfo();
+    }
+
     public Instrument getInstrument() {
         return instrument;
+    }
+
+    public boolean hasInstrumentInfo() {
+        return !instrument.hasNoInfo();
     }
 
     /**
