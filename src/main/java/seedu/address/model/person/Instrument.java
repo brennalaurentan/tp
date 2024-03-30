@@ -12,6 +12,8 @@ public class Instrument {
     public static final String MESSAGE_CONSTRAINTS = "Instrument name should be alphanumeric";
     public static final String VALIDATION_REGEX = "\\p{Alnum}+";
 
+    public static final String DEFAULT_INSTRUMENT = "None";
+
     public final String value;
 
     /**
@@ -50,6 +52,10 @@ public class Instrument {
     @Override
     public int hashCode() {
         return value.hashCode();
+    }
+
+    public boolean hasNoInfo() {
+        return value.equals(DEFAULT_INSTRUMENT);
     }
 
     /**

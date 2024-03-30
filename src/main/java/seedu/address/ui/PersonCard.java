@@ -66,9 +66,15 @@ public class PersonCard extends UiPart<Region> {
         phone.setText(person.getPhone().value);
         address.setText(person.getAddress().value);
         email.setText(person.getEmail().value);
-        birthday.setText(person.getBirthday().value);
-        matriculationYear.setText("Matriculated in: " + person.getMatriculationYear().value);
-        instrument.setText(person.getInstrument().value);
+        birthday.setText(person.hasBirthdayInfo()
+                ? "Birthday: " + person.getBirthday().value
+                : "No birthday information.");
+        matriculationYear.setText(person.hasMatriculationYearInfo()
+                ? "Matriculated in: " + person.getMatriculationYear().value
+                : "No matriculation year information.");
+        instrument.setText(person.hasInstrumentInfo()
+                ? person.getInstrument().value
+                : "No instrument information.");
         person.getTags().stream()
                 .sorted(Comparator.comparing(tag -> tag.tagName))
                 .forEach(tag -> {
