@@ -5,6 +5,7 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_ADDRESS;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_BIRTHDAY_DATE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_INSTRUMENT;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_MATRICULATION_YEAR;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
@@ -28,6 +29,7 @@ import seedu.address.model.person.Address;
 import seedu.address.model.person.Birthday;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Instrument;
+import seedu.address.model.person.MatriculationYear;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
@@ -49,6 +51,7 @@ public class EditCommand extends Command {
             + "[" + PREFIX_EMAIL + "EMAIL] "
             + "[" + PREFIX_ADDRESS + "ADDRESS] "
             + "[" + PREFIX_BIRTHDAY_DATE + "BIRTHDAY] "
+            + "[" + PREFIX_MATRICULATION_YEAR + "MATRICULATION YEAR] "
             + "[" + PREFIX_INSTRUMENT + "INSTRUMENT] "
             + "[" + PREFIX_TAG + "TAG]...\n"
             + "Example: " + COMMAND_WORD + " 1 "
@@ -106,15 +109,16 @@ public class EditCommand extends Command {
         Phone updatedPhone = editPersonDescriptor.getPhone().orElse(personToEdit.getPhone());
         Email updatedEmail = editPersonDescriptor.getEmail().orElse(personToEdit.getEmail());
         Address updatedAddress = editPersonDescriptor.getAddress().orElse(personToEdit.getAddress());
-        //Birthday updatedBirthday = personToEdit.getBirthday(); // edit command does not allow editing birthday ?
         Birthday updatedBirthday = editPersonDescriptor.getBirthday().orElse(personToEdit.getBirthday());
+        MatriculationYear updatedMatriculationYear = editPersonDescriptor.getMatriculationYear()
+                .orElse(personToEdit.getMatriculationYear());
         Instrument updatedInstrument = editPersonDescriptor.getInstrument().orElse(personToEdit.getInstrument());
         Set<Tag> updatedTags = editPersonDescriptor.getTags().orElse(personToEdit.getTags());
         Set<Attendance> updatedAttendances = editPersonDescriptor.getAttendances().orElse(
                 personToEdit.getAttendances());
 
         return new Person(updatedName, updatedPhone, updatedEmail, updatedAddress,
-                updatedBirthday, updatedInstrument, updatedTags, updatedAttendances);
+                updatedBirthday, updatedMatriculationYear, updatedInstrument, updatedTags, updatedAttendances);
     }
 
     @Override
@@ -151,6 +155,7 @@ public class EditCommand extends Command {
         private Email email;
         private Address address;
         private Birthday birthday;
+        private MatriculationYear matriculationYear;
         private Instrument instrument;
         private Set<Tag> tags;
         private Set<Attendance> attendances;
@@ -167,6 +172,7 @@ public class EditCommand extends Command {
             setEmail(toCopy.email);
             setAddress(toCopy.address);
             setBirthday(toCopy.birthday);
+            setMatriculationYear(toCopy.matriculationYear);
             setInstrument(toCopy.instrument);
             setTags(toCopy.tags);
             setAttendances(toCopy.attendances);
@@ -176,7 +182,8 @@ public class EditCommand extends Command {
          * Returns true if at least one field is edited.
          */
         public boolean isAnyFieldEdited() {
-            return CollectionUtil.isAnyNonNull(name, phone, email, address, birthday, instrument, tags);
+            return CollectionUtil.isAnyNonNull(name, phone, email, address, birthday, matriculationYear, instrument,
+                    tags);
         }
 
         public void setName(Name name) {
@@ -217,6 +224,14 @@ public class EditCommand extends Command {
 
         public Optional<Birthday> getBirthday() {
             return Optional.ofNullable(birthday);
+        }
+
+        public void setMatriculationYear(MatriculationYear matriculationYear) {
+            this.matriculationYear = matriculationYear;
+        }
+
+        public Optional<MatriculationYear> getMatriculationYear() {
+            return Optional.ofNullable(matriculationYear);
         }
 
         public void setInstrument(Instrument instrument) {
@@ -278,6 +293,7 @@ public class EditCommand extends Command {
                     && Objects.equals(email, otherEditPersonDescriptor.email)
                     && Objects.equals(address, otherEditPersonDescriptor.address)
                     && Objects.equals(birthday, otherEditPersonDescriptor.birthday)
+                    && Objects.equals(matriculationYear, otherEditPersonDescriptor.matriculationYear)
                     && Objects.equals(instrument, otherEditPersonDescriptor.instrument)
                     && Objects.equals(tags, otherEditPersonDescriptor.tags)
                     && Objects.equals(attendances, otherEditPersonDescriptor.attendances);
@@ -291,6 +307,7 @@ public class EditCommand extends Command {
                     .add("email", email)
                     .add("address", address)
                     .add("birthday", birthday)
+                    .add("matriculation year", matriculationYear)
                     .add("instrument", instrument)
                     .add("tags", tags)
                     .add("attendances", attendances)

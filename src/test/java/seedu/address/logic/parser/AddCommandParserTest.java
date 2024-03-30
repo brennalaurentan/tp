@@ -5,7 +5,6 @@ import static seedu.address.logic.commands.CommandTestUtil.ADDRESS_DESC_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.ADDRESS_DESC_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.BIRTHDAY_DESC_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.BIRTHDAY_DESC_BOB;
-import static seedu.address.logic.commands.CommandTestUtil.DEFAULT_BIRTHDAY;
 import static seedu.address.logic.commands.CommandTestUtil.DEFAULT_INSTRUMENT;
 import static seedu.address.logic.commands.CommandTestUtil.EMAIL_DESC_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.EMAIL_DESC_BOB;
@@ -15,9 +14,12 @@ import static seedu.address.logic.commands.CommandTestUtil.INVALID_ADDRESS_DESC;
 import static seedu.address.logic.commands.CommandTestUtil.INVALID_BIRTHDAY_DESC;
 import static seedu.address.logic.commands.CommandTestUtil.INVALID_EMAIL_DESC;
 import static seedu.address.logic.commands.CommandTestUtil.INVALID_INSTRUMENT_DESC;
+import static seedu.address.logic.commands.CommandTestUtil.INVALID_MATRICULATION_YEAR_DESC;
 import static seedu.address.logic.commands.CommandTestUtil.INVALID_NAME_DESC;
 import static seedu.address.logic.commands.CommandTestUtil.INVALID_PHONE_DESC;
 import static seedu.address.logic.commands.CommandTestUtil.INVALID_TAG_DESC;
+import static seedu.address.logic.commands.CommandTestUtil.MATRICULATION_YEAR_DESC_AMY;
+import static seedu.address.logic.commands.CommandTestUtil.MATRICULATION_YEAR_DESC_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.NAME_DESC_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.NAME_DESC_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.PHONE_DESC_AMY;
@@ -36,6 +38,7 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_ADDRESS;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_BIRTHDAY_DATE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_INSTRUMENT;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_MATRICULATION_YEAR;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseFailure;
@@ -51,6 +54,7 @@ import seedu.address.model.person.Address;
 import seedu.address.model.person.Birthday;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Instrument;
+import seedu.address.model.person.MatriculationYear;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
@@ -66,8 +70,8 @@ public class AddCommandParserTest {
 
         // whitespace only preamble
         assertParseSuccess(parser, PREAMBLE_WHITESPACE + NAME_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB
-                + ADDRESS_DESC_BOB + BIRTHDAY_DESC_BOB + INSTRUMENT_DESC_BOB + TAG_DESC_FRIEND,
-                new AddCommand(expectedPerson));
+                + ADDRESS_DESC_BOB + BIRTHDAY_DESC_BOB + MATRICULATION_YEAR_DESC_BOB + INSTRUMENT_DESC_BOB
+                + TAG_DESC_FRIEND, new AddCommand(expectedPerson));
 
 
         // multiple tags - all accepted
@@ -75,14 +79,14 @@ public class AddCommandParserTest {
                 .build();
         assertParseSuccess(parser,
                 NAME_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB + ADDRESS_DESC_BOB + BIRTHDAY_DESC_BOB
-                        + INSTRUMENT_DESC_BOB + TAG_DESC_HUSBAND + TAG_DESC_FRIEND,
+                        + MATRICULATION_YEAR_DESC_BOB + INSTRUMENT_DESC_BOB + TAG_DESC_HUSBAND + TAG_DESC_FRIEND,
                 new AddCommand(expectedPersonMultipleTags));
     }
 
     @Test
     public void parse_repeatedNonTagValue_failure() {
         String validExpectedPersonString = NAME_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB + ADDRESS_DESC_BOB
-                + BIRTHDAY_DESC_BOB + INSTRUMENT_DESC_BOB + TAG_DESC_FRIEND;
+                + BIRTHDAY_DESC_BOB + MATRICULATION_YEAR_DESC_BOB + INSTRUMENT_DESC_BOB + TAG_DESC_FRIEND;
 
         // multiple names
         assertParseFailure(parser, NAME_DESC_AMY + validExpectedPersonString,
@@ -104,6 +108,10 @@ public class AddCommandParserTest {
         assertParseFailure(parser, BIRTHDAY_DESC_AMY + validExpectedPersonString,
                 Messages.getErrorMessageForDuplicatePrefixes(PREFIX_BIRTHDAY_DATE));
 
+        // multiple matriculation years
+        assertParseFailure(parser, MATRICULATION_YEAR_DESC_AMY + validExpectedPersonString,
+                Messages.getErrorMessageForDuplicatePrefixes(PREFIX_MATRICULATION_YEAR));
+
         // multiple instruments
         assertParseFailure(parser, INSTRUMENT_DESC_AMY + validExpectedPersonString,
                 Messages.getErrorMessageForDuplicatePrefixes(PREFIX_INSTRUMENT));
@@ -111,9 +119,11 @@ public class AddCommandParserTest {
         // multiple fields repeated
         assertParseFailure(parser,
                 validExpectedPersonString + PHONE_DESC_AMY + EMAIL_DESC_AMY + NAME_DESC_AMY + ADDRESS_DESC_AMY
-                        + BIRTHDAY_DESC_AMY + INSTRUMENT_DESC_AMY + validExpectedPersonString,
-                Messages.getErrorMessageForDuplicatePrefixes(PREFIX_NAME, PREFIX_ADDRESS, PREFIX_EMAIL, PREFIX_PHONE,
-                        PREFIX_BIRTHDAY_DATE, PREFIX_INSTRUMENT));
+                        + BIRTHDAY_DESC_AMY + MATRICULATION_YEAR_DESC_AMY + INSTRUMENT_DESC_AMY
+                        + validExpectedPersonString,
+                Messages.getErrorMessageForDuplicatePrefixes(PREFIX_NAME, PREFIX_ADDRESS, PREFIX_EMAIL,
+                        PREFIX_PHONE,
+                        PREFIX_BIRTHDAY_DATE, PREFIX_MATRICULATION_YEAR, PREFIX_INSTRUMENT));
 
         // invalid value followed by valid value
 
@@ -136,6 +146,10 @@ public class AddCommandParserTest {
         // invalid birthday
         assertParseFailure(parser, INVALID_BIRTHDAY_DESC + validExpectedPersonString,
                 Messages.getErrorMessageForDuplicatePrefixes(PREFIX_BIRTHDAY_DATE));
+
+        // invalid matriculation year
+        assertParseFailure(parser, INVALID_MATRICULATION_YEAR_DESC + validExpectedPersonString,
+                Messages.getErrorMessageForDuplicatePrefixes(PREFIX_MATRICULATION_YEAR));
 
         // invalid instrument
         assertParseFailure(parser, INVALID_INSTRUMENT_DESC + validExpectedPersonString,
@@ -163,6 +177,10 @@ public class AddCommandParserTest {
         assertParseFailure(parser, validExpectedPersonString + INVALID_BIRTHDAY_DESC,
                 Messages.getErrorMessageForDuplicatePrefixes(PREFIX_BIRTHDAY_DATE));
 
+        // invalid matriculation year
+        assertParseFailure(parser, validExpectedPersonString + INVALID_MATRICULATION_YEAR_DESC,
+                Messages.getErrorMessageForDuplicatePrefixes(PREFIX_MATRICULATION_YEAR));
+
         // invalid instrument
         assertParseFailure(parser, validExpectedPersonString + INVALID_INSTRUMENT_DESC,
                 Messages.getErrorMessageForDuplicatePrefixes(PREFIX_INSTRUMENT));
@@ -174,19 +192,26 @@ public class AddCommandParserTest {
         // zero tags
         Person expectedPersonNoTag = new PersonBuilder(AMY).withTags().build();
         assertParseSuccess(parser, NAME_DESC_AMY + PHONE_DESC_AMY + EMAIL_DESC_AMY + ADDRESS_DESC_AMY
-                + BIRTHDAY_DESC_AMY + INSTRUMENT_DESC_AMY, new AddCommand(expectedPersonNoTag));
+                + BIRTHDAY_DESC_AMY + MATRICULATION_YEAR_DESC_AMY + INSTRUMENT_DESC_AMY,
+                new AddCommand(expectedPersonNoTag));
 
         // zero birthday
-        Person expectedPersonNoBirthday = new PersonBuilder(AMY).withTags(VALID_TAG_FRIEND)
-                .withBirthday(DEFAULT_BIRTHDAY).build();
+        Person expectedPersonNoBirthday = new PersonBuilder(AMY).withBirthday().build();
         assertParseSuccess(parser, NAME_DESC_AMY + PHONE_DESC_AMY + EMAIL_DESC_AMY + ADDRESS_DESC_AMY
-                + INSTRUMENT_DESC_AMY + TAG_DESC_FRIEND, new AddCommand(expectedPersonNoBirthday));
+                + MATRICULATION_YEAR_DESC_AMY + INSTRUMENT_DESC_AMY + TAG_DESC_FRIEND,
+                new AddCommand(expectedPersonNoBirthday));
+
+        // zero matriculation year
+        Person expectedPersonNoMatriculationYear = new PersonBuilder(AMY).withMatriculationYear().build();
+        assertParseSuccess(parser, NAME_DESC_AMY + PHONE_DESC_AMY + EMAIL_DESC_AMY + ADDRESS_DESC_AMY
+                + BIRTHDAY_DESC_AMY + INSTRUMENT_DESC_AMY + TAG_DESC_FRIEND,
+                new AddCommand(expectedPersonNoMatriculationYear));
 
         // zero instrument
-        Person expectedPersonNoInstrument = new PersonBuilder(AMY).withTags(VALID_TAG_FRIEND)
-                .withInstrument(DEFAULT_INSTRUMENT).build();
+        Person expectedPersonNoInstrument = new PersonBuilder(AMY).withInstrument(DEFAULT_INSTRUMENT).build();
         assertParseSuccess(parser, NAME_DESC_AMY + PHONE_DESC_AMY + EMAIL_DESC_AMY + ADDRESS_DESC_AMY
-                + BIRTHDAY_DESC_AMY + TAG_DESC_FRIEND, new AddCommand(expectedPersonNoInstrument));
+                + BIRTHDAY_DESC_AMY + MATRICULATION_YEAR_DESC_AMY + TAG_DESC_FRIEND,
+                new AddCommand(expectedPersonNoInstrument));
     }
 
     @Test
@@ -235,6 +260,11 @@ public class AddCommandParserTest {
         // invalid birthday
         assertParseFailure(parser, NAME_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB + ADDRESS_DESC_BOB
                 + INVALID_BIRTHDAY_DESC + TAG_DESC_HUSBAND + TAG_DESC_FRIEND, Birthday.MESSAGE_CONSTRAINTS);
+
+        // invalid matriculation year
+        assertParseFailure(parser, NAME_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB + ADDRESS_DESC_BOB
+                + BIRTHDAY_DESC_BOB + INVALID_MATRICULATION_YEAR_DESC + TAG_DESC_HUSBAND + TAG_DESC_FRIEND,
+                MatriculationYear.MESSAGE_CONSTRAINTS);
 
         // invalid instrument
         assertParseFailure(parser, NAME_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB + ADDRESS_DESC_BOB

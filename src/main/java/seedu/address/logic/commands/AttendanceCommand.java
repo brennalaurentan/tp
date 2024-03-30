@@ -18,6 +18,7 @@ import seedu.address.model.person.Address;
 import seedu.address.model.person.Birthday;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Instrument;
+import seedu.address.model.person.MatriculationYear;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
@@ -93,13 +94,14 @@ public class AttendanceCommand extends Command {
         Email updatedEmail = personToEdit.getEmail();
         Address updatedAddress = personToEdit.getAddress();
         Birthday updatedBirthday = personToEdit.getBirthday();
+        MatriculationYear updatedMatriculationYear = personToEdit.getMatriculationYear();
         Instrument updatedInstrument = personToEdit.getInstrument();
         Set<Tag> updatedTags = personToEdit.getTags();
         Set<Attendance> updatedAttendances = new HashSet<>(personToEdit.getAttendances());
         updatedAttendances.add(attendance);
 
         return new Person(updatedName, updatedPhone, updatedEmail, updatedAddress,
-                updatedBirthday, updatedInstrument, updatedTags, updatedAttendances);
+                updatedBirthday, updatedMatriculationYear, updatedInstrument, updatedTags, updatedAttendances);
     }
 
     @Override

@@ -5,6 +5,7 @@
     "email": "alice@example.com",
     "address": "123, Jurong West Ave 6, #08-111",
     "birthday": "2000-01-01",
+    "matriculationYear": "2003",
     "instrument": "Flute",
     "tags": [ "friends" ]
   }, {
@@ -13,6 +14,8 @@
     "email": "alice@example.com",
     "address": "123, Jurong West Ave 6, #08-111",
     "birthday": "2000-01-01",
-    "instrument": "Flute"
+    "matriculationYear": "2003",
+    "instrument": "Flute",
+    "tags": [ "friends" ]
   } ]
 }

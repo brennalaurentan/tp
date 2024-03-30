@@ -8,6 +8,7 @@ import seedu.address.model.person.Address;
 import seedu.address.model.person.Birthday;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Instrument;
+import seedu.address.model.person.MatriculationYear;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
@@ -23,7 +24,8 @@ public class PersonBuilder {
     public static final String DEFAULT_PHONE = "85355255";
     public static final String DEFAULT_EMAIL = "amy@gmail.com";
     public static final String DEFAULT_ADDRESS = "123, Jurong West Ave 6, #08-111";
-    public static final String DEFAULT_BIRTHDAY = "2000-01-01";
+    public static final String DEFAULT_BIRTHDAY = "9999-99-99";
+    public static final String DEFAULT_MATRICULATION_YEAR = "0000";
     public static final String DEFAULT_INSTRUMENT = "Flute";
 
     private Name name;
@@ -31,6 +33,7 @@ public class PersonBuilder {
     private Email email;
     private Address address;
     private Birthday birthday;
+    private MatriculationYear matriculationYear;
     private Instrument instrument;
     private Set<Tag> tags;
     private Set<Attendance> attendances;
@@ -44,6 +47,7 @@ public class PersonBuilder {
         email = new Email(DEFAULT_EMAIL);
         address = new Address(DEFAULT_ADDRESS);
         birthday = new Birthday(DEFAULT_BIRTHDAY);
+        matriculationYear = new MatriculationYear(DEFAULT_MATRICULATION_YEAR);
         instrument = new Instrument(DEFAULT_INSTRUMENT);
         tags = new HashSet<>();
         attendances = new HashSet<>();
@@ -58,6 +62,7 @@ public class PersonBuilder {
         email = personToCopy.getEmail();
         address = personToCopy.getAddress();
         birthday = personToCopy.getBirthday();
+        matriculationYear = personToCopy.getMatriculationYear();
         instrument = personToCopy.getInstrument();
         tags = new HashSet<>(personToCopy.getTags());
         attendances = new HashSet<>(personToCopy.getAttendances());
@@ -113,10 +118,42 @@ public class PersonBuilder {
     }
 
     /**
+     * Sets the {@code Birthday} of the {@code Person} to the default value.
+     */
+    public PersonBuilder withBirthday() {
+        this.birthday = new Birthday(DEFAULT_BIRTHDAY);
+        return this;
+    }
+
+    /**
      * Sets the {@code Birthday} of the {@code Person} that we are building.
      */
     public PersonBuilder withBirthday(String birthday) {
         this.birthday = new Birthday(birthday);
+        return this;
+    }
+
+    /**
+     * Sets the {@code Birthday} of the {@code Person} that we are building.
+     */
+    public PersonBuilder withMatriculationYear() {
+        this.matriculationYear = new MatriculationYear(DEFAULT_MATRICULATION_YEAR);
+        return this;
+    }
+
+    /**
+     * Sets the {@code MatriculationYear} of the {@code Person} that we are building.
+     */
+    public PersonBuilder withMatriculationYear(String matriculationYear) {
+        this.matriculationYear = new MatriculationYear(matriculationYear);
+        return this;
+    }
+
+    /**
+     * Sets the {@code Instrument} of the {@code Person} that we are building.
+     */
+    public PersonBuilder withInstrument() {
+        this.instrument = new Instrument(DEFAULT_INSTRUMENT);
         return this;
     }
 
@@ -128,8 +165,12 @@ public class PersonBuilder {
         return this;
     }
 
+    /**
+     * Builds a Person object.
+     * @return the Person object
+     */
     public Person build() {
-        return new Person(name, phone, email, address, birthday, instrument, tags, attendances);
+        return new Person(name, phone, email, address, birthday, matriculationYear, instrument, tags, attendances);
     }
 
 }

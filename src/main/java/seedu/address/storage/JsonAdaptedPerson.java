@@ -15,6 +15,7 @@ import seedu.address.model.person.Address;
 import seedu.address.model.person.Birthday;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Instrument;
+import seedu.address.model.person.MatriculationYear;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
@@ -32,6 +33,7 @@ class JsonAdaptedPerson {
     private final String email;
     private final String address;
     private final String birthday;
+    private final String matriculationYear;
     private final String instrument;
     private final List<JsonAdaptedTag> tags = new ArrayList<>();
     private final List<JsonAdaptedAttendance> attendances = new ArrayList<>();
@@ -43,6 +45,7 @@ class JsonAdaptedPerson {
     public JsonAdaptedPerson(@JsonProperty("name") String name, @JsonProperty("phone") String phone,
                              @JsonProperty("email") String email, @JsonProperty("address") String address,
                              @JsonProperty("birthday") String birthday,
+                             @JsonProperty("matriculationYear") String matriculationYear,
                              @JsonProperty("instrument") String instrument,
                              @JsonProperty("tags") List<JsonAdaptedTag> tags,
                              @JsonProperty("attendances") List<JsonAdaptedAttendance> attendances) {
@@ -51,6 +54,7 @@ class JsonAdaptedPerson {
         this.email = email;
         this.address = address;
         this.birthday = birthday;
+        this.matriculationYear = matriculationYear;
         this.instrument = instrument;
         if (tags != null) {
             this.tags.addAll(tags);
@@ -69,6 +73,7 @@ class JsonAdaptedPerson {
         email = source.getEmail().value;
         address = source.getAddress().value;
         birthday = source.getBirthday().value;
+        matriculationYear = source.getMatriculationYear().value;
         instrument = source.getInstrument().value;
         tags.addAll(source.getTags().stream()
                 .map(JsonAdaptedTag::new)
@@ -135,6 +140,15 @@ class JsonAdaptedPerson {
         }
         final Birthday modelBirthday = new Birthday(birthday);
 
+        if (matriculationYear == null) {
+            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT,
+                    MatriculationYear.class.getSimpleName()));
+        }
+        if (!MatriculationYear.isValidMatriculationYear(matriculationYear)) {
+            throw new IllegalValueException(MatriculationYear.MESSAGE_CONSTRAINTS);
+        }
+        final MatriculationYear modelMatriculationYear = new MatriculationYear(matriculationYear);
+
         if (instrument == null) {
             throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT,
                     Instrument.class.getSimpleName()));
@@ -147,9 +161,8 @@ class JsonAdaptedPerson {
         final Set<Tag> modelTags = new HashSet<>(personTags);
 
         final Set<Attendance> modelAttendances = new HashSet<>(personAttendances);
-
-        return new Person(modelName, modelPhone, modelEmail, modelAddress, modelBirthday, modelInstrument,
-                modelTags, modelAttendances);
+        return new Person(modelName, modelPhone, modelEmail, modelAddress, modelBirthday,
+                modelMatriculationYear, modelInstrument, modelTags, modelAttendances);
     }
 
 }

@@ -7,6 +7,7 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_ATTENDANCE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_BIRTHDAY_DATE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_INSTRUMENT;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_MATRICULATION_YEAR;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
@@ -37,8 +38,8 @@ public class EditCommandParser implements Parser<EditCommand> {
         requireNonNull(args);
         ArgumentMultimap argMultimap =
                 ArgumentTokenizer.tokenize(args, PREFIX_NAME, PREFIX_PHONE, PREFIX_EMAIL, PREFIX_ADDRESS,
-                        PREFIX_BIRTHDAY_DATE, PREFIX_INSTRUMENT, PREFIX_TAG, PREFIX_ATTENDANCE);
-
+                        PREFIX_BIRTHDAY_DATE, PREFIX_MATRICULATION_YEAR, PREFIX_INSTRUMENT, PREFIX_TAG,
+                        PREFIX_ATTENDANCE);
         Index index;
 
         try {
@@ -64,8 +65,14 @@ public class EditCommandParser implements Parser<EditCommand> {
             editPersonDescriptor.setAddress(ParserUtil.parseAddress(argMultimap.getValue(PREFIX_ADDRESS).get()));
         }
         if (argMultimap.getValue(PREFIX_BIRTHDAY_DATE).isPresent()) {
-            editPersonDescriptor.setBirthday(ParserUtil.parseBirthday(argMultimap
-                    .getValue(PREFIX_BIRTHDAY_DATE).get()));
+            editPersonDescriptor.setBirthday(ParserUtil.parseBirthday(
+                    argMultimap.getValue(PREFIX_BIRTHDAY_DATE).get())
+            );
+        }
+        if (argMultimap.getValue(PREFIX_MATRICULATION_YEAR).isPresent()) {
+            editPersonDescriptor.setMatriculationYear(ParserUtil.parseMatriculationYear(
+                    argMultimap.getValue(PREFIX_MATRICULATION_YEAR).get()
+            ));
         }
         if (argMultimap.getValue(PREFIX_INSTRUMENT).isPresent()) {
             editPersonDescriptor.setInstrument(ParserUtil.parseInstrument(argMultimap
