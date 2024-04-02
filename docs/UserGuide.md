@@ -93,7 +93,7 @@ Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [b/BIRTHDAY] [i/INSTRUMENT]
 Examples:
 * `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01`
 * `add n/Betsy Crowe t/friend e/betsycrowe@example.com a/Brown Street p/1234567 t/neighbour`
-* * `add n/Sally Jane p/1234567 e/betsycrowe@example.com a/Blk 123 Smith Street b/2001-02-02`
+* `add n/Sally Jane p/1234567 e/betsycrowe@example.com a/Blk 123 Smith Street b/2001-02-02`
 
 <br>
 
@@ -126,21 +126,23 @@ Examples:
 
 ### Locating persons by name: `find`
 
-Finds persons whose names contain any of the given keywords.
+Finds persons whose name and/or instrument fields contain any of the given keywords.
 
-Format: `find KEYWORD [MORE_KEYWORDS]`
+Format: `find [n/KEYWORD [MORE_KEYWORDS]] [i/KEYWORD [MORE_KEYWORDS]]`
 
 * The search is case-insensitive. e.g `hans` will match `Hans`
 * The order of the keywords does not matter. e.g. `Hans Bo` will match `Bo Hans`
-* Only the name is searched.
+* The contact detail field searched is based on the prefix provided.
 * Only full words will be matched e.g. `Han` will not match `Hans`
 * Persons matching at least one keyword will be returned (i.e. `OR` search).
   e.g. `Hans Bo` will return `Hans Gruber`, `Bo Yang`
 
 Examples:
-* `find John` returns `john` and `John Doe`
-* `find alex david` returns `Alex Yeoh`, `David Li`<br><br>
-  ![result for 'find alex david'](images/findAlexDavidResult.png)
+* `find n/John` returns `john` and `John Doe`
+* `find n/alex david` returns `Alex Yeoh`, `David Li`<br><br>
+  ![result for 'find alex david'](images/findAlexDavidResult.png) <br><br>
+* `find n/alex david i/flute` returns `Alex Yeoh`, `David Li` and other persons who play the flute.
+* `find i/clarinet flute` returns all persons who play the clarinet or flute.
 
 <br>
 
@@ -164,19 +166,15 @@ Examples:
 
 <br>
 
-### Indicating birthday of a person : `birthday`
-
-<br>
-
-### Assigning an instrument to a person/multiple people: `instrument`
+### Assigning an instrument to a person/multiple people: `assign`
 
 Assigns an instrument to an existing person/multiple people in BandBook.
 
-Format: `instrument INDEXES i/INSTRUMENT​`
+Format: `assign INDEXES i/INSTRUMENT​`
 
 * Assigns an instrument to the person(s) at the specified `INDEXES`. The index refers to the index number shown in the displayed person list. The index **must be a positive integer** 1, 2, 3, …​
 * At least one index must be provided.
-* For persons with existing instrument, it will be updated to the input instrument.
+* The instrument field will be updated with the input instrument.
 
 Examples:
 *  `instrument 1 i/Flute` Assigns the 1st and 2nd person with the Flute instrument.
@@ -243,12 +241,11 @@ _Details coming soon ..._
 Action     | Format, Examples
 -----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 **Add**    | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [b/BIRTHDAY] [i/INSTRUMENT] [t/TAG]…​` <br> e.g., `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague`
+**Assign**  | `assign INDEXES i/INSTRUMENT` <br> e.g. `assign 1 2 i/Flute`
 **Attendance**  | e.g. `att 1 2 d/ 2024-02-02`
-**Birthday**  | e.g. `birthday 1 b/2000-02-02`
 **Clear**  | `clear`
 **Delete** | `delete INDEX`<br> e.g., `delete 3`
 **Edit**   | `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [b/BIRTHDAY] [i/INSTRUMENT] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`
-**Find**   | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`
-**Instrument**  | `instrument INDEXES i/INSTRUMENT` <br> e.g. `instrument 1 2 i/Flute`
+**Find**   | `find [n/KEYWORD [MORE_KEYWORDS]] [i/KEYWORD [MORE_KEYWORDS]]`<br> e.g., `find n/James Jake i/flute clarinet`
 **List**   | `list`
 **Help**   | `help`
