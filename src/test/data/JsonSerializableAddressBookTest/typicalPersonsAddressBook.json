@@ -27,7 +27,7 @@
     "address" : "wall street",
     "birthday" : "2000-03-03",
     "matriculationYear": "0000",
-    "instrument" : "Flute",
+    "instrument" : "Clarinet",
     "tags" : [ ]
   }, {
     "name" : "Daniel Meier",
@@ -36,34 +36,34 @@
     "address" : "10th street",
     "birthday" : "2000-04-04",
     "matriculationYear": "0000",
-    "instrument" : "Flute",
+    "instrument" : "Clarinet",
     "tags" : [ "friends" ]
   }, {
     "name" : "Elle Meyer",
-    "phone" : "9482224",
+    "phone" : "94822245",
     "email" : "werner@example.com",
     "address" : "michegan ave",
     "birthday" : "2000-05-05",
     "matriculationYear": "2005",
-    "instrument" : "Flute",
+    "instrument" : "Saxophone",
     "tags" : [ ]
   }, {
     "name" : "Fiona Kunz",
-    "phone" : "9482427",
+    "phone" : "94824275",
     "email" : "lydia@example.com",
     "address" : "little tokyo",
     "birthday" : "2000-06-06",
     "matriculationYear": "2007",
-    "instrument" : "Flute",
+    "instrument" : "Saxophone",
     "tags" : [ ]
   }, {
     "name" : "George Best",
-    "phone" : "9482442",
+    "phone" : "94824425",
     "email" : "anna@example.com",
     "address" : "4th street",
     "birthday" : "2000-07-07",
     "matriculationYear": "2010",
-    "instrument" : "Flute",
+    "instrument" : "Saxophone",
     "tags" : [ ]
   } ]
 }
