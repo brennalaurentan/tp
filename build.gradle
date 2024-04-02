@@ -67,7 +67,7 @@ dependencies {
 
 shadowJar {
     archiveBaseName = 'BandBook'
-    archiveVersion = 'v1.2'
+    archiveVersion = 'v1.3'
     archiveClassifier = ''
 }
 
