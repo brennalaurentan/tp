@@ -62,7 +62,7 @@ public class FindCommand extends Command {
 
         FindCommand otherFindCommand = (FindCommand) other;
         return namePredicate.equals(otherFindCommand.namePredicate)
-                && instrumentPredicate.equals(otherFindCommand.instrumentPredicate);
+                || instrumentPredicate.equals(otherFindCommand.instrumentPredicate);
     }
 
     @Override

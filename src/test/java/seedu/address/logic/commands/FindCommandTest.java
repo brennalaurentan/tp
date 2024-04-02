@@ -87,7 +87,7 @@ public class FindCommandTest {
 
     @Test
     public void execute_multipleInstrumentKeywords_multiplePersonsFound() {
-        String expectedMessage = String.format(MESSAGE_PERSONS_LISTED_OVERVIEW, 3);
+        String expectedMessage = String.format(MESSAGE_PERSONS_LISTED_OVERVIEW, 4);
         NameContainsKeywordsPredicate namePredicate = prepareNamePredicate(" ");
         InstrumentContainsKeywordsPredicate instrumentPredicate = prepareInstrumentPredicate("Clarinet Flute");
         FindCommand command = new FindCommand(namePredicate, instrumentPredicate);

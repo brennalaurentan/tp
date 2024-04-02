@@ -40,10 +40,10 @@ public class FindCommandParser implements Parser<FindCommand> {
         argMultimap.verifyNoDuplicatePrefixesFor(PREFIX_NAME, PREFIX_INSTRUMENT);
 
         if (argMultimap.getValue(PREFIX_NAME).isPresent()) {
-            nameKeywords = argMultimap.getValue(PREFIX_NAME).get().split("\\s+");
+            nameKeywords = argMultimap.getValue(PREFIX_NAME).get().trim().split("\\s+");
         }
         if (argMultimap.getValue(PREFIX_INSTRUMENT).isPresent()) {
-            instrumentKeywords = argMultimap.getValue(PREFIX_INSTRUMENT).get().split("\\s+");
+            instrumentKeywords = argMultimap.getValue(PREFIX_INSTRUMENT).get().trim().split("\\s+");
         }
 
         return new FindCommand(
