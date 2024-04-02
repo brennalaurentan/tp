@@ -25,25 +25,25 @@ public class FindCommandParser implements Parser<FindCommand> {
      */
     public FindCommand parse(String args) throws ParseException {
         requireNonNull(args);
-
         ArgumentMultimap argMultimap =
                 ArgumentTokenizer.tokenize(args, PREFIX_NAME, PREFIX_INSTRUMENT);
 
         String[] nameKeywords = new String[0];
         String[] instrumentKeywords = new String[0];
 
+        argMultimap.verifyNoDuplicatePrefixesFor(PREFIX_NAME, PREFIX_INSTRUMENT);
+
         if (!arePrefixesPresent(argMultimap, PREFIX_NAME, PREFIX_INSTRUMENT)
                 || !argMultimap.getPreamble().isEmpty()) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, FindCommand.MESSAGE_USAGE));
         }
 
-        argMultimap.verifyNoDuplicatePrefixesFor(PREFIX_NAME, PREFIX_INSTRUMENT);
-
         if (argMultimap.getValue(PREFIX_NAME).isPresent()) {
-            nameKeywords = argMultimap.getValue(PREFIX_NAME).get().trim().split("\\s+");
+            nameKeywords = ParserUtil.parseFindString(argMultimap.getValue(PREFIX_NAME).get(), PREFIX_NAME);
         }
         if (argMultimap.getValue(PREFIX_INSTRUMENT).isPresent()) {
-            instrumentKeywords = argMultimap.getValue(PREFIX_INSTRUMENT).get().trim().split("\\s+");
+            instrumentKeywords = ParserUtil.parseFindString(
+                    argMultimap.getValue(PREFIX_INSTRUMENT).get(), PREFIX_INSTRUMENT);
         }
 
         return new FindCommand(
@@ -52,7 +52,7 @@ public class FindCommandParser implements Parser<FindCommand> {
     }
 
     /**
-     * Returns true if none of the prefixes contains empty {@code Optional} values in the given
+     * Returns true if at least one of the prefixes does not contain empty {@code Optional} values in the given
      * {@code ArgumentMultimap}.
      */
     private static boolean arePrefixesPresent(ArgumentMultimap argumentMultimap, Prefix... prefixes) {

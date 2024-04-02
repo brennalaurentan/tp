@@ -26,6 +26,9 @@ import seedu.address.model.tag.Tag;
 public class ParserUtil {
 
     public static final String MESSAGE_INVALID_INDEX = "Index is not a non-zero unsigned integer.";
+    public static final String MESSAGE_INVALID_FIND_STRING =
+            " should only contain alphanumeric characters and spaces, and it should not be blank";
+    public static final String FIND_STRING_VALIDATION_REGEX = "[\\p{Alnum}][\\p{Alnum} ]*";
 
     /**
      * Parses {@code oneBasedIndex} into an {@code Index} and returns it. Leading and trailing whitespaces will be
@@ -211,5 +214,20 @@ public class ParserUtil {
             attendanceSet.add(parseAttendance(attendance));
         }
         return attendanceSet;
+    }
+
+    /**
+     * Parses a {@code String findString} into a {@code String[]} and ensures check validation.
+     * Leading and trailing whitespaces will be trimmed.
+     *
+     * @throws ParseException if the given {@code string} is invalid.
+     */
+    public static String[] parseFindString(String findString, Prefix prefix) throws ParseException {
+        requireNonNull(findString);
+        String trimmedFindString = findString.trim();
+        if (!trimmedFindString.matches(FIND_STRING_VALIDATION_REGEX)) {
+            throw new ParseException(prefix + MESSAGE_INVALID_FIND_STRING);
+        }
+        return findString.split("\\s+");
     }
 }
