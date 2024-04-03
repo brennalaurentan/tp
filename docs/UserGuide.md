@@ -71,7 +71,7 @@ Moreover, you can **indicate and view the attendance history of your members**, 
 
 ### Viewing help : `help`
 
-Shows a message explaning how to access the help page.
+Shows a message explaining how to access the help page.
 
 ![help message](images/helpMessage.png)
 
@@ -83,7 +83,7 @@ Format: `help`
 
 Adds a person to BandBook.
 
-Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [b/BIRTHDAY] [i/INSTRUMENT] [t/TAG]…​`
+Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [b/BIRTHDAY] [my/MATRICULATION_YEAR] [i/INSTRUMENT] [t/TAG]…​`
 
 <box type="tip" seamless>
 
@@ -109,7 +109,7 @@ Format: `list`
 
 Edits an existing person in BandBook.
 
-Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [b/BIRTHDAY] [i/INSTRUMENT] [t/TAG]…​`
+Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [b/BIRTHDAY] [my/MATRICULATION_YEAR] [i/INSTRUMENT] [t/TAG]…​`
 
 * Edits the person at the specified `INDEX`. The index refers to the index number shown in the displayed person list. The index **must be a positive integer** 1, 2, 3, …​
 * At least one of the optional fields must be provided.
@@ -162,7 +162,7 @@ Examples:
 
 <br>
 
-### Marking attendance of a person/mulitple people: `att`
+### Marking attendance of a person/multiple people: `att`
 
 <br>
 
@@ -177,8 +177,8 @@ Format: `assign INDEXES i/INSTRUMENT​`
 * The instrument field will be updated with the input instrument.
 
 Examples:
-*  `instrument 1 i/Flute` Assigns the 1st and 2nd person with the Flute instrument.
-*  `instrument 2 3 5 i/Clarinet` Assigns the 2nd, 3rd and 5th person with the Clarinet instrument.
+*  `assign 1 i/Flute` Assigns the 1st person with the Flute instrument.
+*  `assign 2 3 5 i/Clarinet` Assigns the 2nd, 3rd and 5th person with the Clarinet instrument.
 
 <br>
 
@@ -206,7 +206,7 @@ BandBook data are saved in the hard disk automatically after any command that ch
 
 ### Editing the data file
 
-BandBook data are saved automatically as a JSON file `[JAR file location]/data/bandbook.json`. Advanced users are welcome to update data directly by editing that data file.
+BandBook data is saved automatically as a JSON file `[JAR file location]/data/bandbook.json`. Advanced users are welcome to update data directly by editing that data file.
 
 <box type="warning" seamless>
 
@@ -217,7 +217,7 @@ Furthermore, certain edits can cause the BandBook to behave in unexpected ways (
 
 <br>
 
-### Archiving data files `[coming in v2.0]`
+### View Rehearsal Schedule `[coming in v2.0]`
 
 _Details coming soon ..._
 
@@ -246,6 +246,7 @@ Action     | Format, Examples
 **Clear**  | `clear`
 **Delete** | `delete INDEX`<br> e.g., `delete 3`
 **Edit**   | `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [b/BIRTHDAY] [i/INSTRUMENT] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`
+**Exit**   | `exit`
 **Find**   | `find [n/KEYWORD [MORE_KEYWORDS]] [i/KEYWORD [MORE_KEYWORDS]]`<br> e.g., `find n/James Jake i/flute clarinet`
 **List**   | `list`
 **Help**   | `help`
