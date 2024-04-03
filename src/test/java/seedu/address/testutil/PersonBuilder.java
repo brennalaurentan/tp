@@ -24,8 +24,8 @@ public class PersonBuilder {
     public static final String DEFAULT_PHONE = "85355255";
     public static final String DEFAULT_EMAIL = "amy@gmail.com";
     public static final String DEFAULT_ADDRESS = "123, Jurong West Ave 6, #08-111";
-    public static final String DEFAULT_BIRTHDAY = "9999-99-99";
-    public static final String DEFAULT_MATRICULATION_YEAR = "0000";
+    public static final String DEFAULT_BIRTHDAY = Birthday.DEFAULT_BIRTHDAY;
+    public static final String DEFAULT_MATRICULATION_YEAR = MatriculationYear.DEFAULT_MATRICULATION_YEAR;
     public static final String DEFAULT_INSTRUMENT = "Flute";
 
     private Name name;
