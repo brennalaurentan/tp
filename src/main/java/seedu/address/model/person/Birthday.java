@@ -34,11 +34,6 @@ public class Birthday {
      * Returns true if a given string is a valid birthday.
      */
     public static boolean isValidBirthday(String test) {
-        boolean formatIsCorrect = test.matches(VALIDATION_REGEX);
-        if (!formatIsCorrect) {
-            return false;
-        }
-
         LocalDate dateEntered;
         try {
             dateEntered = LocalDate.parse(test, DateTimeFormatter.ofPattern("yyyy-MM-dd"));
