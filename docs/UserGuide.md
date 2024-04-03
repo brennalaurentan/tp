@@ -164,6 +164,25 @@ Examples:
 
 ### Marking attendance of a person/multiple people: `att`
 
+Marks the attendance of an existing person/multiple people in BandBook.
+
+Format: `att INDEXES d/DATE`
+
+* Marks the attendance of the person(s) at the specified `INDEXES`. The index refers to the index number shown in the displayed person list. The index **must be a positive integer** 1, 2, 3, ...
+* At least one index must be provided.
+* The person's contact will be updated with a tag containing the attendance date marked.
+
+### Unmarking attendance of a person/multiple people: `attd`
+
+Unmarks the attendance of an existing person/multiple people in BandBook.
+
+Format: `attd INDEXES d/DATE`
+
+* Unmarks the attendance of the person(s) at the specified `INDEXES`. The index refers to the index number shown in the displayed person list. The index **must be a positive integer** 1, 2, 3, ...
+* At least one index must be provided.
+* The person must have already been marked present on the attendance date provided.
+* The person's contact will be updated with the tag containing the date specified, removed.
+
 <br>
 
 ### Assigning an instrument to a person/multiple people: `assign`
@@ -242,7 +261,8 @@ Action     | Format, Examples
 -----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 **Add**    | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [b/BIRTHDAY] [i/INSTRUMENT] [t/TAG]…​` <br> e.g., `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague`
 **Assign**  | `assign INDEXES i/INSTRUMENT` <br> e.g. `assign 1 2 i/Flute`
-**Attendance**  | e.g. `att 1 2 d/ 2024-02-02`
+**Attendance: Mark**  | `att [INDEXES] [d/DATE_IN_YYYY-MM-DD]` e.g. `att 1 2 d/ 2024-02-02`
+**Attendance: Unmark**  | `attd [INDEXES] [d/DATE_IN_YYYY-MM-DD]` <br> e.g., `attd 1 2 d/2024-02-02`
 **Clear**  | `clear`
 **Delete** | `delete INDEX`<br> e.g., `delete 3`
 **Edit**   | `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [b/BIRTHDAY] [i/INSTRUMENT] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`
