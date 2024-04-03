@@ -110,4 +110,12 @@ public class PersonTest {
                 + ", attendances=" + ALICE.getAttendances() + "}";
         assertEquals(expected, ALICE.toString());
     }
+
+    @Test
+    public void hasBirthdayInfo() {
+        Person personEmptyBirthday = new PersonBuilder().withBirthday().build();
+
+        // empty birthday field -> returns true
+        assertFalse(personEmptyBirthday.hasBirthdayInfo());
+    }
 }

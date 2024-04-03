@@ -33,6 +33,7 @@ public class BirthdayTest {
         assertFalse(Birthday.isValidBirthday("2000-01-00")); // day is not valid
         assertFalse(Birthday.isValidBirthday("01-01-2000")); // wrong format (should be yyyy-mm-dd)
         assertFalse(Birthday.isValidBirthday("1 Jan 2000")); // wrong format (should be yyyy-mm-dd)
+        assertFalse(Birthday.isValidBirthday("3000-01-01")); // date is after today
 
         // valid birthdays
         assertTrue(Birthday.isValidBirthday("2000-01-01")); // correct format and valid date (before today)
