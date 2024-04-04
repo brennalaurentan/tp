@@ -117,10 +117,10 @@ How the parsing works:
 * All `XYZCommandParser` classes (e.g., `AddCommandParser`, `DeleteCommandParser`, ...) inherit from the `Parser` interface so that they can be treated similarly where possible e.g, during testing.
 
 ### Model component
+
 **API** : [`Model.java`](https://github.com/AY2324S2-CS2103T-T15-3/tp/tree/master/src/main/java/seedu/address/model/Model.java)
 
 <puml src="diagrams/ModelClassDiagram.puml" width="450"></puml>
-
 
 The `Model` component,
 
@@ -136,7 +136,6 @@ The `Model` component,
 <puml src="diagrams/BetterModelClassDiagram.puml" width="450"></puml>
 
 </box>
-
 
 ### Storage component
 
@@ -170,7 +169,6 @@ in the UML sequence diagram below.
 Note: The activation bars for :Ui and logicManager:LogicManager are meant to be deactivated after and within the
 reference frame respectively. Due to a PlantUML bug, this is unable to be reflected accurately in the diagram.
 
-
 --------------------------------------------------------------------------------------------------------------------
 
 ## **Documentation, logging, testing, configuration, dev-ops**
@@ -200,7 +198,6 @@ reference frame respectively. Due to a PlantUML bug, this is unable to be reflec
 efficient way to manage and access their members' details. Also, our app is able to extend capabilities that
 help make managing a band easier.
 
-
 ### User stories
 
 Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unlikely to have) - `*`
@@ -216,7 +213,6 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* *`      | user      | indicate matriculation year information | keep track of how long ago the member joined the club |
 | `* *`      | user      | view attendance history                 | monitor participation and follow up as necessary      |
 | `* *`      | user      | update attendance history               | keep updated attendance records                       |                                         |
-
 
 ### Use cases
 
@@ -377,6 +373,28 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
       Use case resumes at step 2.
 
+**Use case: Find member by name and/or instrument**
+
+**MSS**
+
+1.  User requests to list persons
+2.  AddressBook shows a list of persons
+3.  User requests to find specific person(s) in the list by name and/or instrument
+4.  AddressBook displays a filtered list of persons who match the keywords provided at each prefix
+
+    Use case ends.
+
+**Extensions**
+
+* 2a. The list is empty.
+
+  Use case ends.
+
+* 3a. The given keyword cannot be found.
+
+    * 3a1. AddressBook shows that 0 persons are listed.
+
+      Use case ends.
 
 ### Non-Functional Requirements
 
@@ -384,7 +402,6 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 2.  Should be able to hold up to 1000 members without a noticeable sluggishness in performance for typical usage.
 3.  Functions should return results within 2 seconds to prevent the app from feeling too slow and irritating to use.
 4.  A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.
-
 
 ### Glossary
 
@@ -428,7 +445,7 @@ testers are expected to do more *exploratory* testing.
     1. Prerequisites: List all persons using the `list` command. Multiple persons in the list.
 
     1. Test case: `delete 1`<br>
-       Expected: First contact is deleted from the list. Details of the deleted contact shown in the status message. Timestamp in the status bar is updated.
+        Expected: First contact is deleted from the list. Details of the deleted contact shown in the status message.
 
     1. Test case: `delete 0`<br>
        Expected: No person is deleted. Error details shown in the status message. Status bar remains the same.
@@ -436,7 +453,86 @@ testers are expected to do more *exploratory* testing.
     1. Other incorrect delete commands to try: `delete`, `delete x`, `...` (where x is larger than the list size)<br>
        Expected: Similar to previous.
 
-1. _{ more test cases …​ }_
+1. _Deleting a person while a filtered list is being shown_
+
+    1. Prerequisites: List all persons using the `list` command. Multiple persons in the list. Filter the list using the `find` command.
+
+    1. Test case: `delete 1`<br>
+       Expected: First contact in the filtered list is deleted. Details of the deleted contact shown in the status message.
+
+    1. Test case: `delete 0`<br>
+       Expected: No person is deleted. Error details shown in the status message. Status bar remains the same.
+
+    1. Other incorrect delete commands to try: `delete`, `delete x`, `...` (where x is larger than the filtered list size)<br>
+       Expected: Similar to previous.
+
+### Finding a person
+
+1. Finding person(s) by name while all persons are being shown
+
+    1. Prerequisites: List all persons using the `list` command. Multiple persons in the list.
+
+    1. Test case: `find n/Alex`<br>
+       Expected: The contacts with the name field containing 'Alex' from the list is shown. Number of contacts listed is shown in the status message.
+
+    1. Test case: `find n/Alex Bernice`<br>
+       Expected: The contacts with the name field containing 'Alex' or 'Bernice' from the list is shown. Number of contacts listed is shown in the status message.
+
+    1. Other incorrect find commands to try: `find`, `find n/`, `...` (where the string after n/ is not alphanumeric)<br>
+       Expected: Error details shown in the status message. Status bar remains the same.
+
+1. Finding person(s) by instrument while all persons are being shown
+
+    1. Prerequisites: List all persons using the `list` command. Multiple persons in the list.
+
+    1. Test case: `find i/Clarinet`<br>
+       Expected: The contacts with the instrument field containing 'Clarinet' from the list is shown. Number of contacts listed is shown in the status message.
+
+    1. Test case: `find i/Clarinet Oboe`<br>
+       Expected: The contacts with the instrument field containing 'Clarinet' or 'Oboe' from the list is shown. Number of contacts listed is shown in the status message.
+
+    1. Other incorrect find commands to try: `find`, `find i/`, `...` (where the string after i/ is not alphanumeric)<br>
+       Expected: Error details shown in the status message. Status bar remains the same.
+
+1. Finding person(s) by name and instrument while all persons are being shown
+
+    1. Prerequisites: List all persons using the `list` command. Multiple persons in the list.
+
+    1. Test case: `find n/Alex i/Clarinet`<br>
+       Expected: The contacts with the name field containing 'Alex' and the instrument field containing 'Clarinet' from the list is shown. Number of contacts listed is shown in the status message.
+
+    1. Test case: `find n/Alex Bernice i/Clarinet Oboe`<br>
+       Expected: The contacts with the name field containing 'Alex' or 'Bernice' and the instrument field containing 'Clarinet' or 'Oboe' from the list is shown. Number of contacts listed is shown in the status message.
+
+    1. Other incorrect find commands to try: `find`, `find n/ i/`, `find i/ n/`, `...` (where the string after n/ and i/ is not alphanumeric)<br>
+       Expected: Error details shown in the status message. Status bar remains the same.
+
+### Assigning an instrument to person(s)
+1. Assigning an instrument to person(s) while all persons are being shown
+
+    1. Prerequisites: List all persons using the `list` command. Multiple persons in the list.
+
+    1. Test case: `assign 1 i/Clarinet`<br>
+       Expected: First contact in the list is assigned with the instrument 'Clarinet'. Name of the edited contact shown in the status message.
+
+    1. Test case: `assign 3 4 i/Flute`<br>
+       Expected: Third and fourth contact in the list is assigned with the instrument 'Flute'. Names of the edited contacts shown in the status message.
+
+    1. Other incorrect assign commands to try: `assign`, `assign x`, `...` (where x is larger than the list size)<br>
+       Expected: Error details shown in the status message. Status bar remains the same.
+
+1. Assigning an instrument to person(s) while a filtered list is being shown_
+
+    1. Prerequisites: List all persons using the `list` command. Multiple persons in the list. Filter the list using the `find` command.
+
+    1. Test case: `assign 1 i/Clarinet`<br>
+       Expected: First contact in the filtered list is assigned with the instrument 'Clarinet'. Name of the edited contact shown in the status message.
+
+    1. Test case: `assign 3 4 i/Flute`<br>
+       Expected: Third and fourth contact in the filtered list is assigned with the instrument 'Flute'. Names of the edited contacts shown in the status message.
+
+    1. Other incorrect assign commands to try: `assign`, `assign x`, `...` (where x is larger than the filtered list size)<br>
+       Expected: Error details shown in the status message. Status bar remains the same.
 
 ### Saving data
 
