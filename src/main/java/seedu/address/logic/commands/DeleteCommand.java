@@ -26,7 +26,7 @@ public class DeleteCommand extends Command {
             + ": Deletes the person identified by the index number or their matriculation year used in the "
             + "displayed person list.\n"
             + "Parameters: INDEX (must be a positive integer) or "
-            + PREFIX_MATRICULATION_YEAR + "MATRICULATIONYEAR \n"
+            + PREFIX_MATRICULATION_YEAR + "MATRICULATION_YEAR \n"
             + "Example: " + COMMAND_WORD + " 1 \n"
             + "Example: " + COMMAND_WORD + " my/2003 \n";
 
