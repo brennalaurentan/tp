@@ -8,7 +8,7 @@
 
 BandBook is your all-in-one software designed to streamline the management of band members' contact details and 
 information. It offers a user-friendly platform to **create, edit and delete members' contact information**, 
-along with optional fields such as **tag, birthday and instrument information**.
+along with optional fields such as **tag, birthday, matriculation year and instrument information**.
 
 Moreover, you can **indicate and view the attendance history of your members**, ensuring that they stay on track with the band's activities. Optimised for use via a Command Line Interface (CLI), BandBook can assist you in managing your members' details faster than traditional GUI apps.
 
@@ -124,7 +124,7 @@ Examples:
 
 <br>
 
-### Locating persons by name: `find`
+### Finding a person/multiple persons by name and/or instrument: `find`
 
 Finds persons whose name and/or instrument fields contain any of the given keywords.
 
@@ -139,8 +139,7 @@ Format: `find [n/KEYWORD [MORE_KEYWORDS]] [i/KEYWORD [MORE_KEYWORDS]]`
 
 Examples:
 * `find n/John` returns `john` and `John Doe`
-* `find n/alex david` returns `Alex Yeoh`, `David Li`<br><br>
-  ![result for 'find alex david'](images/findAlexDavidResult.png) <br><br>
+* `find n/alex david` returns `Alex Yeoh`, `David Li`
 * `find n/alex david i/flute` returns `Alex Yeoh`, `David Li` and other persons who play the flute.
 * `find i/clarinet flute` returns all persons who play the clarinet or flute.
 
@@ -297,3 +296,10 @@ Action     | Format, Examples
 **Find**   | `find [n/KEYWORD [MORE_KEYWORDS]] [i/KEYWORD [MORE_KEYWORDS]]`<br> e.g., `find n/James Jake i/flute clarinet`
 **List**   | `list`
 **Help**   | `help`
+
+--------------------------------------------------------------------------------------------------------------------
+
+## Acknowledgements
+
+BandBook is based on the AddressBook-Level3 project created by the [SE-EDU initiative](https://se-education.org). 
+It is a project under the CS2103T module, School of Computing, National University of Singapore.
