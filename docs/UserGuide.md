@@ -7,10 +7,15 @@
 # BandBook User Guide
 
 BandBook is your all-in-one software designed to streamline the management of band members' contact details and
-information. It offers a user-friendly platform to **create, edit and delete members' contact information**,
+attendance. It offers a user-friendly platform to **add, edit and delete members' contact information**,
 along with optional fields such as **tag, birthday, matriculation year and instrument information**.
 
-Moreover, you can **indicate and view the attendance history of your members**, ensuring that they stay on track with the band's activities. Optimised for use via a Command Line Interface (CLI), BandBook can assist you in managing your members' details faster than traditional GUI apps.
+Moreover, you can **assign instruments** to your members and **find your members by their name and/or instrument
+assigned**. You may also **indicate and view the attendance history of your members**, ensuring that they stay on
+track with the band's activities.
+
+Optimised for use via a Command Line Interface (CLI), BandBook can assist you in managing your members' details
+faster than traditional GUI apps.
 
 <!-- * Table of Contents -->
 <page-nav-print />
@@ -21,11 +26,11 @@ Moreover, you can **indicate and view the attendance history of your members**, 
 
 1. Ensure you have Java `11` or above installed in your Computer.
 
-2. Download the latest `bandbook.jar` from [here](https://github.com/AY2324S2-CS2103T-T15-3/tp/releases).
+2. Download the latest `BandBook-v1.3.jar` from [here](https://github.com/AY2324S2-CS2103T-T15-3/tp/releases).
 
 3. Copy the file to the folder you want to use as the _home folder_ for your BandBook.
 
-4. Open a command terminal, `cd` into the folder you put the jar file in, and use the `java -jar bandbook.jar` command to run the application.<br>
+4. Open a command terminal, `cd` into the folder you put the jar file in, and use the `java -jar BandBook-v1.3.jar` command to run the application.<br>
    <br> A GUI similar to the below should appear in a few seconds. Note how the app contains some sample data.<br>
    <br> ![Ui](images/Ui.png) <br> <br>
 5. Type the command in the command box and press Enter to execute it. e.g. typing **`help`** and pressing Enter will open the help window.<br>
@@ -268,6 +273,7 @@ BandBook data is saved automatically as a JSON file `[JAR file location]/data/ba
 
 **Caution:**
 If your changes to the data file makes its format invalid, BandBook will discard all data and start with an empty data file at the next run.  Hence, it is recommended to take a backup of the file before editing it.<br>
+
 Furthermore, certain edits can cause the BandBook to behave in unexpected ways (e.g., if a value entered is outside the acceptable range). Therefore, edit the data file only if you are confident that you can update it correctly.
 </box>
 
