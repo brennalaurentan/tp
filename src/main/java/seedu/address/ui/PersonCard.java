@@ -67,7 +67,7 @@ public class PersonCard extends UiPart<Region> {
         address.setText(person.getAddress().value);
         email.setText(person.getEmail().value);
         birthday.setText(person.hasBirthdayInfo()
-                ? "Birthday: " + person.getBirthday().value
+                ? person.getBirthday().value
                 : "No birthday information.");
         matriculationYear.setText(person.hasMatriculationYearInfo()
                 ? "Matriculated in: " + person.getMatriculationYear().value
