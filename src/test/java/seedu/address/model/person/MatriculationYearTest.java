@@ -1,13 +1,13 @@
 package seedu.address.model.person;
 
-import org.junit.jupiter.api.Test;
-
-import java.time.Year;
-
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.model.person.MatriculationYear.DEFAULT_MATRICULATION_YEAR;
 import static seedu.address.testutil.Assert.assertThrows;
+
+import java.time.Year;
+
+import org.junit.jupiter.api.Test;
 
 public class MatriculationYearTest {
     @Test
@@ -58,7 +58,7 @@ public class MatriculationYearTest {
     }
 
     @Test
-    public void testHashCode_Symmetric() {
+    public void testHashCode_symmetric() {
         MatriculationYear x = new MatriculationYear(DEFAULT_MATRICULATION_YEAR);
         MatriculationYear y = new MatriculationYear(DEFAULT_MATRICULATION_YEAR);
 

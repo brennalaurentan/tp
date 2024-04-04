@@ -6,7 +6,6 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_ADDRESS_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
-import static seedu.address.model.person.Birthday.DEFAULT_BIRTHDAY;
 import static seedu.address.testutil.Assert.assertThrows;
 import static seedu.address.testutil.TypicalPersons.ALICE;
 import static seedu.address.testutil.TypicalPersons.BOB;
@@ -188,7 +187,7 @@ public class UniquePersonListTest {
     }
 
     @Test
-    public void testHashCode_Symmetric() {
+    public void testHashCode_symmetric() {
         UniquePersonList x = new UniquePersonList();
         UniquePersonList y = new UniquePersonList();
 

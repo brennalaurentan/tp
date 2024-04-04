@@ -2,7 +2,6 @@ package seedu.address.model.person;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static seedu.address.model.person.Birthday.DEFAULT_BIRTHDAY;
 import static seedu.address.testutil.Assert.assertThrows;
 
 import org.junit.jupiter.api.Test;
@@ -56,7 +55,7 @@ public class AddressTest {
     }
 
     @Test
-    public void testHashCode_Symmetric() {
+    public void testHashCode_symmetric() {
         Address x = new Address("5 Haig Road");
         Address y = new Address("5 Haig Road");
 

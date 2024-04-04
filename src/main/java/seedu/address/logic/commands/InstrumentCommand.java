@@ -70,7 +70,8 @@ public class InstrumentCommand extends Command {
             editedNames.add(editedPerson.getName());
 
             if (personToEdit.getInstrument().equals(instrument)) {
-                throw new CommandException(String.format(Messages.MESSAGE_DUPLICATE_INSTRUMENT, personToEdit.getName()));
+                throw new CommandException(String.format(Messages.MESSAGE_DUPLICATE_INSTRUMENT,
+                        personToEdit.getName()));
             }
 
             model.setPerson(personToEdit, editedPerson);

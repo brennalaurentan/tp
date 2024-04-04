@@ -1,18 +1,5 @@
 package seedu.address.logic.commands;
 
-import org.junit.jupiter.api.Test;
-import seedu.address.commons.core.index.Index;
-import seedu.address.logic.Messages;
-import seedu.address.model.Model;
-import seedu.address.model.ModelManager;
-import seedu.address.model.UserPrefs;
-import seedu.address.model.person.Instrument;
-import seedu.address.model.person.Name;
-import seedu.address.model.person.Person;
-
-import java.util.HashSet;
-import java.util.Set;
-
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_INSTRUMENT_AMY;
@@ -22,6 +9,20 @@ import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
 import static seedu.address.logic.commands.InstrumentCommand.MESSAGE_EDIT_PERSON_SUCCESS;
 import static seedu.address.testutil.TypicalPersons.getTypicalAddressBook;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import org.junit.jupiter.api.Test;
+
+import seedu.address.commons.core.index.Index;
+import seedu.address.logic.Messages;
+import seedu.address.model.Model;
+import seedu.address.model.ModelManager;
+import seedu.address.model.UserPrefs;
+import seedu.address.model.person.Instrument;
+import seedu.address.model.person.Name;
+import seedu.address.model.person.Person;
+
 public class InstrumentCommandTest {
     private Model model = new ModelManager(getTypicalAddressBook(), new UserPrefs());
 
@@ -29,21 +30,20 @@ public class InstrumentCommandTest {
     public void equals() {
         Index sampleIndexOne = Index.fromOneBased(1);
         Index sampleIndexTwo = Index.fromOneBased(2);
-        Index sampleIndexThree = Index.fromOneBased(3);
         Set<Index> indexSetWithOne = new HashSet<>();
         indexSetWithOne.add(sampleIndexOne);
         Set<Index> indexSetWithTwo = new HashSet<>();
         indexSetWithTwo.add(sampleIndexTwo);
-        InstrumentCommand amyInstrumentCommand = 
+        InstrumentCommand amyInstrumentCommand =
                 new InstrumentCommand(indexSetWithOne, new Instrument(VALID_INSTRUMENT_AMY));
         InstrumentCommand bobInstrumentCommand =
                 new InstrumentCommand(indexSetWithOne, new Instrument(VALID_INSTRUMENT_BOB));
-        
+
         // same object -> returns true
         assertTrue(amyInstrumentCommand.equals(amyInstrumentCommand));
 
         // same values -> returns true
-        InstrumentCommand amyInstrumentCommandCopy = 
+        InstrumentCommand amyInstrumentCommandCopy =
                 new InstrumentCommand(indexSetWithOne, new Instrument(VALID_INSTRUMENT_AMY));
         assertTrue(amyInstrumentCommand.equals(amyInstrumentCommandCopy));
 
@@ -60,10 +60,10 @@ public class InstrumentCommandTest {
 
         // different index base -> returns false
         Index sampleIndexOneDiffBase = Index.fromZeroBased(1);
-        Set<Index> indexSetWithOne_zeroBase = new HashSet<>();
-        indexSetWithOne_zeroBase.add(sampleIndexOneDiffBase);
+        Set<Index> indexSetWithOneUsingZeroBase = new HashSet<>();
+        indexSetWithOneUsingZeroBase.add(sampleIndexOneDiffBase);
         InstrumentCommand amyInstrumentCommandDifferentIndexBase =
-                new InstrumentCommand(indexSetWithOne_zeroBase, new Instrument(VALID_INSTRUMENT_AMY));
+                new InstrumentCommand(indexSetWithOneUsingZeroBase, new Instrument(VALID_INSTRUMENT_AMY));
         assertFalse(amyInstrumentCommand.equals(amyInstrumentCommandDifferentIndexBase));
 
         // different instrument -> returns false

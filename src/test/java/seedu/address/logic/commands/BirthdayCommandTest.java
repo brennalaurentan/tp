@@ -8,9 +8,7 @@ import static seedu.address.logic.commands.CommandTestUtil.VALID_BIRTHDAY_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_BIRTHDAY_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandFailure;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
-import static seedu.address.logic.commands.MatriculationYearCommand.MESSAGE_DELETE_MATRICULATION_YEAR_SUCCESS;
 import static seedu.address.model.person.Birthday.DEFAULT_BIRTHDAY;
-import static seedu.address.model.person.MatriculationYear.DEFAULT_MATRICULATION_YEAR;
 import static seedu.address.testutil.TypicalPersons.ALICE;
 import static seedu.address.testutil.TypicalPersons.getTypicalAddressBook;
 
@@ -22,7 +20,6 @@ import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
 import seedu.address.model.UserPrefs;
 import seedu.address.model.person.Birthday;
-import seedu.address.model.person.MatriculationYear;
 
 public class BirthdayCommandTest {
 

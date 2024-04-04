@@ -2,7 +2,6 @@ package seedu.address.model.person;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static seedu.address.model.person.Birthday.DEFAULT_BIRTHDAY;
 import static seedu.address.model.person.Instrument.DEFAULT_INSTRUMENT;
 import static seedu.address.testutil.Assert.assertThrows;
 
@@ -60,7 +59,7 @@ public class InstrumentTest {
     }
 
     @Test
-    public void testHashCode_Symmetric() {
+    public void testHashCode_symmetric() {
 
         Instrument x = new Instrument(DEFAULT_INSTRUMENT);
         Instrument y = new Instrument(DEFAULT_INSTRUMENT);

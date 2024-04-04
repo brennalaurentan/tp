@@ -2,16 +2,13 @@ package seedu.address.model.person;
 
 import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.AppUtil.checkArgument;
-import static seedu.address.model.util.DateValidatorUtil.isBeforeToday;
-import static seedu.address.model.util.DateValidatorUtil.isToday;
-import static seedu.address.model.util.DateValidatorUtil.isTwentyNineFeb;
 import static seedu.address.model.util.DateValidatorUtil.isValidDate;
-import static seedu.address.model.util.DateValidatorUtil.isValidLeapYear;
 
 import java.time.LocalDate;
-import java.time.Year;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
+
+import seedu.address.model.util.DateValidatorUtil;
 
 /**
  * Represents a Person's birthday in the address book.
@@ -42,8 +39,10 @@ public class Birthday {
         LocalDate dateEntered;
         try {
             dateEntered = LocalDate.parse(test, DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+            boolean isToday = DateValidatorUtil.isToday(dateEntered);
+            boolean isBeforeToday = DateValidatorUtil.isBeforeToday(dateEntered);
             boolean isDefaultBirthday = test.equals(DEFAULT_BIRTHDAY);
-            return isValidDate(test) || isDefaultBirthday;
+            return isValidDate(test) && (isToday || isBeforeToday || isDefaultBirthday);
         } catch (DateTimeParseException e) {
             return false;
         }

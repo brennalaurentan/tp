@@ -62,7 +62,7 @@ public class BirthdayTest {
     }
 
     @Test
-    public void testHashCode_Symmetric() {
+    public void testHashCode_symmetric() {
         Birthday x = new Birthday(DEFAULT_BIRTHDAY);
         Birthday y = new Birthday(DEFAULT_BIRTHDAY);
 
