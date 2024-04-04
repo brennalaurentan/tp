@@ -118,4 +118,12 @@ public class PersonTest {
         // empty birthday field -> returns true
         assertFalse(personEmptyBirthday.hasBirthdayInfo());
     }
+
+    @Test
+    public void hasInstrumentInfo() {
+        Person personEmptyInstrument = new PersonBuilder().withInstrument().build();
+
+        // empty instrument field -> returns true
+        assertFalse(personEmptyInstrument.hasInstrumentInfo());
+    }
 }
