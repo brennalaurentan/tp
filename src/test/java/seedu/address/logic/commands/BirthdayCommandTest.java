@@ -1,16 +1,28 @@
 package seedu.address.logic.commands;
 
-import org.junit.jupiter.api.Test;
-import seedu.address.commons.core.index.Index;
-import seedu.address.model.person.Birthday;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static seedu.address.logic.commands.BirthdayCommand.MESSAGE_ADD_BIRTHDAY_SUCCESS;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_BIRTHDAY_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_BIRTHDAY_BOB;
+import static seedu.address.logic.commands.CommandTestUtil.assertCommandFailure;
+import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
+import static seedu.address.testutil.TypicalPersons.ALICE;
+import static seedu.address.testutil.TypicalPersons.GEORGE;
+import static seedu.address.testutil.TypicalPersons.getTypicalAddressBook;
+
+import org.junit.jupiter.api.Test;
+
+import seedu.address.commons.core.index.Index;
+import seedu.address.logic.Messages;
+import seedu.address.model.Model;
+import seedu.address.model.ModelManager;
+import seedu.address.model.UserPrefs;
+import seedu.address.model.person.Birthday;
 
 public class BirthdayCommandTest {
+
+    private Model model = new ModelManager(getTypicalAddressBook(), new UserPrefs());
 
     @Test
     public void equals() {
@@ -45,5 +57,26 @@ public class BirthdayCommandTest {
 
         // different birthday -> returns false
         assertFalse(amyBirthdayCommand.equals(bobBirthdayCommand));
+    }
+
+    /**
+     * Create birthday command with valid parameters
+     */
+    @Test
+    public void execute_success() {
+        Index aliceIndex = Index.fromOneBased(1); // alice's index in TypicalPersons.java
+        BirthdayCommand validBirthdayCommand = new BirthdayCommand(aliceIndex, new Birthday(VALID_BIRTHDAY_AMY));
+        String SUCCESS_MESSAGE = String.format(MESSAGE_ADD_BIRTHDAY_SUCCESS, ALICE);
+        assertCommandSuccess(validBirthdayCommand, model, SUCCESS_MESSAGE, model);
+    }
+
+    /**
+     * Create birthday command where index is larger than size of list (invalid)
+     */
+    @Test
+    public void execute_invalidPersonIndex_throwsCommandException() {
+        Index outOfBoundIndex = Index.fromOneBased(model.getFilteredPersonList().size() + 1);
+        BirthdayCommand invalidBirthdayCommand = new BirthdayCommand(outOfBoundIndex, new Birthday(VALID_BIRTHDAY_AMY));
+        assertCommandFailure(invalidBirthdayCommand, model, Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
     }
 }
