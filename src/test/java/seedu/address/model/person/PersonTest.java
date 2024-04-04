@@ -115,15 +115,23 @@ public class PersonTest {
     public void hasBirthdayInfo() {
         Person personEmptyBirthday = new PersonBuilder().withBirthday().build();
 
-        // empty birthday field -> returns true
+        // empty birthday field -> returns false
         assertFalse(personEmptyBirthday.hasBirthdayInfo());
+    }
+
+    @Test
+    public void hasMatriculationYearInfo() {
+        Person personEmptyMatriculationYear = new PersonBuilder().withMatriculationYear().build();
+
+        // empty matriculation year field -> returns false
+        assertFalse(personEmptyMatriculationYear.hasMatriculationYearInfo());
     }
 
     @Test
     public void hasInstrumentInfo() {
         Person personEmptyInstrument = new PersonBuilder().withInstrument().build();
 
-        // empty instrument field -> returns true
+        // empty instrument field -> returns false
         assertFalse(personEmptyInstrument.hasInstrumentInfo());
     }
 }
