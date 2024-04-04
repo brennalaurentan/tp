@@ -8,7 +8,6 @@ import static seedu.address.logic.commands.CommandTestUtil.VALID_BIRTHDAY_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandFailure;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
 import static seedu.address.testutil.TypicalPersons.ALICE;
-import static seedu.address.testutil.TypicalPersons.GEORGE;
 import static seedu.address.testutil.TypicalPersons.getTypicalAddressBook;
 
 import org.junit.jupiter.api.Test;
@@ -65,9 +64,9 @@ public class BirthdayCommandTest {
     @Test
     public void execute_success() {
         Index aliceIndex = Index.fromOneBased(1); // alice's index in TypicalPersons.java
-        BirthdayCommand validBirthdayCommand = new BirthdayCommand(aliceIndex, new Birthday(VALID_BIRTHDAY_AMY));
-        String SUCCESS_MESSAGE = String.format(MESSAGE_ADD_BIRTHDAY_SUCCESS, ALICE);
-        assertCommandSuccess(validBirthdayCommand, model, SUCCESS_MESSAGE, model);
+        BirthdayCommand validAliceBirthdayCommand = new BirthdayCommand(aliceIndex, new Birthday(VALID_BIRTHDAY_AMY));
+        String aliceSuccessMessage = String.format(MESSAGE_ADD_BIRTHDAY_SUCCESS, ALICE);
+        assertCommandSuccess(validAliceBirthdayCommand, model, aliceSuccessMessage, model);
     }
 
     /**
