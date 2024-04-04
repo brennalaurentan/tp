@@ -110,4 +110,37 @@ public class PersonTest {
                 + ", attendances=" + ALICE.getAttendances() + "}";
         assertEquals(expected, ALICE.toString());
     }
+
+    @Test
+    public void hasBirthdayInfo() {
+        Person personEmptyBirthday = new PersonBuilder().withBirthday().build();
+
+        // empty birthday field -> returns false
+        assertFalse(personEmptyBirthday.hasBirthdayInfo());
+    }
+
+    @Test
+    public void hasMatriculationYearInfo() {
+        Person personEmptyMatriculationYear = new PersonBuilder().withMatriculationYear().build();
+
+        // empty matriculation year field -> returns false
+        assertFalse(personEmptyMatriculationYear.hasMatriculationYearInfo());
+    }
+
+    @Test
+    public void hasInstrumentInfo() {
+        Person personEmptyInstrument = new PersonBuilder().withInstrument().build();
+
+        // empty instrument field -> returns false
+        assertFalse(personEmptyInstrument.hasInstrumentInfo());
+    }
+
+    @Test
+    public void testHashCode_symmetric() {
+        Person x = new PersonBuilder().build();
+        Person y = new PersonBuilder().build();
+
+        assertTrue(x.equals(y) && y.equals(x));
+        assertTrue(x.hashCode() == y.hashCode());
+    }
 }

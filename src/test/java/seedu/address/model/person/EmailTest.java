@@ -85,4 +85,13 @@ public class EmailTest {
         // different values -> returns false
         assertFalse(email.equals(new Email("other.valid@email")));
     }
+
+    @Test
+    public void testHashCode_symmetric() {
+        Email x = new Email("someone@gmail.com");
+        Email y = new Email("someone@gmail.com");
+
+        assertTrue(x.equals(y) && y.equals(x));
+        assertTrue(x.hashCode() == y.hashCode());
+    }
 }

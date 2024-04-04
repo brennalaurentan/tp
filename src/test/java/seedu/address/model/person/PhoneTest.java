@@ -57,4 +57,13 @@ public class PhoneTest {
         // different values -> returns false
         assertFalse(phone.equals(new Phone("995")));
     }
+
+    @Test
+    public void testHashCode_symmetric() {
+        Phone x = new Phone("99999999");
+        Phone y = new Phone("99999999");
+
+        assertTrue(x.equals(y) && y.equals(x));
+        assertTrue(x.hashCode() == y.hashCode());
+    }
 }

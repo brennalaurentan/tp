@@ -2,6 +2,7 @@ package seedu.address.logic.commands;
 
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 import static seedu.address.model.Model.PREDICATE_SHOW_ALL_PERSONS;
+import static seedu.address.model.person.MatriculationYear.DEFAULT_MATRICULATION_YEAR;
 
 import java.util.List;
 
@@ -29,8 +30,8 @@ public class MatriculationYearCommand extends Command {
             + "my/[MATRICULATION YEAR in YYYY]\n"
             + "Example: " + COMMAND_WORD + " 1 "
             + "my/2000";
-    public static final String MESSAGE_ADD_MATRICULATIONYEAR_SUCCESS = "Added matriculation year to Person: %1$s";
-    public static final String MESSAGE_DELETE_MATRICULATIONYEAR_SUCCESS =
+    public static final String MESSAGE_ADD_MATRICULATION_YEAR_SUCCESS = "Added matriculation year to Person: %1$s";
+    public static final String MESSAGE_DELETE_MATRICULATION_YEAR_SUCCESS =
             "Removed matriculation year from Person: %1$s";
 
     private final Index index;
@@ -73,9 +74,9 @@ public class MatriculationYearCommand extends Command {
      * {@code personToEdit}.
      */
     private String generateSuccessMessage(Person personToEdit) {
-        String message = !matriculationYear.value.isEmpty()
-                ? MESSAGE_ADD_MATRICULATIONYEAR_SUCCESS
-                : MESSAGE_DELETE_MATRICULATIONYEAR_SUCCESS;
+        String message = !matriculationYear.value.equals(DEFAULT_MATRICULATION_YEAR)
+                ? MESSAGE_ADD_MATRICULATION_YEAR_SUCCESS
+                : MESSAGE_DELETE_MATRICULATION_YEAR_SUCCESS;
         return String.format(message, personToEdit);
     }
 

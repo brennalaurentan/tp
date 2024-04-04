@@ -53,4 +53,13 @@ public class AddressTest {
         // different values -> returns false
         assertFalse(address.equals(new Address("Other Valid Address")));
     }
+
+    @Test
+    public void testHashCode_symmetric() {
+        Address x = new Address("5 Haig Road");
+        Address y = new Address("5 Haig Road");
+
+        assertTrue(x.equals(y) && y.equals(x));
+        assertTrue(x.hashCode() == y.hashCode());
+    }
 }

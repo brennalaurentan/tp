@@ -2,6 +2,7 @@ package seedu.address.model.person;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_ADDRESS_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
@@ -11,6 +12,7 @@ import static seedu.address.testutil.TypicalPersons.BOB;
 
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
 
 import org.junit.jupiter.api.Test;
@@ -171,5 +173,35 @@ public class UniquePersonListTest {
     @Test
     public void toStringMethod() {
         assertEquals(uniquePersonList.asUnmodifiableObservableList().toString(), uniquePersonList.toString());
+    }
+
+    @Test
+    public void equals() {
+        UniquePersonList x = new UniquePersonList();
+
+        // same object -> returns true
+        assertTrue(x.equals(x));
+
+        // different type -> returns false
+        assertFalse(x.equals("something"));
+    }
+
+    @Test
+    public void testHashCode_symmetric() {
+        UniquePersonList x = new UniquePersonList();
+        UniquePersonList y = new UniquePersonList();
+
+        assertTrue(x.equals(y) && y.equals(x));
+        assertTrue(x.hashCode() == y.hashCode());
+    }
+
+    @Test
+    public void iterator() {
+        UniquePersonList x = new UniquePersonList();
+        UniquePersonList y = new UniquePersonList();
+        Iterator<Person> xIterator1 = x.iterator();
+        Iterator<Person> xIterator2 = x.iterator();
+
+        assertNotEquals(xIterator1, xIterator2);
     }
 }

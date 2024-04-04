@@ -2,6 +2,7 @@ package seedu.address.logic.commands;
 
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 import static seedu.address.model.Model.PREDICATE_SHOW_ALL_PERSONS;
+import static seedu.address.model.person.Birthday.DEFAULT_BIRTHDAY;
 
 import java.util.List;
 
@@ -72,7 +73,8 @@ public class BirthdayCommand extends Command {
      * {@code personToEdit}.
      */
     private String generateSuccessMessage(Person personToEdit) {
-        String message = !birthday.value.isEmpty() ? MESSAGE_ADD_BIRTHDAY_SUCCESS : MESSAGE_DELETE_BIRTHDAY_SUCCESS;
+        String message = !birthday.value.equals(DEFAULT_BIRTHDAY)
+                ? MESSAGE_ADD_BIRTHDAY_SUCCESS : MESSAGE_DELETE_BIRTHDAY_SUCCESS;
         return String.format(message, personToEdit);
     }
 
