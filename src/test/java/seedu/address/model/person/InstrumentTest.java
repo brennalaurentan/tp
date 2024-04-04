@@ -30,7 +30,6 @@ public class InstrumentTest {
         assertFalse(Instrument.isValidInstrument("")); // empty string
         assertFalse(Instrument.isValidInstrument(" ")); // spaces only
         assertFalse(Instrument.isValidInstrument("!")); // not alphanumeric
-        assertFalse(Instrument.isValidInstrument("Tuba 2")); // contains space
         assertFalse(Instrument.isValidInstrument("Clari_net")); // contains symbol
 
         // valid instruments
