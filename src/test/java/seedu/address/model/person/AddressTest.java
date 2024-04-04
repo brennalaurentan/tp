@@ -2,6 +2,7 @@ package seedu.address.model.person;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static seedu.address.model.person.Birthday.DEFAULT_BIRTHDAY;
 import static seedu.address.testutil.Assert.assertThrows;
 
 import org.junit.jupiter.api.Test;
@@ -52,5 +53,14 @@ public class AddressTest {
 
         // different values -> returns false
         assertFalse(address.equals(new Address("Other Valid Address")));
+    }
+
+    @Test
+    public void testHashCode_Symmetric() {
+        Address x = new Address("5 Haig Road");
+        Address y = new Address("5 Haig Road");
+
+        assertTrue(x.equals(y) && y.equals(x));
+        assertTrue(x.hashCode() == y.hashCode());
     }
 }

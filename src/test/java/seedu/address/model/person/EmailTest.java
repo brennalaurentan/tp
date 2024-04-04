@@ -2,6 +2,7 @@ package seedu.address.model.person;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static seedu.address.model.person.Birthday.DEFAULT_BIRTHDAY;
 import static seedu.address.testutil.Assert.assertThrows;
 
 import org.junit.jupiter.api.Test;
@@ -84,5 +85,14 @@ public class EmailTest {
 
         // different values -> returns false
         assertFalse(email.equals(new Email("other.valid@email")));
+    }
+
+    @Test
+    public void testHashCode_Symmetric() {
+        Email x = new Email("someone@gmail.com");
+        Email y = new Email("someone@gmail.com");
+
+        assertTrue(x.equals(y) && y.equals(x));
+        assertTrue(x.hashCode() == y.hashCode());
     }
 }
