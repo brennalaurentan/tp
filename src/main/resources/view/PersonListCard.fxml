@@ -9,6 +9,8 @@
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
 
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
 <HBox id="cardPane" fx:id="cardPane" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
   <GridPane HBox.hgrow="ALWAYS">
     <columnConstraints>
@@ -39,9 +41,35 @@
             <Label fx:id="phone" styleClass="cell_small_label" text="\$phone" />
             <Label fx:id="address" styleClass="cell_small_label" text="\$address" />
             <Label fx:id="email" styleClass="cell_small_label" text="\$email" />
-            <Label fx:id="birthday" styleClass="cell_small_label" text="\$birthday" />
-            <Label fx:id="matriculationYear" styleClass="cell_small_label" text="\$matriculationYear" />
-            <Label fx:id="instrument" styleClass="cell_small_label" text="\$instrument" />
+            <VBox spacing="4">
+              <padding>
+                <Insets top="10" />
+              </padding>
+              <HBox spacing="6">
+                <ImageView fitHeight="20" fitWidth="20" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                    <Image url="/images/cake.png" />
+                  </image>
+                </ImageView>
+                <Label styleClass="cell_small_label" fx:id="birthday" text="\$birthday" />
+              </HBox>
+              <HBox spacing="6">
+                <ImageView fitHeight="20" fitWidth="20" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                    <Image url="/images/academic-cap.png" />
+                  </image>
+                </ImageView>
+                <Label styleClass="cell_small_label" fx:id="matriculationYear" text="\$matriculationYear" />
+              </HBox>
+              <HBox spacing="6">
+                <ImageView fitHeight="20" fitWidth="20" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                    <Image url="/images/musical-note.png" />
+                  </image>
+                </ImageView>
+                <Label styleClass="cell_small_label" fx:id="instrument" text="\$instrument" />
+              </HBox>
+            </VBox>
           </VBox>
         </VBox>
         <VBox>
