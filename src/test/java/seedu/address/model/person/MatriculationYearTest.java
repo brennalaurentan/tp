@@ -6,6 +6,7 @@ import java.time.Year;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static seedu.address.model.person.MatriculationYear.DEFAULT_MATRICULATION_YEAR;
 import static seedu.address.testutil.Assert.assertThrows;
 
 public class MatriculationYearTest {
@@ -54,5 +55,14 @@ public class MatriculationYearTest {
 
         // different values -> returns false
         assertFalse(matriculationYear.equals(new MatriculationYear("2022")));
+    }
+
+    @Test
+    public void testHashCode_Symmetric() {
+        MatriculationYear x = new MatriculationYear(DEFAULT_MATRICULATION_YEAR);
+        MatriculationYear y = new MatriculationYear(DEFAULT_MATRICULATION_YEAR);
+
+        assertTrue(x.equals(y) && y.equals(x));
+        assertTrue(x.hashCode() == y.hashCode());
     }
 }
