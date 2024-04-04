@@ -62,12 +62,15 @@ public class DeleteCommand extends Command {
         if (!this.matriculationYear.equals(new MatriculationYear(MatriculationYear.DEFAULT_MATRICULATION_YEAR))) {
             model.updateFilteredPersonList(person -> person.getMatriculationYear().equals(this.matriculationYear));
             List<Person> toDelete = new ArrayList<>(model.getFilteredPersonList());
-            toDelete.forEach(person -> {
-                model.deletePerson(person);
+            StringBuilder deletedPersonsList = new StringBuilder();
+            toDelete.forEach(personToDelete -> {
+                model.deletePerson(personToDelete);
+                deletedPersonsList.append("\n");
+                deletedPersonsList.append(Messages.format(personToDelete));
             });
 
             model.updateFilteredPersonList(person -> true);
-            return new CommandResult(String.format(MESSAGE_DELETE_PERSONS_SUCCESS, toDelete));
+            return new CommandResult(String.format(MESSAGE_DELETE_PERSONS_SUCCESS, deletedPersonsList));
         } else {
             List<Person> lastShownList = model.getFilteredPersonList();
             if (targetIndex.getZeroBased() >= lastShownList.size()) {

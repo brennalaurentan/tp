@@ -71,7 +71,7 @@ Moreover, you can **indicate and view the attendance history of your members**, 
 
 ### Viewing help : `help`
 
-Shows a message explaning how to access the help page.
+Shows a message explaining how to access the help page.
 
 ![help message](images/helpMessage.png)
 
@@ -83,7 +83,7 @@ Format: `help`
 
 Adds a person to BandBook.
 
-Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [b/BIRTHDAY] [i/INSTRUMENT] [t/TAG]…​`
+Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [b/BIRTHDAY] [my/MATRICULATION_YEAR] [i/INSTRUMENT] [t/TAG]…​`
 
 <box type="tip" seamless>
 
@@ -109,7 +109,7 @@ Format: `list`
 
 Edits an existing person in BandBook.
 
-Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [b/BIRTHDAY] [i/INSTRUMENT] [t/TAG]…​`
+Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [b/BIRTHDAY] [my/MATRICULATION_YEAR] [i/INSTRUMENT] [t/TAG]…​`
 
 * Edits the person at the specified `INDEX`. The index refers to the index number shown in the displayed person list. The index **must be a positive integer** 1, 2, 3, …​
 * At least one of the optional fields must be provided.
@@ -162,7 +162,51 @@ Examples:
 
 <br>
 
-### Marking attendance of a person/mulitple people: `att`
+### Deleting a person/multiple people by matriculation year: `delete my/[MATRICULATION_YEAR]`
+
+Deletes all person(s) with the specified matriculation year from BandBook.
+
+Format: `delete my/[MATRICULATION_YEAR]`
+
+* Deletes the people who matriculated in year `MATRICULATION_YEAR`
+* The matriculation year specified must be in the format YYYY, and must be this year or prior.
+
+Example:
+* `delete my/2005` deletes all person(s) in BandBook who matriculated in 2005.
+
+<br>
+
+### Marking attendance of a person/multiple people: `att`
+
+Marks the attendance of an existing person/multiple people in BandBook.
+
+Format: `att INDEXES d/DATE`
+
+* Marks the attendance of the person(s) at the specified `INDEXES`. The index refers to the index number shown in the displayed person list. The index **must be a positive integer** 1, 2, 3, ...
+* At least one index must be provided.
+* The index refers to the index number shown in the displayed person list.
+* The person's contact will be updated with a tag containing the attendance date marked.
+
+Example:
+* `list` followed by `att 1 2 d/2024-02-02` marks the attendance of the persons at the 1st and 2nd indexes of BandBook, on 2024-02-02.
+* `find David` followed by `att 1 2 d/2024-02-02` marks the attendance of the persons at the 1st and 2nd indexes of the results of the `find` command, on 2024-02-02.
+<br>
+
+### Unmarking attendance of a person/multiple people: `attd`
+
+Unmarks the attendance of an existing person/multiple people in BandBook.
+
+Format: `attd INDEXES d/DATE`
+
+* Unmarks the attendance of the person(s) at the specified `INDEXES`. The index refers to the index number shown in the displayed person list. The index **must be a positive integer** 1, 2, 3, ...
+* At least one index must be provided.
+* The index refers to the index number shown in the displayed person list.
+* The person must have already been marked present on the attendance date provided.
+* The person's contact will be updated with the tag containing the date specified, removed.
+
+Example:
+* `list` followed by `att 1 2 d/2024-02-02` unmarks the attendance of the persons at the 1st and 2nd indexes of BandBook, on 2024-02-02.
+* `find David` followed by `att 1 2 d/2024-02-02` unmarks the attendance of the persons at the 1st and 2nd indexes of the results of the `find` command, on 2024-02-02.
 
 <br>
 
@@ -174,11 +218,12 @@ Format: `assign INDEXES i/INSTRUMENT​`
 
 * Assigns an instrument to the person(s) at the specified `INDEXES`. The index refers to the index number shown in the displayed person list. The index **must be a positive integer** 1, 2, 3, …​
 * At least one index must be provided.
+* The index refers to the index number shown in the displayed person list.
 * The instrument field will be updated with the input instrument.
 
 Examples:
-*  `instrument 1 i/Flute` Assigns the 1st and 2nd person with the Flute instrument.
-*  `instrument 2 3 5 i/Clarinet` Assigns the 2nd, 3rd and 5th person with the Clarinet instrument.
+*  `assign 1 i/Flute` Assigns the 1st person with the Flute instrument.
+*  `assign 2 3 5 i/Clarinet` Assigns the 2nd, 3rd and 5th person with the Clarinet instrument.
 
 <br>
 
@@ -206,7 +251,7 @@ BandBook data are saved in the hard disk automatically after any command that ch
 
 ### Editing the data file
 
-BandBook data are saved automatically as a JSON file `[JAR file location]/data/bandbook.json`. Advanced users are welcome to update data directly by editing that data file.
+BandBook data is saved automatically as a JSON file `[JAR file location]/data/bandbook.json`. Advanced users are welcome to update data directly by editing that data file.
 
 <box type="warning" seamless>
 
@@ -217,7 +262,7 @@ Furthermore, certain edits can cause the BandBook to behave in unexpected ways (
 
 <br>
 
-### Archiving data files `[coming in v2.0]`
+### View Rehearsal Schedule `[coming in v2.0]`
 
 _Details coming soon ..._
 
@@ -242,10 +287,13 @@ Action     | Format, Examples
 -----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 **Add**    | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [b/BIRTHDAY] [i/INSTRUMENT] [t/TAG]…​` <br> e.g., `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague`
 **Assign**  | `assign INDEXES i/INSTRUMENT` <br> e.g. `assign 1 2 i/Flute`
-**Attendance**  | e.g. `att 1 2 d/ 2024-02-02`
+**Attendance: Mark**  | `att INDEXES d/DATE_IN_YYYY-MM-DD` e.g. `att 1 2 d/ 2024-02-02`
+**Attendance: Unmark**  | `attd INDEXES d/DATE_IN_YYYY-MM-DD` <br> e.g., `attd 1 2 d/2024-02-02`
 **Clear**  | `clear`
-**Delete** | `delete INDEX`<br> e.g., `delete 3`
+**Delete by INDEX** | `delete INDEX`<br> e.g., `delete 3`
+**Delete by MATRICULATION YEAR** | `delete my/MATRICULATION_YEAR` <br> e.g., `delete my/2005`
 **Edit**   | `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [b/BIRTHDAY] [i/INSTRUMENT] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`
+**Exit**   | `exit`
 **Find**   | `find [n/KEYWORD [MORE_KEYWORDS]] [i/KEYWORD [MORE_KEYWORDS]]`<br> e.g., `find n/James Jake i/flute clarinet`
 **List**   | `list`
 **Help**   | `help`
