@@ -39,7 +39,6 @@ public class InstrumentCommand extends Command {
             + "Example: " + COMMAND_WORD + " 1 2 "
             + "i/Flute";
     public static final String MESSAGE_EDIT_PERSON_SUCCESS = "Edited Persons: %1$s";
-    public static final String MESSAGE_DUPLICATE_ATTENDANCE = "This instrument has already been assigned to %1$s";
 
     private final Set<Index> indexes;
     private final Instrument instrument;
@@ -70,8 +69,8 @@ public class InstrumentCommand extends Command {
             Person editedPerson = createEditedPerson(personToEdit, instrument);
             editedNames.add(editedPerson.getName());
 
-            if (personToEdit.getInstrument() == instrument) {
-                throw new CommandException(String.format(MESSAGE_DUPLICATE_ATTENDANCE, personToEdit.getName()));
+            if (personToEdit.getInstrument().equals(instrument)) {
+                throw new CommandException(String.format(Messages.MESSAGE_DUPLICATE_INSTRUMENT, personToEdit.getName()));
             }
 
             model.setPerson(personToEdit, editedPerson);
