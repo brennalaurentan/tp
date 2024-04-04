@@ -13,7 +13,8 @@
 
 ## **Acknowledgements**
 
-_{ list here sources of all reused/adapted ideas, code, documentation, and third-party libraries -- include links to the original source as well }_
+BandBook is based on the AddressBook-Level3 project created by the [SE-EDU initiative](https://se-education.org).
+It is a project under the CS2103T module, School of Computing, National University of Singapore.
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -204,17 +205,17 @@ help make managing a band easier.
 
 Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unlikely to have) - `*`
 
-| Priority   | As a …​                                   | I want to …​                            | So that I can…​                                       |
-|------------|-------------------------------------------|-----------------------------------------|-------------------------------------------------------|
-| `* * *`    | user                                      | create contact information              | keep track of members in the band                     |
-| `* * *`    | user                                      | view contact & address information      | organise transportation by area of residence          |
-| `* * *`    | user                                      | update contact information              | keep the address book current                         |
-| `* * *`    | user                                      | delete contact information              | keep address book updated                             |
-| `* *`      | user                                      | indicate birthday information           | coordinate celebrations for the members               |
-| `* *`      | user                                      | indicate instrument information         | keep track of each member's instrument assignments    |
-| `* *`      | user                                      | indicate matriculation year information | keep track of how long ago the member joined the club |
-| `* *`      | user                                      | view attendance history                 | monitor participation and follow up as necessary      |
-| `* *`      | user                                      | update attendance history               | keep updated attendance records                       |                                         |
+| Priority   | As a …​   | I want to …​                            | So that I can…​                                       |
+|------------|-----------|-----------------------------------------|-------------------------------------------------------|
+| `* * *`    | user      | create contact information              | keep track of members in the band                     |
+| `* * *`    | user      | view contact & address information      | organise transportation by area of residence          |
+| `* * *`    | user      | update contact information              | keep the address book current                         |
+| `* * *`    | user      | delete contact information              | keep address book updated                             |
+| `* *`      | user      | indicate birthday information           | coordinate celebrations for the members               |
+| `* *`      | user      | indicate instrument information         | keep track of each member's instrument assignments    |
+| `* *`      | user      | indicate matriculation year information | keep track of how long ago the member joined the club |
+| `* *`      | user      | view attendance history                 | monitor participation and follow up as necessary      |
+| `* *`      | user      | update attendance history               | keep updated attendance records                       |                                         |
 
 
 ### Use cases
@@ -244,14 +245,14 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
       Use case resumes at step 2.
 
-**Use case: Add a birthday to a member**
+**Use case: Indicate a birthday of a member**
 
 **MSS**
 
-1.  User requests to list members
-2.  BandBook shows a list of members
-3.  User requests to add a birthday to a specific member in the list
-4.  BandBook updates the member's info to reflect their birthday
+1.  User requests to list persons
+2.  AddressBook shows a list of persons
+3.  User requests to add a birthday to a specific person in the list
+4.  AddressBook updates the person's info to reflect their birthday
 
     Use case ends.
 
@@ -263,18 +264,58 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 * 3a. The given index is invalid.
 
-    * 3a1. BandBook shows an error message.
+    * 3a1. AddressBook shows an error message.
 
       Use case resumes at step 2.
+
+**Use case: Indicate matriculation year of a member**
+
+**MSS**
+
+1.  User requests to list persons
+2.  AddressBook shows a list of persons
+3.  User requests to add a matriculation year to a specific person in the list
+4.  AddressBook updates the person's info to reflect their matriculation year
+
+    Use case ends.
+
+**Extensions**
+
+* 2a. The list is empty.
+
+  Use case ends.
+
+* 3a. The given index is invalid.
+
+    * 3a1. AddressBook shows an error message.
+
+      Use case resumes at step 2.
+
+**Use case: Delete all members of a specific matriculation year**
+
+**MSS**
+
+1.  User requests to list persons
+2.  AddressBook shows a list of persons
+3.  User requests to delete all persons in the list who belong to a specific matriculation year
+4.  AddressBook deletes all persons who belong to the specific matriculation year
+
+    Use case ends.
+
+**Extensions**
+
+* 2a. The list is empty.
+
+  Use case ends.
 
 **Use case: Mark attendance for a member**
 
 **MSS**
 
-1.  User requests to list members
-2.  BandBook shows a list of members
-3.  User requests to mark the attendance of specific members in the list
-4.  BandBook updates the members' info to reflect their attendance for a specific day
+1.  User requests to list persons
+2.  AddressBook shows a list of persons
+3.  User requests to mark the attendance of specific person(s) in the list
+4.  AddressBook updates the person's info to reflect their attendance for a specific day
 
     Use case ends.
 
@@ -286,7 +327,53 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 * 3a. The given indexes are invalid.
 
-    * 3a1. BandBook shows an error message.
+    * 3a1. AddressBook shows an error message.
+
+      Use case resumes at step 2.
+
+**Use case: Unmark attendance for a member**
+
+**MSS**
+
+1.  User requests to list persons
+2.  AddressBook shows a list of persons
+3.  User requests to unmark the attendance of specific person(s) in the list
+4.  AddressBook updates the person's info to reflect their attendance for a specific day
+
+    Use case ends.
+
+**Extensions**
+
+* 2a. The list is empty.
+
+  Use case ends.
+
+* 3a. The given indexes are invalid.
+
+    * 3a1. AddressBook shows an error message.
+
+      Use case resumes at step 2.
+
+**Use case: Assign an instrument to a member**
+
+**MSS**
+
+1.  User requests to list persons
+2.  AddressBook shows a list of persons
+3.  User requests to assign an instrument to specific person(s) in the list
+4.  AddressBook updates the person's info to reflect their instrument
+
+    Use case ends.
+
+**Extensions**
+
+* 2a. The list is empty.
+
+  Use case ends.
+
+* 3a. The given index is invalid.
+
+    * 3a1. AddressBook shows an error message.
 
       Use case resumes at step 2.
 
