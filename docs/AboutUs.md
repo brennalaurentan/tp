@@ -21,8 +21,8 @@ You can reach us at the following emails:
 [[github](http://github.com/brennalaurentan)]
 
 * Role: Developer
-* Responsibilities: 
-  * Backend for Birthday information 
+* Responsibilities:
+  * Backend for Birthday information
   * Backend for Matriculation Year information
 
 ### Shaun Lai
@@ -32,7 +32,7 @@ You can reach us at the following emails:
 [[github](http://github.com/casaarlai)]
 
 * Role: Developer
-* Responsibilities: 
+* Responsibilities:
   * Backend for Indicate and Delete Attendance feature
   * Backend for Mass Delete Matriculation Year feature
 
@@ -43,7 +43,7 @@ You can reach us at the following emails:
 [[github](http://github.com/triciiaaa)]
 
 * Role: Developer
-* Responsibilities: 
+* Responsibilities:
   * User Interface Design (Mockup and Development)
   * Backend for Instrument information
   * Backend for Assign Instrument feature
