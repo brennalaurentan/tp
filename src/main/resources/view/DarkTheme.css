@@ -1,3 +1,18 @@
+@font-face {
+    font-family: "Product Sans Light";
+    src: url("../fonts/Product-Sans-Light.ttf");
+}
+
+@font-face {
+    font-family: "Product Sans";
+    src: url("../fonts/Product-Sans-Regular.ttf");
+}
+
+@font-face {
+    font-family: "Product Sans Medium";
+    src: url("../fonts/Product-Sans-Medium.ttf");
+}
+
 .background {
     -fx-background-color: white;
     background-color: white; /* Used in the default.html file */

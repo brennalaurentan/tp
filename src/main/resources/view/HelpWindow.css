@@ -1,3 +1,8 @@
+@font-face {
+    font-family: "Product Sans";
+    src: url("../fonts/Product-Sans-Regular.ttf");
+}
+
 #copyButton, #helpMessage {
     -fx-font-size: 11pt;
     -fx-font-family: "Product Sans";
