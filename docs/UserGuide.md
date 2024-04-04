@@ -85,6 +85,9 @@ Adds a person to BandBook.
 
 Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [b/BIRTHDAY] [my/MATRICULATION_YEAR] [i/INSTRUMENT] [t/TAG]…​`
 
+* `BIRTHDAY` should be in the format YYYY-MM-DD.
+* `MATRICULATION_YEAR` should be in the format YYYY, and must be this year or prior.
+
 <box type="tip" seamless>
 
 **Tip:** A person can have any number of tags (including 0)
@@ -117,6 +120,8 @@ Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [b/BIRTHDAY] [my/MA
 * When editing tags, the existing tags of the person will be removed i.e adding of tags is not cumulative.
 * You can remove all the person’s tags by typing `t/` without
     specifying any tags after it.
+* `BIRTHDAY` should be in the format YYYY-MM-DD.
+* `MATRICULATION_YEAR` should be in the format YYYY, and must be this year or prior.
 
 Examples:
 *  `edit 1 p/91234567 e/johndoe@example.com` Edits the phone number and email address of the 1st person to be `91234567` and `johndoe@example.com` respectively.
@@ -124,7 +129,7 @@ Examples:
 
 <br>
 
-### Finding a person/multiple persons by name and/or instrument: `find`
+### Finding person(s) by name and/or instrument: `find`
 
 Finds persons whose name and/or instrument fields contain any of the given keywords.
 
@@ -136,6 +141,7 @@ Format: `find [n/KEYWORD [MORE_KEYWORDS]] [i/KEYWORD [MORE_KEYWORDS]]`
 * Only full words will be matched e.g. `Han` will not match `Hans`
 * Persons matching at least one keyword will be returned (i.e. `OR` search).
   e.g. `Hans Bo` will return `Hans Gruber`, `Bo Yang`
+* If a search yields 0 results, no persons will be listed.
 
 Examples:
 * `find n/John` returns `john` and `John Doe`
@@ -161,13 +167,13 @@ Examples:
 
 <br>
 
-### Deleting a person/multiple people by matriculation year: `delete my/[MATRICULATION_YEAR]`
+### Deleting person(s) by matriculation year: `delete my/[MATRICULATION_YEAR]`
 
-Deletes all person(s) with the specified matriculation year from BandBook.
+Deletes persons with the specified matriculation year from BandBook.
 
 Format: `delete my/[MATRICULATION_YEAR]`
 
-* Deletes the people who matriculated in year `MATRICULATION_YEAR`
+* Deletes persons who matriculated in year `MATRICULATION_YEAR`
 * The matriculation year specified must be in the format YYYY, and must be this year or prior.
 
 Example:
@@ -175,31 +181,36 @@ Example:
 
 <br>
 
-### Marking attendance of a person/multiple people: `att`
+### Marking attendance of person(s): `att`
 
-Marks the attendance of an existing person/multiple people in BandBook.
+Marks the attendance the specified person(s) in BandBook.
 
-Format: `att INDEXES d/DATE`
+Format: `att INDEX_1 [INDEX_2]... d/DATE`
 
-* Marks the attendance of the person(s) at the specified `INDEXES`. The index refers to the index number shown in the displayed person list. The index **must be a positive integer** 1, 2, 3, ...
+* Marks the attendance of the person at the specified `INDEX`. The index refer to the index number shown in the displayed person list. The index **must be a positive integer** 1, 2, 3, ...
 * At least one index must be provided.
-* The index refers to the index number shown in the displayed person list.
+* To specify multiple persons to mark an attendance for, specify each index with a space separating them apart.
+* Each index refers to the index number shown in the displayed person list.
 * The person's contact will be updated with a tag containing the attendance date marked.
+* `DATE` should be in the format YYYY-MM-DD.
+* Duplicate entries of an attendance date for the same person are not supported.
 
 Example:
 * `list` followed by `att 1 2 d/2024-02-02` marks the attendance of the persons at the 1st and 2nd indexes of BandBook, on 2024-02-02.
 * `find David` followed by `att 1 2 d/2024-02-02` marks the attendance of the persons at the 1st and 2nd indexes of the results of the `find` command, on 2024-02-02.
 <br>
 
-### Unmarking attendance of a person/multiple people: `attd`
+### Unmarking attendance of person(s): `attd`
 
-Unmarks the attendance of an existing person/multiple people in BandBook.
+Unmarks the attendance of the specified person(s) in BandBook.
 
-Format: `attd INDEXES d/DATE`
+Format: `attd INDEX_1 [INDEX_2]... d/DATE`
 
-* Unmarks the attendance of the person(s) at the specified `INDEXES`. The index refers to the index number shown in the displayed person list. The index **must be a positive integer** 1, 2, 3, ...
+* Unmarks the attendance of the person(s) at the specified `INDEX`. The index refers to the index number shown in the displayed person list. The index **must be a positive integer** 1, 2, 3, ...
 * At least one index must be provided.
+* To specify multiple persons to unmark an attendance for, specify each index with a space separating them apart.
 * The index refers to the index number shown in the displayed person list.
+* `DATE` should be in the format YYYY-MM-DD.
 * The person must have already been marked present on the attendance date provided.
 * The person's contact will be updated with the tag containing the date specified, removed.
 
@@ -209,14 +220,15 @@ Example:
 
 <br>
 
-### Assigning an instrument to a person/multiple people: `assign`
+### Assigning an instrument to person(s): `assign`
 
-Assigns an instrument to an existing person/multiple people in BandBook.
+Assigns an instrument to an existing person(s) in BandBook.
 
-Format: `assign INDEXES i/INSTRUMENT​`
+Format: `assign INDEX_1 [INDEX_2]... i/INSTRUMENT​`
 
-* Assigns an instrument to the person(s) at the specified `INDEXES`. The index refers to the index number shown in the displayed person list. The index **must be a positive integer** 1, 2, 3, …​
+* Assigns an instrument to the person(s) at the specified `INDEX`. The index refers to the index number shown in the displayed person list. The index **must be a positive integer** 1, 2, 3, …​
 * At least one index must be provided.
+* To specify multiple persons to assign an instrument to, specify each index with a space separating them apart.
 * The index refers to the index number shown in the displayed person list.
 * The instrument field will be updated with the input instrument.
 
@@ -285,9 +297,9 @@ _Details coming soon ..._
 Action     | Format, Examples
 -----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 **Add**    | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [b/BIRTHDAY] [i/INSTRUMENT] [t/TAG]…​` <br> e.g., `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague`
-**Assign**  | `assign INDEXES i/INSTRUMENT` <br> e.g. `assign 1 2 i/Flute`
-**Attendance: Mark**  | `att INDEXES d/DATE_IN_YYYY-MM-DD` e.g. `att 1 2 d/ 2024-02-02`
-**Attendance: Unmark**  | `attd INDEXES d/DATE_IN_YYYY-MM-DD` <br> e.g., `attd 1 2 d/2024-02-02`
+**Assign**  | `assign INDEX_1 [INDEX_2]... i/INSTRUMENT` <br> e.g. `assign 1 2 i/Flute`
+**Attendance: Mark**  | `att INDEX_1 [INDEX_2]... d/DATE_IN_YYYY-MM-DD` e.g. `att 1 2 d/ 2024-02-02`
+**Attendance: Unmark**  | `attd INDEX_1 [INDEX_2]... d/DATE_IN_YYYY-MM-DD` <br> e.g., `attd 1 2 d/2024-02-02`
 **Clear**  | `clear`
 **Delete by INDEX** | `delete INDEX`<br> e.g., `delete 3`
 **Delete by MATRICULATION YEAR** | `delete my/MATRICULATION_YEAR` <br> e.g., `delete my/2005`
