@@ -42,7 +42,7 @@ public class AttendanceCommandParser implements Parser<AttendanceCommand> {
                     AttendanceCommand.MESSAGE_USAGE), ive);
         } catch (DateTimeParseException e) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT,
-                    AttendanceCommand.MESSAGEa_USAGE), e);
+                    AttendanceCommand.MESSAGE_USAGE), e);
         }
     }
 
