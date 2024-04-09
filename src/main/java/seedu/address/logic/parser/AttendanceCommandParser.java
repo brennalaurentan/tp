@@ -6,6 +6,7 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_ATTENDANCE_DATE;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.List;
 import java.util.Set;
 
@@ -32,16 +33,17 @@ public class AttendanceCommandParser implements Parser<AttendanceCommand> {
         Set<Index> indexes;
         try {
             indexes = ParserUtil.parseIndexes(List.of(argMultimap.getPreamble().split(" ")));
+            LocalDate date = LocalDate.parse(argMultimap.getValue(PREFIX_ATTENDANCE_DATE).orElse(""),
+                    DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+
+            return new AttendanceCommand(indexes, date);
         } catch (IllegalValueException ive) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT,
                     AttendanceCommand.MESSAGE_USAGE), ive);
+        } catch (DateTimeParseException e) {
+            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT,
+                    AttendanceCommand.MESSAGEa_USAGE), e);
         }
-
-
-        LocalDate date = LocalDate.parse(argMultimap.getValue(PREFIX_ATTENDANCE_DATE).orElse(""),
-                DateTimeFormatter.ofPattern("yyyy-MM-dd"));
-
-        return new AttendanceCommand(indexes, date);
     }
 
 }
