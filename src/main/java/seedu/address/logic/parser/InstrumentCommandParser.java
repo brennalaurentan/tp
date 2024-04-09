@@ -31,15 +31,16 @@ public class InstrumentCommandParser implements Parser<InstrumentCommand> {
         Set<Index> indexes;
         try {
             indexes = ParserUtil.parseIndexes(List.of(argMultimap.getPreamble().split(" ")));
+            String instrument = argMultimap.getValue(PREFIX_INSTRUMENT).orElse("");
+
+            return new InstrumentCommand(indexes, new Instrument(instrument));
         } catch (IllegalValueException ive) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT,
                     InstrumentCommand.MESSAGE_USAGE), ive);
+        } catch (IllegalArgumentException e) {
+            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT,
+                    InstrumentCommand.MESSAGE_USAGE), e);
         }
-
-
-        String instrument = argMultimap.getValue(PREFIX_INSTRUMENT).orElse("");
-
-        return new InstrumentCommand(indexes, new Instrument(instrument));
     }
 
 }

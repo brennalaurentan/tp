@@ -35,7 +35,7 @@ public class InstrumentCommand extends Command {
             + ": Assigns an instrument to the persons identified "
             + "by the index numbers used in the last person listing. \n"
             + "Parameters: INDEXES (must be positive integers separated by a whitespace) "
-            + "i/[INSTRUMENT]\n"
+            + "i/[INSTRUMENT] (only alphanumeric characters)\n"
             + "Example: " + COMMAND_WORD + " 1 2 "
             + "i/Flute";
     public static final String MESSAGE_EDIT_PERSON_SUCCESS = "Edited Persons: %1$s";
