@@ -77,9 +77,9 @@ faster than traditional GUI apps.
 ### Parameter Constraints
 #### NAME: `n/`
 > It refers to the **name** of the person.
+* Only accepts alphanumeric characters and spaces.
 * Case sensitive, i.e. John Doe ≠ john doe.
 * Leading and trailing spaces are automatically removed.
-* Only accepts alphanumeric characters and spaces.
 
 #### PHONE_NUMBER: `p/`
 > It refers to the **phone number** of the person.
@@ -104,14 +104,16 @@ faster than traditional GUI apps.
 
 #### INSTRUMENT: `i/`
 > It refers to the **instrument** assigned to the person.
-* Stores only one instrument per person.
 * Only accepts alphanumeric characters and spaces. 
+* Stores only one instrument per person.
+* Once a person has an instrument assigned, subsequent edits will require the instrument field to be filled.
 
 #### TAG: `t/`
 > It refers to the **tag(s)** used to categorise the person.
 * Only accepts alphanumeric characters.
 * A person can have any number of tags (including 0).
 * Multiple tags can be specified. For example, `t/friend t/colleague`.
+* Tags are coloured according to a hash function, which assigns the tag a colour among 5 colours in BandBook's colour palette.
 
 #### DATE: `d/`
 > It refers to the **date** of attendance.
