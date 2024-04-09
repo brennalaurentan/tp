@@ -26,11 +26,11 @@ faster than traditional GUI apps.
 
 1. Ensure you have Java `11` or above installed in your Computer.
 
-2. Download the latest `BandBook-v1.3.jar` from [here](https://github.com/AY2324S2-CS2103T-T15-3/tp/releases).
+2. Download the latest `BandBook-v1.4.jar` from [here](https://github.com/AY2324S2-CS2103T-T15-3/tp/releases).
 
 3. Copy the file to the folder you want to use as the _home folder_ for your BandBook.
 
-4. Open a command terminal, `cd` into the folder you put the jar file in, and use the `java -jar BandBook-v1.3.jar` command to run the application.<br>
+4. Open a command terminal, `cd` into the folder you put the jar file in, and use the `java -jar BandBook-v1.4.jar` command to run the application.<br>
    <br> A GUI similar to the below should appear in a few seconds. Note how the app contains some sample data.<br>
    <br> ![Ui](images/Ui.png) <br> <br>
 5. Type the command in the command box and press Enter to execute it. e.g. typing **`help`** and pressing Enter will open the help window.<br>
@@ -74,6 +74,51 @@ faster than traditional GUI apps.
 * If you are using a PDF version of this document, be careful when copying and pasting commands that span multiple lines as space characters surrounding line-breaks may be omitted when copied over to the application.
 </box>
 
+### Parameter Constraints
+#### NAME: `n/`
+> It refers to the **name** of the person.
+* Only accepts alphanumeric characters and spaces.
+* Case sensitive, i.e. John Doe ≠ john doe.
+* Leading and trailing spaces are automatically removed.
+
+#### PHONE_NUMBER: `p/`
+> It refers to the **phone number** of the person.
+* Only accepts numbers.
+* Must be at least 3 digits long and no spaces.
+
+#### EMAIL: `e/`
+> It refers to the **email** of the person.
+* Must follow the format 'local-part@domain'.
+
+#### ADDRESS: `a/`
+> It refers to the **address** of the person.
+* Accepts any characters.
+
+#### BIRTHDAY: `b/`
+> It refers to the **birthday** of the person.
+* Must be a valid date in the format YYYY-MM-DD.
+
+#### MATRICULATION_YEAR: `my/`
+> It refers to the **matriculation year** of the person.
+* Must be in the format YYYY, and must be this year or prior.
+
+#### INSTRUMENT: `i/`
+> It refers to the **instrument** assigned to the person.
+* Only accepts alphanumeric characters and spaces. 
+* Stores only one instrument per person.
+* Once a person has an instrument assigned, subsequent edits will require the instrument field to be filled.
+
+#### TAG: `t/`
+> It refers to the **tag(s)** used to categorise the person.
+* Only accepts alphanumeric characters.
+* A person can have any number of tags (including 0).
+* Multiple tags can be specified. For example, `t/friend t/colleague`.
+* Tags are coloured according to a hash function, which assigns the tag a colour among 5 colours in BandBook's colour palette.
+
+#### DATE: `d/`
+> It refers to the **date** of attendance.
+* Must be a valid date in the format YYYY-MM-DD.
+
 ### Viewing help : `help`
 
 Shows a message explaining how to access the help page.
@@ -89,14 +134,6 @@ Format: `help`
 Adds a person to BandBook.
 
 Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [b/BIRTHDAY] [my/MATRICULATION_YEAR] [i/INSTRUMENT] [t/TAG]…​`
-
-* `BIRTHDAY` should be in the format YYYY-MM-DD.
-* `MATRICULATION_YEAR` should be in the format YYYY, and must be this year or prior.
-
-<box type="tip" seamless>
-
-**Tip:** A person can have any number of tags (including 0)
-</box>
 
 Examples:
 * `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01`
@@ -117,16 +154,13 @@ Format: `list`
 
 Edits an existing person in BandBook.
 
-Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [b/BIRTHDAY] [my/MATRICULATION_YEAR] [i/INSTRUMENT] [t/TAG]…​`
+Format: `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [b/BIRTHDAY] [my/MATRICULATION_YEAR] [i/INSTRUMENT] [t/TAG]…​`
 
 * Edits the person at the specified `INDEX`. The index refers to the index number shown in the displayed person list. The index **must be a positive integer** 1, 2, 3, …​
 * At least one of the optional fields must be provided.
 * Existing values will be updated to the input values.
 * When editing tags, the existing tags of the person will be removed i.e adding of tags is not cumulative.
-* You can remove all the person’s tags by typing `t/` without
-    specifying any tags after it.
-* `BIRTHDAY` should be in the format YYYY-MM-DD.
-* `MATRICULATION_YEAR` should be in the format YYYY, and must be this year or prior.
+* You can remove all the person’s tags by typing `t/` without specifying any tags after it.
 
 Examples:
 *  `edit 1 p/91234567 e/johndoe@example.com` Edits the phone number and email address of the 1st person to be `91234567` and `johndoe@example.com` respectively.
@@ -167,8 +201,8 @@ Format: `delete INDEX`
 * The index **must be a positive integer** 1, 2, 3, …​
 
 Examples:
-* `list` followed by `delete 2` deletes the 2nd person in BandBook.
-* `find Betsy` followed by `delete 1` deletes the 1st person in the results of the `find` command.
+* Entering `list`, followed by `delete 2` deletes the 2nd person in BandBook.
+* Entering `find n/Betsy`, followed by `delete 1` deletes the 1st person in the results of the `find` command.
 
 <br>
 
@@ -178,8 +212,7 @@ Deletes persons with the specified matriculation year from BandBook.
 
 Format: `delete my/[MATRICULATION_YEAR]`
 
-* Deletes persons who matriculated in year `MATRICULATION_YEAR`
-* The matriculation year specified must be in the format YYYY, and must be this year or prior.
+* Deletes all persons who matriculated in year `MATRICULATION_YEAR`
 
 Example:
 * `delete my/2005` deletes all person(s) in BandBook who matriculated in 2005.
@@ -197,12 +230,11 @@ Format: `att INDEX_1 [INDEX_2]... d/DATE`
 * To specify multiple persons to mark an attendance for, specify each index with a space separating them apart.
 * Each index refers to the index number shown in the displayed person list.
 * The person's contact will be updated with a tag containing the attendance date marked.
-* `DATE` should be in the format YYYY-MM-DD.
 * Duplicate entries of an attendance date for the same person are not supported.
 
 Example:
-* `list` followed by `att 1 2 d/2024-02-02` marks the attendance of the persons at the 1st and 2nd indexes of BandBook, on 2024-02-02.
-* `find David` followed by `att 1 2 d/2024-02-02` marks the attendance of the persons at the 1st and 2nd indexes of the results of the `find` command, on 2024-02-02.
+* Entering `list`, followed by `att 1 2 d/2024-02-02` marks the attendance of the persons at the 1st and 2nd indexes of BandBook, on 2024-02-02.
+* Entering `find n/David`, followed by `att 1 2 d/2024-02-02` marks the attendance of the persons at the 1st and 2nd indexes of the results of the `find` command, on 2024-02-02.
 <br>
 
 ### Unmarking attendance of person(s): `attd`
@@ -215,13 +247,12 @@ Format: `attd INDEX_1 [INDEX_2]... d/DATE`
 * At least one index must be provided.
 * To specify multiple persons to unmark an attendance for, specify each index with a space separating them apart.
 * The index refers to the index number shown in the displayed person list.
-* `DATE` should be in the format YYYY-MM-DD.
 * The person must have already been marked present on the attendance date provided.
 * The person's contact will be updated with the tag containing the date specified, removed.
 
 Example:
-* `list` followed by `att 1 2 d/2024-02-02` unmarks the attendance of the persons at the 1st and 2nd indexes of BandBook, on 2024-02-02.
-* `find David` followed by `att 1 2 d/2024-02-02` unmarks the attendance of the persons at the 1st and 2nd indexes of the results of the `find` command, on 2024-02-02.
+* Entering `list`, followed by `attd 1 2 d/2024-02-02` unmarks the attendance of the persons at the 1st and 2nd indexes of BandBook, on 2024-02-02.
+* Entering `find n/David`, followed by `attd 1 2 d/2024-02-02` unmarks the attendance of the persons at the 1st and 2nd indexes of the results of the `find` command, on 2024-02-02.
 
 <br>
 
@@ -235,7 +266,7 @@ Format: `assign INDEX_1 [INDEX_2]... i/INSTRUMENT​`
 * At least one index must be provided.
 * To specify multiple persons to assign an instrument to, specify each index with a space separating them apart.
 * The index refers to the index number shown in the displayed person list.
-* The instrument field will be updated with the input instrument.
+* The instrument field will be updated with the input instrument which cannot be empty.
 
 Examples:
 *  `assign 1 i/Flute` Assigns the 1st person with the Flute instrument.

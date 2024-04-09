@@ -36,9 +36,9 @@ public class AttendanceCommand extends Command {
             + ": Adds the attendance date to the persons identified "
             + "by the index numbers used in the last person listing. \n"
             + "Parameters: INDEXES (must be positive integers separated by a whitespace) "
-            + "d/ [DATE]\n"
+            + "d/[DATE] (YYYY-MM-DD)\n"
             + "Example: " + COMMAND_WORD + " 1 2 "
-            + "d/ 2024-02-02";
+            + "d/2024-02-02";
     public static final String MESSAGE_MARK_ATTENDANCE_SUCCESS = "Marked attendance for Persons: %1$s";
     public static final String MESSAGE_DUPLICATE_ATTENDANCE = "This attendance has already been marked for %1$s";
 
