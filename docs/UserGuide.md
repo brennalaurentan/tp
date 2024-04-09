@@ -201,8 +201,8 @@ Format: `delete INDEX`
 * The index **must be a positive integer** 1, 2, 3, …​
 
 Examples:
-* `list` followed by `delete 2` deletes the 2nd person in BandBook.
-* `find n/Betsy` followed by `delete 1` deletes the 1st person in the results of the `find` command.
+* Entering `list`, followed by `delete 2` deletes the 2nd person in BandBook.
+* Entering `find n/Betsy`, followed by `delete 1` deletes the 1st person in the results of the `find` command.
 
 <br>
 
@@ -233,8 +233,8 @@ Format: `att INDEX_1 [INDEX_2]... d/DATE`
 * Duplicate entries of an attendance date for the same person are not supported.
 
 Example:
-* `list` followed by `att 1 2 d/2024-02-02` marks the attendance of the persons at the 1st and 2nd indexes of BandBook, on 2024-02-02.
-* `find n/David` followed by `att 1 2 d/2024-02-02` marks the attendance of the persons at the 1st and 2nd indexes of the results of the `find` command, on 2024-02-02.
+* Entering `list`, followed by `att 1 2 d/2024-02-02` marks the attendance of the persons at the 1st and 2nd indexes of BandBook, on 2024-02-02.
+* Entering `find n/David`, followed by `att 1 2 d/2024-02-02` marks the attendance of the persons at the 1st and 2nd indexes of the results of the `find` command, on 2024-02-02.
 <br>
 
 ### Unmarking attendance of person(s): `attd`
@@ -251,8 +251,8 @@ Format: `attd INDEX_1 [INDEX_2]... d/DATE`
 * The person's contact will be updated with the tag containing the date specified, removed.
 
 Example:
-* `list` followed by `att 1 2 d/2024-02-02` unmarks the attendance of the persons at the 1st and 2nd indexes of BandBook, on 2024-02-02.
-* `find n/David` followed by `att 1 2 d/2024-02-02` unmarks the attendance of the persons at the 1st and 2nd indexes of the results of the `find` command, on 2024-02-02.
+* Entering `list`, followed by `attd 1 2 d/2024-02-02` unmarks the attendance of the persons at the 1st and 2nd indexes of BandBook, on 2024-02-02.
+* Entering `find n/David`, followed by `attd 1 2 d/2024-02-02` unmarks the attendance of the persons at the 1st and 2nd indexes of the results of the `find` command, on 2024-02-02.
 
 <br>
 
