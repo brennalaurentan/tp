@@ -236,6 +236,8 @@ Format: `assign INDEX_1 [INDEX_2]... i/INSTRUMENT​`
 * To specify multiple persons to assign an instrument to, specify each index with a space separating them apart.
 * The index refers to the index number shown in the displayed person list.
 * The instrument field will be updated with the input instrument.
+* The instrument field is not case-sensitive and does not accept special characters.
+* Although the instrument field accepts more than one word, this implementation is meant for members with one instrument each. 
 
 Examples:
 *  `assign 1 i/Flute` Assigns the 1st person with the Flute instrument.
