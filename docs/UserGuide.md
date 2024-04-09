@@ -168,7 +168,7 @@ Format: `delete INDEX`
 
 Examples:
 * `list` followed by `delete 2` deletes the 2nd person in BandBook.
-* `find Betsy` followed by `delete 1` deletes the 1st person in the results of the `find` command.
+* `find n/Betsy` followed by `delete 1` deletes the 1st person in the results of the `find` command.
 
 <br>
 
@@ -202,7 +202,7 @@ Format: `att INDEX_1 [INDEX_2]... d/DATE`
 
 Example:
 * `list` followed by `att 1 2 d/2024-02-02` marks the attendance of the persons at the 1st and 2nd indexes of BandBook, on 2024-02-02.
-* `find David` followed by `att 1 2 d/2024-02-02` marks the attendance of the persons at the 1st and 2nd indexes of the results of the `find` command, on 2024-02-02.
+* `find n/David` followed by `att 1 2 d/2024-02-02` marks the attendance of the persons at the 1st and 2nd indexes of the results of the `find` command, on 2024-02-02.
 <br>
 
 ### Unmarking attendance of person(s): `attd`
@@ -221,7 +221,7 @@ Format: `attd INDEX_1 [INDEX_2]... d/DATE`
 
 Example:
 * `list` followed by `att 1 2 d/2024-02-02` unmarks the attendance of the persons at the 1st and 2nd indexes of BandBook, on 2024-02-02.
-* `find David` followed by `att 1 2 d/2024-02-02` unmarks the attendance of the persons at the 1st and 2nd indexes of the results of the `find` command, on 2024-02-02.
+* `find n/David` followed by `att 1 2 d/2024-02-02` unmarks the attendance of the persons at the 1st and 2nd indexes of the results of the `find` command, on 2024-02-02.
 
 <br>
 
