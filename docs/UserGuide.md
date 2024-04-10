@@ -78,6 +78,7 @@ faster than traditional GUI apps.
 #### NAME: `n/`
 > It refers to the **name** of the person.
 * Only accepts alphanumeric characters and spaces.
+* Non-alphanumeric symbols and characters are not allowed.
 * Case sensitive, i.e. John Doe ≠ john doe.
 * No two persons can have the exact same name. It is recommended to enter full contact names to avoid this duplication error.
 * Leading and trailing spaces are automatically removed.
