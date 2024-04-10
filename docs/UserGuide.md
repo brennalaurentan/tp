@@ -152,7 +152,9 @@ Adds a person to BandBook.
 
 Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [b/BIRTHDAY] [my/MATRICULATION_YEAR] [i/INSTRUMENT] [t/TAG]…​`
 
-* All parameter constraints listed above apply. Click [here](#parameter-constraints) for the list of parameter constraints.
+<box type="info" seamless>
+**Tip:** All parameter constraints listed above apply. Click [here](#parameter-constraints) for the list of parameter constraints.
+</box>
 
 Examples:
 * `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01`
@@ -180,8 +182,10 @@ Format: `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [b/BIRTHDAY]
 * Existing values will be updated to the input values.
 * When editing tags, the existing tags of the person will be removed i.e adding of tags is not cumulative.
 * You can remove all the person’s tags by typing `t/` without specifying any tags after it.
-> Note: Command is only effective on the currently displayed list. Ensure that the index you have called is relative to the list that is currently displayed.
 
+<box type="warning" seamless>
+**Note:** Command is only effective on the currently displayed list. Ensure that the index you have called is relative to the list that is currently displayed.
+</box>
 
 Examples:
 *  `edit 1 p/91234567 e/johndoe@example.com` Edits the phone number and email address of the 1st person to be `91234567` and `johndoe@example.com` respectively.
@@ -236,8 +240,9 @@ Format: `delete my/[MATRICULATION_YEAR]`
 
 * Deletes all persons who matriculated in year `MATRICULATION_YEAR`
 
-Example:
+Examples:
 * `delete my/2005` deletes all person(s) in BandBook who matriculated in 2005.
+* `delete my/2009` deletes all person(s) in BandBook who matriculated in 2009.
 
 <br>
 
@@ -253,9 +258,12 @@ Format: `att INDEX_1 [INDEX_2]... d/DATE`
 * Each index refers to the index number shown in the displayed person list.
 * The person's contact will be updated with a tag containing the attendance date marked.
 * Duplicate entries of an attendance date for the same person are not supported.
-> Note: Command is only effective on the currently displayed list. Ensure that the index you have called is relative to the list that is currently displayed.
 
-Example:
+<box type="warning" seamless>
+**Note:** Command is only effective on the currently displayed list. Ensure that the index you have called is relative to the list that is currently displayed.
+</box>
+
+Examples:
 * Entering `list`, followed by `att 1 2 d/2024-02-02` marks the attendance of the persons at the 1st and 2nd indexes of BandBook, on 2024-02-02.
 * Entering `find n/David`, followed by `att 1 2 d/2024-02-02` marks the attendance of the persons at the 1st and 2nd indexes of the results of the `find` command, on 2024-02-02.
 <br>
@@ -273,10 +281,12 @@ Format: `attd INDEX_1 [INDEX_2]... d/DATE`
 * The index refers to the index number shown in the displayed person list.
 * The person must have already been marked present on the attendance date provided.
 * The person's contact will be updated with the tag containing the date specified, removed.
-> Note: Command is only effective on the currently displayed list. Ensure that the index you have called is relative to the list that is currently displayed.
 
+<box type="warning" seamless>
+**Note:** Command is only effective on the currently displayed list. Ensure that the index you have called is relative to the list that is currently displayed.
+</box>
 
-Example:
+Examples:
 * Entering `list`, followed by `attd 1 2 d/2024-02-02` unmarks the attendance of the persons at the 1st and 2nd indexes of BandBook, on 2024-02-02.
 * Entering `find n/David`, followed by `attd 1 2 d/2024-02-02` unmarks the attendance of the persons at the 1st and 2nd indexes of the results of the `find` command, on 2024-02-02.
 
@@ -294,8 +304,10 @@ Format: `assign INDEX_1 [INDEX_2]... i/INSTRUMENT​`
 * To specify multiple persons to assign an instrument to, specify each index with a space separating them apart.
 * The index refers to the index number shown in the displayed person list.
 * The instrument field will be updated with the input instrument which cannot be empty.
-> Note: Command is only effective on the currently displayed list. Ensure that the index you have called is relative to the list that is currently displayed.
 
+<box type="warning" seamless>
+**Note:** Command is only effective on the currently displayed list. Ensure that the index you have called is relative to the list that is currently displayed.
+</box>
 
 Examples:
 *  `assign 1 i/Flute` Assigns the 1st person with the Flute instrument.
