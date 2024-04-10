@@ -217,8 +217,9 @@ public class ParserUtilTest {
 
     @Test
     public void parseAttendances_collectionWithInvalidAttendances_throwsParseException() {
-        assertThrows(ParseException.class,
-                () -> ParserUtil.parseAttendances(Arrays.asList(VALID_ATTENDANCE_1, INVALID_ATTENDANCE)));
+        assertThrows(ParseException.class, () -> ParserUtil.parseAttendances(
+                Arrays.asList(VALID_ATTENDANCE_1, INVALID_ATTENDANCE))
+        );
     }
 
     @Test
@@ -239,13 +240,13 @@ public class ParserUtilTest {
 
     @Test
     public void parseFindString_invalidNameString_throwsParseException() {
-        assertThrows(ParseException.class,
-                () -> ParserUtil.parseFindString(INVALID_NAME, CliSyntax.PREFIX_NAME));
+        assertThrows(ParseException.class, () -> ParserUtil.parseFindString(INVALID_NAME, CliSyntax.PREFIX_NAME));
     }
 
     @Test
     public void parseFindString_invalidInstrumentString_throwsParseException() {
-        assertThrows(ParseException.class,
-                () -> ParserUtil.parseFindString(INVALID_FIND_INSTRUMENT_STRING, CliSyntax.PREFIX_INSTRUMENT));
+        assertThrows(ParseException.class, () -> ParserUtil.parseFindString(
+                INVALID_FIND_INSTRUMENT_STRING, CliSyntax.PREFIX_INSTRUMENT)
+        );
     }
 }
