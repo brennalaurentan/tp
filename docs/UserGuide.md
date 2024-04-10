@@ -6,6 +6,8 @@
 
 # BandBook User Guide
 
+**Welcome to BandBook: Your Ultimate Band Management Software!**
+
 BandBook is your all-in-one software designed to streamline the management of band members' contact details and
 attendance. It offers a user-friendly platform to **add, edit and delete members' contact information**,
 along with optional fields such as **tag, birthday, matriculation year and instrument information**.
@@ -16,6 +18,10 @@ track with the band's activities.
 
 Optimised for use via a Command Line Interface (CLI), BandBook can assist you in managing your members' details
 faster than traditional GUI apps.
+
+Through this user guide, you will learn how to use BandBook effectively and efficiently. We will guide you through
+step-by-step on how to use BandBook's features, along with the various commands available to you. Come on board and
+unlock BandBook's full potential today!
 
 <!-- * Table of Contents -->
 <page-nav-print />
@@ -28,12 +34,16 @@ faster than traditional GUI apps.
 
 2. Download the latest `BandBook-v1.4.jar` from [here](https://github.com/AY2324S2-CS2103T-T15-3/tp/releases).
 
-3. Copy the file to the folder you want to use as the _home folder_ for your BandBook.
+3. Copy the file to the folder you want to use as the _home folder_ for BandBook.
 
-4. Open a command terminal, `cd` into the folder you put the jar file in, and use the `java -jar BandBook-v1.4.jar` command to run the application.<br>
+4. Open a command terminal, `cd` into the folder you put the jar file in, and use the `java -jar BandBook-v1.4.jar`
+   command to run the application.<br>
    <br> A GUI similar to the below should appear in a few seconds. Note how the app contains some sample data.<br>
    <br> ![Ui](images/Ui.png) <br> <br>
-5. Type the command in the command box and press Enter to execute it. e.g. typing **`help`** and pressing Enter will open the help window.<br>
+
+5. Type the command in the command box and press Enter to execute it. e.g. typing **`help`** and pressing Enter will
+   open the help window.<br><br>
+
    Some example commands you can try:
 
    * `list` : Lists all contacts.
