@@ -86,9 +86,9 @@ faster than traditional GUI apps.
 #### PHONE_NUMBER: `p/`
 > It refers to the **phone number** of the person.
 * Only accepts numbers.
-* Alphabets, symbols and any other non-numeric characters are not allowed.
-* Must be at least 3 digits long and no spaces.
-* All valid phone number lengths are accepted (any country), country code included.
+* Alphabets, symbols (+, #) and any other non-numeric characters are not allowed.
+* Must be at least 3 digits long with no spaces.
+* All valid phone number lengths (any country) are accepted, country code included.
 
 #### EMAIL: `e/`
 > It refers to the **email** of the person.
