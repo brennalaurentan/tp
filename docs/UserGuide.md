@@ -79,6 +79,7 @@ faster than traditional GUI apps.
 > It refers to the **name** of the person.
 * Only accepts alphanumeric characters and spaces.
 * Case sensitive, i.e. John Doe ≠ john doe.
+* No two persons can have the exact same name. It is recommended to enter full contact names to avoid this duplication error.
 * Leading and trailing spaces are automatically removed.
 
 #### PHONE_NUMBER: `p/`
@@ -328,6 +329,8 @@ _Details coming soon ..._
 ## Known issues
 
 1. **When using multiple screens**, if you move the application to a secondary screen, and later switch to using only the primary screen, the GUI will open off-screen. The remedy is to delete the `preferences.json` file created by the application before running the application again.
+
+2. BandBook currently does not support users adding two contacts with the exact same name. As such, it is recommended to enter full contact names to avoid running into this duplication error. Alternatively, modify the capitalisation of characters in the name to make them nonidentical (e.g `John Doe` & `john doe`).
 
 --------------------------------------------------------------------------------------------------------------------
 
