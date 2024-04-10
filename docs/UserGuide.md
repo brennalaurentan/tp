@@ -101,10 +101,12 @@ faster than traditional GUI apps.
 #### BIRTHDAY: `b/`
 > It refers to the **birthday** of the person.
 * Must be a valid date in the format YYYY-MM-DD.
+* All dates from 0001-01-01 to the current date (inclusive) are accepted.
 
 #### MATRICULATION_YEAR: `my/`
 > It refers to the **matriculation year** of the person.
-* Must be in the format YYYY, and must be this year or prior.
+* Must be in the format YYYY.
+* All years from 0001 to the current year (inclusive) are accepted.
 
 #### INSTRUMENT: `i/`
 > It refers to the **instrument** assigned to the person.
