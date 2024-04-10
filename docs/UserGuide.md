@@ -117,6 +117,7 @@ faster than traditional GUI apps.
 #### TAG: `t/`
 > It refers to the **tag(s)** used to categorise the person.
 * Only accepts alphanumeric characters.
+* Case sensitive, i.e. NUS ≠ nus.
 * A person can have any number of tags (including 0).
 * Multiple tags can be specified. For example, `t/friend t/colleague`.
 * Tags are coloured according to a hash function, which assigns the tag a colour among 5 colours in BandBook's colour palette.
