@@ -181,13 +181,13 @@ reference frame respectively. Due to a PlantUML bug, this is unable to be reflec
 
 --------------------------------------------------------------------------------------------------------------------
 
-## **Appendix: Requirements**
+## **Appendix A: Requirements**
 
 ### Product scope
 
 **Target user profile**:
 
-* is the director/in-charge of a band
+* is the band administrator
 * has a need to manage a significant number of band members
 * prefer desktop apps over other types
 * can type fast
@@ -202,30 +202,31 @@ help make managing a band easier.
 
 Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unlikely to have) - `*`
 
-| Priority   | As a …​   | I want to …​                            | So that I can…​                                       |
-|------------|-----------|-----------------------------------------|-------------------------------------------------------|
-| `* * *`    | user      | create contact information              | keep track of members in the band                     |
-| `* * *`    | user      | view contact & address information      | organise transportation by area of residence          |
-| `* * *`    | user      | update contact information              | keep the address book current                         |
-| `* * *`    | user      | delete contact information              | keep address book updated                             |
-| `* *`      | user      | indicate birthday information           | coordinate celebrations for the members               |
-| `* *`      | user      | indicate instrument information         | keep track of each member's instrument assignments    |
-| `* *`      | user      | indicate matriculation year information | keep track of how long ago the member joined the club |
-| `* *`      | user      | view attendance history                 | monitor participation and follow up as necessary      |
-| `* *`      | user      | update attendance history               | keep updated attendance records                       |                                         |
+| Priority   | As a …​             | I want to …​                            | So that I can…​                                       |
+|------------|---------------------|-----------------------------------------|-------------------------------------------------------|
+| `* * *`    | band administrator  | create contact information              | keep track of members in the band                     |
+| `* * *`    | band administrator  | view contact & address information      | organise transportation by area of residence          |
+| `* * *`    | band administrator  | update contact information              | keep the address book current                         |
+| `* * *`    | band administrator  | delete contact information              | keep address book updated                             |
+| `* *`      | band administrator  | indicate birthday information           | coordinate celebrations for the members               |
+| `* *`      | band administrator  | indicate instrument information         | keep track of each member's instrument assignments    |
+| `* *`      | band administrator  | indicate matriculation year information | keep track of how long ago the member joined the club |
+| `* *`      | band administrator  | view attendance history                 | monitor participation and follow up as necessary      |
+| `* *`      | band administrator  | update attendance history               | keep updated attendance records                       |                                         |
+| `* *`      | band administrator  | filter contacts by instrument           | better coordinate performance rehearsals              |                                         |
 
 ### Use cases
 
-(For all use cases below, the **System** is the `AddressBook` and the **Actor** is the `user`, unless specified otherwise)
+(For all use cases below, the **System** is the `BandBook` and the **Actor** is the `band administrator`, unless specified otherwise)
 
 **Use case: Delete a person**
 
 **MSS**
 
-1.  User requests to list persons
-2.  AddressBook shows a list of persons
-3.  User requests to delete a specific person in the list
-4.  AddressBook deletes the person
+1.  Band administrator requests to list persons.
+2.  BandBook shows a list of persons.
+3.  Band administrator requests to delete a specific person in the list.
+4.  BandBook deletes the person.
 
     Use case ends.
 
@@ -237,7 +238,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 * 3a. The given index is invalid.
 
-    * 3a1. AddressBook shows an error message.
+    * 3a1. BandBook shows an error message.
 
       Use case resumes at step 2.
 
@@ -245,10 +246,10 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **MSS**
 
-1.  User requests to list persons
-2.  AddressBook shows a list of persons
-3.  User requests to add a birthday to a specific person in the list
-4.  AddressBook updates the person's info to reflect their birthday
+1.  Band administrator requests to list persons.
+2.  BandBook shows a list of persons.
+3.  Band administrator requests to add a birthday to a specific person in the list.
+4.  BandBook updates the person's info to reflect their birthday.
 
     Use case ends.
 
@@ -260,7 +261,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 * 3a. The given index is invalid.
 
-    * 3a1. AddressBook shows an error message.
+    * 3a1. BandBook shows an error message.
 
       Use case resumes at step 2.
 
@@ -268,10 +269,10 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **MSS**
 
-1.  User requests to list persons
-2.  AddressBook shows a list of persons
-3.  User requests to add a matriculation year to a specific person in the list
-4.  AddressBook updates the person's info to reflect their matriculation year
+1.  Band administrator requests to list persons.
+2.  BandBook shows a list of persons.
+3.  Band administrator requests to add a matriculation year to a specific person in the list.
+4.  BandBook updates the person's info to reflect their matriculation year.
 
     Use case ends.
 
@@ -283,7 +284,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 * 3a. The given index is invalid.
 
-    * 3a1. AddressBook shows an error message.
+    * 3a1. BandBook shows an error message.
 
       Use case resumes at step 2.
 
@@ -291,10 +292,10 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **MSS**
 
-1.  User requests to list persons
-2.  AddressBook shows a list of persons
-3.  User requests to delete all persons in the list who belong to a specific matriculation year
-4.  AddressBook deletes all persons who belong to the specific matriculation year
+1.  Band administrator requests to list persons.
+2.  BandBook shows a list of persons.
+3.  Band administrator requests to delete all persons in the list who belong to a specific matriculation year.
+4.  BandBook deletes all persons who belong to the specific matriculation year.
 
     Use case ends.
 
@@ -308,10 +309,10 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **MSS**
 
-1.  User requests to list persons
-2.  AddressBook shows a list of persons
-3.  User requests to mark the attendance of specific person(s) in the list
-4.  AddressBook updates the person's info to reflect their attendance for a specific day
+1.  Band administrator requests to list persons.
+2.  BandBook shows a list of persons.
+3.  Band administrator requests to mark the attendance of specific person(s) in the list.
+4.  BandBook updates the person's info to reflect their attendance for a specific day.
 
     Use case ends.
 
@@ -323,7 +324,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 * 3a. The given indexes are invalid.
 
-    * 3a1. AddressBook shows an error message.
+    * 3a1. BandBook shows an error message.
 
       Use case resumes at step 2.
 
@@ -331,10 +332,10 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **MSS**
 
-1.  User requests to list persons
-2.  AddressBook shows a list of persons
-3.  User requests to unmark the attendance of specific person(s) in the list
-4.  AddressBook updates the person's info to reflect their attendance for a specific day
+1.  Band administrator requests to list persons.
+2.  BandBook shows a list of persons.
+3.  Band administrator requests to unmark the attendance of specific person(s) in the list.
+4.  BandBook updates the person's info to reflect their attendance for a specific day.
 
     Use case ends.
 
@@ -346,7 +347,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 * 3a. The given indexes are invalid.
 
-    * 3a1. AddressBook shows an error message.
+    * 3a1. BandBook shows an error message.
 
       Use case resumes at step 2.
 
@@ -354,10 +355,10 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **MSS**
 
-1.  User requests to list persons
-2.  AddressBook shows a list of persons
-3.  User requests to assign an instrument to specific person(s) in the list
-4.  AddressBook updates the person's info to reflect their instrument
+1.  Band administrator requests to list persons.
+2.  BandBook shows a list of persons.
+3.  Band administrator requests to assign an instrument to specific person(s) in the list.
+4.  BandBook updates the person's info to reflect their instrument.
 
     Use case ends.
 
@@ -369,7 +370,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 * 3a. The given index is invalid.
 
-    * 3a1. AddressBook shows an error message.
+    * 3a1. BandBook shows an error message.
 
       Use case resumes at step 2.
 
@@ -377,10 +378,10 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **MSS**
 
-1.  User requests to list persons
-2.  AddressBook shows a list of persons
-3.  User requests to find specific person(s) in the list by name and/or instrument
-4.  AddressBook displays a filtered list of persons who match the keywords provided at each prefix
+1.  Band administrator requests to list persons.
+2.  BandBook shows a list of persons.
+3.  Band administrator requests to find specific person(s) in the list by name and/or instrument.
+4.  BandBook displays a filtered list of persons who match the keywords provided at each prefix.
 
     Use case ends.
 
@@ -392,7 +393,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 * 3a. The given keyword cannot be found.
 
-    * 3a1. AddressBook shows that 0 persons are listed.
+    * 3a1. BandBook shows that 0 persons are listed.
 
       Use case ends.
 
@@ -410,7 +411,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 --------------------------------------------------------------------------------------------------------------------
 
-## **Appendix: Instructions for manual testing**
+## **Appendix B: Instructions for manual testing**
 
 Given below are instructions to test the app manually.
 
@@ -435,8 +436,6 @@ testers are expected to do more *exploratory* testing.
 
     1. Re-launch the app by double-clicking the jar file.<br>
        Expected: The most recent window size and location is retained.
-
-1. _{ more test cases …​ }_
 
 ### Deleting a person
 
@@ -540,4 +539,91 @@ testers are expected to do more *exploratory* testing.
 
     1. _{explain how to simulate a missing/corrupted file, and the expected behavior}_
 
-1. _{ more test cases …​ }_
+--------------------------------------------------------------------------------------------------------------------
+
+## **Appendix C: Possible Future Enhancements**
+
+### Display more specific error messages
+
+Currently, BandBook only displays generic error messages. This is not ideal as users will need to scrutinise their
+input to figure out what is causing the error. In the future, we hope to enhance BandBook by displaying more specific
+error messages to help users understand what went wrong, improving their speed and efficiency when using BandBook.
+
+We can implement this enhancement by improving the respective command parsers to identify which part of the user input
+is incorrect, and display an error message that is specific to that part to the user. For example, if the user enters
+`assign 1 2 3 i/Flute` when there only exists 2 people in the list, BandBook can display an error message that says
+the 3rd index entered is invalid. 
+
+#### Design Consideration
+* Craft simple and clear sentences that include the specific aspect that causes the error.
+  * **Pros**: Easy to implement.
+  * **Cons**: Need to check to ensure the details in the error messages correspond to the actual errors.
+
+### Implement stronger data validation for respective fields
+
+Currently, BandBook only checks if the user input is in the correct format. However, it does not check if the data entered
+is valid or not. This is not ideal as users may enter invalid data that may cause potential issues. In the future, we
+intend to enhance BandBook by implementing stronger data validation for respective fields to ensure that only valid data
+is entered into BandBook.
+
+We can implement this enhancement by retrieving the valid values for various fields such as email domains and instruments
+possibly through an API or a reference list and validating the user input against these values. If the user input does
+not match any of the valid values, BandBook will display an error message to inform the user that the data entered is
+invalid. For example, if the user enters an invalid string `xxx` for the instrument field, BandBook can display an error
+message that says the instrument entered is invalid, and display the valid instruments that the user can choose from.
+
+#### Design Consideration
+* Maintain a list of valid values for each field.
+  * **Pros**: Eliminates the possibility of entering erroneous data.
+  * **Cons**: Need to use an appropriate API, otherwise, need to update the list of valid values whenever there are changes.
+
+### Allow each person to be assigned at least one to possibly multiple instruments
+
+Currently, BandBook only allows each person to be assigned to one instrument. While the person need not be assigned an
+instrument upon the addition of the contact details, it is compulsory for the person has to be assigned an instrument
+for subsequent edits once he/she is assigned to the first instrument. This is not ideal as some people may be able to
+play multiple instruments within the band while others may not be proficient enough to be assigned an instrument.
+In the future, we hope to enhance BandBook by allowing each person to be assigned to at least one to possibly multiple
+instruments.
+
+We can implement this enhancement by modifying `Instrument` to be a set of strings instead of a single string. Similar
+to `Tag`, this will allows users to store multiple instruments for each person using the command `edit 1 i/Flute i/Clarinet`.
+Additionally, we can modify the `Instrument` field to be optional, allowing users to remove any instruments assigned by
+using the command `edit 1 i/`.
+
+#### Design Consideration
+* Change the `Instrument` field to be a set of strings.
+  * **Pros**: Allows users to store multiple instruments for each person.
+  * **Cons**: Need to update the UI to display multiple instruments for each person.
+
+### Allow user to copy link to User Guide automatically upon entering help command
+
+Currently, BandBook only displays the help window when the user enters the `help` command. Users will need to click on
+the Copy Link button to retrieve the link to our User Guide. This is not ideal as BandBook is optimised for users who
+are more proficient in using the Command Line Interface (CLI) and prefer typing to mouse interactions. In the future,
+we hope to enhance BandBook by integrating automatic copying of the User Guide link to the user's clipboard upon
+entering the `help` command.
+
+We can implement this enhancement by modifying the `HelpCommand` to automatically copy the link to the User Guide
+instead of displaying the help window. This will allow users to retrieve the link to the User Guide more efficiently.
+
+#### Design Consideration
+* Integrate automatic copying of the link to clipboard.
+  **Pros**: Easy to implement.
+  **Cons**: None.
+
+### Allow user to find person(s) by all other fields
+
+Currently, BandBook only allows users to find person(s) by name and instrument. This is not ideal as users may want to
+find person(s) by other fields (i.e. phone, email, address, matriculation year, birthday, tag, and attendance). In the
+future, we hope to enhance BandBook by delivering the same implementation of finding person(s) by name and instrument
+to other fields.
+
+We can implement this enhancement by modifying the `FindCommand` to allow users to find person(s) by all other fields.
+For example, users can find person(s) by tag using the command `find t/friend`, which returns all person(s) who are
+given a 'friend' tag. 
+
+#### Design Consideration
+* Extend the `FindCommand` to allow users to find person(s) by all other fields.
+  **Pros**: Easy to implement.
+  **Cons**: None.
