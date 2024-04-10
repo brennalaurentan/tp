@@ -160,7 +160,7 @@ This section describes some noteworthy details on how certain features are imple
 
 ### Edit feature
 
-#### Implementation
+#### Our Implementation
 
 The implementation of the edit feature which allows users to change various fields of an existing contact can be seen
 in the UML sequence diagram below.
@@ -168,6 +168,42 @@ in the UML sequence diagram below.
 <puml src="diagrams/EditUser.puml"></puml>
 Note: The activation bars for :Ui and logicManager:LogicManager are meant to be deactivated after and within the
 reference frame respectively. Due to a PlantUML bug, this is unable to be reflected accurately in the diagram.
+
+### Find feature
+
+The find feature mainly allows users to search for contacts based on specific fields. Currently, it only supports
+searching by name and instrument. The logic of the find feature is implemented using the `FindCommand` class and the
+`FindCommandParser` class.
+
+#### Our Implementation
+
+`FindCommand` is implemented to allow users to search for contacts based on specific fields. Currently, it only
+supports searching by name and instrument. It is implemented as such:
+1. The `FindCommand` is executed by the `LogicManager`.
+2. It calls the `Model` to filter the list of contacts based on the search criteria.
+3. The `Model` then returns the filtered list of contacts to the `FindCommand` as a `CommandResult` object.
+4. This is passed on to `LogicManager` and then to `UI` to display the filtered list of contacts.
+
+`FindCommandParser` is implemented to parse the user input for the find command. It is implemented as such:
+1. The `FindCommandParser` is called by the `AddressBookParser` to parse the user input.
+2. With the given string input provided by the user, it undergoes various checks using the `parse` function. 
+3. It first checks if the input contains the valid prefixes (i.e. /n and /i with no duplicates).
+   1. If there are no valid prefixes, it throws an exception.
+4. It then checks the arguments provided to the valid prefixes.
+   1. If there are no arguments provided, it throws an exception.
+   2. If there are invalid arguments provided (i.e. does not fulfil validation regex of respective fields), it throws
+   an exception.
+5. If there are no exceptions thrown at this point, it retrieves the arguments provided after each prefix and returns
+them as a `FindCommand` object.
+
+#### Design Consideration
+**Aspect: How the find feature executes:**
+* **Alternative 1 (current choice)**: Filters by name and instrument.
+  * Pros: Easy to implement.
+  * Cons: Limited search criteria.
+* **Alternative 2**: Filters by all possible fields.
+  * Pros: More flexible as search criteria is extensive.
+  * Cons: More complex to implement.
 
 --------------------------------------------------------------------------------------------------------------------
 
