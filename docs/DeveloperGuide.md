@@ -197,6 +197,7 @@ supports searching by name and instrument. It is implemented as such:
 them as a `FindCommand` object.
 
 #### Design Consideration
+
 **Aspect: How the find feature executes:**
 * **Alternative 1 (current choice)**: Filters by name and instrument.
   * Pros: Easy to implement.
@@ -205,6 +206,49 @@ them as a `FindCommand` object.
   * Pros: More flexible as search criteria is extensive.
   * Cons: More complex to implement.
 
+### Assign feature
+
+The assign feature mainly allows users to assign an instrument to a contact. Currently, it only supports assigning a
+single compulsory instrument to one or more contacts. The logic of the assign feature is implemented using the
+`InstrumentCommand` class and the `InstrumentCommandParser` class.
+
+#### Our Implementation
+
+`InstrumentCommand` is implemented to allow users to assign an instrument to one or more contacts. Currently, it only
+supports assigning a single compulsory instrument to one or more contacts. It is implemented as such:
+1. The `InstrumentCommand` is executed by the `LogicManager`.
+2. For each index, it calls the `Model` to retrieve the list of contacts to be assigned the instrument.
+3. It checks if the indexes provided are valid corresponding to the filtered list.
+   1. If there are invalid indexes provided, it throws an exception.
+4. A `Person` object is created and the instrument field is updated with the input instrument.
+   1. If the instrument provided is the same as the existing instrument assigned to the contact, it throws an exception.
+5. The `Model` is updated with the edited `Person` object.
+6. Once all valid indexes have been processed, the `Model` returns the updated list of contacts to the `InstrumentCommand`
+   as a `CommandResult` object.
+6. This is passed on to `LogicManager` and then to `UI` to update the instruments assigned to the specified contacts. 
+
+`InstrumentCommandParser` is implemented to parse the user input for the assign command. It is implemented as such:
+1. The `InstrumentCommandParser` is called by the `AddressBookParser` to parse the user input.
+2. With the given string input provided by the user, it undergoes various checks using the `parse` function.
+3. It first splits the indexes provided and stores them in a set.
+   1. If there are no indexes provided, it throws an exception.
+   2. If there are invalid indexes provided (i.e. does not exist in the contact list), it throws an exception.
+4. It then checks the arguments provided to the instrument prefix.
+   1. If there are no arguments provided, it throws an exception.
+   2. If there are invalid arguments provided (i.e. does not fulfil validation regex of the instrument field), it throws
+      an exception.
+5. If there are no exceptions thrown at this point, it retrieves the instrument provided after the instrument prefix and 
+   returns them as an `InstrumentCommand` object.
+
+#### Design Consideration
+
+**Aspect: How the assign feature executes:**
+* **Alternative 1 (current choice)**: Assigns a single compulsory instrument to one or more contacts.
+  * Pros: Easy to implement.
+  * Cons: Limited instrument assignments.
+* **Alternative 2**: Assigns at least one to possibly multiple instruments to one or more contacts.
+  * Pros: More flexible as members may be able to play none or more than one instrument.
+  * Cons: More complex to implement.
 --------------------------------------------------------------------------------------------------------------------
 
 ## **Documentation, logging, testing, configuration, dev-ops**
