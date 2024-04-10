@@ -6,6 +6,7 @@ import static seedu.address.logic.parser.ParserUtil.MESSAGE_INVALID_INDEX;
 import static seedu.address.testutil.Assert.assertThrows;
 import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_PERSON;
 
+import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
@@ -14,6 +15,7 @@ import java.util.Set;
 import org.junit.jupiter.api.Test;
 
 import seedu.address.logic.parser.exceptions.ParseException;
+import seedu.address.model.attendance.Attendance;
 import seedu.address.model.person.Address;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Name;
@@ -26,6 +28,8 @@ public class ParserUtilTest {
     private static final String INVALID_ADDRESS = " ";
     private static final String INVALID_EMAIL = "example.com";
     private static final String INVALID_TAG = "#friend";
+    private static final String INVALID_ATTENDANCE = "02-02-2024"; // invalid format
+    private static final String INVALID_FIND_INSTRUMENT_STRING = "tu!ba"; // symbols not allowed
 
     private static final String VALID_NAME = "Rachel Walker";
     private static final String VALID_PHONE = "123456";
@@ -33,6 +37,8 @@ public class ParserUtilTest {
     private static final String VALID_EMAIL = "rachel@example.com";
     private static final String VALID_TAG_1 = "friend";
     private static final String VALID_TAG_2 = "neighbour";
+    private static final String VALID_ATTENDANCE_1 = "2023-02-02";
+    private static final String VALID_ATTENDANCE_2 = "2024-03-03";
 
     private static final String WHITESPACE = " \t\r\n";
 
@@ -192,5 +198,55 @@ public class ParserUtilTest {
         Set<Tag> expectedTagSet = new HashSet<Tag>(Arrays.asList(new Tag(VALID_TAG_1), new Tag(VALID_TAG_2)));
 
         assertEquals(expectedTagSet, actualTagSet);
+    }
+
+    @Test
+    public void parseAttendance_null_throwsNullPointerException() {
+        assertThrows(NullPointerException.class, () -> ParserUtil.parseAttendance(null));
+    }
+
+    @Test
+    public void parseAttendance_invalidValue_throwsParseException() {
+        assertThrows(ParseException.class, () -> ParserUtil.parseAttendance(INVALID_ATTENDANCE));
+    }
+
+    @Test
+    public void parseAttendances_null_throwsNullPointerException() {
+        assertThrows(NullPointerException.class, () -> ParserUtil.parseAttendances(null));
+    }
+
+    @Test
+    public void parseAttendances_collectionWithInvalidAttendances_throwsParseException() {
+        assertThrows(ParseException.class, () -> ParserUtil.parseAttendances(
+                Arrays.asList(VALID_ATTENDANCE_1, INVALID_ATTENDANCE))
+        );
+    }
+
+    @Test
+    public void parseAttendances_emptyCollection_returnsEmptySet() throws Exception {
+        assertTrue(ParserUtil.parseTags(Collections.emptyList()).isEmpty());
+    }
+
+    @Test
+    public void parseAttendances_collectionWithValidAttendances_returnsAttendanceSet() throws Exception {
+        Set<Attendance> actualAttendanceSet =
+                ParserUtil.parseAttendances(Arrays.asList(VALID_ATTENDANCE_1, VALID_ATTENDANCE_2));
+        Set<Attendance> expectedAttendanceSet =
+                new HashSet<Attendance>(Arrays.asList(
+                        new Attendance(LocalDate.parse(VALID_ATTENDANCE_1)),
+                        new Attendance(LocalDate.parse(VALID_ATTENDANCE_2)))
+                );
+    }
+
+    @Test
+    public void parseFindString_invalidNameString_throwsParseException() {
+        assertThrows(ParseException.class, () -> ParserUtil.parseFindString(INVALID_NAME, CliSyntax.PREFIX_NAME));
+    }
+
+    @Test
+    public void parseFindString_invalidInstrumentString_throwsParseException() {
+        assertThrows(ParseException.class, () -> ParserUtil.parseFindString(
+                INVALID_FIND_INSTRUMENT_STRING, CliSyntax.PREFIX_INSTRUMENT)
+        );
     }
 }
