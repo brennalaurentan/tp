@@ -78,13 +78,17 @@ faster than traditional GUI apps.
 #### NAME: `n/`
 > It refers to the **name** of the person.
 * Only accepts alphanumeric characters and spaces.
+* Non-alphanumeric symbols and characters are not allowed.
 * Case sensitive, i.e. John Doe ≠ john doe.
+* No two persons can have the exact same name. It is recommended to enter full contact names to avoid this duplication error.
 * Leading and trailing spaces are automatically removed.
 
 #### PHONE_NUMBER: `p/`
 > It refers to the **phone number** of the person.
 * Only accepts numbers.
-* Must be at least 3 digits long and no spaces.
+* Alphabets, symbols (+, #) and any other non-numeric characters are not allowed.
+* Must be at least 3 digits long with no spaces.
+* All valid phone number lengths (any country) are accepted, country code included.
 
 #### EMAIL: `e/`
 > It refers to the **email** of the person.
@@ -97,10 +101,12 @@ faster than traditional GUI apps.
 #### BIRTHDAY: `b/`
 > It refers to the **birthday** of the person.
 * Must be a valid date in the format YYYY-MM-DD.
+* All dates from 0001-01-01 to the current date (inclusive) are accepted.
 
 #### MATRICULATION_YEAR: `my/`
 > It refers to the **matriculation year** of the person.
-* Must be in the format YYYY, and must be this year or prior.
+* Must be in the format YYYY.
+* All years from 0001 to the current year (inclusive) are accepted.
 
 #### INSTRUMENT: `i/`
 > It refers to the **instrument** assigned to the person.
@@ -135,6 +141,8 @@ Adds a person to BandBook.
 
 Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [b/BIRTHDAY] [my/MATRICULATION_YEAR] [i/INSTRUMENT] [t/TAG]…​`
 
+* All parameter constraints listed above apply. Click [here](#parameter-constraints) for the list of parameter constraints.
+
 Examples:
 * `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01`
 * `add n/Betsy Crowe t/friend e/betsycrowe@example.com a/Brown Street p/1234567 t/neighbour`
@@ -161,6 +169,8 @@ Format: `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [b/BIRTHDAY]
 * Existing values will be updated to the input values.
 * When editing tags, the existing tags of the person will be removed i.e adding of tags is not cumulative.
 * You can remove all the person’s tags by typing `t/` without specifying any tags after it.
+> Note: Command is only effective on the currently displayed list. Ensure that the index you have called is relative to the list that is currently displayed.
+
 
 Examples:
 *  `edit 1 p/91234567 e/johndoe@example.com` Edits the phone number and email address of the 1st person to be `91234567` and `johndoe@example.com` respectively.
@@ -199,6 +209,7 @@ Format: `delete INDEX`
 * Deletes the person at the specified `INDEX`.
 * The index refers to the index number shown in the displayed person list.
 * The index **must be a positive integer** 1, 2, 3, …​
+> Note: Command is only effective on the currently displayed list. Ensure that the index you have called is relative to the list that is currently displayed.
 
 Examples:
 * Entering `list`, followed by `delete 2` deletes the 2nd person in BandBook.
@@ -231,6 +242,7 @@ Format: `att INDEX_1 [INDEX_2]... d/DATE`
 * Each index refers to the index number shown in the displayed person list.
 * The person's contact will be updated with a tag containing the attendance date marked.
 * Duplicate entries of an attendance date for the same person are not supported.
+> Note: Command is only effective on the currently displayed list. Ensure that the index you have called is relative to the list that is currently displayed.
 
 Example:
 * Entering `list`, followed by `att 1 2 d/2024-02-02` marks the attendance of the persons at the 1st and 2nd indexes of BandBook, on 2024-02-02.
@@ -243,12 +255,15 @@ Unmarks the attendance of the specified person(s) in BandBook.
 
 Format: `attd INDEX_1 [INDEX_2]... d/DATE`
 
-* Unmarks the attendance of the person(s) at the specified `INDEX`. The index refers to the index number shown in the displayed person list. The index **must be a positive integer** 1, 2, 3, ...
+* Unmarks the attendance of the person(s) at the specified `INDEX`. The index refers to the index number shown in the displayed person list.
+* The index **must be a positive integer** 1, 2, 3, ...
 * At least one index must be provided.
 * To specify multiple persons to unmark an attendance for, specify each index with a space separating them apart.
 * The index refers to the index number shown in the displayed person list.
 * The person must have already been marked present on the attendance date provided.
 * The person's contact will be updated with the tag containing the date specified, removed.
+> Note: Command is only effective on the currently displayed list. Ensure that the index you have called is relative to the list that is currently displayed.
+
 
 Example:
 * Entering `list`, followed by `attd 1 2 d/2024-02-02` unmarks the attendance of the persons at the 1st and 2nd indexes of BandBook, on 2024-02-02.
@@ -262,11 +277,14 @@ Assigns an instrument to an existing person(s) in BandBook.
 
 Format: `assign INDEX_1 [INDEX_2]... i/INSTRUMENT​`
 
-* Assigns an instrument to the person(s) at the specified `INDEX`. The index refers to the index number shown in the displayed person list. The index **must be a positive integer** 1, 2, 3, …​
+* Assigns an instrument to the person(s) at the specified `INDEX`. The index refers to the index number shown in the displayed person list.
+* The index **must be a positive integer** 1, 2, 3, …​
 * At least one index must be provided.
 * To specify multiple persons to assign an instrument to, specify each index with a space separating them apart.
 * The index refers to the index number shown in the displayed person list.
 * The instrument field will be updated with the input instrument which cannot be empty.
+> Note: Command is only effective on the currently displayed list. Ensure that the index you have called is relative to the list that is currently displayed.
+
 
 Examples:
 *  `assign 1 i/Flute` Assigns the 1st person with the Flute instrument.
@@ -326,7 +344,12 @@ _Details coming soon ..._
 ## Known issues
 
 1. **When using multiple screens**, if you move the application to a secondary screen, and later switch to using only the primary screen, the GUI will open off-screen. The remedy is to delete the `preferences.json` file created by the application before running the application again.
-
+<br></br>
+2. **BandBook currently does not support users adding two contacts with the exact same name**. As such, it is recommended to enter full contact names to avoid running into this duplication error. Alternatively, modify the capitalisation of characters in the name to make them nonidentical (e.g `John Doe` & `john doe`).
+<br></br>
+3. **There is currently no data validation in place to verify that a contact's matriculation year comes after their birth year.** As such, do proceed with caution when entering data to ensure that it is entered accurately.  
+<br></br>
+We are currently working to resolve the above-mentioned issues, and expect to have fixes rolled out in the coming iterations of BandBook. We seek your kind understanding, and thank you for your continued support as we work towards better meeting your band administrator needs!
 --------------------------------------------------------------------------------------------------------------------
 
 ## Command summary
