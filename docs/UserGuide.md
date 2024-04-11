@@ -326,7 +326,21 @@ Command is only effective on the currently displayed list. Ensure that the index
 
 Examples:
 * Entering `list`, followed by `att 1 2 d/2024-02-02` marks the attendance of the persons at the 1st and 2nd indexes of BandBook, on 2024-02-02.
-* Entering `find n/David`, followed by `att 1 2 d/2024-02-02` marks the attendance of the persons at the 1st and 2nd indexes of the results of the `find` command, on 2024-02-02.
+  <br></br>**Command input**
+  ![att command input 1](images/attCommandInput1.png)
+
+  <br>**Expected output**
+  ![att command result 1](images/attCommandResult1.png)
+  <br></br>
+
+* Entering `find n/David`, followed by `att 1 d/2024-02-02` marks the attendance of the person at the 1st index of the results of the `find` command, on 2024-02-02.
+  <br></br>**Command input**
+  ![att command input 2](images/attCommandInput2.png)
+
+  <br>**Expected output**
+  ![att command result 2](images/attCommandResult2.png)
+  <br></br>
+
 <br>
 
 ### Unmarking attendance of person(s): `attd`
@@ -350,7 +364,20 @@ Command is only effective on the currently displayed list. Ensure that the index
 
 Examples:
 * Entering `list`, followed by `attd 1 2 d/2024-02-02` unmarks the attendance of the persons at the 1st and 2nd indexes of BandBook, on 2024-02-02.
-* Entering `find n/David`, followed by `attd 1 2 d/2024-02-02` unmarks the attendance of the persons at the 1st and 2nd indexes of the results of the `find` command, on 2024-02-02.
+  <br></br>**Command input**
+  ![attd command input 1](images/attdCommandInput1.png)
+
+  <br>**Expected output**
+  ![attd command result 1](images/attdCommandResult1.png)
+  <br></br>
+
+* Entering `find n/David`, followed by `attd 1 d/2024-02-02` unmarks the attendance of the person at the 1st index of the results of the `find` command, on 2024-02-02.
+  <br></br>**Command input**
+  ![attd command input 2](images/attdCommandInput2.png)
+
+  <br>**Expected output**
+  ![attd command result 2](images/attdCommandResult2.png)
+  <br></br>
 
 <br>
 
@@ -374,7 +401,20 @@ Command is only effective on the currently displayed list. Ensure that the index
 
 Examples:
 *  `assign 1 i/Flute` Assigns the 1st person with the Flute instrument.
-*  `assign 2 3 5 i/Clarinet` Assigns the 2nd, 3rd and 5th person with the Clarinet instrument.
+   <br></br>**Command input**
+   ![assign command input 1](images/assignCommandInput1.png)
+
+   <br>**Expected output**
+   ![assign command result 1](images/assignCommandResult1.png)
+   <br></br>
+
+*  `assign 2 3 i/Clarinet` Assigns the 2nd and 3rd person with the Clarinet instrument.
+   <br></br>**Command input**
+   ![assign command input 2](images/assignCommandInput2.png)
+
+   <br>**Expected output**
+   ![assign command result 2](images/assignCommandResult2.png)
+   <br></br>
 
 <br>
 
