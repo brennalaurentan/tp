@@ -152,7 +152,7 @@ Adds a person to BandBook.
 
 Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [b/BIRTHDAY] [my/MATRICULATION_YEAR] [i/INSTRUMENT] [t/TAG]…​`
 
-<box type="info" seamless>
+<box type="tip" seamless>
 **Tip:**<br>
 All parameter constraints listed above apply. Click [here](#parameter-constraints) for the list of parameter constraints.
 </box>
@@ -485,6 +485,7 @@ error.
 3. **There is currently no data validation in place to verify that a contact's matriculation year comes after their birth year.** As such, do proceed with caution when entering data to ensure that it is entered accurately.  
 <br></br>
 We are currently working to resolve the above-mentioned issues, and expect to have fixes rolled out in the coming iterations of BandBook. We seek your kind understanding, and thank you for your continued support as we work towards better meeting your band administrator needs!
+
 --------------------------------------------------------------------------------------------------------------------
 
 ## Command summary
