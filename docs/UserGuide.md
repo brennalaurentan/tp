@@ -275,7 +275,20 @@ Command is only effective on the currently displayed list. Ensure that the index
 
 Examples:
 * Entering `list`, followed by `delete 2` deletes the 2nd person in BandBook.
+  <br></br>**Command input**
+  ![delete command input 1](images/deleteCommandInput1.png)
+
+  <br>**Expected output**
+  ![delete command result 1](images/deleteCommandResult1.png)
+  <br></br>
+
 * Entering `find n/Betsy`, followed by `delete 1` deletes the 1st person in the results of the `find` command.
+  <br></br>**Command input**
+  ![delete command input 2](images/deleteCommandInput2.png)
+
+  <br>**Expected output**
+  ![delete command result 2](images/deleteCommandResult2.png)
+  <br></br>
 
 <br>
 
