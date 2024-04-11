@@ -6,6 +6,8 @@
 
 # BandBook User Guide
 
+**Welcome to BandBook: Your Ultimate Band Management Software!**
+
 BandBook is your all-in-one software designed to streamline the management of band members' contact details and
 attendance. It offers a user-friendly platform to **add, edit and delete members' contact information**,
 along with optional fields such as **tag, birthday, matriculation year and instrument information**.
@@ -16,6 +18,10 @@ track with the band's activities.
 
 Optimised for use via a Command Line Interface (CLI), BandBook can assist you in managing your members' details
 faster than traditional GUI apps.
+
+Through this user guide, you will learn how to use BandBook effectively and efficiently. We will guide you through
+step-by-step on how to use BandBook's features, along with the various commands available to you. Come on board and
+unlock BandBook's full potential today!
 
 <!-- * Table of Contents -->
 <page-nav-print />
@@ -28,12 +34,16 @@ faster than traditional GUI apps.
 
 2. Download the latest `BandBook-v1.4.jar` from [here](https://github.com/AY2324S2-CS2103T-T15-3/tp/releases).
 
-3. Copy the file to the folder you want to use as the _home folder_ for your BandBook.
+3. Copy the file to the folder you want to use as the _home folder_ for BandBook.
 
-4. Open a command terminal, `cd` into the folder you put the jar file in, and use the `java -jar BandBook-v1.4.jar` command to run the application.<br>
+4. Open a command terminal, `cd` into the folder you put the jar file in, and use the `java -jar BandBook-v1.4.jar`
+   command to run the application.<br>
    <br> A GUI similar to the below should appear in a few seconds. Note how the app contains some sample data.<br>
    <br> ![Ui](images/Ui.png) <br> <br>
-5. Type the command in the command box and press Enter to execute it. e.g. typing **`help`** and pressing Enter will open the help window.<br>
+
+5. Type the command in the command box and press Enter to execute it. e.g. typing **`help`** and pressing Enter will
+   open the help window.<br><br>
+
    Some example commands you can try:
 
    * `list` : Lists all contacts.
@@ -117,6 +127,7 @@ faster than traditional GUI apps.
 #### TAG: `t/`
 > It refers to the **tag(s)** used to categorise the person.
 * Only accepts alphanumeric characters.
+* Case sensitive, i.e. NUS ≠ nus.
 * A person can have any number of tags (including 0).
 * Multiple tags can be specified. For example, `t/friend t/colleague`.
 * Tags are coloured according to a hash function, which assigns the tag a colour among 5 colours in BandBook's colour palette.
@@ -141,7 +152,9 @@ Adds a person to BandBook.
 
 Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [b/BIRTHDAY] [my/MATRICULATION_YEAR] [i/INSTRUMENT] [t/TAG]…​`
 
-* All parameter constraints listed above apply. Click [here](#parameter-constraints) for the list of parameter constraints.
+<box type="info" seamless>
+**Tip:** All parameter constraints listed above apply. Click [here](#parameter-constraints) for the list of parameter constraints.
+</box>
 
 Examples:
 * `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01`
@@ -169,8 +182,10 @@ Format: `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [b/BIRTHDAY]
 * Existing values will be updated to the input values.
 * When editing tags, the existing tags of the person will be removed i.e adding of tags is not cumulative.
 * You can remove all the person’s tags by typing `t/` without specifying any tags after it.
-> Note: Command is only effective on the currently displayed list. Ensure that the index you have called is relative to the list that is currently displayed.
 
+<box type="warning" seamless>
+**Note:** Command is only effective on the currently displayed list. Ensure that the index you have called is relative to the list that is currently displayed.
+</box>
 
 Examples:
 *  `edit 1 p/91234567 e/johndoe@example.com` Edits the phone number and email address of the 1st person to be `91234567` and `johndoe@example.com` respectively.
@@ -225,8 +240,9 @@ Format: `delete my/[MATRICULATION_YEAR]`
 
 * Deletes all persons who matriculated in year `MATRICULATION_YEAR`
 
-Example:
+Examples:
 * `delete my/2005` deletes all person(s) in BandBook who matriculated in 2005.
+* `delete my/2009` deletes all person(s) in BandBook who matriculated in 2009.
 
 <br>
 
@@ -242,9 +258,12 @@ Format: `att INDEX_1 [INDEX_2]... d/DATE`
 * Each index refers to the index number shown in the displayed person list.
 * The person's contact will be updated with a tag containing the attendance date marked.
 * Duplicate entries of an attendance date for the same person are not supported.
-> Note: Command is only effective on the currently displayed list. Ensure that the index you have called is relative to the list that is currently displayed.
 
-Example:
+<box type="warning" seamless>
+**Note:** Command is only effective on the currently displayed list. Ensure that the index you have called is relative to the list that is currently displayed.
+</box>
+
+Examples:
 * Entering `list`, followed by `att 1 2 d/2024-02-02` marks the attendance of the persons at the 1st and 2nd indexes of BandBook, on 2024-02-02.
 * Entering `find n/David`, followed by `att 1 2 d/2024-02-02` marks the attendance of the persons at the 1st and 2nd indexes of the results of the `find` command, on 2024-02-02.
 <br>
@@ -262,10 +281,12 @@ Format: `attd INDEX_1 [INDEX_2]... d/DATE`
 * The index refers to the index number shown in the displayed person list.
 * The person must have already been marked present on the attendance date provided.
 * The person's contact will be updated with the tag containing the date specified, removed.
-> Note: Command is only effective on the currently displayed list. Ensure that the index you have called is relative to the list that is currently displayed.
 
+<box type="warning" seamless>
+**Note:** Command is only effective on the currently displayed list. Ensure that the index you have called is relative to the list that is currently displayed.
+</box>
 
-Example:
+Examples:
 * Entering `list`, followed by `attd 1 2 d/2024-02-02` unmarks the attendance of the persons at the 1st and 2nd indexes of BandBook, on 2024-02-02.
 * Entering `find n/David`, followed by `attd 1 2 d/2024-02-02` unmarks the attendance of the persons at the 1st and 2nd indexes of the results of the `find` command, on 2024-02-02.
 
@@ -283,8 +304,10 @@ Format: `assign INDEX_1 [INDEX_2]... i/INSTRUMENT​`
 * To specify multiple persons to assign an instrument to, specify each index with a space separating them apart.
 * The index refers to the index number shown in the displayed person list.
 * The instrument field will be updated with the input instrument which cannot be empty.
-> Note: Command is only effective on the currently displayed list. Ensure that the index you have called is relative to the list that is currently displayed.
 
+<box type="warning" seamless>
+**Note:** Command is only effective on the currently displayed list. Ensure that the index you have called is relative to the list that is currently displayed.
+</box>
 
 Examples:
 *  `assign 1 i/Flute` Assigns the 1st person with the Flute instrument.
