@@ -140,9 +140,9 @@ unlock BandBook's full potential today!
 
 Shows a message explaining how to access the help page.
 
-![help message](images/helpMessage.png)
-
 Format: `help`
+
+![help message](images/helpMessage.png)
 
 <br>
 
@@ -152,14 +152,34 @@ Adds a person to BandBook.
 
 Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [b/BIRTHDAY] [my/MATRICULATION_YEAR] [i/INSTRUMENT] [t/TAG]…​`
 
-<box type="info" seamless>
-**Tip:** All parameter constraints listed above apply. Click [here](#parameter-constraints) for the list of parameter constraints.
+<box type="tip" seamless>
+**Tip:**<br>
+All parameter constraints listed above apply. Click [here](#parameter-constraints) for the list of parameter constraints.
 </box>
 
 Examples:
-* `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01`
+* `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01`  
+  <br>**Command input**
+  ![add command input 1](images/addCommandInput1.png)
+
+  <br>**Expected output**
+  ![add command result 1](images/addCommandResult1.png)
+  <br></br>
+
 * `add n/Betsy Crowe t/friend e/betsycrowe@example.com a/Brown Street p/1234567 t/neighbour`
-* `add n/Sally Jane p/1234567 e/betsycrowe@example.com a/Blk 123 Smith Street b/2001-02-02`
+  <br></br>**Command input**
+  ![add command input 2](images/addCommandInput2.png)
+
+  <br>**Expected output**
+  ![add command result 2](images/addCommandResult2.png)
+  <br></br>
+
+* `add n/Sally Jane p/1234567 e/sallyjane@example.com a/Blk 123 Smith Street b/2001-02-02`
+  <br></br>**Command input**
+  ![add command input 3](images/addCommandInput3.png)
+
+  <br>**Expected output**
+  ![add command result 3](images/addCommandResult3.png)
 
 <br>
 
@@ -168,6 +188,9 @@ Examples:
 Shows a list of all persons in BandBook.
 
 Format: `list`
+
+<br>**Expected output**
+![list command result](images/listCommandResult.png)
 
 <br>
 
@@ -184,12 +207,25 @@ Format: `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [b/BIRTHDAY]
 * You can remove all the person’s tags by typing `t/` without specifying any tags after it.
 
 <box type="warning" seamless>
-**Note:** Command is only effective on the currently displayed list. Ensure that the index you have called is relative to the list that is currently displayed.
+**Note:**<br>
+Command is only effective on the currently displayed list. Ensure that the index you have called is relative to the list that is currently displayed.
 </box>
 
 Examples:
-*  `edit 1 p/91234567 e/johndoe@example.com` Edits the phone number and email address of the 1st person to be `91234567` and `johndoe@example.com` respectively.
-*  `edit 2 n/Betsy Crower t/` Edits the name of the 2nd person to be `Betsy Crower` and clears all existing tags.
+* `edit 7 p/91234567 e/johndoe@example.com` Edits the phone number and email address of the 7th person to be `91234567` and `johndoe@example.com` respectively.
+  <br></br>**Command input**
+  ![edit command input 1](images/editCommandInput1.png)
+
+  <br>**Expected output**
+  ![edit command result 1](images/editCommandResult1.png)
+  <br></br>
+
+* `edit 8 n/Betsy Crower t/` Edits the name of the 8th person to be `Betsy Crower` and clears all existing tags.
+  <br></br>**Command input**
+  ![edit command input 2](images/editCommandInput2.png)
+
+  <br>**Expected output**
+  ![edit command result 2](images/editCommandResult2.png)
 
 <br>
 
@@ -210,6 +246,13 @@ Format: `find [n/KEYWORD [MORE_KEYWORDS]] [i/KEYWORD [MORE_KEYWORDS]]`
 Examples:
 * `find n/John` returns `john` and `John Doe`
 * `find n/alex david` returns `Alex Yeoh`, `David Li`
+  <br></br>**Command input**
+  ![find command input 1](images/findCommandInput1.png)
+
+  <br>**Expected output**
+  ![find command result 1](images/findCommandResult1.png)
+  <br></br>
+
 * `find n/alex david i/flute` returns `Alex Yeoh`, `David Li` and other persons who play the flute.
 * `find i/clarinet flute` returns all persons who play the clarinet or flute.
 
@@ -224,11 +267,28 @@ Format: `delete INDEX`
 * Deletes the person at the specified `INDEX`.
 * The index refers to the index number shown in the displayed person list.
 * The index **must be a positive integer** 1, 2, 3, …​
-> Note: Command is only effective on the currently displayed list. Ensure that the index you have called is relative to the list that is currently displayed.
+
+<box type="warning" seamless>
+**Note:**<br>
+Command is only effective on the currently displayed list. Ensure that the index you have called is relative to the list that is currently displayed.
+</box>
 
 Examples:
 * Entering `list`, followed by `delete 2` deletes the 2nd person in BandBook.
+  <br></br>**Command input**
+  ![delete command input 1](images/deleteCommandInput1.png)
+
+  <br>**Expected output**
+  ![delete command result 1](images/deleteCommandResult1.png)
+  <br></br>
+
 * Entering `find n/Betsy`, followed by `delete 1` deletes the 1st person in the results of the `find` command.
+  <br></br>**Command input**
+  ![delete command input 2](images/deleteCommandInput2.png)
+
+  <br>**Expected output**
+  ![delete command result 2](images/deleteCommandResult2.png)
+  <br></br>
 
 <br>
 
@@ -260,12 +320,27 @@ Format: `att INDEX_1 [INDEX_2]... d/DATE`
 * Duplicate entries of an attendance date for the same person are not supported.
 
 <box type="warning" seamless>
-**Note:** Command is only effective on the currently displayed list. Ensure that the index you have called is relative to the list that is currently displayed.
+**Note:**<br>
+Command is only effective on the currently displayed list. Ensure that the index you have called is relative to the list that is currently displayed.
 </box>
 
 Examples:
 * Entering `list`, followed by `att 1 2 d/2024-02-02` marks the attendance of the persons at the 1st and 2nd indexes of BandBook, on 2024-02-02.
-* Entering `find n/David`, followed by `att 1 2 d/2024-02-02` marks the attendance of the persons at the 1st and 2nd indexes of the results of the `find` command, on 2024-02-02.
+  <br></br>**Command input**
+  ![att command input 1](images/attCommandInput1.png)
+
+  <br>**Expected output**
+  ![att command result 1](images/attCommandResult1.png)
+  <br></br>
+
+* Entering `find n/David`, followed by `att 1 d/2024-02-02` marks the attendance of the person at the 1st index of the results of the `find` command, on 2024-02-02.
+  <br></br>**Command input**
+  ![att command input 2](images/attCommandInput2.png)
+
+  <br>**Expected output**
+  ![att command result 2](images/attCommandResult2.png)
+  <br></br>
+
 <br>
 
 ### Unmarking attendance of person(s): `attd`
@@ -283,12 +358,26 @@ Format: `attd INDEX_1 [INDEX_2]... d/DATE`
 * The person's contact will be updated with the tag containing the date specified, removed.
 
 <box type="warning" seamless>
-**Note:** Command is only effective on the currently displayed list. Ensure that the index you have called is relative to the list that is currently displayed.
+**Note:**<br>
+Command is only effective on the currently displayed list. Ensure that the index you have called is relative to the list that is currently displayed.
 </box>
 
 Examples:
 * Entering `list`, followed by `attd 1 2 d/2024-02-02` unmarks the attendance of the persons at the 1st and 2nd indexes of BandBook, on 2024-02-02.
-* Entering `find n/David`, followed by `attd 1 2 d/2024-02-02` unmarks the attendance of the persons at the 1st and 2nd indexes of the results of the `find` command, on 2024-02-02.
+  <br></br>**Command input**
+  ![attd command input 1](images/attdCommandInput1.png)
+
+  <br>**Expected output**
+  ![attd command result 1](images/attdCommandResult1.png)
+  <br></br>
+
+* Entering `find n/David`, followed by `attd 1 d/2024-02-02` unmarks the attendance of the person at the 1st index of the results of the `find` command, on 2024-02-02.
+  <br></br>**Command input**
+  ![attd command input 2](images/attdCommandInput2.png)
+
+  <br>**Expected output**
+  ![attd command result 2](images/attdCommandResult2.png)
+  <br></br>
 
 <br>
 
@@ -306,12 +395,26 @@ Format: `assign INDEX_1 [INDEX_2]... i/INSTRUMENT​`
 * The instrument field will be updated with the input instrument which cannot be empty.
 
 <box type="warning" seamless>
-**Note:** Command is only effective on the currently displayed list. Ensure that the index you have called is relative to the list that is currently displayed.
+**Note:**<br>
+Command is only effective on the currently displayed list. Ensure that the index you have called is relative to the list that is currently displayed.
 </box>
 
 Examples:
 *  `assign 1 i/Flute` Assigns the 1st person with the Flute instrument.
-*  `assign 2 3 5 i/Clarinet` Assigns the 2nd, 3rd and 5th person with the Clarinet instrument.
+   <br></br>**Command input**
+   ![assign command input 1](images/assignCommandInput1.png)
+
+   <br>**Expected output**
+   ![assign command result 1](images/assignCommandResult1.png)
+   <br></br>
+
+*  `assign 2 3 i/Clarinet` Assigns the 2nd and 3rd person with the Clarinet instrument.
+   <br></br>**Command input**
+   ![assign command input 2](images/assignCommandInput2.png)
+
+   <br>**Expected output**
+   ![assign command result 2](images/assignCommandResult2.png)
+   <br></br>
 
 <br>
 
@@ -360,7 +463,16 @@ _Details coming soon ..._
 ## FAQ
 
 **Q**: How do I transfer my data to another Computer?<br>
-**A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous BandBook home folder.
+**A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains
+the data of your previous BandBook home folder.
+
+**Q**: What is considered as duplicated data?<br>
+**A**: In our current implementation, two contacts with the exact same name (while being case sensitive) are considered
+as duplicated data. As such, it is recommended to enter full contact names of band members to avoid this duplication
+error.
+
+**Q**: What values are considered valid for different fields?<br>
+**A**: Refer to the [Parameter Constraints](#parameter-constraints) section for the list of valid values for each field.
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -373,6 +485,7 @@ _Details coming soon ..._
 3. **There is currently no data validation in place to verify that a contact's matriculation year comes after their birth year.** As such, do proceed with caution when entering data to ensure that it is entered accurately.  
 <br></br>
 We are currently working to resolve the above-mentioned issues, and expect to have fixes rolled out in the coming iterations of BandBook. We seek your kind understanding, and thank you for your continued support as we work towards better meeting your band administrator needs!
+
 --------------------------------------------------------------------------------------------------------------------
 
 ## Command summary
