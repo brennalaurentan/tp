@@ -172,6 +172,7 @@ Examples:
   <br>**Expected output**
   ![add command result 2](images/addCommandResult2.png)
   <br></br>
+
 * `add n/Sally Jane p/1234567 e/sallyjane@example.com a/Blk 123 Smith Street b/2001-02-02`
   <br></br>**Command input**
   ![add command input 3](images/addCommandInput3.png)
@@ -217,7 +218,7 @@ Examples:
   ![edit command result 1](images/editCommandResult1.png)
   <br></br>
 
-* `edit 8 n/Betsy Crower t/` Edits the name of the 2nd person to be `Betsy Crower` and clears all existing tags.
+* `edit 8 n/Betsy Crower t/` Edits the name of the 8th person to be `Betsy Crower` and clears all existing tags.
   <br></br>**Command input**
   ![edit command input 2](images/editCommandInput2.png)
 
@@ -243,6 +244,13 @@ Format: `find [n/KEYWORD [MORE_KEYWORDS]] [i/KEYWORD [MORE_KEYWORDS]]`
 Examples:
 * `find n/John` returns `john` and `John Doe`
 * `find n/alex david` returns `Alex Yeoh`, `David Li`
+  <br></br>**Command input**
+  ![find command input 1](images/findCommandInput1.png)
+
+  <br>**Expected output**
+  ![find command result 1](images/findCommandResult1.png)
+  <br></br>
+
 * `find n/alex david i/flute` returns `Alex Yeoh`, `David Li` and other persons who play the flute.
 * `find i/clarinet flute` returns all persons who play the clarinet or flute.
 
