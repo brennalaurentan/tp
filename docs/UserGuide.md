@@ -140,9 +140,9 @@ unlock BandBook's full potential today!
 
 Shows a message explaining how to access the help page.
 
-![help message](images/helpMessage.png)
-
 Format: `help`
+
+![help message](images/helpMessage.png)
 
 <br>
 
@@ -157,9 +157,24 @@ Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [b/BIRTHDAY] [my/MATRICULAT
 </box>
 
 Examples:
-* `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01`
+* `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01`  
+  <br>**Command input**
+  ![add command input 1](images/addCommandInput1.png)
+
+  <br>**Expected output**
+  ![add command result 1](images/addCommandResult1.png)
 * `add n/Betsy Crowe t/friend e/betsycrowe@example.com a/Brown Street p/1234567 t/neighbour`
-* `add n/Sally Jane p/1234567 e/betsycrowe@example.com a/Blk 123 Smith Street b/2001-02-02`
+  <br>**Command input**
+  ![add command input 2](images/addCommandInput2.png)
+
+  <br>**Expected output**
+  ![add command result 2](images/addCommandResult2.png)
+* `add n/Sally Jane p/1234567 e/sallyjane@example.com a/Blk 123 Smith Street b/2001-02-02`
+  <br>**Command input**
+  ![add command input 3](images/addCommandInput3.png)
+
+  <br>**Expected output**
+  ![add command result 3](images/addCommandResult3.png)
 
 <br>
 
@@ -168,6 +183,9 @@ Examples:
 Shows a list of all persons in BandBook.
 
 Format: `list`
+
+<br>**Expected output**
+![list command result](images/listCommandResult.png)
 
 <br>
 
