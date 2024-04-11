@@ -163,14 +163,17 @@ Examples:
 
   <br>**Expected output**
   ![add command result 1](images/addCommandResult1.png)
+  <br></br>
+
 * `add n/Betsy Crowe t/friend e/betsycrowe@example.com a/Brown Street p/1234567 t/neighbour`
-  <br>**Command input**
+  <br></br>**Command input**
   ![add command input 2](images/addCommandInput2.png)
 
   <br>**Expected output**
   ![add command result 2](images/addCommandResult2.png)
+  <br></br>
 * `add n/Sally Jane p/1234567 e/sallyjane@example.com a/Blk 123 Smith Street b/2001-02-02`
-  <br>**Command input**
+  <br></br>**Command input**
   ![add command input 3](images/addCommandInput3.png)
 
   <br>**Expected output**
@@ -206,8 +209,20 @@ Format: `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [b/BIRTHDAY]
 </box>
 
 Examples:
-*  `edit 1 p/91234567 e/johndoe@example.com` Edits the phone number and email address of the 1st person to be `91234567` and `johndoe@example.com` respectively.
-*  `edit 2 n/Betsy Crower t/` Edits the name of the 2nd person to be `Betsy Crower` and clears all existing tags.
+* `edit 7 p/91234567 e/johndoe@example.com` Edits the phone number and email address of the 7th person to be `91234567` and `johndoe@example.com` respectively.
+  <br></br>**Command input**
+  ![edit command input 1](images/editCommandInput1.png)
+
+  <br>**Expected output**
+  ![edit command result 1](images/editCommandResult1.png)
+  <br></br>
+
+* `edit 8 n/Betsy Crower t/` Edits the name of the 2nd person to be `Betsy Crower` and clears all existing tags.
+  <br></br>**Command input**
+  ![edit command input 2](images/editCommandInput2.png)
+
+  <br>**Expected output**
+  ![edit command result 2](images/editCommandResult2.png)
 
 <br>
 
