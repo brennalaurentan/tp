@@ -463,7 +463,16 @@ _Details coming soon ..._
 ## FAQ
 
 **Q**: How do I transfer my data to another Computer?<br>
-**A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous BandBook home folder.
+**A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains
+the data of your previous BandBook home folder.
+
+**Q**: What is considered as duplicated data?<br>
+**A**: In our current implementation, two contacts with the exact same name (while being case sensitive) are considered
+as duplicated data. As such, it is recommended to enter full contact names of band members to avoid this duplication
+error.
+
+**Q**: What values are considered valid for different fields?<br>
+**A**: Refer to the [Parameter Constraints](#parameter-constraints) section for the list of valid values for each field.
 
 --------------------------------------------------------------------------------------------------------------------
 
