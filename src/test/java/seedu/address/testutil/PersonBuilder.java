@@ -85,11 +85,29 @@ public class PersonBuilder {
     }
 
     /**
+     * Sets the {@code attendances} of the {@code Person} to no attendances.
+     */
+    public PersonBuilder withAttendances() {
+        this.attendances = new HashSet<>();
+        return this;
+    }
+
+    /**
      * Parses the {@code attendances} into a {@code Set<Attendance>} and set it to the {@code Person} that we are
      * building.
      */
     public PersonBuilder withAttendances(String ... attendances) {
         this.attendances = SampleDataUtil.getAttendanceSet(attendances);
+        return this;
+    }
+
+    /**
+     * Parses the {@code attendances} into a {@code Set<Attendance>} and adds it to the existing attendances of the
+     * {@code Person} that we are building.
+     */
+    public PersonBuilder addAttendances(String ... attendances) {
+        Set<Attendance> attendancesToAdd = SampleDataUtil.getAttendanceSet(attendances);
+        this.attendances.addAll(attendancesToAdd);
         return this;
     }
 
