@@ -105,4 +105,34 @@ public class AddressBookTest {
         }
     }
 
+    @Test
+    public void equals() {
+        AddressBook addressBookOne = new AddressBook(getTypicalAddressBook());
+        AddressBook addressBookTwo = new AddressBook();
+
+        // same object -> returns true
+        assertTrue(addressBookOne.equals(addressBookOne));
+
+        // same values -> returns true
+        AddressBook addressBookOneCopy = new AddressBook(getTypicalAddressBook());
+        assertTrue(addressBookOne.equals(addressBookOneCopy));
+
+        // different types -> returns false
+        assertFalse(addressBookOne.equals(1));
+
+        // null -> returns false
+        assertFalse(addressBookOne.equals(null));
+
+        // different command -> returns false
+        assertFalse(addressBookOne.equals(addressBookTwo));
+    }
+
+    @Test
+    public void hashCode_symmetric() {
+        AddressBook x = new AddressBook();
+        AddressBook y = new AddressBook();
+
+        assertTrue(x.equals(y) && y.equals(x));
+        assertTrue(x.hashCode() == y.hashCode());
+    }
 }
