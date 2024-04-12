@@ -3,10 +3,8 @@ package seedu.address.commons.core;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static seedu.address.model.person.Birthday.DEFAULT_BIRTHDAY;
 
 import org.junit.jupiter.api.Test;
-import seedu.address.model.person.Birthday;
 
 public class GuiSettingsTest {
     @Test

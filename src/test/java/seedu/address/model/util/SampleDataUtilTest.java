@@ -25,9 +25,9 @@ public class SampleDataUtilTest {
         Person actualFirstPerson = actualPersonArray[0];
 
         // data copied and pasted from SampleDataUtil
-        Person expectedFirstPerson = new Person(new Name("Alex Yeoh"), new Phone("87438807"), new Email("alexyeoh@example.com"),
-                new Address("Blk 30 Geylang Street 29, #06-40"), new Birthday("2000-02-02"),
-                new MatriculationYear("2000"), new Instrument("Flute"),
+        Person expectedFirstPerson = new Person(new Name("Alex Yeoh"), new Phone("87438807"),
+                new Email("alexyeoh@example.com"), new Address("Blk 30 Geylang Street 29, #06-40"),
+                new Birthday("2000-02-02"), new MatriculationYear("2000"), new Instrument("Flute"),
                 SampleDataUtil.getTagSet("friends"), SampleDataUtil.getAttendanceSet());
 
         // verify that first person in both arrays is the same
