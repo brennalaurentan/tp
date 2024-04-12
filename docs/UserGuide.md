@@ -179,6 +179,7 @@ Adds a person to BandBook.
 Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [b/BIRTHDAY] [my/MATRICULATION_YEAR] [i/INSTRUMENT] [t/TAG]…​`
 
 <box type="tip" seamless>
+
 **Tip:**<br>
 All parameter constraints listed above apply. Click [here](#parameter-constraints) for the list of parameter constraints.
 </box>
@@ -233,6 +234,7 @@ Format: `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [b/BIRTHDAY]
 * You can remove all the person’s tags by typing `t/` without specifying any tags after it.
 
 <box type="warning" seamless>
+
 **Note:**<br>
 Command is only effective on the currently displayed list. Ensure that the index you have called is relative to the list that is currently displayed.
 </box>
@@ -295,6 +297,7 @@ Format: `delete INDEX`
 * The index **must be a positive integer** 1, 2, 3, …​
 
 <box type="warning" seamless>
+
 **Note:**<br>
 Command is only effective on the currently displayed list. Ensure that the index you have called is relative to the list that is currently displayed.
 </box>
@@ -346,6 +349,7 @@ Format: `att INDEX_1 [INDEX_2]... d/DATE`
 * Duplicate entries of an attendance date for the same person are not supported.
 
 <box type="warning" seamless>
+
 **Note:**<br>
 Command is only effective on the currently displayed list. Ensure that the index you have called is relative to the list that is currently displayed.
 </box>
@@ -384,6 +388,7 @@ Format: `attd INDEX_1 [INDEX_2]... d/DATE`
 * The person's contact will be updated with the tag containing the date specified, removed.
 
 <box type="warning" seamless>
+
 **Note:**<br>
 Command is only effective on the currently displayed list. Ensure that the index you have called is relative to the list that is currently displayed.
 </box>
@@ -421,6 +426,7 @@ Format: `assign INDEX_1 [INDEX_2]... i/INSTRUMENT​`
 * The instrument field will be updated with the input instrument which cannot be empty.
 
 <box type="warning" seamless>
+
 **Note:**<br>
 Command is only effective on the currently displayed list. Ensure that the index you have called is relative to the list that is currently displayed.
 </box>
