@@ -27,7 +27,6 @@ import seedu.address.testutil.PersonBuilder;
 import seedu.address.testutil.TypicalIndexes;
 
 public class AttendanceCommandTest {
-
     private static final String VALID_ATTENDANCE = "2024-02-02";
 
     private Model model = new ModelManager(getTypicalAddressBook(), new UserPrefs());
