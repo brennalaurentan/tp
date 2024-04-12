@@ -1,69 +1,39 @@
-[![CI Status](https://github.com/se-edu/addressbook-level3/workflows/Java%20CI/badge.svg)](https://github.com/AY2324S2-CS2103T-T15-3/tp/actions)
+[![CI Status](https://github.com/AY2324S2-CS2103T-T15-3/tp/workflows/Java%20CI/badge.svg)](https://github.com/AY2324S2-CS2103T-T15-3/tp/actions)
+[![codecov](https://codecov.io/gh/AY2324S2-CS2103T-T15-3/tp/branch/master/graph/badge.svg)](https://app.codecov.io/gh/AY2324S2-CS2103T-T15-3/tp)
 
 # BandBook
 
+![Ui](docs/images/Ui.png)
+
+## About the App
+
 BandBook is your all-in-one software designed to streamline the management of band members' contact details and
-information. It offers a user-friendly platform to **create, edit and delete** members' contact information,
-along with optional fields such as tag and birthday information.
+attendance. Optimised for use via a Command Line Interface (CLI), BandBook can assist you in managing your members' details
+faster than traditional GUI apps.
 
-Moreover, you can **indicate and view** the attendance history of your members, ensuring that they stay on track
-with the band's activities. Optimised for use via a Command Line Interface (CLI), BandBook can assist you in
-managing your members' details faster than traditional GUI apps.
+  * It is **written in OOP fashion** and provides a **reasonably well-written** code base.
+  * It comes with a **reasonable level of user and developer documentation**.
 
-<p align="center">
-  <img src="docs/images/Ui.png" alt="Description of the image">
-</p>
+## Main Features
+It offers a user-friendly platform to **add, edit and delete members' contact information**,
+along with optional fields such as **tag, birthday, matriculation year and instrument information**.
 
-## Features
+Moreover, you can **assign instruments** to your members and **find your members by their name and/or instrument
+assigned**. You may also **indicate and view the attendance history of your members**, ensuring that they stay on
+track with the band's activities.
 
-### Creating Contact Information
-Creates and adds a band member's contact into the list of contacts.
+## Getting Started
+1. Ensure you have Java `11` or above installed in your Computer.
+2. Download the latest `BandBook-v1.4.jar` from [here](https://github.com/AY2324S2-CS2103T-T15-3/tp/releases).
+3. Copy the file to the folder you want to use as the _home folder_ for BandBook.
+4. Open a command terminal, `cd` into the folder you put the jar file in, and use the `java -jar BandBook-v1.4.jar`
+   command to run the application.
 
-Command Syntax: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG] [b/BIRTHDAY] ...`
+<box type="tip" seamless>
 
-Examples:
-- `add n/John Doe p/98765432 e/johnd@example.com a/John Street, block 123, #01-01`
-- `add n/Sally Smith p/92716291 e/sallys@example.com a/Sally Street, block 221, #12-25 b/2000-01-01`
+**Tip:** For the detailed documentation of this project, see the [BandBook Product Website](https://ay2324s2-cs2103t-t15-3.github.io/tp/).
 
-### Updating Contact Information
-Updates a band member's contact with newly provided information.
+</box>
 
-Command Syntax: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG] [b/BIRTHDAY] ...`
-
-Examples:
-- `edit 1 p/91234567 e/johndoe@example.com `
-- `edit 2 p/92712213 b/2001-02-03`
-
-### Deleting Contact Information
-Deletes a band member's contact from the list of contacts.
-
-Command Syntax: `delete INDEX`
-
-Examples:
-- `delete 2` deletes the user with id = 2.
-
-### Viewing Upcoming Birthdays
-Displays X number of upcoming birthdays.
-
-Command Syntax: `bd NUM`
-
-Examples:
-- `bd 3` displays the 3 upcoming birthdays from today's date.
-
-### Updating Attendance History
-Adds the date of session attended by a band member to his/her attendance list.
-
-Command Syntax: `att mark INDEX d/DATE`
-
-Examples:
-- `att mark 2 d/2024-10-19`
-
-### Viewing Attendance History
-Displays the attendance history of a specific band member.
-
-Command Syntax: `att view INDEX`
-
-Examples:
-- `att view 2`
-
+## Acknowledgements
 This project is based on the AddressBook-Level3 project created by the [SE-EDU initiative](https://se-education.org).
