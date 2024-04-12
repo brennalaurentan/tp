@@ -28,7 +28,6 @@ import seedu.address.testutil.TypicalIndexes;
 
 public class AttendanceCommandTest {
 
-    private static final String INVALID_ATTENDANCE = "02-02-2024"; // invalid format
     private static final String VALID_ATTENDANCE = "2024-02-02";
 
     private Model model = new ModelManager(getTypicalAddressBook(), new UserPrefs());
