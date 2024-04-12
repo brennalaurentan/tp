@@ -1,11 +1,12 @@
 ---
-  layout: default.md
-  title: "User Guide"
-  pageNav: 3
+layout: default.md
+title: "User Guide"
+pageNav: 3
 ---
 
 # BandBook User Guide
 
+## Introduction & Product Information
 **Welcome to BandBook: Your Ultimate Band Management Software!**
 
 BandBook is your all-in-one software designed to streamline the management of band members' contact details and
@@ -19,9 +20,34 @@ track with the band's activities.
 Optimised for use via a Command Line Interface (CLI), BandBook can assist you in managing your members' details
 faster than traditional GUI apps.
 
-Through this user guide, you will learn how to use BandBook effectively and efficiently. We will guide you through
-step-by-step on how to use BandBook's features, along with the various commands available to you. Come on board and
-unlock BandBook's full potential today!
+## Purpose of this user guide and how you should use it
+The objective of this user guide is for you to learn how to use BandBook effectively and efficiently. We will guide you through
+step-by-step (with examples!) on how to use BandBook's features, along with the various commands available to you.
+
+We suggest that you start by installing BandBook with the [Quick start](#quick-start) section. Afterwards go through the [Features](#features) section top-down. This section details the most
+fundamental operations first, before continuing with more advanced features that aim to provide a higher level of efficiency
+in your work. If you continue to have questions about BandBook, do check out the [FAQ](#faq) section.
+
+Or if you would like just a quick and easy-to-read summary of BandBook's commands, go over to the [Command summary](#command-summary)!
+
+To aid in your understanding of the features and commands of BandBook, we have also included examples as well as screenshots of the program throughout
+the guide.
+
+Come on board and unlock BandBook's full potential today!
+
+## Target User
+
+BandBook is specifically designed for administrators managing large musical ensembles, particularly bands consisting of
+20 or more musicians. This includes band managers, music directors, and administrative personnel who are responsible for
+coordinating schedules, managing communications, and overseeing logistical arrangements for their groups.
+
+We assume that our primary users have a basic understanding of band operations and are familiar with the complexities
+involved in managing large groups. Users are likely accustomed to utilizing software solutions for organizational tasks
+but may vary in their technical proficiency. Therefore, BandBook is engineered to be user-friendly, providing intuitive
+navigation and comprehensive features that cater to both novice and experienced software users.
+
+As our product is developed around the use of a CLI, we assume that our primary users are able to type and carry
+operations faster than if they were to use a GUI.
 
 <!-- * Table of Contents -->
 <page-nav-print />
@@ -46,15 +72,15 @@ unlock BandBook's full potential today!
 
    Some example commands you can try:
 
-   * `list` : Lists all contacts.
+    * `list` : Lists all contacts.
 
-   * `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01` : Adds a contact named `John Doe` to BandBook.
+    * `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01` : Adds a contact named `John Doe` to BandBook.
 
-   * `delete 3` : Deletes the 3rd contact shown in the current list.
+    * `delete 3` : Deletes the 3rd contact shown in the current list.
 
-   * `clear` : Deletes all contacts.
+    * `clear` : Deletes all contacts.
 
-   * `exit` : Exits the app.
+    * `exit` : Exits the app.
 
 6. Refer to the [Features](#features) below for details of each command.
 
@@ -82,7 +108,7 @@ unlock BandBook's full potential today!
   e.g. if the command specifies `help 123`, it will be interpreted as `help`.
 
 * If you are using a PDF version of this document, be careful when copying and pasting commands that span multiple lines as space characters surrounding line-breaks may be omitted when copied over to the application.
-</box>
+  </box>
 
 ### Parameter Constraints
 #### NAME: `n/`
@@ -120,7 +146,7 @@ unlock BandBook's full potential today!
 
 #### INSTRUMENT: `i/`
 > It refers to the **instrument** assigned to the person.
-* Only accepts alphanumeric characters and spaces. 
+* Only accepts alphanumeric characters and spaces.
 * Stores only one instrument per person.
 * Once a person has an instrument assigned, subsequent edits will require the instrument field to be filled.
 
@@ -153,6 +179,7 @@ Adds a person to BandBook.
 Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [b/BIRTHDAY] [my/MATRICULATION_YEAR] [i/INSTRUMENT] [t/TAG]…​`
 
 <box type="tip" seamless>
+
 **Tip:**<br>
 All parameter constraints listed above apply. Click [here](#parameter-constraints) for the list of parameter constraints.
 </box>
@@ -207,6 +234,7 @@ Format: `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [b/BIRTHDAY]
 * You can remove all the person’s tags by typing `t/` without specifying any tags after it.
 
 <box type="warning" seamless>
+
 **Note:**<br>
 Command is only effective on the currently displayed list. Ensure that the index you have called is relative to the list that is currently displayed.
 </box>
@@ -269,6 +297,7 @@ Format: `delete INDEX`
 * The index **must be a positive integer** 1, 2, 3, …​
 
 <box type="warning" seamless>
+
 **Note:**<br>
 Command is only effective on the currently displayed list. Ensure that the index you have called is relative to the list that is currently displayed.
 </box>
@@ -320,6 +349,7 @@ Format: `att INDEX_1 [INDEX_2]... d/DATE`
 * Duplicate entries of an attendance date for the same person are not supported.
 
 <box type="warning" seamless>
+
 **Note:**<br>
 Command is only effective on the currently displayed list. Ensure that the index you have called is relative to the list that is currently displayed.
 </box>
@@ -358,6 +388,7 @@ Format: `attd INDEX_1 [INDEX_2]... d/DATE`
 * The person's contact will be updated with the tag containing the date specified, removed.
 
 <box type="warning" seamless>
+
 **Note:**<br>
 Command is only effective on the currently displayed list. Ensure that the index you have called is relative to the list that is currently displayed.
 </box>
@@ -395,6 +426,7 @@ Format: `assign INDEX_1 [INDEX_2]... i/INSTRUMENT​`
 * The instrument field will be updated with the input instrument which cannot be empty.
 
 <box type="warning" seamless>
+
 **Note:**<br>
 Command is only effective on the currently displayed list. Ensure that the index you have called is relative to the list that is currently displayed.
 </box>
@@ -479,12 +511,12 @@ error.
 ## Known issues
 
 1. **When using multiple screens**, if you move the application to a secondary screen, and later switch to using only the primary screen, the GUI will open off-screen. The remedy is to delete the `preferences.json` file created by the application before running the application again.
-<br></br>
+   <br></br>
 2. **BandBook currently does not support users adding two contacts with the exact same name**. As such, it is recommended to enter full contact names to avoid running into this duplication error. Alternatively, modify the capitalisation of characters in the name to make them nonidentical (e.g `John Doe` & `john doe`).
-<br></br>
+   <br></br>
 3. **There is currently no data validation in place to verify that a contact's matriculation year comes after their birth year.** As such, do proceed with caution when entering data to ensure that it is entered accurately.  
-<br></br>
-We are currently working to resolve the above-mentioned issues, and expect to have fixes rolled out in the coming iterations of BandBook. We seek your kind understanding, and thank you for your continued support as we work towards better meeting your band administrator needs!
+   <br></br>
+   We are currently working to resolve the above-mentioned issues, and expect to have fixes rolled out in the coming iterations of BandBook. We seek your kind understanding, and thank you for your continued support as we work towards better meeting your band administrator needs!
 
 --------------------------------------------------------------------------------------------------------------------
 
