@@ -14,10 +14,15 @@ import org.junit.jupiter.api.Test;
 
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.Messages;
+import seedu.address.model.AddressBook;
 import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
 import seedu.address.model.UserPrefs;
+import seedu.address.model.person.MatriculationYear;
 import seedu.address.model.person.Person;
+import seedu.address.testutil.PersonBuilder;
+
+import java.util.List;
 
 /**
  * Contains integration tests (interaction with the Model) and unit tests for
@@ -39,6 +44,51 @@ public class DeleteCommandTest {
         expectedModel.deletePerson(personToDelete);
 
         assertCommandSuccess(deleteCommand, model, expectedMessage, expectedModel);
+    }
+
+    @Test
+    public void execute_validMatriculationYearUnfilteredList_success() {
+        // set matriculation year of all to 2024
+        Model modelCopy = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs());
+        List<Person> personsInModelCopy = modelCopy.getAddressBook().getPersonList();
+        for (Person person : personsInModelCopy) {
+            Person editedPerson = new PersonBuilder(person).withMatriculationYear("2024").build();
+            modelCopy.deletePerson(person);
+            modelCopy.addPerson(editedPerson);
+        }
+
+        Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs());
+        List<Person> personsInExpectedModel = expectedModel.getAddressBook().getPersonList();
+        for (Person person : personsInExpectedModel) {
+            Person editedPerson = new PersonBuilder(person).withMatriculationYear("2024").build();
+            expectedModel.deletePerson(person);
+            expectedModel.addPerson(editedPerson);
+        }
+
+        // set matriculation year of person at first index to 2023 in modelCopy and expectedModel
+        Person personToDelete = modelCopy.getFilteredPersonList().get(INDEX_FIRST_PERSON.getZeroBased());
+        Person editedPersonToDelete = new PersonBuilder(personToDelete).withMatriculationYear("2023").build();
+        modelCopy.setPerson(modelCopy.getFilteredPersonList().get(0), editedPersonToDelete);
+        expectedModel.setPerson(expectedModel.getFilteredPersonList().get(0), editedPersonToDelete);
+
+        // delete person at first index in expectedModel
+        Person personToDeleteFromExpectedModel =
+                expectedModel.getFilteredPersonList().get(INDEX_FIRST_PERSON.getZeroBased());
+        expectedModel.deletePerson(personToDeleteFromExpectedModel);
+
+        // create deletedPersonsList containing first person in expectedModel
+        StringBuilder expectedDeletedPersonsList = new StringBuilder();
+        expectedDeletedPersonsList.append("\n");
+        expectedDeletedPersonsList.append(Messages.format(personToDeleteFromExpectedModel));
+
+        // create deleteCommand
+        MatriculationYear matriculationYearToDelete = new MatriculationYear("2023");
+        DeleteCommand deleteCommand = new DeleteCommand(matriculationYearToDelete);
+
+        // create expectedMessage
+        String expectedMessage = String.format(DeleteCommand.MESSAGE_DELETE_PERSONS_SUCCESS, expectedDeletedPersonsList);
+
+        assertCommandSuccess(deleteCommand, modelCopy, expectedMessage, expectedModel);
     }
 
     @Test
