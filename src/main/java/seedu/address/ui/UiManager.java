@@ -26,7 +26,9 @@ public class UiManager implements Ui {
     private MainWindow mainWindow;
 
     /**
-     * Creates a {@code UiManager} with the given {@code Logic}.
+     * Constructs a {@code UiManager} with the given {@code Logic}.
+     *
+     * @param logic The logic of the application.
      */
     public UiManager(Logic logic) {
         this.logic = logic;
@@ -61,6 +63,12 @@ public class UiManager implements Ui {
     /**
      * Shows an alert dialog on {@code owner} with the given parameters.
      * This method only returns after the user has closed the alert dialog.
+     *
+     * @param owner The owner stage of the alert dialog.
+     * @param type The type of the alert dialog.
+     * @param title The title of the alert dialog.
+     * @param headerText The header text of the alert dialog.
+     * @param contentText The content text of the alert dialog.
      */
     private static void showAlertDialogAndWait(Stage owner, AlertType type, String title, String headerText,
                                                String contentText) {
@@ -77,6 +85,9 @@ public class UiManager implements Ui {
     /**
      * Shows an error alert dialog with {@code title} and error message, {@code e},
      * and exits the application after the user has closed the alert dialog.
+     *
+     * @param title The title of the alert dialog.
+     * @param e The exception to be shown in the alert dialog.
      */
     private void showFatalErrorDialogAndShutdown(String title, Throwable e) {
         logger.severe(title + " " + e.getMessage() + StringUtil.getDetails(e));

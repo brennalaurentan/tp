@@ -36,7 +36,7 @@ import seedu.address.model.person.Phone;
 import seedu.address.model.tag.Tag;
 
 /**
- * Edits the details of an existing person in the address book.
+ * Represents a command that edits the details of an existing person in the address book.
  */
 public class EditCommand extends Command {
 
@@ -57,7 +57,6 @@ public class EditCommand extends Command {
             + "Example: " + COMMAND_WORD + " 1 "
             + PREFIX_PHONE + "91234567 "
             + PREFIX_EMAIL + "johndoe@example.com";
-
     public static final String MESSAGE_EDIT_PERSON_SUCCESS = "Edited Person: %1$s";
     public static final String MESSAGE_NOT_EDITED = "At least one field to edit must be provided.";
     public static final String MESSAGE_DUPLICATE_PERSON = "This person already exists in the address book.";
@@ -66,8 +65,10 @@ public class EditCommand extends Command {
     private final EditPersonDescriptor editPersonDescriptor;
 
     /**
-     * @param index of the person in the filtered person list to edit
-     * @param editPersonDescriptor details to edit the person with
+     * Constructs an EditCommand to edit the person at the specified index and editPersonDescriptor.
+     *
+     * @param index Index of the person in the filtered person list to edit.
+     * @param editPersonDescriptor Details to edit the person with.
      */
     public EditCommand(Index index, EditPersonDescriptor editPersonDescriptor) {
         requireNonNull(index);
@@ -77,6 +78,13 @@ public class EditCommand extends Command {
         this.editPersonDescriptor = new EditPersonDescriptor(editPersonDescriptor);
     }
 
+    /**
+     * Executes the command to edit the details of the person at the specified index.
+     *
+     * @param model The model which the command should operate on.
+     * @return A command result that indicates the person has been edited successfully.
+     * @throws CommandException If the index is invalid or the person to edit already contains the same details.
+     */
     @Override
     public CommandResult execute(Model model) throws CommandException {
         requireNonNull(model);
@@ -99,8 +107,11 @@ public class EditCommand extends Command {
     }
 
     /**
-     * Creates and returns a {@code Person} with the details of {@code personToEdit}
-     * edited with {@code editPersonDescriptor}.
+     * Creates and returns a person with the updated details.
+     *
+     * @param personToEdit The person to be edited with the updated details.
+     * @param editPersonDescriptor The details to edit the person with.
+     * @return A person with the updated details.
      */
     private static Person createEditedPerson(Person personToEdit, EditPersonDescriptor editPersonDescriptor) {
         assert personToEdit != null;
@@ -121,6 +132,12 @@ public class EditCommand extends Command {
                 updatedBirthday, updatedMatriculationYear, updatedInstrument, updatedTags, updatedAttendances);
     }
 
+    /**
+     * Checks if the EditCommand is equal to another object.
+     *
+     * @param other The other object to compare with.
+     * @return True if both EditCommands have the same index and editPersonDescriptor.
+     */
     @Override
     public boolean equals(Object other) {
         if (other == this) {
@@ -137,6 +154,11 @@ public class EditCommand extends Command {
                 && editPersonDescriptor.equals(otherEditCommand.editPersonDescriptor);
     }
 
+    /**
+     * Returns a string representation of the EditCommand.
+     *
+     * @return String representation of the EditCommand.
+     */
     @Override
     public String toString() {
         return new ToStringBuilder(this)

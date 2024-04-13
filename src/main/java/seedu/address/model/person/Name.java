@@ -33,6 +33,9 @@ public class Name {
 
     /**
      * Returns true if a given string is a valid name.
+     *
+     * @param test String to be tested.
+     * @return True if the string is a valid name.
      */
     public static boolean isValidName(String test) {
         return test.matches(VALIDATION_REGEX);
@@ -44,6 +47,12 @@ public class Name {
         return fullName;
     }
 
+    /**
+     * Checks if a given object is the same as this Name object.
+     *
+     * @param other The other object to compare with.
+     * @return True if the other object is the same Name object or has the same name value.
+     */
     @Override
     public boolean equals(Object other) {
         if (other == this) {

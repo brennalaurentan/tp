@@ -20,7 +20,11 @@ public class CommandResult {
     private final boolean exit;
 
     /**
-     * Constructs a {@code CommandResult} with the specified fields.
+     * Constructs a CommandResult with the specified fields.
+     *
+     * @param feedbackToUser Feedback to be shown to the user.
+     * @param showHelp Whether to show help information.
+     * @param exit Whether the application should exit.
      */
     public CommandResult(String feedbackToUser, boolean showHelp, boolean exit) {
         this.feedbackToUser = requireNonNull(feedbackToUser);
@@ -29,8 +33,9 @@ public class CommandResult {
     }
 
     /**
-     * Constructs a {@code CommandResult} with the specified {@code feedbackToUser},
-     * and other fields set to their default value.
+     * Constructs a CommandResult with the specified field and other fields set to their default value.
+     *
+     * @param feedbackToUser Feedback to be shown to the user.
      */
     public CommandResult(String feedbackToUser) {
         this(feedbackToUser, false, false);
@@ -48,6 +53,12 @@ public class CommandResult {
         return exit;
     }
 
+    /**
+     * Checks if the CommandResult is equal to another object.
+     *
+     * @param other The other object to compare with.
+     * @return True if both CommandResults have the same feedback, showHelp and exit.
+     */
     @Override
     public boolean equals(Object other) {
         if (other == this) {
@@ -65,11 +76,21 @@ public class CommandResult {
                 && exit == otherCommandResult.exit;
     }
 
+    /**
+     * Returns the hash code of the CommandResult.
+     *
+     * @return Hash code of the CommandResult.
+     */
     @Override
     public int hashCode() {
         return Objects.hash(feedbackToUser, showHelp, exit);
     }
 
+    /**
+     * Returns a string representation of the CommandResult.
+     *
+     * @return String representation of the CommandResult.
+     */
     @Override
     public String toString() {
         return new ToStringBuilder(this)

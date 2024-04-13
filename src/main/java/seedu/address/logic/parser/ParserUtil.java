@@ -33,7 +33,10 @@ public class ParserUtil {
     /**
      * Parses {@code oneBasedIndex} into an {@code Index} and returns it. Leading and trailing whitespaces will be
      * trimmed.
-     * @throws ParseException if the specified index is invalid (not non-zero unsigned integer).
+     *
+     * @param oneBasedIndex The string index to be parsed.
+     * @return The parsed index in the form of an Index object.
+     * @throws ParseException If the specified index is invalid (not non-zero unsigned integer).
      */
     public static Index parseIndex(String oneBasedIndex) throws ParseException {
         String trimmedIndex = oneBasedIndex.trim();
@@ -46,7 +49,10 @@ public class ParserUtil {
     /**
      * Parses {@code indexes} into a {@code Set<Index>} and returns it. Leading and trailing whitespaces will be
      * trimmed.
-     * @throws ParseException if the specified indexes are invalid (not non-zero unsigned integer).
+     *
+     * @param indexes The string of indexes to be parsed.
+     * @return The parsed indexes in the form of a Set of Index objects.
+     * @throws ParseException If the specified indexes are invalid (not non-zero unsigned integer).
      */
     public static Set<Index> parseIndexes(Collection<String> indexes) throws ParseException {
         requireNonNull(indexes);
@@ -58,10 +64,11 @@ public class ParserUtil {
     }
 
     /**
-     * Parses a {@code String name} into a {@code Name}.
-     * Leading and trailing whitespaces will be trimmed.
+     * Parses a {@code String name} into a {@code Name}. Leading and trailing whitespaces will be trimmed.
      *
-     * @throws ParseException if the given {@code name} is invalid.
+     * @param name The string name to be parsed.
+     * @return The parsed name in the form of a Name object.
+     * @throws ParseException If the given {@code name} is invalid.
      */
     public static Name parseName(String name) throws ParseException {
         requireNonNull(name);
@@ -73,10 +80,11 @@ public class ParserUtil {
     }
 
     /**
-     * Parses a {@code String phone} into a {@code Phone}.
-     * Leading and trailing whitespaces will be trimmed.
+     * Parses a {@code String phone} into a {@code Phone}. Leading and trailing whitespaces will be trimmed.
      *
-     * @throws ParseException if the given {@code phone} is invalid.
+     * @param phone The string phone number to be parsed.
+     * @return The parsed phone number in the form of a Phone object.
+     * @throws ParseException If the given {@code phone} is invalid.
      */
     public static Phone parsePhone(String phone) throws ParseException {
         requireNonNull(phone);
@@ -88,10 +96,11 @@ public class ParserUtil {
     }
 
     /**
-     * Parses a {@code String address} into an {@code Address}.
-     * Leading and trailing whitespaces will be trimmed.
+     * Parses a {@code String address} into an {@code Address}. Leading and trailing whitespaces will be trimmed.
      *
-     * @throws ParseException if the given {@code address} is invalid.
+     * @param address The string address to be parsed.
+     * @return The parsed address in the form of an Address object.
+     * @throws ParseException If the given {@code address} is invalid.
      */
     public static Address parseAddress(String address) throws ParseException {
         requireNonNull(address);
@@ -103,10 +112,11 @@ public class ParserUtil {
     }
 
     /**
-     * Parses a {@code String email} into an {@code Email}.
-     * Leading and trailing whitespaces will be trimmed.
+     * Parses a {@code String email} into an {@code Email}. Leading and trailing whitespaces will be trimmed.
      *
-     * @throws ParseException if the given {@code email} is invalid.
+     * @param email The string email to be parsed.
+     * @return The parsed email in the form of an Email object.
+     * @throws ParseException If the given {@code email} is invalid.
      */
     public static Email parseEmail(String email) throws ParseException {
         requireNonNull(email);
@@ -118,10 +128,11 @@ public class ParserUtil {
     }
 
     /**
-     * Parses a {@code String birthday} into an {@code Birthday}.
-     * Leading and trailing whitespaces will be trimmed.
+     * Parses a {@code String birthday} into an {@code Birthday}. Leading and trailing whitespaces will be trimmed.
      *
-     * @throws ParseException if the given {@code birthday} is invalid.
+     * @param birthday The string birthday to be parsed.
+     * @return The parsed birthday in the form of a Birthday object.
+     * @throws ParseException If the given {@code birthday} is invalid.
      */
     public static Birthday parseBirthday(String birthday) throws ParseException {
         requireNonNull(birthday);
@@ -133,10 +144,12 @@ public class ParserUtil {
     }
 
     /**
-     * Parses a {@code String matriculationYear} into an {@code MatriculationYear}.
-     * Leading and trailing whitespaces will be trimmed.
+     * Parses a {@code String matriculationYear} into an {@code MatriculationYear}. Leading and trailing whitespaces
+     * will be trimmed.
      *
-     * @throws ParseException if the given {@code matriculationYear} is invalid.
+     * @param matriculationYear The string matriculation year to be parsed.
+     * @return The parsed matriculation year in the form of a MatriculationYear object.
+     * @throws ParseException If the given {@code matriculationYear} is invalid.
      */
     public static MatriculationYear parseMatriculationYear(String matriculationYear) throws ParseException {
         requireNonNull(matriculationYear);
@@ -148,10 +161,11 @@ public class ParserUtil {
     }
 
     /**
-     * Parses a {@code String instrument} into an {@code Instrument}.
-     * Leading and trailing whitespaces will be trimmed.
+     * Parses a {@code String instrument} into an {@code Instrument}. Leading and trailing whitespaces will be trimmed.
      *
-     * @throws ParseException if the given {@code instrument} is invalid.
+     * @param instrument The string instrument to be parsed.
+     * @return The parsed instrument in the form of an Instrument object.
+     * @throws ParseException If the given {@code instrument} is invalid.
      */
     public static Instrument parseInstrument(String instrument) throws ParseException {
         requireNonNull(instrument);
@@ -163,10 +177,11 @@ public class ParserUtil {
     }
 
     /**
-     * Parses a {@code String tag} into a {@code Tag}.
-     * Leading and trailing whitespaces will be trimmed.
+     * Parses a {@code String tag} into a {@code Tag}. Leading and trailing whitespaces will be trimmed.
      *
-     * @throws ParseException if the given {@code tag} is invalid.
+     * @param tag The string tag to be parsed.
+     * @return The parsed tag in the form of a Tag object.
+     * @throws ParseException If the given {@code tag} is invalid.
      */
     public static Tag parseTag(String tag) throws ParseException {
         requireNonNull(tag);
@@ -179,6 +194,10 @@ public class ParserUtil {
 
     /**
      * Parses {@code Collection<String> tags} into a {@code Set<Tag>}.
+     *
+     * @param tags The collection of tags to be parsed.
+     * @return The parsed tags in the form of a Set of Tag objects.
+     * @throws ParseException If the given {@code tags} is invalid.
      */
     public static Set<Tag> parseTags(Collection<String> tags) throws ParseException {
         requireNonNull(tags);
@@ -190,10 +209,11 @@ public class ParserUtil {
     }
 
     /**
-     * Parses a {@code String attendance} into an {@code Attendance}.
-     * Leading and trailing whitespaces will be trimmed.
+     * Parses a {@code String attendance} into an {@code Attendance}. Leading and trailing whitespaces will be trimmed.
      *
-     * @throws ParseException if the given {@code attendance} is invalid.
+     * @param attendance The string attendance to be parsed.
+     * @return The parsed attendance in the form of an Attendance object.
+     * @throws ParseException If the given {@code attendance} is invalid.
      */
     public static Attendance parseAttendance(String attendance) throws ParseException {
         requireNonNull(attendance);
@@ -206,6 +226,10 @@ public class ParserUtil {
 
     /**
      * Parses {@code Collection<String> attendances} into a {@code Set<Attendance>}.
+     *
+     * @param attendances The collection of attendances to be parsed.
+     * @return The parsed attendances in the form of a Set of Attendance objects.
+     * @throws ParseException If the given {@code attendances} is invalid.
      */
     public static Set<Attendance> parseAttendances(Collection<String> attendances) throws ParseException {
         requireNonNull(attendances);
@@ -220,6 +244,9 @@ public class ParserUtil {
      * Parses a {@code String findString} into a {@code String[]} and ensures check validation.
      * Leading and trailing whitespaces will be trimmed.
      *
+     * @param findString The string findString to be parsed.
+     * @param prefix The prefix of the findString.
+     * @return The parsed findString in the form of a String[].
      * @throws ParseException if the given {@code string} is invalid.
      */
     public static String[] parseFindString(String findString, Prefix prefix) throws ParseException {

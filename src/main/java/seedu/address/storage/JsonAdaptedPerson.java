@@ -40,6 +40,16 @@ class JsonAdaptedPerson {
 
     /**
      * Constructs a {@code JsonAdaptedPerson} with the given person details.
+     *
+     * @param name Name of the person.
+     * @param phone Phone number of the person.
+     * @param email Email of the person.
+     * @param address Address of the person.
+     * @param birthday Birthday of the person.
+     * @param matriculationYear Matriculation year of the person.
+     * @param instrument Instrument of the person.
+     * @param tags Tags of the person.
+     * @param attendances Attendances of the person.
      */
     @JsonCreator
     public JsonAdaptedPerson(@JsonProperty("name") String name, @JsonProperty("phone") String phone,
@@ -66,6 +76,8 @@ class JsonAdaptedPerson {
 
     /**
      * Converts a given {@code Person} into this class for Jackson use.
+     *
+     * @param source Person object to be converted.
      */
     public JsonAdaptedPerson(Person source) {
         name = source.getName().fullName;
@@ -86,7 +98,8 @@ class JsonAdaptedPerson {
     /**
      * Converts this Jackson-friendly adapted person object into the model's {@code Person} object.
      *
-     * @throws IllegalValueException if there were any data constraints violated in the adapted person.
+     * @return Person object converted from this adapted person object.
+     * @throws IllegalValueException If there were any data constraints violated in the adapted person.
      */
     public Person toModelType() throws IllegalValueException {
         final List<Tag> personTags = new ArrayList<>();

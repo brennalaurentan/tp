@@ -56,7 +56,10 @@ public class PersonCard extends UiPart<Region> {
     private FlowPane attendances;
 
     /**
-     * Creates a {@code PersonCode} with the given {@code Person} and index to display.
+     * Constructs a {@code PersonCode} with the given {@code Person} and index to display.
+     *
+     * @param person The person to display.
+     * @param displayedIndex The index of the person to display.
      */
     public PersonCard(Person person, int displayedIndex) {
         super(FXML);

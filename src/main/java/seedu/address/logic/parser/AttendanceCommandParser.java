@@ -16,14 +16,17 @@ import seedu.address.logic.commands.AttendanceCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 
 /**
- * Parses input arguments and creates a new AttendanceCommand object
+ * Represents a parser that parses input arguments and creates a new AttendanceCommand object.
  */
 public class AttendanceCommandParser implements Parser<AttendanceCommand> {
 
     /**
      * Parses the given {@code String} of arguments in the context of the AttendanceCommand
      * and returns a AttendanceCommand object for execution.
-     * @throws ParseException if the user input does not conform the expected format
+     *
+     * @param args String of arguments to be parsed.
+     * @return AttendanceCommand object for execution.
+     * @throws ParseException If the user input does not conform the expected format.
      */
     public AttendanceCommand parse(String args) throws ParseException {
         requireNonNull(args);

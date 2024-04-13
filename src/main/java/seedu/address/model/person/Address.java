@@ -31,7 +31,10 @@ public class Address {
     }
 
     /**
-     * Returns true if a given string is a valid email.
+     * Checks if a given string is a valid address.
+     *
+     * @param test String to be tested.
+     * @return True if the string is a valid address.
      */
     public static boolean isValidAddress(String test) {
         return test.matches(VALIDATION_REGEX);
@@ -42,6 +45,12 @@ public class Address {
         return value;
     }
 
+    /**
+     * Checks if a given object is the same as this Address object.
+     *
+     * @param other The other object to compare with.
+     * @return True if the other object is the same Address object or has the same address value.
+     */
     @Override
     public boolean equals(Object other) {
         if (other == this) {

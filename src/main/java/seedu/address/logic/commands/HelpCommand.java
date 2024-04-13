@@ -3,7 +3,7 @@ package seedu.address.logic.commands;
 import seedu.address.model.Model;
 
 /**
- * Format full help instructions for every command for display.
+ * Represents a command that fFormat full help instructions for every command for display.
  */
 public class HelpCommand extends Command {
 
@@ -14,6 +14,12 @@ public class HelpCommand extends Command {
 
     public static final String SHOWING_HELP_MESSAGE = "Opened help window.";
 
+    /**
+     * Executes the HelpCommand and display the help window.
+     *
+     * @param model The model which the command should operate on.
+     * @return A command result with the success message of showing help window.
+     */
     @Override
     public CommandResult execute(Model model) {
         return new CommandResult(SHOWING_HELP_MESSAGE, true, false);
