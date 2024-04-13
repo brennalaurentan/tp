@@ -16,12 +16,25 @@ public class NameContainsKeywordsPredicate implements Predicate<Person> {
         this.keywords = keywords;
     }
 
+    /**
+     * Tests that a {@code Person}'s {@code Name} matches any of the keywords given.
+     *
+     * @param person The person to test.
+     * @return True if the person's name matches any of the keywords given, false otherwise.
+     */
     @Override
     public boolean test(Person person) {
         return keywords.stream()
                 .anyMatch(keyword -> StringUtil.containsWordIgnoreCase(person.getName().fullName, keyword));
     }
 
+    /**
+     * Checks if a given object is the same as this NameContainsKeywordsPredicate object.
+     *
+     * @param other The other object to compare with.
+     * @return True if the other object is the same NameContainsKeywordsPredicate object or has the same
+     * keywords.
+     */
     @Override
     public boolean equals(Object other) {
         if (other == this) {

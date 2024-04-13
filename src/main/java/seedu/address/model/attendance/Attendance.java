@@ -25,6 +25,12 @@ public class Attendance {
         this.attendanceDate = attendanceDate;
     }
 
+    /**
+     * Checks if a given object is the same as this Attendance object.
+     *
+     * @param other The other object to compare with.
+     * @return True if the other object is an instance of Attendance and has the same attendance date.
+     */
     @Override
     public boolean equals(Object other) {
         if (other == this) {
@@ -41,7 +47,10 @@ public class Attendance {
     }
 
     /**
-     * Returns true if a given string is a valid attendance date.
+     * Checks if a given string is a valid attendance date.
+     *
+     * @param test The string to test.
+     * @return True if the string is a valid attendance date.
      */
     public static boolean isValidAttendanceDate(String test) {
         return test.matches(VALIDATION_REGEX);
@@ -53,7 +62,9 @@ public class Attendance {
     }
 
     /**
-     * Format state as text for viewing.
+     * Returns a string representation of the Attendance object.
+     *
+     * @return A string representation of the Attendance object.
      */
     public String toString() {
         return '[' + attendanceDate.toString() + ']';

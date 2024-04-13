@@ -34,6 +34,9 @@ public class Birthday {
 
     /**
      * Returns true if a given string is a valid birthday.
+     *
+     * @param test String to be tested.
+     * @return True if the string is a valid birthday.
      */
     public static boolean isValidBirthday(String test) {
         LocalDate dateEntered;
@@ -57,6 +60,12 @@ public class Birthday {
         return value;
     }
 
+    /**
+     * Checks if a given object is the same as this Birthday object.
+     *
+     * @param other The other object to compare with.
+     * @return True if the other object is the same Birthday object or has the same birthday value.
+     */
     @Override
     public boolean equals(Object other) {
         return other == this // short circuit if same object
