@@ -11,8 +11,8 @@ import seedu.address.model.person.InstrumentContainsKeywordsPredicate;
 import seedu.address.model.person.NameContainsKeywordsPredicate;
 
 /**
- * Finds and lists all persons in address book whose name contains any of the argument keywords.
- * Keyword matching is case insensitive.
+ * Represents a command that finds and lists all persons in address book whose name and/or instrument contains any
+ * of the argument keywords. Keyword matching is case-insensitive.
  */
 public class FindCommand extends Command {
 
@@ -31,8 +31,10 @@ public class FindCommand extends Command {
     private final InstrumentContainsKeywordsPredicate instrumentPredicate;
 
     /**
-     * Creates a FindCommand to find persons with the specified {@code NameContainsKeywordsPredicate}
-     * and/or {@code InstrumentContainsKeywordsPredicate}.
+     * Constructs a FindCommand to find persons with the specified name keywords and/or instrument keywords.
+     *
+     * @param namePredicate Keywords to filter persons by name.
+     * @param instrumentPredicate Keywords to filter persons by instrument.
      */
     public FindCommand(
             NameContainsKeywordsPredicate namePredicate,
@@ -41,6 +43,13 @@ public class FindCommand extends Command {
         this.instrumentPredicate = instrumentPredicate;
     }
 
+    /**
+     * Executes the command to find and list all persons in address book whose name and/or instrument contains
+     * any of the argument keywords.
+     *
+     * @param model The model which the command should operate on.
+     * @return A command result with all persons whose name and/or instrument contains any of the argument keywords.
+     */
     @Override
     public CommandResult execute(Model model) {
         requireNonNull(model);
@@ -49,6 +58,12 @@ public class FindCommand extends Command {
                 String.format(Messages.MESSAGE_PERSONS_LISTED_OVERVIEW, model.getFilteredPersonList().size()));
     }
 
+    /**
+     * Checks if the FindCommand is equal to the other object.
+     *
+     * @param other The other object to compare.
+     * @return True if the FindCommand is equal to the other object.
+     */
     @Override
     public boolean equals(Object other) {
         if (other == this) {
@@ -65,6 +80,11 @@ public class FindCommand extends Command {
                 || instrumentPredicate.equals(otherFindCommand.instrumentPredicate);
     }
 
+    /**
+     * Returns a string representation of the FindCommand.
+     *
+     * @return String representation of the FindCommand.
+     */
     @Override
     public String toString() {
         return new ToStringBuilder(this)

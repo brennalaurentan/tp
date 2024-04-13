@@ -17,7 +17,7 @@ import seedu.address.model.Model;
 import seedu.address.model.person.Person;
 
 /**
- * Adds a person to the address book.
+ * Represents a command that adds a person to the address book.
  */
 public class AddCommand extends Command {
 
@@ -50,13 +50,22 @@ public class AddCommand extends Command {
     private final Person toAdd;
 
     /**
-     * Creates an AddCommand to add the specified {@code Person}
+     * Constructs an AddCommand to add the specified person.
+     *
+     * @param person The person to add.
      */
     public AddCommand(Person person) {
         requireNonNull(person);
         toAdd = person;
     }
 
+    /**
+     * Executes the AddCommand to add the specified person.
+     *
+     * @param model The model which the command should operate on.
+     * @return A command result with the success message of specific person added.
+     * @throws CommandException If the person already exists in the address book.
+     */
     @Override
     public CommandResult execute(Model model) throws CommandException {
         requireNonNull(model);
@@ -69,6 +78,12 @@ public class AddCommand extends Command {
         return new CommandResult(String.format(MESSAGE_SUCCESS, Messages.format(toAdd)));
     }
 
+    /**
+     * Checks if the person to add is equal to the other person to add.
+     *
+     * @param other The other object to compare.
+     * @return True if the person to add is equal to the other person to add.
+     */
     @Override
     public boolean equals(Object other) {
         if (other == this) {
@@ -84,6 +99,11 @@ public class AddCommand extends Command {
         return toAdd.equals(otherAddCommand.toAdd);
     }
 
+    /**
+     * Returns a string representation of the AddCommand.
+     *
+     * @return String representation of the AddCommand.
+     */
     @Override
     public String toString() {
         return new ToStringBuilder(this)
