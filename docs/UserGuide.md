@@ -21,17 +21,20 @@ Optimised for use via a Command Line Interface (CLI), BandBook can assist you in
 faster than traditional Graphical User Interface (GUI) apps.
 
 ## Purpose of this user guide and how you should use it
-The objective of this user guide is for you to learn how to use BandBook effectively and efficiently. We will guide you through
-step-by-step (with examples!) on how to use BandBook's features, along with the various commands available to you.
+The objective of this user guide is for you to learn how to use BandBook effectively and efficiently. We will guide
+you through step-by-step (with examples!) on how to use BandBook's features, along with the various commands available
+to you.
 
-We suggest that you start by installing BandBook with the [Quick start](#quick-start) section. Afterwards go through the [Features](#features) section top-down. This section details the most
-fundamental operations first, before continuing with more advanced features that aim to provide a higher level of efficiency
-in your work. If you continue to have questions about BandBook, do check out the [FAQ](#faq) section.
+We suggest that you start by installing BandBook with the [Quick start](#quick-start) section. Afterwards go through
+the [Features](#features) section top-down. This section details the most fundamental operations first, before
+continuing with more advanced features that aim to provide a higher level of efficiency in your work. If you
+continue to have questions about BandBook, do check out the [FAQ](#faq) section.
 
-Or if you would like just a quick and easy-to-read summary of BandBook's commands, go over to the [Command summary](#command-summary)!
+Or if you would like just a quick and easy-to-read summary of BandBook's commands, go over to
+the [Command summary](#command-summary)!
 
-To aid in your understanding of the features and commands of BandBook, we have also included examples as well as screenshots of the program throughout
-the guide.
+To aid in your understanding of the features and commands of BandBook, we have also included examples as well as
+screenshots of the program throughout the guide.
 
 Come on board and unlock BandBook's full potential today!
 
@@ -42,11 +45,11 @@ BandBook is specifically designed for administrators managing large musical ense
 coordinating schedules, managing communications, and overseeing logistical arrangements for their groups.
 
 We assume that our primary users have a basic understanding of band operations and are familiar with the complexities
-involved in managing large groups. Users are likely accustomed to utilizing software solutions for organizational tasks
+involved in managing large groups. Users are likely accustomed to utilising software solutions for organisational tasks
 but may vary in their technical proficiency. Therefore, BandBook is engineered to be user-friendly, providing intuitive
 navigation and comprehensive features that cater to both novice and experienced software users.
 
-As our product is developed around the use of a CLI, we assume that our primary users are able to type and carry
+As our product is developed around the use of a CLI, we envision that our primary users are able to type and carry
 operations faster than if they were to use a GUI.
 
 <!-- * Table of Contents -->
@@ -58,11 +61,11 @@ operations faster than if they were to use a GUI.
 
 1. Ensure you have Java `11` or above installed in your Computer.
 
-2. Download the latest `BandBook-v1.4.jar` from [here](https://github.com/AY2324S2-CS2103T-T15-3/tp/releases).
+2. Download the latest `bandbook.jar` from [here](https://github.com/AY2324S2-CS2103T-T15-3/tp/releases).
 
 3. Copy the file to the folder you want to use as the _home folder_ for BandBook.
 
-4. Open a command terminal, `cd` into the folder you put the jar file in, and use the `java -jar BandBook-v1.4.jar`
+4. Open a command terminal, `cd` into the folder you put the jar file in, and use the `java -jar bandbook.jar`
    command to run the application.<br>
    <br> A GUI similar to the below should appear in a few seconds. Note how the app contains some sample data.<br>
    <br> ![Ui](images/Ui.png) <br> <br>
