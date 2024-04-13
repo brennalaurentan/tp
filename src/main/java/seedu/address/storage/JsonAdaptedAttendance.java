@@ -19,6 +19,8 @@ class JsonAdaptedAttendance {
 
     /**
      * Constructs a {@code JsonAdaptedAttendance} with the given {@code attendanceDate}.
+     *
+     * @param attendanceDate The date of the attendance.
      */
     @JsonCreator
     public JsonAdaptedAttendance(String attendanceDate) {
@@ -27,6 +29,8 @@ class JsonAdaptedAttendance {
 
     /**
      * Converts a given {@code Attendance} into this class for Jackson use.
+     *
+     * @param source The attendance object to be converted.
      */
     public JsonAdaptedAttendance(Attendance source) {
         attendanceDate = source.attendanceDate.toString();
@@ -40,7 +44,8 @@ class JsonAdaptedAttendance {
     /**
      * Converts this Jackson-friendly adapted attendance object into the model's {@code Attendance} object.
      *
-     * @throws IllegalValueException if there were any data constraints violated in the adapted tag.
+     * @return The converted Attendance object.
+     * @throws IllegalValueException If there were any data constraints violated in the adapted tag.
      */
     public Attendance toModelType() throws IllegalValueException {
         if (!Attendance.isValidAttendanceDate(attendanceDate)) {

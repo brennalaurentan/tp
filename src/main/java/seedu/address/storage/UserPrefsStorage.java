@@ -19,17 +19,17 @@ public interface UserPrefsStorage {
     Path getUserPrefsFilePath();
 
     /**
-     * Returns UserPrefs data from storage.
-     * Returns {@code Optional.empty()} if storage file is not found.
+     * Returns UserPrefs data from storage. Returns {@code Optional.empty()} if storage file is not found.
      *
-     * @throws DataLoadingException if the loading of data from preference file failed.
+     * @throws DataLoadingException If the loading of data from preference file failed.
      */
     Optional<UserPrefs> readUserPrefs() throws DataLoadingException;
 
     /**
      * Saves the given {@link seedu.address.model.ReadOnlyUserPrefs} to the storage.
-     * @param userPrefs cannot be null.
-     * @throws IOException if there was any problem writing to the file.
+     *
+     * @param userPrefs Cannot be null.
+     * @throws IOException If there was any problem writing to the file.
      */
     void saveUserPrefs(ReadOnlyUserPrefs userPrefs) throws IOException;
 

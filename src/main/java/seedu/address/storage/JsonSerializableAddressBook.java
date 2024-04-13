@@ -25,6 +25,8 @@ class JsonSerializableAddressBook {
 
     /**
      * Constructs a {@code JsonSerializableAddressBook} with the given persons.
+     *
+     * @param persons List of persons.
      */
     @JsonCreator
     public JsonSerializableAddressBook(@JsonProperty("persons") List<JsonAdaptedPerson> persons) {
@@ -34,7 +36,7 @@ class JsonSerializableAddressBook {
     /**
      * Converts a given {@code ReadOnlyAddressBook} into this class for Jackson use.
      *
-     * @param source future changes to this will not affect the created {@code JsonSerializableAddressBook}.
+     * @param source Future changes to this will not affect the created {@code JsonSerializableAddressBook}.
      */
     public JsonSerializableAddressBook(ReadOnlyAddressBook source) {
         persons.addAll(source.getPersonList().stream().map(JsonAdaptedPerson::new).collect(Collectors.toList()));
@@ -43,7 +45,8 @@ class JsonSerializableAddressBook {
     /**
      * Converts this address book into the model's {@code AddressBook} object.
      *
-     * @throws IllegalValueException if there were any data constraints violated.
+     * @return AddressBook object.
+     * @throws IllegalValueException If there were any data constraints violated.
      */
     public AddressBook toModelType() throws IllegalValueException {
         AddressBook addressBook = new AddressBook();

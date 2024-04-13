@@ -40,7 +40,7 @@ public class JsonAddressBookStorage implements AddressBookStorage {
      * Similar to {@link #readAddressBook()}.
      *
      * @param filePath location of the data. Cannot be null.
-     * @throws DataLoadingException if loading the data from storage failed.
+     * @throws DataLoadingException If loading the data from storage failed.
      */
     public Optional<ReadOnlyAddressBook> readAddressBook(Path filePath) throws DataLoadingException {
         requireNonNull(filePath);
@@ -59,6 +59,12 @@ public class JsonAddressBookStorage implements AddressBookStorage {
         }
     }
 
+    /**
+     * Saves the given ReadOnlyAddressBook to the storage.
+     *
+     * @param addressBook Cannot be null.
+     * @throws IOException If saving the data to storage failed.
+     */
     @Override
     public void saveAddressBook(ReadOnlyAddressBook addressBook) throws IOException {
         saveAddressBook(addressBook, filePath);
@@ -67,7 +73,9 @@ public class JsonAddressBookStorage implements AddressBookStorage {
     /**
      * Similar to {@link #saveAddressBook(ReadOnlyAddressBook)}.
      *
-     * @param filePath location of the data. Cannot be null.
+     * @param addressBook Cannot be null.
+     * @param filePath Location of the data. Cannot be null.
+     * @throws IOException If saving the data to storage failed.
      */
     public void saveAddressBook(ReadOnlyAddressBook addressBook, Path filePath) throws IOException {
         requireNonNull(addressBook);
