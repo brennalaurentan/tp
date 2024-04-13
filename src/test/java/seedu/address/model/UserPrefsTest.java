@@ -1,5 +1,7 @@
 package seedu.address.model;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.testutil.Assert.assertThrows;
 
 import org.junit.jupiter.api.Test;
@@ -18,4 +20,23 @@ public class UserPrefsTest {
         assertThrows(NullPointerException.class, () -> userPrefs.setAddressBookFilePath(null));
     }
 
+    @Test
+    public void equals() {
+        UserPrefs userPrefs = new UserPrefs();
+
+        // same object -> returns true
+        assertTrue(userPrefs.equals(userPrefs));
+
+        // different type -> returns false
+        assertFalse(userPrefs.equals(1));
+    }
+
+    @Test
+    public void hashCode_symmetric() {
+        UserPrefs x = new UserPrefs();
+        UserPrefs y = new UserPrefs();
+
+        assertTrue(x.equals(y) && y.equals(x));
+        assertTrue(x.hashCode() == y.hashCode());
+    }
 }
