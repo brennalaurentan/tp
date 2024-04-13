@@ -33,7 +33,7 @@ public class NameContainsKeywordsPredicate implements Predicate<Person> {
      *
      * @param other The other object to compare with.
      * @return True if the other object is the same NameContainsKeywordsPredicate object or has the same
-     * keywords.
+     *         keywords.
      */
     @Override
     public boolean equals(Object other) {

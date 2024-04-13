@@ -33,7 +33,7 @@ public class InstrumentContainsKeywordsPredicate implements Predicate<Person> {
      *
      * @param other The other object to compare with.
      * @return True if the other object is the same InstrumentContainsKeywordsPredicate object or has the same
-     * keywords.
+     *         keywords.
      */
     @Override
     public boolean equals(Object other) {
