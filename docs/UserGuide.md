@@ -54,7 +54,7 @@ operations faster than if they were to use a GUI.
 
 --------------------------------------------------------------------------------------------------------------------
 
-## Quick start
+## Quick Start
 
 1. Ensure you have Java `11` or above installed in your Computer.
 
@@ -492,7 +492,7 @@ _Details coming soon ..._
 
 --------------------------------------------------------------------------------------------------------------------
 
-## FAQ
+## Frequently Asked Questions (FAQ)
 
 **Q**: How do I transfer my data to another Computer?<br>
 **A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains
@@ -508,7 +508,7 @@ error.
 
 --------------------------------------------------------------------------------------------------------------------
 
-## Known issues
+## Known Issues
 
 1. **When using multiple screens**, if you move the application to a secondary screen, and later switch to using only the primary screen, the GUI will open off-screen. The remedy is to delete the `preferences.json` file created by the application before running the application again.
    <br></br>
@@ -520,7 +520,7 @@ error.
 
 --------------------------------------------------------------------------------------------------------------------
 
-## Command summary
+## Command Summary
 
 Action     | Format, Examples
 -----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------
