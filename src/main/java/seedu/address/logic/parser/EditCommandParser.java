@@ -25,14 +25,17 @@ import seedu.address.model.attendance.Attendance;
 import seedu.address.model.tag.Tag;
 
 /**
- * Parses input arguments and creates a new EditCommand object
+ * Represents a parser that parses input arguments and creates a new EditCommand object.
  */
 public class EditCommandParser implements Parser<EditCommand> {
 
     /**
      * Parses the given {@code String} of arguments in the context of the EditCommand
      * and returns an EditCommand object for execution.
-     * @throws ParseException if the user input does not conform the expected format
+     *
+     * @param args String of arguments to be parsed.
+     * @return EditCommand object for execution.
+     * @throws ParseException If the user input does not conform the expected format.
      */
     public EditCommand parse(String args) throws ParseException {
         requireNonNull(args);
@@ -93,6 +96,10 @@ public class EditCommandParser implements Parser<EditCommand> {
      * Parses {@code Collection<String> tags} into a {@code Set<Tag>} if {@code tags} is non-empty.
      * If {@code tags} contain only one element which is an empty string, it will be parsed into a
      * {@code Set<Tag>} containing zero tags.
+     *
+     * @param tags Collection of tags to be parsed.
+     * @return Set of tags parsed from the input.
+     * @throws ParseException If the input does not conform to the expected format.
      */
     private Optional<Set<Tag>> parseTagsForEdit(Collection<String> tags) throws ParseException {
         assert tags != null;
@@ -108,6 +115,10 @@ public class EditCommandParser implements Parser<EditCommand> {
      * Parses {@code Collection<String> attendances} into a {@code Set<Attendance>} if {@code attendances} is non-empty.
      * If {@code tags} contain only one element which is an empty string, it will be parsed into a
      * {@code Set<Tag>} containing zero tags.
+     *
+     * @param attendances Collection of attendances to be parsed.
+     * @return Set of attendances parsed from the input.
+     * @throws ParseException If the input does not conform to the expected format.
      */
     private Optional<Set<Attendance>> parseAttendancesForEdit(Collection<String> attendances) throws ParseException {
         assert attendances != null;

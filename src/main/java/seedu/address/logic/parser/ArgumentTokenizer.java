@@ -19,9 +19,9 @@ public class ArgumentTokenizer {
      * Tokenizes an arguments string and returns an {@code ArgumentMultimap} object that maps prefixes to their
      * respective argument values. Only the given prefixes will be recognized in the arguments string.
      *
-     * @param argsString Arguments string of the form: {@code preamble <prefix>value <prefix>value ...}
-     * @param prefixes   Prefixes to tokenize the arguments string with
-     * @return           ArgumentMultimap object that maps prefixes to their arguments
+     * @param argsString Arguments string of the form: {@code preamble <prefix>value <prefix>value ...}.
+     * @param prefixes   Prefixes to tokenize the arguments string with.
+     * @return           ArgumentMultimap object that maps prefixes to their arguments.
      */
     public static ArgumentMultimap tokenize(String argsString, Prefix... prefixes) {
         List<PrefixPosition> positions = findAllPrefixPositions(argsString, prefixes);
@@ -31,9 +31,9 @@ public class ArgumentTokenizer {
     /**
      * Finds all zero-based prefix positions in the given arguments string.
      *
-     * @param argsString Arguments string of the form: {@code preamble <prefix>value <prefix>value ...}
-     * @param prefixes   Prefixes to find in the arguments string
-     * @return           List of zero-based prefix positions in the given arguments string
+     * @param argsString Arguments string of the form: {@code preamble <prefix>value <prefix>value ...}.
+     * @param prefixes   Prefixes to find in the arguments string.
+     * @return           List of zero-based prefix positions in the given arguments string.
      */
     private static List<PrefixPosition> findAllPrefixPositions(String argsString, Prefix... prefixes) {
         return Arrays.stream(prefixes)
@@ -80,9 +80,9 @@ public class ArgumentTokenizer {
      * extracted prefixes to their respective arguments. Prefixes are extracted based on their zero-based positions in
      * {@code argsString}.
      *
-     * @param argsString      Arguments string of the form: {@code preamble <prefix>value <prefix>value ...}
-     * @param prefixPositions Zero-based positions of all prefixes in {@code argsString}
-     * @return                ArgumentMultimap object that maps prefixes to their arguments
+     * @param argsString      Arguments string of the form: {@code preamble <prefix>value <prefix>value ...}.
+     * @param prefixPositions Zero-based positions of all prefixes in {@code argsString}.
+     * @return                ArgumentMultimap object that maps prefixes to their arguments.
      */
     private static ArgumentMultimap extractArguments(String argsString, List<PrefixPosition> prefixPositions) {
 
@@ -110,8 +110,12 @@ public class ArgumentTokenizer {
     }
 
     /**
-     * Returns the trimmed value of the argument in the arguments string specified by {@code currentPrefixPosition}.
-     * The end position of the value is determined by {@code nextPrefixPosition}.
+     * Extracts the values of the arguments and trims the argument in the arguments string specified by the
+     * given parameters.
+     *
+     * @param argsString            Arguments string.
+     * @param currentPrefixPosition Prefix position of the current argument whose value is to be extracted.
+     * @param nextPrefixPosition    Prefix position of the next argument.
      */
     private static String extractArgumentValue(String argsString,
                                         PrefixPosition currentPrefixPosition,

@@ -1,6 +1,7 @@
 package seedu.address.logic.parser;
 
 import static seedu.address.model.person.Birthday.DEFAULT_BIRTHDAY;
+import static seedu.address.model.person.Instrument.DEFAULT_INSTRUMENT;
 import static seedu.address.model.person.MatriculationYear.DEFAULT_MATRICULATION_YEAR;
 
 import java.util.ArrayList;
@@ -26,11 +27,11 @@ public class ArgumentMultimap {
     private final Map<Prefix, List<String>> argMultimap = new HashMap<>();
 
     /**
-     * Associates the specified argument value with {@code prefix} key in this map.
+     * Associates the specified argument value with prefix key in this map.
      * If the map previously contained a mapping for the key, the new value is appended to the list of existing values.
      *
-     * @param prefix   Prefix key with which the specified argument value is to be associated
-     * @param argValue Argument value to be associated with the specified prefix key
+     * @param prefix   Prefix key with which the specified argument value is to be associated.
+     * @param argValue Argument value to be associated with the specified prefix key.
      */
     public void put(Prefix prefix, String argValue) {
         List<String> argValues = getAllValues(prefix);
@@ -39,7 +40,10 @@ public class ArgumentMultimap {
     }
 
     /**
-     * Returns the last value of {@code prefix}.
+     * Returns the last value of the given prefix. If the prefix does not exist or has no values, this will return an
+     * empty {@code Optional}.
+     *
+     * @param prefix Prefix key with which the specified argument value is to be associated.
      */
     public Optional<String> getValue(Prefix prefix) {
         List<String> values = getAllValues(prefix);
@@ -47,7 +51,10 @@ public class ArgumentMultimap {
     }
 
     /**
-     * Returns the last value of {@code prefix}.
+     * Returns the last value  of the given prefix. If the prefix does not exist or has no values, this will return an
+     * {@code Optional} with the default birthday value.
+     *
+     * @param prefix Prefix key with which the specified argument value is to be associated.
      */
     public Optional<String> getOptionalBirthday(Prefix prefix) {
         List<String> values = getAllValues(prefix);
@@ -55,7 +62,10 @@ public class ArgumentMultimap {
     }
 
     /**
-     * Returns the last value of {@code prefix}.
+     * Returns the last value  of the given prefix. If the prefix does not exist or has no values, this will return an
+     * {@code Optional} with the default matriculation year value.
+     *
+     * @param prefix Prefix key with which the specified argument value is to be associated.
      */
     public Optional<String> getOptionalMatriculationYear(Prefix prefix) {
         List<String> values = getAllValues(prefix);
@@ -64,17 +74,23 @@ public class ArgumentMultimap {
     }
 
     /**
-     * Returns the last value of {@code prefix}.
+     * Returns the last value  of the given prefix. If the prefix does not exist or has no values, this will return an
+     * {@code Optional} with the default instrument value.
+     *
+     * @param prefix Prefix key with which the specified argument value is to be associated.
      */
     public Optional<String> getOptionalInstrument(Prefix prefix) {
         List<String> values = getAllValues(prefix);
-        return values.isEmpty() ? Optional.of("None") : Optional.of(values.get(values.size() - 1));
+        return values.isEmpty() ? Optional.of(DEFAULT_INSTRUMENT) : Optional.of(values.get(values.size() - 1));
     }
 
     /**
-     * Returns all values of {@code prefix}.
+     * Returns all values of the given prefix.
      * If the prefix does not exist or has no values, this will return an empty list.
      * Modifying the returned list will not affect the underlying data structure of the ArgumentMultimap.
+     *
+     * @param prefix Prefix key with which the specified argument value is to be associated.
+     * @return List of values associated with the specified prefix key.
      */
     public List<String> getAllValues(Prefix prefix) {
         if (!argMultimap.containsKey(prefix)) {
@@ -85,14 +101,18 @@ public class ArgumentMultimap {
 
     /**
      * Returns the preamble (text before the first valid prefix). Trims any leading/trailing spaces.
+     *
+     * @return Preamble text.
      */
     public String getPreamble() {
         return getValue(new Prefix("")).orElse("");
     }
 
     /**
-     * Throws a {@code ParseException} if any of the prefixes given in {@code prefixes} appeared more than
-     * once among the arguments.
+     * Checks if there are any duplicate prefixes in the ArgumentMultimap.
+     *
+     * @param prefixes Prefixes to check for duplicates.
+     * @throws ParseException If there are duplicate prefixes.
      */
     public void verifyNoDuplicatePrefixesFor(Prefix... prefixes) throws ParseException {
         Prefix[] duplicatedPrefixes = Stream.of(prefixes).distinct()
