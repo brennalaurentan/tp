@@ -24,7 +24,7 @@ import seedu.address.model.person.Phone;
 import seedu.address.model.tag.Tag;
 
 /**
- * Assigns an instrument to a person in the address book.
+ * Represents a command that Assigns an instrument to a person in the address book.
  */
 public class InstrumentCommand extends Command {
     public static final String MESSAGE_ARGUMENTS = "Indexes: %1$d, Instrument: %2$s";
@@ -44,7 +44,10 @@ public class InstrumentCommand extends Command {
     private final Instrument instrument;
 
     /**
-     * Creates an InstrumentCommand to add the specified {@code instrument} to the persons identified by {@code indexes}
+     * Constructs an InstrumentCommand to add the specified instrument to the persons identified by the indexes.
+     *
+     * @param indexes Set of indexes of the persons to be assigned the instrument.
+     * @param instrument Instrument to be assigned to the persons.
      */
     public InstrumentCommand(Set<Index> indexes, Instrument instrument) {
         requireAllNonNull(indexes, instrument);
@@ -53,6 +56,13 @@ public class InstrumentCommand extends Command {
         this.instrument = instrument;
     }
 
+    /**
+     * Executes the InstrumentCommand to assign the instrument to the persons identified by the indexes.
+     *
+     * @param model The model which the command should operate on.
+     * @return A command result with the success message of instrument assigned.
+     * @throws CommandException If the index is invalid or the instrument is already assigned to the person.
+     */
     @Override
     public CommandResult execute(Model model) throws CommandException {
         Set<Name> editedNames = new HashSet<>();
@@ -82,8 +92,11 @@ public class InstrumentCommand extends Command {
     }
 
     /**
-     * Creates and returns a {@code Person} with the details of {@code personToEdit}
-     * edited with {@code editPersonDescriptor}.
+     * Creates and returns a person with the updated instrument.
+     *
+     * @param personToEdit The person to be edited.
+     * @param instrument The instrument to be assigned to the person.
+     * @return A person with the updated instrument.
      */
     private static Person createEditedPerson(Person personToEdit, Instrument instrument) {
         assert personToEdit != null;
@@ -102,6 +115,12 @@ public class InstrumentCommand extends Command {
                 updatedBirthday, updatedMatriculationYear, updatedInstrument, updatedTags, updatedAttendances);
     }
 
+    /**
+     * Checks if the InstrumentCommand is equal to another object.
+     *
+     * @param other The other object to compare with.
+     * @return True if both InstrumentCommands have the same indexes and instrument.
+     */
     @Override
     public boolean equals(Object other) {
         if (other == this) {

@@ -14,14 +14,17 @@ import seedu.address.model.person.InstrumentContainsKeywordsPredicate;
 import seedu.address.model.person.NameContainsKeywordsPredicate;
 
 /**
- * Parses input arguments and creates a new FindCommand object
+ * Represents a parser that parses input arguments and creates a new FindCommand object.
  */
 public class FindCommandParser implements Parser<FindCommand> {
 
     /**
      * Parses the given {@code String} of arguments in the context of the FindCommand
      * and returns a FindCommand object for execution.
-     * @throws ParseException if the user input does not conform the expected format
+     *
+     * @param args String of arguments to be parsed.
+     * @return FindCommand object for execution.
+     * @throws ParseException If the user input does not conform the expected format.
      */
     public FindCommand parse(String args) throws ParseException {
         requireNonNull(args);
@@ -52,8 +55,11 @@ public class FindCommandParser implements Parser<FindCommand> {
     }
 
     /**
-     * Returns true if at least one of the prefixes does not contain empty {@code Optional} values in the given
-     * {@code ArgumentMultimap}.
+     * Checks if the prefixes are present in the given ArgumentMultimap.
+     *
+     * @param argumentMultimap ArgumentMultimap to be checked.
+     * @param prefixes Prefixes to be checked.
+     * @return True if at least one of the prefixes does not contain empty {@code Optional} values.
      */
     private static boolean arePrefixesPresent(ArgumentMultimap argumentMultimap, Prefix... prefixes) {
         return Stream.of(prefixes).anyMatch(prefix -> argumentMultimap.getValue(prefix).isPresent());

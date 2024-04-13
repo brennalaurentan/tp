@@ -27,11 +27,20 @@ public class Tag {
 
     /**
      * Returns true if a given string is a valid tag name.
+     *
+     * @param test String to test.
+     * @return True if the string is a valid tag name.
      */
     public static boolean isValidTagName(String test) {
         return test.matches(VALIDATION_REGEX);
     }
 
+    /**
+     * Checks if a given object is the same as this Tag object.
+     *
+     * @param other The other object to compare with.
+     * @return True if the other object is the same Tag object or has the same tag value.
+     */
     @Override
     public boolean equals(Object other) {
         if (other == this) {
@@ -53,7 +62,9 @@ public class Tag {
     }
 
     /**
-     * Format state as text for viewing.
+     * Returns a string representation of the Tag object.
+     *
+     * @return String representation of the Tag object.
      */
     public String toString() {
         return '[' + tagName + ']';

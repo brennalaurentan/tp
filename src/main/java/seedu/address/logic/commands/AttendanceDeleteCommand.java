@@ -25,7 +25,7 @@ import seedu.address.model.person.Phone;
 import seedu.address.model.tag.Tag;
 
 /**
- * Unmarks a person's attendance in the address book.
+ * Represents a command that unmarks a person's attendance in the address book.
  */
 public class AttendanceDeleteCommand extends Command {
     public static final String MESSAGE_ARGUMENTS = "Indexes: %1$d, Date: %2$s";
@@ -45,10 +45,11 @@ public class AttendanceDeleteCommand extends Command {
     private final Set<Index> indexes;
     private final LocalDate date;
 
-
     /**
-     * Creates an AttendanceDeleteCommand to remove the specified {@code date} from the persons identified by
-     * {@code indexes}
+     * Constructs an AttendanceDeleteCommand to remove the specified date from the persons identified by the indexes.
+     *
+     * @param indexes The indexes of the persons in the filtered person list to remove the attendance.
+     * @param date The date to remove from the persons' attendance.
      */
     public AttendanceDeleteCommand(Set<Index> indexes, LocalDate date) {
         requireAllNonNull(indexes, date);
@@ -57,6 +58,13 @@ public class AttendanceDeleteCommand extends Command {
         this.date = date;
     }
 
+    /**
+     * Executes the command to remove the specified date from the persons identified by the indexes.
+     *
+     * @param model The model which the command should operate on.
+     * @return A command result that indicates the attendance has been unmarked successfully.
+     * @throws CommandException If the index is invalid or if the attendance date is missing.
+     */
     @Override
     public CommandResult execute(Model model) throws CommandException {
         Set<Name> editedNames = new HashSet<>();
@@ -85,8 +93,11 @@ public class AttendanceDeleteCommand extends Command {
     }
 
     /**
-     * Creates and returns a {@code Person} with the details of {@code personToEdit}
-     * edited with {@code editPersonDescriptor}.
+     * Creates and returns a person with the updated attendance.
+     *
+     * @param personToEdit The person to be edited with the updated attendance.
+     * @param attendance The attendance to be removed to the person.
+     * @return A person with the updated attendance.
      */
     private static Person createEditedPerson(Person personToEdit, Attendance attendance) {
         assert personToEdit != null;
@@ -106,6 +117,12 @@ public class AttendanceDeleteCommand extends Command {
                 updatedBirthday, updatedMatriculationYear, updatedInstrument, updatedTags, updatedAttendances);
     }
 
+    /**
+     * Checks if the AttendanceDeleteCommand is equal to another object.
+     *
+     * @param other The other object to compare with.
+     * @return True if both AttendanceDeleteCommands have the same indexes and date.
+     */
     @Override
     public boolean equals(Object other) {
         if (other == this) {

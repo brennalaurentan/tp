@@ -25,7 +25,7 @@ import seedu.address.model.person.Phone;
 import seedu.address.model.tag.Tag;
 
 /**
- * Marks a person's attendance in the address book.
+ * Represents a command that marks a person's attendance in the address book.
  */
 public class AttendanceCommand extends Command {
     public static final String MESSAGE_ARGUMENTS = "Indexes: %1$d, Date: %2$s";
@@ -46,7 +46,10 @@ public class AttendanceCommand extends Command {
     private final LocalDate date;
 
     /**
-     * Creates an AttendanceCommand to add the specified {@code date} to the persons identified by {@code indexes}
+     * Constructs an AttendanceCommand to add the specified date to the persons identified by indexes.
+     *
+     * @param indexes Set of indexes of the persons to mark attendance.
+     * @param date Date of attendance.
      */
     public AttendanceCommand(Set<Index> indexes, LocalDate date) {
         requireAllNonNull(indexes, date);
@@ -55,6 +58,13 @@ public class AttendanceCommand extends Command {
         this.date = date;
     }
 
+    /**
+     * Executes the AttendanceCommand and marks the attendance of the persons identified by the indexes.
+     *
+     * @param model The model which the command should operate on.
+     * @return A command result that indicates the attendance has been marked successfully.
+     * @throws CommandException If the index is invalid or the attendance has already been marked.
+     */
     @Override
     public CommandResult execute(Model model) throws CommandException {
         Set<Name> editedNames = new HashSet<>();
@@ -83,8 +93,11 @@ public class AttendanceCommand extends Command {
     }
 
     /**
-     * Creates and returns a {@code Person} with the details of {@code personToEdit}
-     * edited with {@code editPersonDescriptor}.
+     * Creates and returns a person with the updated attendance.
+     *
+     * @param personToEdit The person to be edited with the updated attendance.
+     * @param attendance The attendance to be added to the person.
+     * @return A person with the updated attendance.
      */
     private static Person createEditedPerson(Person personToEdit, Attendance attendance) {
         assert personToEdit != null;
@@ -104,6 +117,12 @@ public class AttendanceCommand extends Command {
                 updatedBirthday, updatedMatriculationYear, updatedInstrument, updatedTags, updatedAttendances);
     }
 
+    /**
+     * Checks if the AttendanceCommand is equal to another object.
+     *
+     * @param other The other object to compare with.
+     * @return True if both AttendanceCommands have the same indexes and date.
+     */
     @Override
     public boolean equals(Object other) {
         if (other == this) {

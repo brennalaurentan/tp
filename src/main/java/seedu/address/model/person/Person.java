@@ -31,7 +31,17 @@ public class Person {
     private final Set<Attendance> attendances = new HashSet<>();
 
     /**
-     * Every field must be present and not null.
+     * Constructs a {@code Person} with the specified details. Every field must be present and not null.
+     *
+     * @param name The name of the person.
+     * @param phone The phone number of the person.
+     * @param email The email address of the person.
+     * @param address The address of the person.
+     * @param birthday The birthday of the person.
+     * @param matriculationYear The matriculation year of the person.
+     * @param instrument The instrument of the person.
+     * @param tags The tags of the person.
+     * @param attendances The attendances of the person.
      */
     public Person(Name name, Phone phone, Email email, Address address, Birthday birthday,
                 MatriculationYear matriculationYear, Instrument instrument, Set<Tag> tags,
@@ -106,8 +116,10 @@ public class Person {
 
 
     /**
-     * Returns true if both persons have the same name.
-     * This defines a weaker notion of equality between two persons.
+     * Checks if both persons have the same name. This defines a weaker notion of equality between two persons.
+     *
+     * @param otherPerson The other person to compare with.
+     * @return True if both persons have the same name.
      */
     public boolean isSamePerson(Person otherPerson) {
         if (otherPerson == this) {
@@ -119,8 +131,11 @@ public class Person {
     }
 
     /**
-     * Returns true if both persons have the same identity and data fields.
-     * This defines a stronger notion of equality between two persons.
+     * Returns true if both persons have the same identity and data fields. This defines a stronger notion
+     * of equality between two persons.
+     *
+     * @param other The other object to compare with.
+     * @return True if both persons have the same identity and data fields.
      */
     @Override
     public boolean equals(Object other) {
@@ -145,12 +160,22 @@ public class Person {
                 && attendances.equals(otherPerson.attendances);
     }
 
+    /**
+     * Returns the hash code of the person.
+     *
+     * @return Hash code of the person.
+     */
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
         return Objects.hash(name, phone, email, address, birthday, matriculationYear, instrument, tags, attendances);
     }
 
+    /**
+     * Returns a string representation of the person.
+     *
+     * @return String representation of the person.
+     */
     @Override
     public String toString() {
         return new ToStringBuilder(this)

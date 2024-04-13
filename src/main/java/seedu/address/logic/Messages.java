@@ -23,6 +23,9 @@ public class Messages {
 
     /**
      * Returns an error message indicating the duplicate prefixes.
+     *
+     * @param duplicatePrefixes The duplicate prefixes.
+     * @return The error message in the form of a string.
      */
     public static String getErrorMessageForDuplicatePrefixes(Prefix... duplicatePrefixes) {
         assert duplicatePrefixes.length > 0;
@@ -35,6 +38,9 @@ public class Messages {
 
     /**
      * Formats the {@code person} for display to the user.
+     *
+     * @param person The person to be formatted.
+     * @return The formatted string.
      */
     public static String format(Person person) {
         final StringBuilder builder = new StringBuilder();

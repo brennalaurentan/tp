@@ -29,7 +29,10 @@ public class UniquePersonList implements Iterable<Person> {
             FXCollections.unmodifiableObservableList(internalList);
 
     /**
-     * Returns true if the list contains an equivalent person as the given argument.
+     * Checks if the list contains an equivalent person as the given argument.
+     *
+     * @param toCheck Person to check.
+     * @return True if the list contains an equivalent person.
      */
     public boolean contains(Person toCheck) {
         requireNonNull(toCheck);
@@ -37,8 +40,10 @@ public class UniquePersonList implements Iterable<Person> {
     }
 
     /**
-     * Adds a person to the list.
-     * The person must not already exist in the list.
+     * Adds a person to the list. The person must not already exist in the list.
+     *
+     * @param toAdd Person to add.
+     * @throws DuplicatePersonException If the person already exists in the list.
      */
     public void add(Person toAdd) {
         requireNonNull(toAdd);
@@ -49,9 +54,12 @@ public class UniquePersonList implements Iterable<Person> {
     }
 
     /**
-     * Replaces the person {@code target} in the list with {@code editedPerson}.
-     * {@code target} must exist in the list.
+     * Replaces the person {@code target} in the list with {@code editedPerson}. {@code target} must exist in the list.
      * The person identity of {@code editedPerson} must not be the same as another existing person in the list.
+     *
+     * @param target Person to replace.
+     * @param editedPerson Person to replace with.
+     * @throws PersonNotFoundException If the target person does not exist in the list.
      */
     public void setPerson(Person target, Person editedPerson) {
         requireAllNonNull(target, editedPerson);
@@ -69,8 +77,10 @@ public class UniquePersonList implements Iterable<Person> {
     }
 
     /**
-     * Removes the equivalent person from the list.
-     * The person must exist in the list.
+     * Removes the equivalent person from the list. The person must exist in the list.
+     *
+     * @param toRemove Person to remove.
+     * @throws PersonNotFoundException If the person does not exist in the list.
      */
     public void remove(Person toRemove) {
         requireNonNull(toRemove);
@@ -79,14 +89,21 @@ public class UniquePersonList implements Iterable<Person> {
         }
     }
 
+    /**
+     * Replaces the contents of this list with {@code persons}. {@code persons} must not contain duplicate persons.
+     *
+     * @param replacement UniquePersonList to replace with.
+     */
     public void setPersons(UniquePersonList replacement) {
         requireNonNull(replacement);
         internalList.setAll(replacement.internalList);
     }
 
     /**
-     * Replaces the contents of this list with {@code persons}.
-     * {@code persons} must not contain duplicate persons.
+     * Replaces the contents of this list with {@code persons}. {@code persons} must not contain duplicate persons.
+     *
+     * @param persons List of persons to replace with.
+     * @throws DuplicatePersonException If the list contains duplicate persons.
      */
     public void setPersons(List<Person> persons) {
         requireAllNonNull(persons);
@@ -109,6 +126,12 @@ public class UniquePersonList implements Iterable<Person> {
         return internalList.iterator();
     }
 
+    /**
+     * Checks if both UniquePersonList have the same internal list.
+     *
+     * @param other Other object to compare.
+     * @return True if both UniquePersonList have the same internal list.
+     */
     @Override
     public boolean equals(Object other) {
         if (other == this) {
@@ -136,6 +159,9 @@ public class UniquePersonList implements Iterable<Person> {
 
     /**
      * Returns true if {@code persons} contains only unique persons.
+     *
+     * @param persons List of persons to check.
+     * @return True if {@code persons} contains only unique persons.
      */
     private boolean personsAreUnique(List<Person> persons) {
         for (int i = 0; i < persons.size() - 1; i++) {

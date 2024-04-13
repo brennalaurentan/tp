@@ -21,9 +21,12 @@ import seedu.address.logic.parser.exceptions.ParseException;
 public class AttendanceDeleteCommandParser implements Parser<AttendanceDeleteCommand> {
 
     /**
-     * Parses the given {@code String} of arguments in the context of the AttendanceDeleteCommand
+     * Parses the given string of arguments in the context of the AttendanceDeleteCommand
      * and returns a AttendanceDeleteCommand object for execution.
-     * @throws ParseException if the user input does not conform the expected format
+     *
+     * @param args String of arguments to be parsed.
+     * @return AttendanceDeleteCommand object for execution.
+     * @throws ParseException If the user input does not conform the expected format.
      */
     public AttendanceDeleteCommand parse(String args) throws ParseException {
         requireNonNull(args);

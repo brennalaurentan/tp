@@ -21,8 +21,9 @@ public class DateValidatorUtil {
 
     /**
      * Checks if the date entered is the same as the current date (today's date).
-     * @param dateEntered date provided by user
-     * @return boolean indicating true or false
+     *
+     * @param dateEntered Date provided by user.
+     * @return True if the date entered is the same as today's date, false otherwise.
      */
     public static boolean isToday(LocalDate dateEntered) {
         LocalDate todayDate = LocalDate.now();
@@ -30,9 +31,10 @@ public class DateValidatorUtil {
     }
 
     /**
-     * Checks if the date entered is before the current date (before today's date)
-     * @param dateEntered date provided by user
-     * @return boolean indicating true or false
+     * Checks if the date entered is before the current date (before today's date).
+     *
+     * @param dateEntered Date provided by user.
+     * @return True if the date entered is before today's date, false otherwise.
      */
     public static boolean isBeforeToday(LocalDate dateEntered) {
         LocalDate todayDate = LocalDate.now();
@@ -42,8 +44,9 @@ public class DateValidatorUtil {
     /**
      * Checks if the date entered is a valid date according to the number of days each month should have.
      * Also checks for valid leap year.
-     * @param dateEntered date provided by user
-     * @return boolean indicating true or false
+     *
+     * @param dateEntered Date provided by user.
+     * @return True if the date entered is valid, false otherwise.
      */
     public static boolean isValidDate(String dateEntered) {
         String[] splitDate = dateEntered.split("-");
@@ -71,8 +74,9 @@ public class DateValidatorUtil {
 
     /**
      * Checks if the date entered is the 29th of February.
-     * @param dateEntered date entered by user
-     * @return boolean indicating true or false
+     *
+     * @param dateEntered Date entered by user.
+     * @return True if the date entered is the 29th of February, false otherwise.
      */
     public static boolean isTwentyNineFeb(String dateEntered) {
         boolean isTwentyNineFeb = false;
@@ -87,8 +91,9 @@ public class DateValidatorUtil {
 
     /**
      * Checks if year is a leap year (is leap year if year is divisible by 4 with no remainder).
-     * @param dateEntered date entered by user
-     * @return boolean indicating true or false
+     *
+     * @param dateEntered Date entered by user.
+     * @return True if the year entered is a leap year, false otherwise.
      */
     public static boolean isValidLeapYear(String dateEntered) {
         boolean isValidLeapYear;

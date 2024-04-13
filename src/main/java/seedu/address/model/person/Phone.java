@@ -9,10 +9,10 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
  */
 public class Phone {
 
-
     public static final String MESSAGE_CONSTRAINTS =
             "Phone numbers should only contain numbers, and it should be at least 3 digits long";
     public static final String VALIDATION_REGEX = "\\d{3,}";
+
     public final String value;
 
     /**
@@ -28,6 +28,9 @@ public class Phone {
 
     /**
      * Returns true if a given string is a valid phone number.
+     *
+     * @param test The string to test.
+     * @return True if the string is a valid phone number.
      */
     public static boolean isValidPhone(String test) {
         return test.matches(VALIDATION_REGEX);
@@ -38,6 +41,12 @@ public class Phone {
         return value;
     }
 
+    /**
+     * Checks if a given object is the same as this Phone object.
+     *
+     * @param other The other object to compare with.
+     * @return True if the other object is the same Phone object or has the same phone number value.
+     */
     @Override
     public boolean equals(Object other) {
         if (other == this) {

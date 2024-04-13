@@ -15,8 +15,8 @@ import seedu.address.model.person.MatriculationYear;
 import seedu.address.model.person.Person;
 
 /**
- * Deletes a person identified using it's displayed index from the address book.
- * Also, able to delete multiple persons identified by their matriculation year.
+ * Represents a command that deletes a person identified using its displayed index from the address book. It is also
+ * able to delete multiple persons identified by their matriculation year.
  */
 public class DeleteCommand extends Command {
 
@@ -29,18 +29,16 @@ public class DeleteCommand extends Command {
             + PREFIX_MATRICULATION_YEAR + "MATRICULATION_YEAR \n"
             + "Example: " + COMMAND_WORD + " 1 \n"
             + "Example: " + COMMAND_WORD + " my/2003 \n";
-
-
     public static final String MESSAGE_DELETE_PERSON_SUCCESS = "Deleted Person: %1$s";
-
     public static final String MESSAGE_DELETE_PERSONS_SUCCESS = "Deleted Persons: %1$s";
 
     private final Index targetIndex;
-
     private final MatriculationYear matriculationYear;
 
     /**
-     * @param targetIndex of the person in the filtered person list to delete
+     * Constructs a DeleteCommand to delete the person at the specified index.
+     *
+     * @param targetIndex The index of the person in the filtered person list to delete.
      */
     public DeleteCommand(Index targetIndex) {
         this.targetIndex = targetIndex;
@@ -48,13 +46,23 @@ public class DeleteCommand extends Command {
     }
 
     /**
-     * @param year The matriculation year used to identify the persons to be deleted in the filtered person list
+     * Constructs a DeleteCommand to delete the persons with the specified matriculation year.
+     *
+     * @param year The matriculation year used to identify the persons to be deleted in the filtered person list.
      */
     public DeleteCommand(MatriculationYear year) {
         this.targetIndex = null;
         this.matriculationYear = year;
     }
 
+    /**
+     * Executes the DeleteCommand to delete the person at the specified index or the persons with the specified
+     * matriculation year.
+     *
+     * @param model The model which the command should operate on.
+     * @return A command result that indicates that the person has been deleted successfully.
+     * @throws CommandException If the index is invalid or the matriculation year is not provided.
+     */
     @Override
     public CommandResult execute(Model model) throws CommandException {
         requireNonNull(model);
@@ -83,6 +91,12 @@ public class DeleteCommand extends Command {
         }
     }
 
+    /**
+     * Checks if the DeleteCommand is equal to another object.
+     *
+     * @param other The other object to compare with.
+     * @return True if both DeleteCommands have the same index.
+     */
     @Override
     public boolean equals(Object other) {
         if (other == this) {
@@ -98,6 +112,11 @@ public class DeleteCommand extends Command {
         return targetIndex.equals(otherDeleteCommand.targetIndex);
     }
 
+    /**
+     * Returns the string representation of the DeleteCommand.
+     *
+     * @return The string representation of the DeleteCommand.
+     */
     @Override
     public String toString() {
         return new ToStringBuilder(this)

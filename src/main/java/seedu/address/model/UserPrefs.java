@@ -56,6 +56,13 @@ public class UserPrefs implements ReadOnlyUserPrefs {
         this.addressBookFilePath = addressBookFilePath;
     }
 
+    /**
+     * Checks if a given object is the same as this UserPrefs object.
+     *
+     * @param other The other object to compare with.
+     * @return True if the other object is the same UserPrefs object or has the same GUI settings and address book
+     *         file path.
+     */
     @Override
     public boolean equals(Object other) {
         if (other == this) {

@@ -14,14 +14,17 @@ import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.person.Instrument;
 
 /**
- * Parses input arguments and creates a new InstrumentCommand object
+ * Represents a parser that parses input arguments and creates a new InstrumentCommand object.
  */
 public class InstrumentCommandParser implements Parser<InstrumentCommand> {
 
     /**
      * Parses the given {@code String} of arguments in the context of the InstrumentCommand
      * and returns a InstrumentCommand object for execution.
-     * @throws ParseException if the user input does not conform the expected format
+     *
+     * @param args String of arguments to be parsed.
+     * @return InstrumentCommand object for execution.
+     * @throws ParseException If the user input does not conform the expected format.
      */
     public InstrumentCommand parse(String args) throws ParseException {
         requireNonNull(args);
