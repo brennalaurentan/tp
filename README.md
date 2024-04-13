@@ -24,9 +24,9 @@ track with the band's activities.
 
 ## Getting Started
 1. Ensure you have Java `11` or above installed in your Computer.
-2. Download the latest `BandBook-v1.4.jar` from [here](https://github.com/AY2324S2-CS2103T-T15-3/tp/releases).
+2. Download the latest `bandbook.jar` from [here](https://github.com/AY2324S2-CS2103T-T15-3/tp/releases).
 3. Copy the file to the folder you want to use as the _home folder_ for BandBook.
-4. Open a command terminal, `cd` into the folder you put the jar file in, and use the `java -jar BandBook-v1.4.jar`
+4. Open a command terminal, `cd` into the folder you put the jar file in, and use the `java -jar bandbook.jar`
    command to run the application.
 
 <box type="tip" seamless>
