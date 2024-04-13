@@ -13,6 +13,7 @@ import static seedu.address.logic.commands.CommandTestUtil.PHONE_DESC_AMY;
 import static seedu.address.testutil.Assert.assertThrows;
 import static seedu.address.testutil.TypicalPersons.AMY;
 
+import java.awt.Point;
 import java.io.IOException;
 import java.nio.file.AccessDeniedException;
 import java.nio.file.Path;
@@ -21,6 +22,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
 
+import seedu.address.commons.core.GuiSettings;
 import seedu.address.logic.commands.AddCommand;
 import seedu.address.logic.commands.CommandResult;
 import seedu.address.logic.commands.ListCommand;
@@ -44,6 +46,7 @@ public class LogicManagerTest {
     public Path temporaryFolder;
 
     private Model model = new ModelManager();
+    private StorageManager storage;
     private Logic logic;
 
     @BeforeEach
@@ -52,7 +55,7 @@ public class LogicManagerTest {
                 new JsonAddressBookStorage(temporaryFolder.resolve("addressBook.json"));
         JsonUserPrefsStorage userPrefsStorage =
                 new JsonUserPrefsStorage(temporaryFolder.resolve("userPrefs.json"));
-        StorageManager storage = new StorageManager(addressBookStorage, userPrefsStorage);
+        storage = new StorageManager(addressBookStorage, userPrefsStorage);
         logic = new LogicManager(model, storage);
     }
 
@@ -87,8 +90,54 @@ public class LogicManagerTest {
     }
 
     @Test
+    public void getAddressBook_success() {
+        ReadOnlyAddressBook actualAddressBook = logic.getAddressBook();
+        ReadOnlyAddressBook expectedAddressBook = model.getAddressBook();
+        assertEquals(actualAddressBook, expectedAddressBook);
+    }
+
+    @Test
     public void getFilteredPersonList_modifyList_throwsUnsupportedOperationException() {
         assertThrows(UnsupportedOperationException.class, () -> logic.getFilteredPersonList().remove(0));
+    }
+
+    @Test
+    public void getAddressBookFilePath_success() {
+        Path actualAddressBookFilePath = logic.getAddressBookFilePath();
+        Path expectedAddressBookFilePath = model.getAddressBookFilePath();
+        assertEquals(actualAddressBookFilePath, expectedAddressBookFilePath);
+    }
+
+    @Test
+    public void getGuiSettings_success() {
+        GuiSettings actualGuiSettings = logic.getGuiSettings();
+        GuiSettings expectedGuiSettings = model.getGuiSettings();
+        assertEquals(actualGuiSettings, expectedGuiSettings);
+    }
+
+    @Test
+    public void setGuiSettings_success() {
+        double expectedNewWindowWidth = Math.random();
+        double expectedNewWindowHeight = Math.random();
+        int expectedNewXPosition = (int) (Math.random() * 10);
+        int expectedNewYPosition = (int) (Math.random() * 10);
+        GuiSettings expectedNewGuiSettings =
+                new GuiSettings(expectedNewWindowWidth, expectedNewWindowHeight,
+                        expectedNewXPosition, expectedNewYPosition);
+
+        logic.setGuiSettings(expectedNewGuiSettings);
+
+        GuiSettings actualGuiSettings = logic.getGuiSettings();
+        double actualWindowWidth = actualGuiSettings.getWindowWidth();
+        double actualWindowHeight = actualGuiSettings.getWindowHeight();
+        Point actualWindowCoordinates = actualGuiSettings.getWindowCoordinates();
+        int actualXPosition = (int) actualWindowCoordinates.getX();
+        int actualYPosition = (int) actualWindowCoordinates.getY();
+
+        assertEquals(actualWindowWidth, expectedNewWindowWidth);
+        assertEquals(actualWindowHeight, expectedNewWindowHeight);
+        assertEquals(actualXPosition, expectedNewXPosition);
+        assertEquals(actualYPosition, expectedNewYPosition);
     }
 
     /**

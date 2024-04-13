@@ -68,6 +68,17 @@ public class AppParametersTest {
         assertFalse(appParameters.equals(otherAppParameters));
     }
 
+    @Test
+    public void hashCode_symmetric() {
+        AppParameters x = new AppParameters();
+        x.setConfigPath(Paths.get("config.json"));
+        AppParameters y = new AppParameters();
+        y.setConfigPath(Paths.get("config.json"));
+
+        assertTrue(x.equals(y) && y.equals(x));
+        assertTrue(x.hashCode() == y.hashCode());
+    }
+
     private static class ParametersStub extends Application.Parameters {
         private Map<String, String> namedParameters = new HashMap<>();
 
