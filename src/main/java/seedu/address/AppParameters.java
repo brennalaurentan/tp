@@ -29,6 +29,9 @@ public class AppParameters {
 
     /**
      * Parses the application command-line parameters.
+     *
+     * @param parameters The application parameters.
+     * @return The parsed application parameters in the form of an {@code AppParameters} object.
      */
     public static AppParameters parse(Application.Parameters parameters) {
         AppParameters appParameters = new AppParameters();
@@ -44,6 +47,13 @@ public class AppParameters {
         return appParameters;
     }
 
+    /**
+     * Checks if both AppParameters have the same configPath.
+     *
+     * @param other The other object to compare with.
+     * @return True if the object is the same as other AppParameters object or both AppParameters have the same
+     *         configPath.
+     */
     @Override
     public boolean equals(Object other) {
         if (other == this) {

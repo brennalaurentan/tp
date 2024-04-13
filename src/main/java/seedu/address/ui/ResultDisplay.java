@@ -7,7 +7,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.layout.Region;
 
 /**
- * A ui for the status bar that is displayed at the header of the application.
+ * A UI for the status bar that is displayed at the header of the application.
  */
 public class ResultDisplay extends UiPart<Region> {
 
@@ -16,6 +16,9 @@ public class ResultDisplay extends UiPart<Region> {
     @FXML
     private TextArea resultDisplay;
 
+    /**
+     * Constructs a {@code ResultDisplay} with the given {@code result}.
+     */
     public ResultDisplay() {
         super(FXML);
     }
