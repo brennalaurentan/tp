@@ -18,7 +18,7 @@ assigned**. You may also **indicate and view the attendance history of your memb
 track with the band's activities.
 
 Optimised for use via a Command Line Interface (CLI), BandBook can assist you in managing your members' details
-faster than traditional GUI apps.
+faster than traditional Graphical User Interface (GUI) apps.
 
 ## Purpose of this user guide and how you should use it
 The objective of this user guide is for you to learn how to use BandBook effectively and efficiently. We will guide you through
@@ -474,7 +474,7 @@ BandBook data are saved in the hard disk automatically after any command that ch
 
 ### Editing the data file
 
-BandBook data is saved automatically as a JSON file `[JAR file location]/data/bandbook.json`. Advanced users are welcome to update data directly by editing that data file.
+BandBook data is saved automatically as a JSON file `[JAR file location]/data/addressbook.json`. Advanced users are welcome to update data directly by editing that data file.
 
 <box type="warning" seamless>
 
@@ -536,6 +536,25 @@ Action     | Format, Examples
 **Find**   | `find [n/KEYWORD [MORE_KEYWORDS]] [i/KEYWORD [MORE_KEYWORDS]]`<br> e.g., `find n/James Jake i/flute clarinet`
 **List**   | `list`
 **Help**   | `help`
+
+--------------------------------------------------------------------------------------------------------------------
+
+## Glossary
+
+### CLI (Command Line Interface)
+A text-based interface used to interact with software applications. Users input commands into the CLI to execute functions and operations.
+
+### Command
+A text input entered by the user into the command input box to instruct the software to perform a specific action.
+
+### GUI (Graphical User Interface)
+A visual interface that allows users to interact with software applications through graphical elements such as windows, buttons, and icons.
+
+### JSON (JavaScript Object Notation)
+A lightweight data-interchange format that is easy for humans to read and write and easy for machines to parse and generate.
+
+### Parameter
+A value that is passed to a command or function by the user.
 
 --------------------------------------------------------------------------------------------------------------------
 
