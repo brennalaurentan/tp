@@ -274,7 +274,7 @@ supports assigning a single compulsory instrument to one or more contacts. It is
 * prefers typing to mouse interactions
 * is reasonably comfortable using CLI apps
 
-**Value proposition**: Our app is specifically designed for a director/in-charge of a band with a seamless and
+**Value proposition**: Our app is specifically designed for a band administrator with a seamless and
 efficient way to manage and access their members' details. Also, our app is able to extend capabilities that
 help make managing a band easier.
 
