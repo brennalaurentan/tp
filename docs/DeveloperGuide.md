@@ -306,7 +306,7 @@ Editing the birthday field of an existing contact, is implemented as such:
 * prefers typing to mouse interactions
 * is reasonably comfortable using CLI apps
 
-**Value proposition**: Our app is specifically designed for a director/in-charge of a band with a seamless and
+**Value proposition**: Our app is specifically designed for a band administrator with a seamless and
 efficient way to manage and access their members' details. Also, our app is able to extend capabilities that
 help make managing a band easier.
 
@@ -518,8 +518,16 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 ### Glossary
 
+* **API**: Application Programming Interface, a set of rules and protocols that allows different software applications to communicate with each other.
+* **CLI**: Command Line Interface, a text-based interface used to interact with software applications. Users input commands into the CLI to execute functions and operations.
+* **Command**: A text input entered by the user into the command input box to instruct the software to perform a specific action.
+* **GUI**: Graphical User Interface, a visual interface that allows users to interact with software applications through graphical elements such as windows, buttons, and icons.
+* **JSON**: JavaScript Object Notation, a lightweight data-interchange format that is easy for humans to read and write and easy for machines to parse and generate.
 * **Mainstream OS**: Windows, Linux, Unix, MacOS
+* **MSS**: Main Success Scenario, the main path of a use case that describes the basic, successful flow of events.
+* **Parameter**: A value that is passed to a command or function by the user.
 * **Private contact detail**: A contact detail that is not meant to be shared with others
+* **UI**: User Interface, the visual elements of a software application that users interact with to perform tasks.
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -649,10 +657,16 @@ testers are expected to do more *exploratory* testing.
 
 1. Dealing with missing/corrupted data files
 
+<<<<<<< HEAD
     1. Prerequisites: Start from an empty BandBook by using the `clear` command.
 
     1. Test case: Add a contact by using the `add` command with appropriate parameters. Then, find the json file containing the contact details at `~/data/addressbook.json`. Completely remove one of the fields from the contact (including field name). Start BandBook. <br>
        Expected: BandBook loads with a completely empty contact list due to the data being missing/corrupted.
+=======
+   1. Open a command terminal and navigate to the folder where the `data/addressbook.json` is located.
+   1. Delete the `addressbook.json` file.<br>
+      Expected: The app should create a new data file with default data when it is launched.
+>>>>>>> upstream/master
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -738,6 +752,22 @@ message that says the instrument entered is invalid, and display the valid instr
   * **Pros**: Eliminates the possibility of entering erroneous data.
   * **Cons**: Need to use an appropriate API, otherwise, need to update the list of valid values whenever there are changes.
 
+### Implement stronger check criterion for duplicate contacts
+
+Currently, BandBook only checks if the user is trying to add a duplicate contact based on the name field. This is not
+ideal as there can be multiple people with the same name. Additionally, other fields such as email and phone number
+should not be the same for contacts with different names. In the future, we hope to enhance BandBook by implementing
+a multi-field check criterion for duplicate contacts instead.
+
+We can implement this enhancement by checking if the user is trying to add a contact with the same name, email, and phone
+number as an existing contact. If this is the case, BandBook will display an error message to inform the user that the
+specified contact details are already in contact list. Otherwise, it will add the new contact to the contact list successfully.
+
+#### Design Consideration
+* Use multi-field check criterion such as name, email, and phone number to check for duplicate contacts.
+  * **Pros**: More realistic and eliminates the possibility of adding duplicate contacts.
+  * **Cons**: Need to identify which field is incorrect and update the UI to display the error message accordingly.
+
 ### Allow each person to be assigned at least one to possibly multiple instruments
 
 Currently, BandBook only allows each person to be assigned to one instrument. While the person need not be assigned an
@@ -770,8 +800,8 @@ instead of displaying the help window. This will allow users to retrieve the lin
 
 #### Design Consideration
 * Integrate automatic copying of the link to clipboard.
-  **Pros**: Easy to implement.
-  **Cons**: None.
+  * **Pros**: Easy to implement.
+  * **Cons**: None.
 
 ### Allow user to find person(s) by all other fields
 
@@ -786,5 +816,5 @@ given a 'friend' tag.
 
 #### Design Consideration
 * Extend the `FindCommand` to allow users to find person(s) by all other fields.
-  **Pros**: Easy to implement.
-  **Cons**: None.
+  * **Pros**: Easy to implement.
+  * **Cons**: None.
