@@ -486,8 +486,16 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 ### Glossary
 
+* **API**: Application Programming Interface, a set of rules and protocols that allows different software applications to communicate with each other.
+* **CLI**: Command Line Interface, a text-based interface used to interact with software applications. Users input commands into the CLI to execute functions and operations.
+* **Command**: A text input entered by the user into the command input box to instruct the software to perform a specific action.
+* **GUI**: Graphical User Interface, a visual interface that allows users to interact with software applications through graphical elements such as windows, buttons, and icons.
+* **JSON**: JavaScript Object Notation, a lightweight data-interchange format that is easy for humans to read and write and easy for machines to parse and generate.
 * **Mainstream OS**: Windows, Linux, Unix, MacOS
+* **MSS**: Main Success Scenario, the main path of a use case that describes the basic, successful flow of events.
+* **Parameter**: A value that is passed to a command or function by the user.
 * **Private contact detail**: A contact detail that is not meant to be shared with others
+* **UI**: User Interface, the visual elements of a software application that users interact with to perform tasks.
 
 --------------------------------------------------------------------------------------------------------------------
 
