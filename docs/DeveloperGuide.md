@@ -689,8 +689,8 @@ instead of displaying the help window. This will allow users to retrieve the lin
 
 #### Design Consideration
 * Integrate automatic copying of the link to clipboard.
-  **Pros**: Easy to implement.
-  **Cons**: None.
+  * **Pros**: Easy to implement.
+  * **Cons**: None.
 
 ### Allow user to find person(s) by all other fields
 
@@ -705,5 +705,5 @@ given a 'friend' tag.
 
 #### Design Consideration
 * Extend the `FindCommand` to allow users to find person(s) by all other fields.
-  **Pros**: Easy to implement.
-  **Cons**: None.
+  * **Pros**: Easy to implement.
+  * **Cons**: None.
