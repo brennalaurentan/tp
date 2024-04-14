@@ -252,12 +252,34 @@ supports assigning a single compulsory instrument to one or more contacts. It is
 
 ### Birthday Field Feature
 
-The birthday field allows users to store the birthday of a contact. Users can add the birthday to a new contact, or edit the birthday of an existing contact. The logic of the birthday field is implemented using the
+The birthday field allows users to store the birthday of a contact. Users can add the birthday to a new contact,
+or edit the birthday of an existing contact. The logic of the birthday field is implemented using the 
+`AddCommand` and `AddCommandParser` classes or the `EditCommand` and `EditCommandParser` classes depending on 
+whether a new contact is being created or existing contact is being edited.
 
 #### Our Implementation
+Adding a new contact with the optional birthday field, is implemented as such:
+1. The `AddCommand` is executed by the `LogicManager`.
+2. AddressBookParser calls `AddCommandParser` which parses the input containing the birthday of the new contact to be
+   added.
+3. For each field detail entered in the add command, an object of the field type is created (e.g Name object containing
+   contact's name, Birthday object containing contact's birthday). Minimally, the 4 compulsory fields 
+   (name, phone number, email address, address) must be included in the add command for it to be successful.
+4. In creating a Birthday object in the `Birthday` class, the data undergoes date validation in `DateValidatorUtil`
+   to verify that the date entered is a valid date.
+5. A new `Person` object is created with the fields entered in the add command.
 
-
-#### Design Consideration
+Editing the birthday field of an existing contact, is implemented as such:
+1. The `EditCommand` is executed by the `LogicManager`.
+2. AddressBookParser calls `EditCommandParser` which parses the input containing the birthday of the existing contact
+   that is to be set.
+3. For each field detail entered in the edit command (to be changed in the existing contact), an object of the field
+   type is created (e.g Name object containing contact's new name, Birthday object containing contact's birthday).
+   Unlike the add command, there is no minimum number of fields that need to be changed in an edit command.
+4. In creating a Birthday object in the `Birthday` class, the data undergoes date validation in `DateValidatorUtil`
+   to verify that the date entered is a valid date.
+5. A new `Person` object is created with any existing unchanged fields, as well as the edited fields entered in the
+   edit command.
 
 --------------------------------------------------------------------------------------------------------------------
 
