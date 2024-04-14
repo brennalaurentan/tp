@@ -3,6 +3,7 @@ package seedu.address.logic.commands;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_ADDRESS;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_ATTENDANCE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_BIRTHDAY_DATE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_INSTRUMENT;
@@ -46,6 +47,7 @@ public class CommandTestUtil {
     public static final String VALID_MATRICULATION_YEAR_BOB = "2012";
     public static final String VALID_TAG_HUSBAND = "husband";
     public static final String VALID_TAG_FRIEND = "friend";
+    public static final String VALID_ATTENDANCE_DATE = "2024-01-05";
     public static final String DEFAULT_BIRTHDAY = "9999-99-99";
     public static final String DEFAULT_INSTRUMENT = "None";
 
@@ -67,6 +69,7 @@ public class CommandTestUtil {
     public static final String INSTRUMENT_DESC_BOB = " " + PREFIX_INSTRUMENT + VALID_INSTRUMENT_BOB;
     public static final String TAG_DESC_FRIEND = " " + PREFIX_TAG + VALID_TAG_FRIEND;
     public static final String TAG_DESC_HUSBAND = " " + PREFIX_TAG + VALID_TAG_HUSBAND;
+    public static final String ATTENDANCE_DATE_DESC = " " + PREFIX_ATTENDANCE + VALID_ATTENDANCE_DATE;
 
     public static final String INVALID_NAME_DESC = " " + PREFIX_NAME + "James&"; // '&' not allowed in names
     public static final String INVALID_PHONE_DESC = " " + PREFIX_PHONE + "911a"; // 'a' not allowed in phones

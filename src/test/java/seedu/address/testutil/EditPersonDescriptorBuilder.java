@@ -1,10 +1,12 @@
 package seedu.address.testutil;
 
+import java.time.LocalDate;
 import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import seedu.address.logic.commands.EditCommand.EditPersonDescriptor;
+import seedu.address.model.attendance.Attendance;
 import seedu.address.model.person.Address;
 import seedu.address.model.person.Birthday;
 import seedu.address.model.person.Email;
@@ -109,6 +111,21 @@ public class EditPersonDescriptorBuilder {
     public EditPersonDescriptorBuilder withTags(String... tags) {
         Set<Tag> tagSet = Stream.of(tags).map(Tag::new).collect(Collectors.toSet());
         descriptor.setTags(tagSet);
+        return this;
+    }
+
+    /**
+     * Parses the {@code attendances} into a {@code Set<Attendance>} and set it to the {@code EditPersonDescriptor}
+     * that we are building.
+     */
+    public EditPersonDescriptorBuilder withAttendances(String... attendances) {
+        Set<Attendance> attendanceSet = Stream.of(attendances).map(a -> {
+            if (Attendance.isValidAttendanceDate(a)) {
+                return new Attendance(LocalDate.parse(a));
+            }
+            return null;
+        }).collect(Collectors.toSet());
+        descriptor.setAttendances(attendanceSet);
         return this;
     }
 
