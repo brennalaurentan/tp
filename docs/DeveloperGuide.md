@@ -656,7 +656,53 @@ testers are expected to do more *exploratory* testing.
 
 --------------------------------------------------------------------------------------------------------------------
 
-## **Appendix C: Possible Future Enhancements**
+## **Appendix C: Effort**
+
+Listed below are the features added on top of the original AB3 program, with their corresponding evaluated difficulty
+in implementation.
+
+| Difficulty | Feature                              | 
+|------------|--------------------------------------|
+|            | Instrument Field                     |
+|            | Assign Instrument Command            |
+|            | Find by Instrument Command           |
+| `* *`      | Birthday Field                       |
+| `*`        | Matriculation Year Field             |  
+|            | Attendance Field                     | 
+|            | Add Attendance Command               | 
+|            | Delete Attendance Command            |
+|            | Delete by Matriculation Year Command |
+|            | Revamped Ui                          |
+
+#### Instrument Field
+
+#### Assign Instrument Command
+
+#### Find by Instrument Command
+
+#### Birthday Field
+Relatively straightforward to implement as it serves only as an addition to the other existing fields, without a
+specific command (utilises the existing add and edit commands). The need for date validation (e.g verifying valid/invalid
+leap year) was the most complexed aspect of the implementation of this Birthday field.
+
+#### Matriculation Year Field
+Straightforward to implement as the input must fulfil the strict requirement of being a 4-digit number (enforced using
+RegEx). As such, most invalid inputs would already have been filtered out. Extra checking was enforced to ensure that
+the year entered does not exceed the current year.
+
+#### Attendance Field
+
+#### Add Attendance Command
+
+#### Delete Attendance Command
+
+#### Delete by Matriculation Year Command
+
+#### Revamped Ui
+
+--------------------------------------------------------------------------------------------------------------------
+
+## **Appendix D: Possible Future Enhancements**
 
 ### Display more specific error messages
 
