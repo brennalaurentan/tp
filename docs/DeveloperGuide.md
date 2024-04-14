@@ -158,7 +158,7 @@ Classes used by multiple components are in the `seedu.addressbook.commons` packa
 
 This section describes some noteworthy details on how certain features are implemented.
 
-### Edit feature
+### Edit Command feature
 
 #### Our Implementation
 
@@ -169,7 +169,7 @@ in the UML sequence diagram below.
 Note: The activation bars for :Ui and logicManager:LogicManager are meant to be deactivated after and within the
 reference frame respectively. Due to a PlantUML bug, this is unable to be reflected accurately in the diagram.
 
-### Find feature
+### Find Command feature
 
 The find feature mainly allows users to search for contacts based on specific fields. Currently, it only supports
 searching by name and instrument. The logic of the find feature is implemented using the `FindCommand` class and the
@@ -206,7 +206,7 @@ them as a `FindCommand` object.
   * Pros: More flexible as search criteria is extensive.
   * Cons: More complex to implement.
 
-### Assign feature
+### Assign Command feature
 
 The assign feature mainly allows users to assign an instrument to a contact. Currently, it only supports assigning a
 single compulsory instrument to one or more contacts. The logic of the assign feature is implemented using the
