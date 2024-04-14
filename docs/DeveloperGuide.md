@@ -249,6 +249,16 @@ supports assigning a single compulsory instrument to one or more contacts. It is
 * **Alternative 2**: Assigns at least one to possibly multiple instruments to one or more contacts.
   * Pros: More flexible as members may be able to play none or more than one instrument.
   * Cons: More complex to implement.
+
+### Birthday Field Feature
+
+The birthday field allows users to store the birthday of a contact. Users can add the birthday to a new contact, or edit the birthday of an existing contact. The logic of the birthday field is implemented using the
+
+#### Our Implementation
+
+
+#### Design Consideration
+
 --------------------------------------------------------------------------------------------------------------------
 
 ## **Documentation, logging, testing, configuration, dev-ops**
