@@ -657,16 +657,10 @@ testers are expected to do more *exploratory* testing.
 
 1. Dealing with missing/corrupted data files
 
-<<<<<<< HEAD
-    1. Prerequisites: Start from an empty BandBook by using the `clear` command.
-
-    1. Test case: Add a contact by using the `add` command with appropriate parameters. Then, find the json file containing the contact details at `~/data/addressbook.json`. Completely remove one of the fields from the contact (including field name). Start BandBook. <br>
-       Expected: BandBook loads with a completely empty contact list due to the data being missing/corrupted.
-=======
    1. Open a command terminal and navigate to the folder where the `data/addressbook.json` is located.
    1. Delete the `addressbook.json` file.<br>
       Expected: The app should create a new data file with default data when it is launched.
->>>>>>> upstream/master
+
 
 --------------------------------------------------------------------------------------------------------------------
 
