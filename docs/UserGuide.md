@@ -20,6 +20,8 @@ track with the band's activities.
 Optimised for use via a Command Line Interface (CLI), BandBook can assist you in managing your members' details
 faster than traditional Graphical User Interface (GUI) apps.
 
+--------------------------------------------------------------------------------------------------------------------
+
 ## Purpose of this user guide and how you should use it
 The objective of this user guide is for you to learn how to use BandBook effectively and efficiently. We will guide
 you through step-by-step (with examples!) on how to use BandBook's features, along with the various commands available
@@ -37,6 +39,8 @@ To aid in your understanding of the features and commands of BandBook, we have a
 screenshots of the program throughout the guide.
 
 Come on board and unlock BandBook's full potential today!
+
+--------------------------------------------------------------------------------------------------------------------
 
 ## Target User
 

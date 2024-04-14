@@ -28,11 +28,14 @@
       <site-nav>
 * [Home]({{ baseUrl }}/index.html)
 * [User Guide]({{ baseUrl }}/UserGuide.html) :expanded:
+  * [Introduction & Product Information]({{ baseUrl }}/UserGuide.html#introduction-and-amp-product-information)
+  * [Purpose of User Guide]({{ baseUrl }}/UserGuide.html#purpose-of-this-user-guide-and-how-you-should-use-it)
+  * [Target User]({{ baseUrl }}/UserGuide.html#target-user)
   * [Quick Start]({{ baseUrl }}/UserGuide.html#quick-start)
   * [Features]({{ baseUrl }}/UserGuide.html#features)
   * [FAQ]({{ baseUrl }}/UserGuide.html#faq)
   * [Known Issues]({{ baseUrl }}/UserGuide.html#known-issues)
-  * [Command Summary]({{ baseUrl }}/UserGuide.html#faq)
+  * [Command Summary]({{ baseUrl }}/UserGuide.html#command-summary)
   * [Glossary]({{ baseUrl }}/UserGuide.html#glossary)
   * [Acknowledgements]({{ baseUrl }}/UserGuide.html#acknowledgements)
 * [Developer Guide]({{ baseUrl }}/DeveloperGuide.html) :expanded:
