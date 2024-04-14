@@ -41,6 +41,7 @@ You can reach us at the following emails:
 <img src="images/triciiaaa.png" width="200px">
 
 [[github](http://github.com/triciiaaa)]
+[[portfolio](team/triciiaaa.md)]
 
 * Role: Developer
 * Responsibilities:
