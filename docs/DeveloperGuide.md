@@ -625,7 +625,9 @@ testers are expected to do more *exploratory* testing.
 
 1. Dealing with missing/corrupted data files
 
-    1. _{explain how to simulate a missing/corrupted file, and the expected behavior}_
+   1. Open a command terminal and navigate to the folder where the `data/addressbook.json` is located.
+   1. Delete the `addressbook.json` file.<br>
+      Expected: The app should create a new data file with default data when it is launched.
 
 --------------------------------------------------------------------------------------------------------------------
 
