@@ -657,6 +657,22 @@ message that says the instrument entered is invalid, and display the valid instr
   * **Pros**: Eliminates the possibility of entering erroneous data.
   * **Cons**: Need to use an appropriate API, otherwise, need to update the list of valid values whenever there are changes.
 
+### Implement stronger check criterion for duplicate contacts
+
+Currently, BandBook only checks if the user is trying to add a duplicate contact based on the name field. This is not
+ideal as there can be multiple people with the same name. Additionally, other fields such as email and phone number
+should not be the same for contacts with different names. In the future, we hope to enhance BandBook by implementing
+a multi-field check criterion for duplicate contacts instead.
+
+We can implement this enhancement by checking if the user is trying to add a contact with the same name, email, and phone
+number as an existing contact. If this is the case, BandBook will display an error message to inform the user that the
+specified contact details are already in contact list. Otherwise, it will add the new contact to the contact list successfully.
+
+#### Design Consideration
+* Use multi-field check criterion such as name, email, and phone number to check for duplicate contacts.
+  * **Pros**: More realistic and eliminates the possibility of adding duplicate contacts.
+  * **Cons**: Need to identify which field is incorrect and update the UI to display the error message accordingly.
+
 ### Allow each person to be assigned at least one to possibly multiple instruments
 
 Currently, BandBook only allows each person to be assigned to one instrument. While the person need not be assigned an
