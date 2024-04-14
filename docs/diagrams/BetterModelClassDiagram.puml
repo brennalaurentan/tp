@@ -21,4 +21,5 @@ Person *--> Address
 Person *--> Birthday
 Person *--> MatriculationYear
 Person *--> Instrument
+Person *--> Attendance
 @enduml
