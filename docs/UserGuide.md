@@ -8,12 +8,6 @@
 
 --------------------------------------------------------------------------------------------------------------------
 
-## Table of Contents
-<!-- * Table of Contents -->
-<page-nav-print />
-
---------------------------------------------------------------------------------------------------------------------
-
 ## Introduction & Product Information
 **Welcome to BandBook: Your Ultimate Band Management Software!**
 
@@ -63,6 +57,14 @@ navigation and comprehensive features that cater to both novice and experienced 
 
 As our product is developed around the use of a CLI, we envision that our primary users are able to type and carry
 operations faster than if they were to use a GUI.
+
+--------------------------------------------------------------------------------------------------------------------
+
+<div style="page-break-after: always;"></div>
+
+## Table of Contents
+<!-- * Table of Contents -->
+<page-nav-print />
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -157,12 +159,12 @@ operations faster than if they were to use a GUI.
 > It refers to the **address** of the person.
 * Accepts any characters.
 
-<div style="page-break-after: always;"></div>
-
 #### BIRTHDAY: `b/`
 > It refers to the **birthday** of the person.
 * Must be a valid date in the format YYYY-MM-DD.
 * All dates from 0001-01-01 to the current date (inclusive) are accepted.
+
+<div style="page-break-after: always;"></div>
 
 #### MATRICULATION_YEAR: `my/`
 > It refers to the **matriculation year** of the person.
@@ -219,12 +221,12 @@ Examples:
 * `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01`  
   <br>**Command input**<br><br>
   <div style="text-align:center;">
-    <img src="images/addCommandInput1.png" width="650" height="500" />
+    <img src="images/addCommandInput1.png" width="520" height="400" />
   </div>
 
   <br>**Expected output**<br><br>
   <div style="text-align:center;">
-    <img src="images/addCommandResult1.png" width="650" height="500" />
+    <img src="images/addCommandResult1.png" width="520" height="400" />
   </div>
 
   <br>
