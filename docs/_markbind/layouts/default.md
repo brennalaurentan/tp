@@ -46,7 +46,8 @@
   * [Documentation, logging, testing, configuration, dev-ops]({{ baseUrl }}/DeveloperGuide.html#documentation-logging-testing-configuration-dev-ops)
   * [Appendix A: Requirements]({{ baseUrl }}/DeveloperGuide.html#appendix-a-requirements)
   * [Appendix B: Instructions for Manual Testing]({{ baseUrl }}/DeveloperGuide.html#appendix-b-instructions-for-manual-testing)
-  * [Appendix C: Possible Future Enhancements]({{ baseUrl }}/DeveloperGuide.html#appendix-c-possible-future-enhancements)
+  * [Appendix C: Effort]({{ baseUrl }}/DeveloperGuide.html#appendix-c-effort)
+  * [Appendix D: Possible Future Enhancements]({{ baseUrl }}/DeveloperGuide.html#appendix-d-possible-future-enhancements)
 * Tutorials
   * [Tracing code]({{ baseUrl }}/tutorials/TracingCode.html)
   * [Adding a command]({{ baseUrl }}/tutorials/AddRemark.html)
