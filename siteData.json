@@ -1,0 +1,233 @@
+{
+  "enableSearch": true,
+  "pages": [
+    {
+      "src": "AboutUs.md",
+      "headings": {
+        "about-us": "About Us",
+        "project-team": "Project Team",
+        "brenna-tan": "Brenna Tan",
+        "shaun-lai": "Shaun Lai",
+        "tricia-ang": "Tricia Ang"
+      },
+      "headingKeywords": {}
+    },
+    {
+      "src": "Configuration.md",
+      "title": "Configuration guide",
+      "headings": {
+        "configuration-guide": "Configuration guide"
+      },
+      "headingKeywords": {}
+    },
+    {
+      "src": "DevOps.md",
+      "title": "DevOps guide",
+      "headings": {
+        "devops-guide": "DevOps guide",
+        "build-automation": "Build automation",
+        "continuous-integration-ci": "Continuous integration (CI)",
+        "code-coverage": "Code coverage",
+        "repository-wide-checks": "Repository-wide checks",
+        "making-a-release": "Making a release"
+      },
+      "headingKeywords": {}
+    },
+    {
+      "src": "DeveloperGuide.md",
+      "title": "Developer Guide",
+      "headings": {
+        "bandbook-developer-guide": "BandBook Developer Guide",
+        "acknowledgements": "Acknowledgements",
+        "setting-up-getting-started": "Setting up, getting started",
+        "design": "Design",
+        "architecture": "Architecture",
+        "ui-component": "UI component",
+        "logic-component": "Logic component",
+        "model-component": "Model component",
+        "storage-component": "Storage component",
+        "common-classes": "Common classes",
+        "implementation": "Implementation",
+        "edit-command-feature": "Edit Command feature",
+        "find-command-feature": "Find Command feature",
+        "assign-command-feature": "Assign Command feature",
+        "birthday-field-feature": "Birthday Field Feature",
+        "documentation-logging-testing-configuration-dev-ops": "Documentation, logging, testing, configuration, dev-ops",
+        "appendix-a-requirements": "Appendix A: Requirements",
+        "product-scope": "Product scope",
+        "user-stories": "User stories",
+        "use-cases": "Use cases",
+        "non-functional-requirements": "Non-Functional Requirements",
+        "glossary": "Glossary",
+        "appendix-b-instructions-for-manual-testing": "Appendix B: Instructions for manual testing",
+        "launch-and-shutdown": "Launch and shutdown",
+        "deleting-a-person": "Deleting a person",
+        "finding-a-person": "Finding a person",
+        "assigning-an-instrument-to-person-s": "Assigning an instrument to person(s)",
+        "saving-data": "Saving data",
+        "appendix-c-effort": "Appendix C: Effort",
+        "appendix-d-possible-future-enhancements": "Appendix D: Possible Future Enhancements",
+        "display-more-specific-error-messages": "Display more specific error messages",
+        "implement-stronger-data-validation-for-respective-fields": "Implement stronger data validation for respective fields",
+        "implement-stronger-check-criterion-for-duplicate-contacts": "Implement stronger check criterion for duplicate contacts",
+        "allow-each-person-to-be-assigned-at-least-one-to-possibly-multiple-instruments": "Allow each person to be assigned at least one to possibly multiple instruments",
+        "allow-user-to-copy-link-to-user-guide-automatically-upon-entering-help-command": "Allow user to copy link to User Guide automatically upon entering help command",
+        "allow-user-to-find-person-s-by-all-other-fields": "Allow user to find person(s) by all other fields"
+      },
+      "headingKeywords": {}
+    },
+    {
+      "src": "Documentation.md",
+      "title": "Documentation guide",
+      "headings": {
+        "documentation-guide": "Documentation Guide"
+      },
+      "headingKeywords": {}
+    },
+    {
+      "src": "Logging.md",
+      "title": "Logging guide",
+      "headings": {
+        "logging-guide": "Logging guide"
+      },
+      "headingKeywords": {}
+    },
+    {
+      "src": "SettingUp.md",
+      "title": "Setting up and getting started",
+      "headings": {
+        "setting-up-and-getting-started": "Setting up and getting started",
+        "setting-up-the-project-in-your-computer": "Setting up the project in your computer",
+        "before-writing-code": "Before writing code"
+      },
+      "headingKeywords": {}
+    },
+    {
+      "src": "Testing.md",
+      "title": "Testing guide",
+      "headings": {
+        "testing-guide": "Testing guide",
+        "running-tests": "Running tests",
+        "types-of-tests": "Types of tests"
+      },
+      "headingKeywords": {}
+    },
+    {
+      "src": "UserGuide.md",
+      "title": "User Guide",
+      "headings": {
+        "bandbook-user-guide": "BandBook User Guide",
+        "introduction-and-amp-product-information": "Introduction &amp; Product Information",
+        "purpose-of-this-user-guide-and-how-you-should-use-it": "Purpose of this user guide and how you should use it",
+        "target-user": "Target User",
+        "table-of-contents": "Table of Contents",
+        "quick-start": "Quick Start",
+        "features": "Features",
+        "parameter-constraints": "Parameter Constraints",
+        "viewing-help-help": "Viewing help : help",
+        "adding-a-person-add": "Adding a person: add",
+        "listing-all-persons-list": "Listing all persons : list",
+        "editing-a-person-edit": "Editing a person : edit",
+        "finding-person-s-by-name-and-or-instrument-find": "Finding person(s) by name and/or instrument: find",
+        "deleting-a-person-delete": "Deleting a person : delete",
+        "deleting-person-s-by-matriculation-year-delete-my-matriculation-year": "Deleting person(s) by matriculation year: delete my/[MATRICULATION_YEAR]",
+        "marking-attendance-of-person-s-att": "Marking attendance of person(s): att",
+        "unmarking-attendance-of-person-s-attd": "Unmarking attendance of person(s): attd",
+        "assigning-an-instrument-to-person-s-assign": "Assigning an instrument to person(s): assign",
+        "clearing-all-entries-clear": "Clearing all entries : clear",
+        "exiting-the-program-exit": "Exiting the program : exit",
+        "saving-the-data": "Saving the data",
+        "editing-the-data-file": "Editing the data file",
+        "view-rehearsal-schedule-coming-in-v2-0": "View Rehearsal Schedule [coming in v2.0]",
+        "faq": "FAQ",
+        "known-issues": "Known Issues",
+        "command-summary": "Command Summary",
+        "glossary": "Glossary",
+        "cli-command-line-interface": "CLI (Command Line Interface)",
+        "command": "Command",
+        "gui-graphical-user-interface": "GUI (Graphical User Interface)",
+        "json-javascript-object-notation": "JSON (JavaScript Object Notation)",
+        "parameter": "Parameter",
+        "acknowledgements": "Acknowledgements"
+      },
+      "headingKeywords": {}
+    },
+    {
+      "src": "index.md",
+      "title": "",
+      "headings": {
+        "bandbook": "BandBook"
+      },
+      "headingKeywords": {}
+    },
+    {
+      "src": "team/johndoe.md",
+      "title": "John Doe's Project Portfolio Page",
+      "headings": {
+        "project-addressbook-level-3": "Project: AddressBook Level 3"
+      },
+      "headingKeywords": {}
+    },
+    {
+      "src": "team/triciiaaa.md",
+      "title": "Tricia Ang's Project Portfolio Page",
+      "headings": {
+        "project-bandbook": "Project: BandBook"
+      },
+      "headingKeywords": {}
+    },
+    {
+      "src": "tutorials/AddRemark.md",
+      "title": "Tutorial: Adding a command",
+      "headings": {
+        "tutorial-adding-a-command": "Tutorial: Adding a command",
+        "create-a-new-remark-command": "Create a new remark command",
+        "hook-remarkcommand-into-the-application": "Hook RemarkCommand into the application",
+        "run-the-application": "Run the application",
+        "change-remarkcommand-to-throw-an-exception": "Change RemarkCommand to throw an exception",
+        "enhancing-remarkcommand": "Enhancing RemarkCommand",
+        "make-the-command-accept-parameters": "Make the command accept parameters",
+        "parse-user-input": "Parse user input",
+        "add-remark-to-the-model": "Add Remark to the model",
+        "add-a-new-remark-class": "Add a new Remark class",
+        "make-use-of-remark": "Make use of Remark",
+        "add-a-placeholder-element-for-remark-to-the-ui": "Add a placeholder element for remark to the UI",
+        "modify-person-to-support-a-remark-field": "Modify Person to support a Remark field",
+        "modify-person": "Modify Person",
+        "update-other-usages-of-person": "Update other usages of Person",
+        "updating-storage": "Updating Storage",
+        "finalizing-the-ui": "Finalizing the UI",
+        "putting-everything-together": "Putting everything together",
+        "update-remarkcommand-and-remarkcommandparser": "Update RemarkCommand and RemarkCommandParser",
+        "writing-tests": "Writing tests",
+        "automatically-generating-tests": "Automatically generating tests",
+        "conclusion": "Conclusion"
+      },
+      "headingKeywords": {}
+    },
+    {
+      "src": "tutorials/RemovingFields.md",
+      "title": "Tutorial: Removing Fields",
+      "headings": {
+        "tutorial-removing-fields": "Tutorial: Removing Fields",
+        "safely-deleting-address": "Safely deleting Address",
+        "assisted-refactoring": "Assisted refactoring",
+        "manual-refactoring": "Manual refactoring",
+        "tidying-up": "Tidying up"
+      },
+      "headingKeywords": {}
+    },
+    {
+      "src": "tutorials/TracingCode.md",
+      "title": "Tutorial: Tracing code",
+      "headings": {
+        "tutorial-tracing-code": "Tutorial: Tracing code",
+        "before-we-start": "Before we start",
+        "setting-a-breakpoint": "Setting a breakpoint",
+        "tracing-the-execution-path": "Tracing the execution path",
+        "conclusion": "Conclusion"
+      },
+      "headingKeywords": {}
+    }
+  ]
+}
