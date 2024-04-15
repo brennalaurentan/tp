@@ -672,20 +672,31 @@ difficulty.
 
 | Difficulty | Feature                              | 
 |------------|--------------------------------------|
-|            | Instrument Field                     |
-|            | Assign Instrument Command            |
-|            | Find by Instrument Command           |
+| `*`        | Instrument Field                     |
+| `* *`      | Assign Instrument Command            |
+| `* * *`    | Find by Instrument Command           |
 | `* *`      | Birthday Field                       |
 | `*`        | Matriculation Year Field             |  
 | `* * *`    | Attendance Field                     | 
 | `* *`      | Delete by Matriculation Year Command |
-|            | Revamped Ui                          |
+| `*`        | Revamped Ui                          |
 
 #### Instrument Field
+This field was relatively straightforward to implement as it was a simple addition to the existing fields. This additional
+field was implemented for the existing add and edit feature. For this field, we did not plan to account for any data
+validation so users are free to key in any instrument they wish depending on their band's needs. 
 
 #### Assign Instrument Command
+This feature was slightly harder to implement as it required the need to handle multiple indexes and the assignment of
+an instrument. Similar to the attendance feature, this meant that it was necessary to check for the validity of the
+indexes entered, and then to carry out the assignment of the instrument to all the indexes. There was also error handling
+enforced which displays an error message for any invalid indexes or incorrect instrument inputs (according to the
+parameter constraints).
 
 #### Find by Instrument Command
+While this functionality was built upon the current find feature, it was slightly harder to implement as we wanted to
+provide users with the flexibility to filter by name only, name and instrument, or instrument only. Multiple keywords
+were also allowed for each of these scenarios, making it much more complex to implement the validation and perform testing.
 
 #### Birthday Field
 Relatively straightforward to implement as it serves only as an addition to the other existing fields, without a
@@ -709,6 +720,9 @@ having to be done across multiple number of records in the application meant the
 rigorous testing to ensure that the intended behaviour is carried out correctly.
 
 #### Revamped Ui
+Revamping the UI was not as difficult as we already had a visual reference (Figma mockup) on how we envision the
+application to look like. The main challenge was amending the various CSS files and formatting of the UI components
+to ensure that the application looks as intended.
 
 --------------------------------------------------------------------------------------------------------------------
 
