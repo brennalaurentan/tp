@@ -5,7 +5,7 @@
 
 ### Project: BandBook
 
-BandBook is a desktop band contact and attendance management application optimised for CLI users. The user interacts with it using a CLI, and it has a GUI created with JavaFX. It is written in Java, and has about 4 kLoC.
+BandBook is a desktop band contact and attendance management application optimised for CLI users. The user interacts with it using a CLI, and it has a GUI created with JavaFX. It is written in Java, and has about 5-6 kLoC.
 
 Given below are my contributions to the project.
 
@@ -21,7 +21,7 @@ Given below are my contributions to the project.
 
 * **Enhancements to Existing Features**:
   * User Interface:
-    * Updated GUI color scheme: [\#32](https://github.com/AY2324S2-CS2103T-T15-3/tp/pull/32)
+    * Updated GUI styling and color scheme: [\#32](https://github.com/AY2324S2-CS2103T-T15-3/tp/pull/32)
   * Logic:
     * Updated `add` and `edit` command to account for the instrument field: [\#46](https://github.com/AY2324S2-CS2103T-T15-3/tp/pull/46), [\#58](https://github.com/AY2324S2-CS2103T-T15-3/tp/pull/58)
     * Updated `find` command to allow the user to find people by name and/or instrument: [\#51](https://github.com/AY2324S2-CS2103T-T15-3/tp/pull/51)
@@ -30,6 +30,7 @@ Given below are my contributions to the project.
     * Updated existing test cases to account for the `find` features: [\#51](https://github.com/AY2324S2-CS2103T-T15-3/tp/pull/51)
   * Java Documentation:
     * Added JavaDoc for all relevant classes and methods in codebase: [\#121](https://github.com/AY2324S2-CS2103T-T15-3/tp/pull/121)
+
 
 * **Project Management**:
   * Set up the GitHub product website on MarkBind
@@ -40,6 +41,7 @@ Given below are my contributions to the project.
 * **Documentation**:
   * Product Website:
     * Maintained navigation bar links: [\#119](https://github.com/AY2324S2-CS2103T-T15-3/tp/pull/119)
+    * Created UI mockups for BandBook: [Figma link](https://www.figma.com/file/de7k6pNLjPLG218pgx1HpW/CS2103T-Ui-Mockup?type=design&node-id=0%3A1&mode=design&t=xSVBcKEOFTByA8iO-1)
   * Index:
     * Updated project name references: [\#47](https://github.com/AY2324S2-CS2103T-T15-3/tp/pull/47), [\#53](https://github.com/AY2324S2-CS2103T-T15-3/tp/pull/53)
   * About Us:
@@ -54,17 +56,18 @@ Given below are my contributions to the project.
     * Added documentation for the `assign` feature: [\#46](https://github.com/AY2324S2-CS2103T-T15-3/tp/pull/46)
     * Added Parameters Constraints section: [\#103](https://github.com/AY2324S2-CS2103T-T15-3/tp/pull/103)
     * Added UI screenshots for various features: [\#59](https://github.com/AY2324S2-CS2103T-T15-3/tp/pull/59), [\#116](https://github.com/AY2324S2-CS2103T-T15-3/tp/pull/116)
+    * Added Glossary section: [\#123](https://github.com/AY2324S2-CS2103T-T15-3/tp/pull/123)
     * Added Acknowledgement section: [\#57](https://github.com/AY2324S2-CS2103T-T15-3/tp/pull/57)
-    * Maintained the formatting of the User Guide: [\#115](https://github.com/AY2324S2-CS2103T-T15-3/tp/pull/115) 
   * Developer Guide:
     * Updated project name references: [\#47](https://github.com/AY2324S2-CS2103T-T15-3/tp/pull/47)
     * Updated UML Diagrams: [\#37](https://github.com/AY2324S2-CS2103T-T15-3/tp/pull/37), [\#60](https://github.com/AY2324S2-CS2103T-T15-3/tp/pull/60)
     * Updated User Stories section: [\#47](https://github.com/AY2324S2-CS2103T-T15-3/tp/pull/47)
     * Updated Use Cases section: [\#47](https://github.com/AY2324S2-CS2103T-T15-3/tp/pull/47), [\#60](https://github.com/AY2324S2-CS2103T-T15-3/tp/pull/60)
-    * Updated Non-Functional Requirements: [\#47](https://github.com/AY2324S2-CS2103T-T15-3/tp/pull/47)
-    * Updated Appendix B: Instructions for Manual Testing: [\#60](https://github.com/AY2324S2-CS2103T-T15-3/tp/pull/60)
+    * Updated Non-Functional Requirements section: [\#47](https://github.com/AY2324S2-CS2103T-T15-3/tp/pull/47)
+    * Updated Glossary section: [\#126](https://github.com/AY2324S2-CS2103T-T15-3/tp/pull/126)
+    * Updated Appendix B: Instructions for Manual Testing: [\#60](https://github.com/AY2324S2-CS2103T-T15-3/tp/pull/60), [\#126](https://github.com/AY2324S2-CS2103T-T15-3/tp/pull/126)
     * Added Implementation Details section for `assign` and `find` feature: [\#110](https://github.com/AY2324S2-CS2103T-T15-3/tp/pull/110)
-    * Added Appendix C: Possible Future Enhancements section: [\#110](https://github.com/AY2324S2-CS2103T-T15-3/tp/pull/110)
+    * Added Appendix C: Possible Future Enhancements section: [\#110](https://github.com/AY2324S2-CS2103T-T15-3/tp/pull/110), [\#126](https://github.com/AY2324S2-CS2103T-T15-3/tp/pull/126)
 
 
 * **Community**:
