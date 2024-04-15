@@ -8,11 +8,6 @@
 
 --------------------------------------------------------------------------------------------------------------------
 
-<!-- * Table of Contents -->
-<page-nav-print />
-
---------------------------------------------------------------------------------------------------------------------
-
 ## Introduction & Product Information
 **Welcome to BandBook: Your Ultimate Band Management Software!**
 
@@ -28,8 +23,6 @@ Optimised for use via a Command Line Interface (CLI), BandBook can assist you in
 faster than traditional Graphical User Interface (GUI) apps.
 
 --------------------------------------------------------------------------------------------------------------------
-
-<div style="page-break-after: always;"></div>
 
 ## Purpose of this user guide and how you should use it
 The objective of this user guide is for you to learn how to use BandBook effectively and efficiently. We will guide
@@ -67,6 +60,16 @@ operations faster than if they were to use a GUI.
 
 --------------------------------------------------------------------------------------------------------------------
 
+<div style="page-break-after: always;"></div>
+
+## Table of Contents
+<!-- * Table of Contents -->
+<page-nav-print />
+
+--------------------------------------------------------------------------------------------------------------------
+
+<div style="page-break-after: always;"></div>
+
 ## Quick Start
 
 1. Ensure you have Java `11` or above installed in your Computer.
@@ -78,14 +81,12 @@ operations faster than if they were to use a GUI.
 4. Open a command terminal, `cd` into the folder you put the jar file in, and use the `java -jar bandbook.jar`
    command to run the application.<br>
    <br> A GUI similar to the below should appear in a few seconds. Note how the app contains some sample data.<br><br>
-   
+
    <div style="text-align:center;">
-       <img src="images/Ui.png" width="400" height="320" />
+       <img src="images/Ui.png" width="650" height="500" />
    </div>
 
    <br>
-
-<div style="page-break-after: always;"></div>
 
 5. Type the command in the command box and press Enter to execute it. e.g. typing **`help`** and pressing Enter will
    open the help window.<br><br>
@@ -102,9 +103,13 @@ operations faster than if they were to use a GUI.
 
     * `exit` : Exits the app.
 
+
+
 6. Refer to the [Features](#features) below for details of each command.
 
 --------------------------------------------------------------------------------------------------------------------
+
+<div style="page-break-after: always;"></div>
 
 ## Features
 
@@ -146,8 +151,6 @@ operations faster than if they were to use a GUI.
 * Must be at least 3 digits long with no spaces.
 * All valid phone number lengths (any country) are accepted, country code included.
 
-<div style="page-break-after: always;"></div>
-
 #### EMAIL: `e/`
 > It refers to the **email** of the person.
 * Must follow the format 'local-part@domain'.
@@ -155,6 +158,8 @@ operations faster than if they were to use a GUI.
 #### ADDRESS: `a/`
 > It refers to the **address** of the person.
 * Accepts any characters.
+
+<div style="page-break-after: always;"></div>
 
 #### BIRTHDAY: `b/`
 > It refers to the **birthday** of the person.
@@ -193,7 +198,7 @@ Format: `help`
 <br>
 
 <div style="text-align:center;">
-   <img src="images/helpMessage.png" width="400" height="50" />
+   <img src="images/helpMessage.png" width="650" height="80" />
 </div>
 
 <br>
@@ -216,12 +221,12 @@ Examples:
 * `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01`  
   <br>**Command input**<br><br>
   <div style="text-align:center;">
-    <img src="images/addCommandInput1.png" width="400" height="320" />
+    <img src="images/addCommandInput1.png" width="650" height="500" />
   </div>
 
   <br>**Expected output**<br><br>
   <div style="text-align:center;">
-    <img src="images/addCommandResult1.png" width="400" height="320" />
+    <img src="images/addCommandResult1.png" width="650" height="500" />
   </div>
 
   <br>
@@ -231,12 +236,12 @@ Examples:
 * `add n/Betsy Crowe t/friend e/betsycrowe@example.com a/Brown Street p/1234567 t/neighbour`
   <br><br>**Command input**<br><br>
   <div style="text-align:center;">
-    <img src="images/addCommandInput2.png" width="400" height="320" />
+    <img src="images/addCommandInput2.png" width="650" height="500" />
   </div>
   
   <br>**Expected output**<br><br>
   <div style="text-align:center;">
-    <img src="images/addCommandResult2.png" width="400" height="320" />
+    <img src="images/addCommandResult2.png" width="650" height="500" />
   </div>
 
   <br>
@@ -244,14 +249,14 @@ Examples:
 * `add n/Sally Jane p/1234567 e/sallyjane@example.com a/Blk 123 Smith Street b/2001-02-02`
   <br><br>**Command input**<br><br>
   <div style="text-align:center;">
-    <img src="images/addCommandInput3.png" width="400" height="320" />
+    <img src="images/addCommandInput3.png" width="650" height="500" />
   </div>
 
   <div style="page-break-after: always;"></div>
 
   <br>**Expected output**<br><br>
   <div style="text-align:center;">
-    <img src="images/addCommandResult3.png" width="400" height="320" />
+    <img src="images/addCommandResult3.png" width="650" height="500" />
   </div>
 
 <br>
@@ -264,7 +269,7 @@ Format: `list`
 
 **Expected output**<br>
 <div style="text-align:center;">
-    <img src="images/listCommandResult.png" width="400" height="320" />
+    <img src="images/listCommandResult.png" width="650" height="500" />
 </div>
 
 <br>
@@ -294,12 +299,12 @@ Examples:
 
   <br>**Command input**<br><br>
   <div style="text-align:center;">
-    <img src="images/editCommandInput1.png" width="400" height="320" />
+    <img src="images/editCommandInput1.png" width="650" height="500" />
   </div>
 
   <br>**Expected output**<br><br>
   <div style="text-align:center;">
-    <img src="images/editCommandResult1.png" width="400" height="320" />
+    <img src="images/editCommandResult1.png" width="650" height="500" />
   </div>
 
   <br>
@@ -308,14 +313,14 @@ Examples:
 
   <br>**Command input**<br><br>
   <div style="text-align:center;">
-    <img src="images/editCommandInput2.png" width="400" height="320" />
+    <img src="images/editCommandInput2.png" width="650" height="500" />
   </div>
 
   <div style="page-break-after: always;"></div>
 
   <br>**Expected output**<br><br>
   <div style="text-align:center;">
-    <img src="images/editCommandResult2.png" width="400" height="320" />
+    <img src="images/editCommandResult2.png" width="650" height="500" />
   </div>
 
 <br>
@@ -340,12 +345,12 @@ Examples:
 
   <br>**Command input**<br><br>
   <div style="text-align:center;">
-    <img src="images/findCommandInput1.png" width="400" height="320" />
+    <img src="images/findCommandInput1.png" width="650" height="500" />
   </div>
 
   <br>**Expected output**<br><br>
   <div style="text-align:center;">
-    <img src="images/findCommandResult1.png" width="400" height="320" />
+    <img src="images/findCommandResult1.png" width="650" height="500" />
   </div>
 
   <br>
@@ -376,12 +381,12 @@ Examples:
 
   <br>**Command input**<br><br>
   <div style="text-align:center;">
-    <img src="images/deleteCommandInput1.png" width="400" height="320" />
+    <img src="images/deleteCommandInput1.png" width="650" height="500" />
   </div>
 
   <br>**Expected output**<br><br>
   <div style="text-align:center;">
-    <img src="images/deleteCommandResult1.png" width="400" height="320" />
+    <img src="images/deleteCommandResult1.png" width="650" height="500" />
   </div>
 
   <br>
@@ -390,12 +395,12 @@ Examples:
 
   <br>**Command input**<br><br>
   <div style="text-align:center;">
-    <img src="images/deleteCommandInput2.png" width="400" height="320" />
+    <img src="images/deleteCommandInput2.png" width="650" height="500" />
   </div>
 
   <br>**Expected output**<br><br>
   <div style="text-align:center;">
-    <img src="images/deleteCommandResult2.png" width="400" height="320" />
+    <img src="images/deleteCommandResult2.png" width="650" height="500" />
   </div>
 
 <br>
@@ -438,12 +443,12 @@ Examples:
 
   <br>**Command input**<br><br>
   <div style="text-align:center;">
-    <img src="images/attCommandInput1.png" width="400" height="320" />
+    <img src="images/attCommandInput1.png" width="650" height="500" />
   </div>
 
   <br>**Expected output**<br><br>
   <div style="text-align:center;">
-    <img src="images/attCommandResult1.png" width="400" height="320" />
+    <img src="images/attCommandResult1.png" width="650" height="500" />
   </div>
 
   <br>
@@ -452,12 +457,12 @@ Examples:
 
   <br>**Command input**<br><br>
   <div style="text-align:center;">
-    <img src="images/attCommandInput2.png" width="400" height="320" />
+    <img src="images/attCommandInput2.png" width="650" height="500" />
   </div>
 
   <br>**Expected output**<br><br>
   <div style="text-align:center;">
-    <img src="images/attCommandResult2.png" width="400" height="320" />
+    <img src="images/attCommandResult2.png" width="650" height="500" />
   </div>
 
 <br>
@@ -487,12 +492,12 @@ Examples:
 
   <br>**Command input**<br><br>
   <div style="text-align:center;">
-    <img src="images/attdCommandInput1.png" width="400" height="320" />
+    <img src="images/attdCommandInput1.png" width="650" height="500" />
   </div>
 
   <br>**Expected output**<br><br>
   <div style="text-align:center;">
-    <img src="images/attdCommandResult1.png" width="400" height="320" />
+    <img src="images/attdCommandResult1.png" width="650" height="500" />
   </div>
 
   <br>
@@ -501,12 +506,12 @@ Examples:
 
   <br>**Command input**<br><br>
   <div style="text-align:center;">
-    <img src="images/attdCommandInput2.png" width="400" height="320" />
+    <img src="images/attdCommandInput2.png" width="650" height="500" />
   </div>
 
   <br>**Expected output**<br><br>
   <div style="text-align:center;">
-    <img src="images/attdCommandResult2.png" width="400" height="320" />
+    <img src="images/attdCommandResult2.png" width="650" height="500" />
   </div>
 
 <br>
@@ -535,12 +540,12 @@ Examples:
 
   <br>**Command input**<br><br>
   <div style="text-align:center;">
-    <img src="images/assignCommandInput1.png" width="400" height="320" />
+    <img src="images/assignCommandInput1.png" width="650" height="500" />
   </div>
 
   <br>**Expected output**<br><br>
   <div style="text-align:center;">
-    <img src="images/assignCommandResult1.png" width="400" height="320" />
+    <img src="images/assignCommandResult1.png" width="650" height="500" />
   </div>
 
   <br>
@@ -549,12 +554,12 @@ Examples:
 
   <br>**Command input**<br><br>
   <div style="text-align:center;">
-    <img src="images/assignCommandInput2.png" width="400" height="320" />
+    <img src="images/assignCommandInput2.png" width="650" height="500" />
   </div>
 
   <br>**Expected output**<br><br>
   <div style="text-align:center;">
-    <img src="images/assignCommandResult2.png" width="400" height="320" />
+    <img src="images/assignCommandResult2.png" width="650" height="500" />
   </div>
 
 <br>
