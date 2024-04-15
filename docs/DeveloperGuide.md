@@ -158,7 +158,7 @@ Classes used by multiple components are in the `seedu.addressbook.commons` packa
 
 This section describes some noteworthy details on how certain features are implemented.
 
-### Edit feature
+### Edit Command feature
 
 #### Our Implementation
 
@@ -169,7 +169,7 @@ in the UML sequence diagram below.
 Note: The activation bars for :Ui and logicManager:LogicManager are meant to be deactivated after and within the
 reference frame respectively. Due to a PlantUML bug, this is unable to be reflected accurately in the diagram.
 
-### Find feature
+### Find Command feature
 
 The find feature mainly allows users to search for contacts based on specific fields. Currently, it only supports
 searching by name and instrument. The logic of the find feature is implemented using the `FindCommand` class and the
@@ -206,7 +206,7 @@ them as a `FindCommand` object.
   * Pros: More flexible as search criteria is extensive.
   * Cons: More complex to implement.
 
-### Assign feature
+### Assign Command feature
 
 The assign feature mainly allows users to assign an instrument to a contact. Currently, it only supports assigning a
 single compulsory instrument to one or more contacts. The logic of the assign feature is implemented using the
@@ -249,6 +249,38 @@ supports assigning a single compulsory instrument to one or more contacts. It is
 * **Alternative 2**: Assigns at least one to possibly multiple instruments to one or more contacts.
   * Pros: More flexible as members may be able to play none or more than one instrument.
   * Cons: More complex to implement.
+
+### Birthday Field Feature
+
+The birthday field allows users to store the birthday of a contact. Users can add the birthday to a new contact,
+or edit the birthday of an existing contact. The logic of the birthday field is implemented using the 
+`AddCommand` and `AddCommandParser` classes or the `EditCommand` and `EditCommandParser` classes depending on 
+whether a new contact is being created or existing contact is being edited.
+
+#### Our Implementation
+Adding a new contact with the optional birthday field, is implemented as such:
+1. The `AddCommand` is executed by the `LogicManager`.
+2. AddressBookParser calls `AddCommandParser` which parses the input containing the birthday of the new contact to be
+   added.
+3. For each field detail entered in the add command, an object of the field type is created (e.g Name object containing
+   contact's name, Birthday object containing contact's birthday). Minimally, the 4 compulsory fields 
+   (name, phone number, email address, address) must be included in the add command for it to be successful.
+4. In creating a Birthday object in the `Birthday` class, the data undergoes date validation in `DateValidatorUtil`
+   to verify that the date entered is a valid date.
+5. A new `Person` object is created with the fields entered in the add command.
+
+Editing the birthday field of an existing contact, is implemented as such:
+1. The `EditCommand` is executed by the `LogicManager`.
+2. AddressBookParser calls `EditCommandParser` which parses the input containing the birthday of the existing contact
+   that is to be set.
+3. For each field detail entered in the edit command (to be changed in the existing contact), an object of the field
+   type is created (e.g Name object containing contact's new name, Birthday object containing contact's birthday).
+   Unlike the add command, there is no minimum number of fields that need to be changed in an edit command.
+4. In creating a Birthday object in the `Birthday` class, the data undergoes date validation in `DateValidatorUtil`
+   to verify that the date entered is a valid date.
+5. A new `Person` object is created with any existing unchanged fields, as well as the edited fields entered in the
+   edit command.
+
 --------------------------------------------------------------------------------------------------------------------
 
 ## **Documentation, logging, testing, configuration, dev-ops**
@@ -629,9 +661,56 @@ testers are expected to do more *exploratory* testing.
    1. Delete the `addressbook.json` file.<br>
       Expected: The app should create a new data file with default data when it is launched.
 
+
 --------------------------------------------------------------------------------------------------------------------
 
-## **Appendix C: Possible Future Enhancements**
+## **Appendix C: Effort**
+
+Listed below are the features added on top of the original AB3 program, with their corresponding evaluated difficulty
+in implementation.
+
+| Difficulty | Feature                              | 
+|------------|--------------------------------------|
+|            | Instrument Field                     |
+|            | Assign Instrument Command            |
+|            | Find by Instrument Command           |
+| `* *`      | Birthday Field                       |
+| `*`        | Matriculation Year Field             |  
+|            | Attendance Field                     | 
+|            | Add Attendance Command               | 
+|            | Delete Attendance Command            |
+|            | Delete by Matriculation Year Command |
+|            | Revamped Ui                          |
+
+#### Instrument Field
+
+#### Assign Instrument Command
+
+#### Find by Instrument Command
+
+#### Birthday Field
+Relatively straightforward to implement as it serves only as an addition to the other existing fields, without a
+specific command (utilises the existing add and edit commands). The need for date validation (e.g verifying valid/invalid
+leap year) was the most complexed aspect of the implementation of this Birthday field.
+
+#### Matriculation Year Field
+Straightforward to implement as the input must fulfil the strict requirement of being a 4-digit number (enforced using
+RegEx). As such, most invalid inputs would already have been filtered out. Extra checking was enforced to ensure that
+the year entered does not exceed the current year.
+
+#### Attendance Field
+
+#### Add Attendance Command
+
+#### Delete Attendance Command
+
+#### Delete by Matriculation Year Command
+
+#### Revamped Ui
+
+--------------------------------------------------------------------------------------------------------------------
+
+## **Appendix D: Possible Future Enhancements**
 
 ### Display more specific error messages
 
