@@ -1,10 +1,17 @@
 ---
-layout: default.md
-title: "User Guide"
-pageNav: 3
+  layout: default.md
+  title: "User Guide"
+  pageNav: 3
 ---
 
 # BandBook User Guide
+
+--------------------------------------------------------------------------------------------------------------------
+
+<!-- * Table of Contents -->
+<page-nav-print />
+
+--------------------------------------------------------------------------------------------------------------------
 
 ## Introduction & Product Information
 **Welcome to BandBook: Your Ultimate Band Management Software!**
@@ -56,9 +63,6 @@ navigation and comprehensive features that cater to both novice and experienced 
 As our product is developed around the use of a CLI, we envision that our primary users are able to type and carry
 operations faster than if they were to use a GUI.
 
-<!-- * Table of Contents -->
-<page-nav-print />
-
 --------------------------------------------------------------------------------------------------------------------
 
 ## Quick Start
@@ -71,8 +75,13 @@ operations faster than if they were to use a GUI.
 
 4. Open a command terminal, `cd` into the folder you put the jar file in, and use the `java -jar bandbook.jar`
    command to run the application.<br>
-   <br> A GUI similar to the below should appear in a few seconds. Note how the app contains some sample data.<br>
-   <br> ![Ui](images/Ui.png) <br> <br>
+   <br> A GUI similar to the below should appear in a few seconds. Note how the app contains some sample data.<br><br>
+   
+   <div style="text-align:center;">
+       <img src="images/Ui.png" width="400" height="320" />
+   </div>
+
+   <br>
 
 5. Type the command in the command box and press Enter to execute it. e.g. typing **`help`** and pressing Enter will
    open the help window.<br><br>
@@ -173,9 +182,13 @@ operations faster than if they were to use a GUI.
 
 Shows a message explaining how to access the help page.
 
-Format: `help`
+Format: `help` 
 
-![help message](images/helpMessage.png)
+<br>
+
+<div style="text-align:center;">
+   <img src="images/helpMessage.png" width="400" height="50" />
+</div>
 
 <br>
 
@@ -193,27 +206,41 @@ All parameter constraints listed above apply. Click [here](#parameter-constraint
 
 Examples:
 * `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01`  
-  <br>**Command input**
-  ![add command input 1](images/addCommandInput1.png)
+  <br>**Command input**<br><br>
+  <div style="text-align:center;">
+    <img src="images/addCommandInput1.png" width="400" height="320" />
+  </div>
 
-  <br>**Expected output**
-  ![add command result 1](images/addCommandResult1.png)
-  <br></br>
+  <br>**Expected output**<br><br>
+  <div style="text-align:center;">
+    <img src="images/addCommandResult1.png" width="400" height="320" />
+  </div>
+
+  <br>
 
 * `add n/Betsy Crowe t/friend e/betsycrowe@example.com a/Brown Street p/1234567 t/neighbour`
-  <br></br>**Command input**
-  ![add command input 2](images/addCommandInput2.png)
+  <br><br>**Command input**<br><br>
+  <div style="text-align:center;">
+    <img src="images/addCommandInput2.png" width="400" height="320" />
+  </div>
+  
+  <br>**Expected output**<br><br>
+  <div style="text-align:center;">
+    <img src="images/addCommandResult2.png" width="400" height="320" />
+  </div>
 
-  <br>**Expected output**
-  ![add command result 2](images/addCommandResult2.png)
-  <br></br>
+  <br>
 
 * `add n/Sally Jane p/1234567 e/sallyjane@example.com a/Blk 123 Smith Street b/2001-02-02`
-  <br></br>**Command input**
-  ![add command input 3](images/addCommandInput3.png)
+  <br><br>**Command input**<br><br>
+  <div style="text-align:center;">
+    <img src="images/addCommandInput3.png" width="400" height="320" />
+  </div>
 
-  <br>**Expected output**
-  ![add command result 3](images/addCommandResult3.png)
+  <br>**Expected output**<br><br>
+  <div style="text-align:center;">
+    <img src="images/addCommandResult3.png" width="400" height="320" />
+  </div>
 
 <br>
 
@@ -223,8 +250,10 @@ Shows a list of all persons in BandBook.
 
 Format: `list`
 
-<br>**Expected output**
-![list command result](images/listCommandResult.png)
+**Expected output**<br>
+<div style="text-align:center;">
+    <img src="images/listCommandResult.png" width="400" height="320" />
+</div>
 
 <br>
 
@@ -248,19 +277,30 @@ Command is only effective on the currently displayed list. Ensure that the index
 
 Examples:
 * `edit 7 p/91234567 e/johndoe@example.com` Edits the phone number and email address of the 7th person to be `91234567` and `johndoe@example.com` respectively.
-  <br></br>**Command input**
-  ![edit command input 1](images/editCommandInput1.png)
 
-  <br>**Expected output**
-  ![edit command result 1](images/editCommandResult1.png)
-  <br></br>
+  <br>**Command input**<br><br>
+  <div style="text-align:center;">
+    <img src="images/editCommandInput1.png" width="400" height="320" />
+  </div>
+
+  <br>**Expected output**<br><br>
+  <div style="text-align:center;">
+    <img src="images/editCommandResult1.png" width="400" height="320" />
+  </div>
+
+  <br>
 
 * `edit 8 n/Betsy Crower t/` Edits the name of the 8th person to be `Betsy Crower` and clears all existing tags.
-  <br></br>**Command input**
-  ![edit command input 2](images/editCommandInput2.png)
 
-  <br>**Expected output**
-  ![edit command result 2](images/editCommandResult2.png)
+  <br>**Command input**<br><br>
+  <div style="text-align:center;">
+    <img src="images/editCommandInput2.png" width="400" height="320" />
+  </div>
+
+  <br>**Expected output**<br><br>
+  <div style="text-align:center;">
+    <img src="images/editCommandResult2.png" width="400" height="320" />
+  </div>
 
 <br>
 
@@ -281,12 +321,18 @@ Format: `find [n/KEYWORD [MORE_KEYWORDS]] [i/KEYWORD [MORE_KEYWORDS]]`
 Examples:
 * `find n/John` returns `john` and `John Doe`
 * `find n/alex david` returns `Alex Yeoh`, `David Li`
-  <br></br>**Command input**
-  ![find command input 1](images/findCommandInput1.png)
 
-  <br>**Expected output**
-  ![find command result 1](images/findCommandResult1.png)
-  <br></br>
+  <br>**Command input**<br><br>
+  <div style="text-align:center;">
+    <img src="images/findCommandInput1.png" width="400" height="320" />
+  </div>
+
+  <br>**Expected output**<br><br>
+  <div style="text-align:center;">
+    <img src="images/findCommandResult1.png" width="400" height="320" />
+  </div>
+
+  <br>
 
 * `find n/alex david i/flute` returns `Alex Yeoh`, `David Li` and other persons who play the flute.
 * `find i/clarinet flute` returns all persons who play the clarinet or flute.
@@ -311,20 +357,30 @@ Command is only effective on the currently displayed list. Ensure that the index
 
 Examples:
 * Entering `list`, followed by `delete 2` deletes the 2nd person in BandBook.
-  <br></br>**Command input**
-  ![delete command input 1](images/deleteCommandInput1.png)
 
-  <br>**Expected output**
-  ![delete command result 1](images/deleteCommandResult1.png)
-  <br></br>
+  <br>**Command input**<br><br>
+  <div style="text-align:center;">
+    <img src="images/deleteCommandInput1.png" width="400" height="320" />
+  </div>
+
+  <br>**Expected output**<br><br>
+  <div style="text-align:center;">
+    <img src="images/deleteCommandResult1.png" width="400" height="320" />
+  </div>
+
+  <br>
 
 * Entering `find n/Betsy`, followed by `delete 1` deletes the 1st person in the results of the `find` command.
-  <br></br>**Command input**
-  ![delete command input 2](images/deleteCommandInput2.png)
 
-  <br>**Expected output**
-  ![delete command result 2](images/deleteCommandResult2.png)
-  <br></br>
+  <br>**Command input**<br><br>
+  <div style="text-align:center;">
+    <img src="images/deleteCommandInput2.png" width="400" height="320" />
+  </div>
+
+  <br>**Expected output**<br><br>
+  <div style="text-align:center;">
+    <img src="images/deleteCommandResult2.png" width="400" height="320" />
+  </div>
 
 <br>
 
@@ -363,20 +419,30 @@ Command is only effective on the currently displayed list. Ensure that the index
 
 Examples:
 * Entering `list`, followed by `att 1 2 d/2024-02-02` marks the attendance of the persons at the 1st and 2nd indexes of BandBook, on 2024-02-02.
-  <br></br>**Command input**
-  ![att command input 1](images/attCommandInput1.png)
 
-  <br>**Expected output**
-  ![att command result 1](images/attCommandResult1.png)
-  <br></br>
+  <br>**Command input**<br><br>
+  <div style="text-align:center;">
+    <img src="images/attCommandInput1.png" width="400" height="320" />
+  </div>
+
+  <br>**Expected output**<br><br>
+  <div style="text-align:center;">
+    <img src="images/attCommandResult1.png" width="400" height="320" />
+  </div>
+
+  <br>
 
 * Entering `find n/David`, followed by `att 1 d/2024-02-02` marks the attendance of the person at the 1st index of the results of the `find` command, on 2024-02-02.
-  <br></br>**Command input**
-  ![att command input 2](images/attCommandInput2.png)
 
-  <br>**Expected output**
-  ![att command result 2](images/attCommandResult2.png)
-  <br></br>
+  <br>**Command input**<br><br>
+  <div style="text-align:center;">
+    <img src="images/attCommandInput2.png" width="400" height="320" />
+  </div>
+
+  <br>**Expected output**<br><br>
+  <div style="text-align:center;">
+    <img src="images/attCommandResult2.png" width="400" height="320" />
+  </div>
 
 <br>
 
@@ -402,20 +468,30 @@ Command is only effective on the currently displayed list. Ensure that the index
 
 Examples:
 * Entering `list`, followed by `attd 1 2 d/2024-02-02` unmarks the attendance of the persons at the 1st and 2nd indexes of BandBook, on 2024-02-02.
-  <br></br>**Command input**
-  ![attd command input 1](images/attdCommandInput1.png)
 
-  <br>**Expected output**
-  ![attd command result 1](images/attdCommandResult1.png)
-  <br></br>
+  <br>**Command input**<br><br>
+  <div style="text-align:center;">
+    <img src="images/attdCommandInput1.png" width="400" height="320" />
+  </div>
+
+  <br>**Expected output**<br><br>
+  <div style="text-align:center;">
+    <img src="images/attdCommandResult1.png" width="400" height="320" />
+  </div>
+
+  <br>
 
 * Entering `find n/David`, followed by `attd 1 d/2024-02-02` unmarks the attendance of the person at the 1st index of the results of the `find` command, on 2024-02-02.
-  <br></br>**Command input**
-  ![attd command input 2](images/attdCommandInput2.png)
 
-  <br>**Expected output**
-  ![attd command result 2](images/attdCommandResult2.png)
-  <br></br>
+  <br>**Command input**<br><br>
+  <div style="text-align:center;">
+    <img src="images/attdCommandInput2.png" width="400" height="320" />
+  </div>
+
+  <br>**Expected output**<br><br>
+  <div style="text-align:center;">
+    <img src="images/attdCommandResult2.png" width="400" height="320" />
+  </div>
 
 <br>
 
@@ -439,21 +515,31 @@ Command is only effective on the currently displayed list. Ensure that the index
 </box>
 
 Examples:
-*  `assign 1 i/Flute` Assigns the 1st person with the Flute instrument.
-   <br></br>**Command input**
-   ![assign command input 1](images/assignCommandInput1.png)
+* `assign 1 i/Flute` Assigns the 1st person with the Flute instrument.
 
-   <br>**Expected output**
-   ![assign command result 1](images/assignCommandResult1.png)
-   <br></br>
+  <br>**Command input**<br><br>
+  <div style="text-align:center;">
+    <img src="images/assignCommandInput1.png" width="400" height="320" />
+  </div>
 
-*  `assign 2 3 i/Clarinet` Assigns the 2nd and 3rd person with the Clarinet instrument.
-   <br></br>**Command input**
-   ![assign command input 2](images/assignCommandInput2.png)
+  <br>**Expected output**<br><br>
+  <div style="text-align:center;">
+    <img src="images/assignCommandResult1.png" width="400" height="320" />
+  </div>
 
-   <br>**Expected output**
-   ![assign command result 2](images/assignCommandResult2.png)
-   <br></br>
+  <br>
+
+* `assign 2 3 i/Clarinet` Assigns the 2nd and 3rd person with the Clarinet instrument.
+
+  <br>**Command input**<br><br>
+  <div style="text-align:center;">
+    <img src="images/assignCommandInput2.png" width="400" height="320" />
+  </div>
+
+  <br>**Expected output**<br><br>
+  <div style="text-align:center;">
+    <img src="images/assignCommandResult2.png" width="400" height="320" />
+  </div>
 
 <br>
 
