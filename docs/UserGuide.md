@@ -13,6 +13,8 @@
 
 --------------------------------------------------------------------------------------------------------------------
 
+<div style="page-break-after: always;"></div>
+
 ## Introduction & Product Information
 **Welcome to BandBook: Your Ultimate Band Management Software!**
 
@@ -65,6 +67,8 @@ operations faster than if they were to use a GUI.
 
 --------------------------------------------------------------------------------------------------------------------
 
+<div style="page-break-after: always;"></div>
+
 ## Quick Start
 
 1. Ensure you have Java `11` or above installed in your Computer.
@@ -101,6 +105,8 @@ operations faster than if they were to use a GUI.
 6. Refer to the [Features](#features) below for details of each command.
 
 --------------------------------------------------------------------------------------------------------------------
+
+<div style="page-break-after: always;"></div>
 
 ## Features
 
@@ -150,6 +156,8 @@ operations faster than if they were to use a GUI.
 > It refers to the **address** of the person.
 * Accepts any characters.
 
+<div style="page-break-after: always;"></div>
+
 #### BIRTHDAY: `b/`
 > It refers to the **birthday** of the person.
 * Must be a valid date in the format YYYY-MM-DD.
@@ -191,6 +199,8 @@ Format: `help`
 </div>
 
 <br>
+
+<div style="page-break-after: always;"></div>
 
 ### Adding a person: `add`
 
