@@ -667,7 +667,8 @@ testers are expected to do more *exploratory* testing.
 ## **Appendix C: Effort**
 
 Listed below are the features added on top of the original AB3 program, with their corresponding evaluated difficulty
-in implementation.
+in implementation. Difficulty is represented from a scale of `*` to `****` which each asterisk representing an increased 
+difficulty.
 
 | Difficulty | Feature                              | 
 |------------|--------------------------------------|
@@ -676,10 +677,8 @@ in implementation.
 |            | Find by Instrument Command           |
 | `* *`      | Birthday Field                       |
 | `*`        | Matriculation Year Field             |  
-|            | Attendance Field                     | 
-|            | Add Attendance Command               | 
-|            | Delete Attendance Command            |
-|            | Delete by Matriculation Year Command |
+| `* * *`    | Attendance Field                     | 
+| `* *`      | Delete by Matriculation Year Command |
 |            | Revamped Ui                          |
 
 #### Instrument Field
@@ -691,7 +690,7 @@ in implementation.
 #### Birthday Field
 Relatively straightforward to implement as it serves only as an addition to the other existing fields, without a
 specific command (utilises the existing add and edit commands). The need for date validation (e.g verifying valid/invalid
-leap year) was the most complexed aspect of the implementation of this Birthday field.
+leap year) was the most complex aspect of the implementation of this Birthday field.
 
 #### Matriculation Year Field
 Straightforward to implement as the input must fulfil the strict requirement of being a 4-digit number (enforced using
@@ -699,12 +698,15 @@ RegEx). As such, most invalid inputs would already have been filtered out. Extra
 the year entered does not exceed the current year.
 
 #### Attendance Field
-
-#### Add Attendance Command
-
-#### Delete Attendance Command
+This feature was harder to implement as it was the first time we introduced the idea of doing bulk operations 
+into the project. This meant allowing the user to input multiple indexes, ensuring that the handling of these indexes
+are accurate, and then carrying out the addition/deletion of attendance dates to all these indexes. There was also then
+the proper handling of any resulting exceptions from the parsing of the inputted dates.
 
 #### Delete by Matriculation Year Command
+Another bulk operation that we introduced to increase the quality of life that the application provides. The operation
+having to be done across multiple number of records in the application meant the need for additional logic, and more 
+rigorous testing to ensure that the intended behaviour is carried out correctly.
 
 #### Revamped Ui
 
