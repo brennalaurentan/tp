@@ -8,6 +8,12 @@
 
 --------------------------------------------------------------------------------------------------------------------
 
+## Table of Contents
+<!-- * Table of Contents -->
+<page-nav-print />
+
+--------------------------------------------------------------------------------------------------------------------
+
 ## Introduction & Product Information
 **Welcome to BandBook: Your Ultimate Band Management Software!**
 
@@ -57,14 +63,6 @@ navigation and comprehensive features that cater to both novice and experienced 
 
 As our product is developed around the use of a CLI, we envision that our primary users are able to type and carry
 operations faster than if they were to use a GUI.
-
---------------------------------------------------------------------------------------------------------------------
-
-<div style="page-break-after: always;"></div>
-
-## Table of Contents
-<!-- * Table of Contents -->
-<page-nav-print />
 
 --------------------------------------------------------------------------------------------------------------------
 
