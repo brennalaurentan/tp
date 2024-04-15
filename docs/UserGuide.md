@@ -83,7 +83,7 @@ operations faster than if they were to use a GUI.
    <br> A GUI similar to the below should appear in a few seconds. Note how the app contains some sample data.<br><br>
 
    <div style="text-align:center;">
-       <img src="images/Ui.png" width="650" height="500" />
+       <img src="images/Ui.png" width="600" height="600" />
    </div>
 
    <br>
