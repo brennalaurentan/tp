@@ -29,6 +29,8 @@ faster than traditional Graphical User Interface (GUI) apps.
 
 --------------------------------------------------------------------------------------------------------------------
 
+<div style="page-break-after: always;"></div>
+
 ## Purpose of this user guide and how you should use it
 The objective of this user guide is for you to learn how to use BandBook effectively and efficiently. We will guide
 you through step-by-step (with examples!) on how to use BandBook's features, along with the various commands available
@@ -82,6 +84,8 @@ operations faster than if they were to use a GUI.
    </div>
 
    <br>
+
+<div style="page-break-after: always;"></div>
 
 5. Type the command in the command box and press Enter to execute it. e.g. typing **`help`** and pressing Enter will
    open the help window.<br><br>
@@ -142,6 +146,8 @@ operations faster than if they were to use a GUI.
 * Must be at least 3 digits long with no spaces.
 * All valid phone number lengths (any country) are accepted, country code included.
 
+<div style="page-break-after: always;"></div>
+
 #### EMAIL: `e/`
 > It refers to the **email** of the person.
 * Must follow the format 'local-part@domain'.
@@ -192,6 +198,8 @@ Format: `help`
 
 <br>
 
+<div style="page-break-after: always;"></div>
+
 ### Adding a person: `add`
 
 Adds a person to BandBook.
@@ -218,6 +226,8 @@ Examples:
 
   <br>
 
+  <div style="page-break-after: always;"></div>
+
 * `add n/Betsy Crowe t/friend e/betsycrowe@example.com a/Brown Street p/1234567 t/neighbour`
   <br><br>**Command input**<br><br>
   <div style="text-align:center;">
@@ -236,6 +246,8 @@ Examples:
   <div style="text-align:center;">
     <img src="images/addCommandInput3.png" width="400" height="320" />
   </div>
+
+  <div style="page-break-after: always;"></div>
 
   <br>**Expected output**<br><br>
   <div style="text-align:center;">
@@ -275,6 +287,8 @@ Format: `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [b/BIRTHDAY]
 Command is only effective on the currently displayed list. Ensure that the index you have called is relative to the list that is currently displayed.
 </box>
 
+  <div style="page-break-after: always;"></div>
+
 Examples:
 * `edit 7 p/91234567 e/johndoe@example.com` Edits the phone number and email address of the 7th person to be `91234567` and `johndoe@example.com` respectively.
 
@@ -296,6 +310,8 @@ Examples:
   <div style="text-align:center;">
     <img src="images/editCommandInput2.png" width="400" height="320" />
   </div>
+
+  <div style="page-break-after: always;"></div>
 
   <br>**Expected output**<br><br>
   <div style="text-align:center;">
